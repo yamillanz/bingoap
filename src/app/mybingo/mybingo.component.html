@@ -1,1 +1,28 @@
-<p>mybingo works!</p>
+<!-- <p>{{numero}}</p> -->
+<!-- <div class="p-fluid p-grid">
+	<div class="p-col-6 p-shadow-5 p-text-center">
+		<div class="box">2</div>
+	</div>
+	<div class="p-col-6">6</div>
+	<div class="p-col-6">6</div>
+	<div class="p-col-6">6</div>
+</div> -->
+<div class="p-grid p-fluid p-text-center p-nogutter">
+	<div class="p-col-12">
+		<circle-progress [percent]="porcentaje" [title]="numero" [radius]="50" [outerStrokeWidth]="10"
+			[innerStrokeWidth]="10" [space]="-10" [outerStrokeColor]="'#4882c2'" [innerStrokeColor]="'#e7e8ea'"
+			[titleFontSize]="30" [unitsFontSize]="0" [showSubtitle]="false" [showTitle]="true" [animation]="true"
+			[animationDuration]="1000" [startFromZero]="true" [responsive]="false" [showUnits]="false"
+			[maxPercent]="100"></circle-progress>
+	</div>
+
+
+	<div *ngFor="let nroCarton of nroCartones" class="p-col-12 p-lg-6 p-p-1">
+		<div class="p-shadow-5 p-p-2">
+			<p>Carton nro {{nroCarton + 1}}</p>
+			<app-carton [id]="nroCarton + 1" [numerosSorteados]="numerosYaSalieron"></app-carton>
+		</div>
+
+	</div>
+
+</div>

@@ -1,0 +1,17 @@
+<table border="1" style="width: 100%; height: 50vh;">
+    <tr>
+        <th *ngFor="let row of columns">{{row}}</th>
+    </tr>
+    <tr *ngFor="let rows of matrizCarton | keyvalue">
+        <td *ngFor="let cell of matrizCarton[rows.key] | keyvalue"
+            (click)="marcarBola(id + '-' + columns[cell.key] + cell.value, rows.key, cell.key)"
+            id="{{id + '-' + columns[cell.key] + cell.value}}">
+            {{cell.value}}
+        </td>
+        <!-- <td>{{rows.key}}</td> -->
+    </tr>
+</table>
+<br>
+<!-- <table border="1">
+    
+</table> -->
