@@ -5,7 +5,7 @@ import { rando, randoSequence } from '@nastyox/rando.js';
 @Component({
 	selector: 'app-carton',
 	templateUrl: './carton.component.html',
-	styleUrls: ['./carton.component.css']
+	styleUrls: ['./carton.component.scss']
 })
 export class CartonComponent implements OnInit, OnChanges {
 

@@ -7,6 +7,7 @@ import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { CartonComponent } from './components/carton/carton.component';
 
+import { ButtonModule } from 'primeng/button';
 
 //const config: SocketIoConfig = { url: 'http://localhost:4001', options: {} };
 
@@ -15,6 +16,7 @@ import { CartonComponent } from './components/carton/carton.component';
   declarations: [MybingoComponent, CartonComponent],
   imports: [
     CommonModule,
+    ButtonModule,
     MybingoRoutingModule,
     SocketIoModule,
     NgCircleProgressModule.forRoot({})

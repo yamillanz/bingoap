@@ -5,7 +5,7 @@ import { Subject, Observable, Subscription } from 'rxjs';
 @Component({
 	selector: 'app-mybingo',
 	templateUrl: './mybingo.component.html',
-	styleUrls: ['./mybingo.component.css']
+	styleUrls: ['./mybingo.component.scss']
 })
 export class MybingoComponent implements OnInit, OnDestroy {
 
