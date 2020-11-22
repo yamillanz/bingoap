@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 import {SidebarModule} from 'primeng/sidebar';
 import {ButtonModule} from 'primeng/button';
 import { DashboardRoutingModule } from './dashboard-routing.module';
-import { DashboardComponent } from './dashboard.component';
 
+import { DashboardComponent } from './dashboard.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [DashboardComponent],
@@ -12,7 +13,8 @@ import { DashboardComponent } from './dashboard.component';
     CommonModule,
     DashboardRoutingModule,
     SidebarModule,
-    ButtonModule
+    ButtonModule,
+    SharedModule
   ]
 })
 export class DashboardModule { }

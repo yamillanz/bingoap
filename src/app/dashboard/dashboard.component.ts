@@ -1,35 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { PrimeNGConfig } from 'primeng/api';
+
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css'],
-  styles: [`
-        :host ::ng-deep button {
-            margin-right: .25em;
-        }
-    `]
+  styleUrls: ['./dashboard.component.css']
 })
 
 
 
 export class DashboardComponent implements OnInit {
-  visibleSidebar1;
-    
-  visibleSidebar2;
   
-  visibleSidebar3;
-  
-  visibleSidebar4;
-  
-  visibleSidebar5;
-  constructor(private primengConfig: PrimeNGConfig) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.primengConfig.ripple = true;
   }
-
-    
 
 }

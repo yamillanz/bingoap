@@ -1,50 +1,8 @@
-
-<ul class="navbar-nav" id="accordionSidebar">
-
-    <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-
-        <div class="sidebar-brand-text mx-3 text=bold"> <i class="pi pi-apple">  </i> NAVBAR DEL USUARIO  </div>
-      </a>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider my-0">
-     
-      <p-sidebar [(visible)]="visibleSidebar1" [baseZIndex]="10000">
-        <h1 style="font-weight:normal">Left Sidebar</h1>
-        <p-button type="button" (click)="visibleSidebar1 = false" label="Save" styleClass="p-button-success"></p-button>
-        <p-button type="button" (click)="visibleSidebar1 = false" label="Cancel" styleClass="p-button-secondary"></p-button>
-    </p-sidebar>
+<app-sidebar></app-sidebar>
+<div class="ui-g">
+    <div class="ui-g-12">hola este es el app-dashboard</div>
     
-    <p-sidebar [(visible)]="visibleSidebar2" position="right" [baseZIndex]="10000">
-        <h1 style="font-weight:normal">Right Sidebar</h1>
-        <p-button type="button" (click)="visibleSidebar2 = false" label="Save" styleClass="p-button-success"></p-button>
-        <p-button type="button" (click)="visibleSidebar2 = false" label="Cancel" styleClass="p-button-secondary"></p-button>
-    </p-sidebar>
-    
-    <p-sidebar [(visible)]="visibleSidebar3" position="top" [baseZIndex]="10000">
-        <h1 style="font-weight:normal">Top Sidebar</h1>
-        <p-button type="button" (click)="visibleSidebar3 = false" label="Save" styleClass="p-button-success"></p-button>
-        <p-button type="button" (click)="visibleSidebar3 = false" label="Cancel" styleClass="p-button-secondary"></p-button>
-    </p-sidebar>
-    
-    <p-sidebar [(visible)]="visibleSidebar4" position="bottom" [baseZIndex]="10000">
-        <h1 style="font-weight:normal">Bottom Sidebar</h1>
-        <p-button type="button" (click)="visibleSidebar4 = false" label="Save" styleClass="p-button-success"></p-button>
-        <p-button type="button" (click)="visibleSidebar4 = false" label="Cancel" styleClass="p-button-secondary"></p-button>
-    </p-sidebar>
-    
-    <p-sidebar [(visible)]="visibleSidebar5" [fullScreen]="true" [baseZIndex]="10000">
-        <h1 style="font-weight:normal">Full Screen Sidebar</h1>
-        <p-button type="button" (click)="visibleSidebar5 = false" label="Save" styleClass="p-button-success"></p-button>
-        <p-button type="button" (click)="visibleSidebar5 = false" label="Cancel" styleClass="p-button-secondary"></p-button>
-    </p-sidebar>
-    
-    <p-button type="button" (click)="visibleSidebar1 = true" icon="pi pi-arrow-right"></p-button>
-    <p-button type="button" (click)="visibleSidebar2 = true" icon="pi pi-arrow-left"></p-button>
-    <p-button type="button" (click)="visibleSidebar3 = true" icon="pi pi-arrow-down"></p-button>
-    <p-button type="button" (click)="visibleSidebar4 = true" icon="pi pi-arrow-up"></p-button>
-    <p-button type="button" (click)="visibleSidebar5 = true" icon="pi pi-th-large"></p-button>
+</div>
     
    
 
