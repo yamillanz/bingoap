@@ -1,9 +1,64 @@
-<nav id="navbar" class="navbar navbar-light bg-dark">  
-    <span class="navbar-brand mb-0 h1 text-light "><img class="avatar" src="assets/img/bingo-letras.png" alt="..."></span>  
-    <span id="heading" class="navbar-light mb-0 " routerLink="/home" routerLinkActive="active">Inicio</span>  
-    <span id="heading" class="navbar-light mb-0 " routerLink="/faqs" routerLinkActive="active">Preguntas Frecuentes</span>  
-    <span id="heading" class="navbar-light mb-0 " routerLink="/testimonios" routerLinkActive="active">Testimonios</span>   
-    <span id="heading" class="navbar-light mb-0 " routerLink="/tips" routerLinkActive="active">Tips y consejos</span>  
-    <span id="heading" class="navbar-light mb-0 " routerLink="/contactos" routerLinkActive="active">Contactos</span> 
-    <span id="heading" class="navbar-light mb-0  text-light" routerLink="/buy" routerLinkActive="active"><i class="pi pi-shopping-cart"></i></span>  
-</nav>
+<nav class="navbar is-fixed-top box-shadow-y">
+    <div class="navbar-brand">
+      <a
+        role="button"
+        class="navbar-burger toggler"
+        aria-label="menu"
+        aria-expanded="true"
+      >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+
+      <a href="#" class="navbar-item has-text-weight-bold has-text-black">
+        Admin Dashboard
+      </a>
+      <a
+        role="button"
+        class="navbar-burger nav-toggler"
+        aria-label="menu"
+        aria-expanded="false"
+      >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu has-background-white">
+      <div class="navbar-start">
+        <a href="#" class="navbar-item">
+          <i class="fas fa-home icon"></i> Home
+        </a>
+        <a href="#" class="navbar-item">
+          About
+        </a>
+        <a href="#" class="navbar-item">
+          Features
+        </a>
+        <a href="#" class="navbar-item">Pricing</a>
+      </div>
+      <div class="navbar-end">
+        <a href="#" class="navbar-item">
+          <i class="pi pi-bell" pTooltip="Notificaciones" tooltipPosition="bottom"></i>
+            
+        </a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="#" class="navbar-link">
+            Usuario
+          </a>
+          <div class="navbar-dropdown is-right">
+            <a href="#" class="navbar-item">
+              Perfil de usuario
+            </a>
+            <a href="#" class="navbar-item">Configuraciones</a>
+            <hr class="navbar-divider" />
+            <a href="#" class="navbar-item">Salir</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  
+   

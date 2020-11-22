@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { NgxsModule } from '@ngxs/store';
 import { environment } from 'src/environments/environment';
+import { DashboardComponent } from './dashboard/dashboard.component';
+
 
 const routes: Routes = [
 	{ path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) },
@@ -14,6 +16,10 @@ const routes: Routes = [
 	},
 
 ];
+
+export const AdminLayoutRoutes: Routes = [
+	{ path: "dashboard", component: DashboardComponent },
+  ];
 
 @NgModule({
 	imports: [

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 declare interface RouteInfo {
   path: string;
@@ -7,6 +8,7 @@ declare interface RouteInfo {
   icon: string;
   class: string;
 }
+
 export const ROUTES: RouteInfo[] = [
   {
     path: "/dashboard",
@@ -74,7 +76,8 @@ export const ROUTES: RouteInfo[] = [
 })
 export class SidebarComponent implements OnInit {
   menuItems: any[];
-  constructor() { }
+  
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.menuItems = ROUTES.filter(menuItem => menuItem);
