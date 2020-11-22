@@ -1,7 +1,6 @@
 <!--<app-menu></app-menu>-->
 
-
-<section class="hero is-dark is-large" id="home">
+<section id="home">
     <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
           <a class="navbar-item" (click)="onClickScroll('home')" >
@@ -68,10 +67,18 @@
         </div>
       </nav>
       <!--Hero space-->
-    <div class="hero-body">
+    <div class="section hero is-fullheight">
       <div class="columns is-vcentered">
         <div class="column">
-    
+          <div class="box">
+            <figure class=" image is-4by3">
+              <img src="../../assets/images/isometrico.png">
+             </figure>  
+          </div>
+         
+        </div>
+        <div class="column">
+          
           <div class="has-text-centered">
             <h1 class="title is-size-1">
               <strong> BINGO-APP</strong> 
@@ -82,32 +89,41 @@
 
          </div>
         </div>
-        <div class="column">
-
-            <figure class=" image is-5by4">
-              <img src="https://bulma.io/images/placeholders/256x256.png">
-             </figure>  
-          </div>
+        
         </div>
       </div>
 
+      <!--Quienes Somos ¿como jugar?-->
+<section class="hero is-black is-fullheight" id="who-are-we">
+    <div>
+ 
+        <div class="columns is-vcentered">
+          <div class="column">
 
-     
-  
+            <h1>Reglas del Bingo</h1>
+            <p class="bd-notification is-info">En el bingo se extraen al azar un a una hasta 90 bolas numeradas del 1 al 90.<br>
 
-<section class="hero is-link is-large" id="who-are-we">
-    <div class="hero-body">
-      <div class="container">
-        <h1 class="title">
-          Quienes Somos
-        </h1>
-        <h2 class="subtitle">
-          bingo-app
-        </h2>
-      </div>
+              Puede haber un número ilimitado de jugadores, cada uno con al menos un cartón. <br>
+              
+              Cada cartón contiene 15 números de los 90 posibles.<br>
+              
+              Conforme se van extrayendo las bolas al azar, los jugadores deben tachar los números coincidentes de su cartón. </p>
+          </div>
+          <div class="column">
+          <div class="box is-black">
+            <figure class="image is-4by3">
+              <img src="../../assets/images/bingo-woman.png">
+             </figure> 
+          </div> 
+          </div>
+          <div class="column">
+            <p class="bd-notification is-info">1st nested column</p>
+          </div>
+        </div>
+
     </div>
   </section>
-  <section class="hero" id="pricing">
+  <section class="section is-fullheight" id="pricing">
     <div class="hero-body">
       <div class="column">
         <p class="bd-notification is-info is-vcentered">First column</p>
@@ -116,11 +132,11 @@
             <p class="bd-notification is-info">First nested column</p>
           </div>
           <div class="column">
-            <p class="bd-notification is-info">Second nested column</p>
+            <figure class=" image is-3by2">
+              <img src="../../assets/images/coinsandballs.png">
+             </figure> 
           </div>
-          <div class="column">
-            <p class="bd-notification is-info">Second nested column</p>
-          </div>
+        
         </div>
       </div>
     </div>
