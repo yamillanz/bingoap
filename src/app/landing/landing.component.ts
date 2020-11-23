@@ -16,7 +16,7 @@ export class LandingComponent implements OnInit {
     this.viewportScroller.scrollToAnchor(elementId);
 
     const elmnt = document.getElementById(elementId);
-    elmnt.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+    elmnt.scrollIntoView({behavior: "smooth"});
   }
 /*   scroll(id){
     const elmnt = document.getElementById(id);
