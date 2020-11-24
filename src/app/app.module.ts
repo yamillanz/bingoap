@@ -17,7 +17,7 @@ import { AuthModule } from './auth/auth.module';
     SharedModule,
     AuthModule,
     SharedModule,
-
+  
   ],
   providers: [],
   bootstrap: [AppComponent]
