@@ -13,7 +13,7 @@ body {
 .py-1,
 .p-1 {
   padding-top: 5rem;
-  padding-bottom: 15rem;
+  padding-bottom: 10rem;
 }
 
 .box-shadow-y {
@@ -76,5 +76,3 @@ body {
             transform: translateX(0%);
   }
 }
-
-
