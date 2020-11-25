@@ -1,3 +1,4 @@
+import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -8,6 +9,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
 import { CartonComponent } from './components/carton/carton.component';
 
 import { ButtonModule } from 'primeng/button';
+import { DialogModule } from 'primeng/dialog';
 
 //const config: SocketIoConfig = { url: 'http://localhost:4001', options: {} };
 
@@ -17,7 +19,9 @@ import { ButtonModule } from 'primeng/button';
   imports: [
     CommonModule,
     ButtonModule,
+    DialogModule,
     MybingoRoutingModule,
+    SharedModule,
     SocketIoModule,
     NgCircleProgressModule.forRoot({})
   ]

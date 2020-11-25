@@ -7,6 +7,11 @@
 	<div class="p-col-6">6</div>
 	<div class="p-col-6">6</div>
 </div> -->
+<p-dialog [(header)]="tituloDialogo" [(visible)]="displayDialog" [contentStyle]="{'overflow':'visible'}"
+	[style]="{width: '70vw'}" [resizable]="false" [modal]="true">
+		<h1>{{mensajeDialogo}}</h1>
+</p-dialog>
+
 <div class="p-grid p-fluid p-text-center p-nogutter">
 	<div class="p-col-12">
 		<circle-progress [percent]="porcentaje" [title]="numero" [radius]="50" [outerStrokeWidth]="10"
@@ -20,9 +25,11 @@
 	<div *ngFor="let nroCarton of nroCartones" class="p-col-12 p-lg-6 p-p-1">
 		<div class="p-shadow-5 p-p-2">
 			<p>Carton nro {{nroCarton + 1}}</p>
-			<app-carton [id]="nroCarton + 1" [numerosSorteados]="numerosYaSalieron"></app-carton>
+			<app-carton [id]="nroCarton + 1" [numerosSorteados]="numerosYaSalieron"
+				(datosBingoCantado)="seCantoBingo($event)"></app-carton>
 		</div>
 
 	</div>
-
+ 
 </div>
+<!-- <app-menu></app-menu> -->

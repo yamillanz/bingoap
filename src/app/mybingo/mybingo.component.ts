@@ -13,11 +13,15 @@ export class MybingoComponent implements OnInit, OnDestroy {
 	numero: string = "   ";
 	porcentaje: number = 0;
 	idPartidaUsuario: string = "0-0";
-	nroCartones = Array(3).fill(3).map((x,i)=>i); // [0,1,2,3,4]
+	nroCartones = [0, 1, 2]; // Array(3).fill(3).map((x, i) => i);
 	numerosYaSalieron: string[] = [];
-	private sub: Subscription;
-
-	constructor(private srvNumberGen: SocketClientService) { }
+	//private sub : Subject<any> = new Subject(); //Subscription;
+	private sub: Subscription; //;
+	tituloDialogo: string = "";
+	displayDialog: boolean = false;
+	displayDialogTermino: boolean = false;
+	mensajeDialogo : string = "";
+	constructor(private srvSocket: SocketClientService) { }
 
 
 	ngOnInit(): void {
@@ -28,8 +32,6 @@ export class MybingoComponent implements OnInit, OnDestroy {
 			//this.numerosYaSalieron.push(this.numero);
 			this.numerosYaSalieron = [... this.numerosYaSalieron, this.numero.split(" ").join("")];
 			//console.log("Ya salieron");
-			
-			//this.porcentaje = 100;
 			this.porcentaje = (Math.round(Math.random() * 100)) + 100;
 		}); */
 		//this.numerosBingo$ = this.srvNumberGen.getNumers();
@@ -39,10 +41,36 @@ export class MybingoComponent implements OnInit, OnDestroy {
 			this.numero = (Math.round(Math.random() * 100)).toString();
 			this.porcentaje = (Math.round(Math.random() * 100)) + 100;
 		}, 5000) */
+		this.srvSocket.getMessegeToMe().subscribe((data) => {
+			console.log("Recibe del ganar: ", data);
+			
+			if (data == "-GANASTES-") {
+				this.tituloDialogo = "GANDADOR";
+				this.mensajeDialogo = "FUISTE EL GANADOR";
+				this.displayDialog = true;
+			}
+
+			if (data == "-OTROGANADOR-") {
+				this.tituloDialogo = "NO GANASTES";
+				this.mensajeDialogo = "HUBO OTRO GANADOR :( ...sigue intentando";
+				this.displayDialog = true;
+			}
+
+		})
 	}
 	ngOnDestroy(): void {
 		if (this.sub) {
 			this.sub.unsubscribe();
 		}
+	}
+
+	seCantoBingo(dataBingo) {
+		console.log("Bingo: ", dataBingo);
+		//this.tituloDialogo = "BINGO";
+		//this.displayDialog = true;
+		this.srvSocket.setBingo(dataBingo);
+		//TODO: 
+		//Mensaje Socket al servidor
+		//Registrar en la BD 
 	}
 }

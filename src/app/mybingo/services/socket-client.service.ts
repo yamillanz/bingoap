@@ -10,11 +10,13 @@ import { Observable } from 'rxjs';
 export class SocketClientService extends Socket {
 
   private numbersGenerated$: Observable<string[]>;
+  private msgToMe$: Observable<string>;
 
   constructor(/* private socket: Socket */) {
     super({ url: 'http://localhost:4001', options: {} });
     //this.disconnect();
     this.numbersGenerated$ = this.fromEvent<string[]>('msgToAllClients');
+    this.msgToMe$ = this.fromEvent<string>('toOneClient');
     
   }
 
@@ -25,5 +27,14 @@ export class SocketClientService extends Socket {
     //this.connect();
     //this.numbersGenerated$ = this.fromEvent<string[]>('msgToAllClients');
     return this.numbersGenerated$;
+    //this.emit()
+  }
+
+  getMessegeToMe(){
+    return this.msgToMe$;
+  }
+
+  setBingo(data){
+    this.emit("msgToServerBingo", data)
   }
 }
