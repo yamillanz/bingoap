@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MenuComponent } from './menu/menu.component';
@@ -7,10 +8,12 @@ import { MenuComponent } from './menu/menu.component';
 @NgModule({
   declarations: [MenuComponent],
   imports: [
-    CommonModule
+	CommonModule,
+	HttpClientModule
   ], 
   exports: [
-    MenuComponent
+	MenuComponent,
+	HttpClientModule,
   ]
 })
 export class SharedModule { }
