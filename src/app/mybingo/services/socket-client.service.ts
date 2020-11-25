@@ -5,36 +5,36 @@ import { Observable } from 'rxjs';
 
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
 export class SocketClientService extends Socket {
 
-  private numbersGenerated$: Observable<string[]>;
-  private msgToMe$: Observable<string>;
+	private numbersGenerated$: Observable<string[]>;
+	private msgToMe$: Observable<string>;
 
-  constructor(/* private socket: Socket */) {
-    super({ url: 'http://localhost:4001', options: {} });
-    //this.disconnect();
-    this.numbersGenerated$ = this.fromEvent<string[]>('msgToAllClients');
-    this.msgToMe$ = this.fromEvent<string>('toOneClient');
-    
-  }
+	constructor(/* private socket: Socket */) {
+		super({ url: 'http://localhost:4001', options: {} });
+		//this.disconnect();
+		this.numbersGenerated$ = this.fromEvent<string[]>('msgToAllClients');
+		this.msgToMe$ = this.fromEvent<string>('toOneClient');
 
-  getNumers() {
-    /*   return this.numbersGenerated$.pipe(
-        map((data)=>{console.log("Recibiendo: ", data)}) 
-      ); */
-    //this.connect();
-    //this.numbersGenerated$ = this.fromEvent<string[]>('msgToAllClients');
-    return this.numbersGenerated$;
-    //this.emit()
-  }
+	}
 
-  getMessegeToMe(){
-    return this.msgToMe$;
-  }
+	getNumers() {
+		/*   return this.numbersGenerated$.pipe(
+			map((data)=>{console.log("Recibiendo: ", data)}) 
+		  ); */
+		//this.connect();
+		//this.numbersGenerated$ = this.fromEvent<string[]>('msgToAllClients');
+		return this.numbersGenerated$;
+		//this.emit()
+	}
 
-  setBingo(data){
-    this.emit("msgToServerBingo", data)
-  }
+	getMessegeToMe() {
+		return this.msgToMe$;
+	}
+
+	setBingo(data) {
+		this.emit("msgToServerBingo", data)
+	}
 }
