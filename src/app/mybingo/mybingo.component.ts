@@ -1,3 +1,4 @@
+import { Router, ActivatedRoute } from '@angular/router';
 import { SocketClientService } from './services/socket-client.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject, Observable, Subscription } from 'rxjs';
@@ -17,23 +18,41 @@ export class MybingoComponent implements OnInit, OnDestroy {
 	numerosYaSalieron: string[] = [];
 	//private sub : Subject<any> = new Subject(); //Subscription;
 	private sub: Subscription; //;
+	private sub2: Subscription; //;
 	tituloDialogo: string = "";
 	displayDialog: boolean = false;
 	displayDialogTermino: boolean = false;
-	mensajeDialogo : string = "";
-	constructor(private srvSocket: SocketClientService) { }
+	mensajeDialogo: string = "";
+	erroresServer: number = 0;
+	esperando = 1;
+
+	constructor(private srvSocket: SocketClientService,
+		private router: Router,
+		private route: ActivatedRoute) {
+		this.srvSocket.errores.subscribe((error) => {
+			if (error != "") {
+				console.log("se murio");
+				this.erroresServer = 1;
+				this.tituloDialogo = "UPS!!! Problemas de conección";
+				this.mensajeDialogo = "Existen problemas de conección con el servidor, revisa tu internet o intentalo mas tarde";
+				this.displayDialog = true;
+			}
+		});
+	}
 
 
 	ngOnInit(): void {
+		//this.srvSocket.connect();
 		//this.numero = "B 14";
-		/* this.sub = this.srvNumberGen.getNumers().subscribe((data) => {
+		this.sub = this.srvSocket.getNumers().subscribe((data) => {
 			console.log("Rec desde SERVER: ", data);
+			this.esperando = 0;
 			this.numero = data.toString();
 			//this.numerosYaSalieron.push(this.numero);
 			this.numerosYaSalieron = [... this.numerosYaSalieron, this.numero.split(" ").join("")];
 			//console.log("Ya salieron");
 			this.porcentaje = (Math.round(Math.random() * 100)) + 100;
-		}); */
+		});
 		//this.numerosBingo$ = this.srvNumberGen.getNumers();
 		/* setInterval(() => {
 			//this.porcentaje =
@@ -41,12 +60,12 @@ export class MybingoComponent implements OnInit, OnDestroy {
 			this.numero = (Math.round(Math.random() * 100)).toString();
 			this.porcentaje = (Math.round(Math.random() * 100)) + 100;
 		}, 5000) */
-		this.srvSocket.getMessegeToMe().subscribe((data) => {
-			console.log("Recibe del ganar: ", data);
-			
+		this.sub2 = this.srvSocket.getMessegeToMe().subscribe((data) => {
+			//console.log("Recibe del ganar: ", data);
+
 			if (data == "-GANASTES-") {
 				this.tituloDialogo = "GANDADOR";
-				this.mensajeDialogo = "FUISTE EL GANADOR";
+				this.mensajeDialogo = "FUISTE EL GANADOR FELICIDADES!";
 				this.displayDialog = true;
 			}
 
@@ -56,19 +75,35 @@ export class MybingoComponent implements OnInit, OnDestroy {
 				this.displayDialog = true;
 			}
 
+			if (data == "-NOGANADOR-") {
+				this.tituloDialogo = "SIN GANADOR";
+				this.mensajeDialogo = "Ningun ganador esta vez...sigue intentando";
+				this.displayDialog = true;
+			}
+
 		})
 	}
+
+	volver() {
+		this.router.navigate(['partidas']);
+	}
+
 	ngOnDestroy(): void {
+		this.srvSocket.disconnect();
 		if (this.sub) {
 			this.sub.unsubscribe();
+		}
+		if (this.sub2) {
+			this.sub2.unsubscribe();
 		}
 	}
 
 	seCantoBingo(dataBingo) {
-		console.log("Bingo: ", dataBingo);
+		//console.log("Bingo: ", dataBingo);
 		//this.tituloDialogo = "BINGO";
 		//this.displayDialog = true;
 		this.srvSocket.setBingo(dataBingo);
+		//this.srvSocket.connect();
 		//TODO: 
 		//Mensaje Socket al servidor
 		//Registrar en la BD 

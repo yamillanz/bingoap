@@ -13,7 +13,7 @@ export class CartonComponent implements OnInit/* , OnChanges */ {
 	@Output() datosBingoCantado: EventEmitter<{}> = new EventEmitter<{}>();
 
 	bingoEsteCarton: any = false;
-q
+	q
 	columns: string[] = ["B", "I", "N", "G", "O"];
 	rowsB: string[] = []; // randoSequence(1, 15);
 	rowsI: string[] = [];
@@ -149,15 +149,15 @@ q
 
 	}
 	marcarBola(celdaP: string, fila, col) {
-		if (fila !== "2" && col !== "2") {
+		if (!(fila == "2" && col == "2")) {
 			this.celda = document.getElementById(celdaP) as HTMLElement;
 			//console.log("id celda: ", celdaP);
 			//console.log("valor: ", celdaP.substring(celdaP.indexOf("-") + 1, celdaP.length));
 			//console.log("valor: ", this.matrizCarton[fila][col]);
-			//const sisalio = this.numerosSorteados.find(elemento => elemento == celdaP.substring(celdaP.indexOf("-") + 1, celdaP.length));
+			const sisalio = this.numerosSorteados.find(elemento => elemento == celdaP.substring(celdaP.indexOf("-") + 1, celdaP.length));
 
 			//console.log("salio: ", );
-			if (this.celda.className != 'touched' /* && sisalio */) {
+			if (this.celda.className != 'touched'  && sisalio ) {
 				this.celda.className = 'touched';
 				this.marcadosYasalieron = [... this.marcadosYasalieron, this.matrizCarton[fila][col]];
 				this.bingoEsteCarton = this.marcadosVsPatrones(this.matrizCarton[fila][col], fila, col);
