@@ -7,7 +7,7 @@ import { TooltipModule } from 'primeng/tooltip'
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { SidebarModule } from 'primeng/sidebar';
 import { ButtonModule } from 'primeng/button';
-
+import { HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -16,13 +16,15 @@ import { ButtonModule } from 'primeng/button';
     CommonModule,
     TooltipModule,
     SidebarModule,
-    ButtonModule
+    ButtonModule,
+    HttpClientModule
     
   ], 
   exports: [
     MenuComponent,
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    HttpClientModule
   ]
 })
 

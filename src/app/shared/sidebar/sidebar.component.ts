@@ -125,7 +125,7 @@ export class SidebarComponent implements OnInit {
   } */
 
   loadMenu(idRol) {
-    return this.menuService.getMenuByIdRol(idRol).subscribe( data => this.Menu[0] = data ),  console.log('este es el menu', this.Menu)  ;
+    return this.menuService.getMenuByIdRol(idRol).subscribe( data => this.Menu = data ),  console.log('este es el menu', this.Menu)  ;
    
   }
 

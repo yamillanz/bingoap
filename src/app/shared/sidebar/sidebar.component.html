@@ -1,62 +1,27 @@
-<div class="columns is-variable is-0 ">
+<!-- <div class="columns is-variable is-0 ">
     <div>
       <div class="menu-container px-1 has-background-white">
         <div class="menu-wrapper py-1">
           <aside class="menu">
             <p class="menu-label has-text-lighter">General </p>
-            <ul class="menu-list">
+            <ul class="menu-list" *ngFor = "let menus of Menu">
               <li>
                 <a href="/dashboard" class="has-text-black">
                   <i class="pi pi-th-large icon"></i>
-                  DASHBOARD</a
-                >
-              </li>
-            </ul>
-            <p class="menu-label has-text-lighter">Settings</p>
-            <ul class="menu-list">
-              <li>
-                <a href="#" class="is-active has-background-success">
-                  <i class="fas fa-cogs icon"></i>
-                  Configuraciones</a
-                >
-              </li>
-              <li>
-                <a href="#" class="has-text-black">
-                  <i class="fas fa-users-cog icon"></i>
-                  Administración de usuarios</a
-                >
-                <ul>
-                  <li>
-                    <a href="#" class="has-text-black">
-                      <i class="pi pi-users icon"></i>
-                      Members</a
-                    >
-                  </li>
-                  <li>
-                    <a href="#" class="has-text-black">
-                      <i class="pi pi-user icon"></i>
-                      Add New</a
-                    >
-                  </li>
-                </ul>
-              </li>
-            </ul>
-            <p class="menu-label has-text-lighter">Other</p>
-            <ul class="menu-list">
-              <li>
-                <a href="#" class="has-text-black">
-                  <i class="fas fa-comments icon"></i>
-                  Chats</a
-                >
-              </li>
-              <li>
-                <a href="#" class="has-text-black">
-                  <i class="fas fa-info-circle icon"></i>
-                  Extras</a
+                  {{menus.nombre}}</a
                 >
               </li>
             </ul>
           </aside>
         </div>
       </div>
-    </div> 
+    </div> -->
+
+    <p-sidebar visible = "true" [style]="{width:'15em'}" ariaCloseLabel="close">
+          <ul *ngFor = "let menus of Menu">
+           
+            <li><i class="{{menus.icono}}"></i> {{menus.nombre}}</li>
+            
+          </ul>
+
+    </p-sidebar>
