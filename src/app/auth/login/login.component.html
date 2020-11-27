@@ -1,131 +1,41 @@
-<section class="section is-fullheight" id="pricing">
-  <div class="hero-body">
+<div class="section" >
+<div class="container">
+  <div class="columns is-vcentered">
     <div class="column">
-      <div class="tile is-ancestor">
-        <div class="columns is-mobile">
-          <div class="column">
-     
-            <div class="container">
-              <figure class=" image is-256x256">
-                <img src="../../../assets/images/card-bingo-balls.png">
-              </figure> 
-            </div>
-            
-          </div>
-          <div class="column is-vcentered">
-            <div class="notification">
-              <h1 class="title is-centered">Inicia Sesión</h1>
-              <div class="content is-medium">
-                  <div class="field">
-                      <p class="control has-icons-left has-icons-right">
-                        <input class="input" type="email" placeholder="Email">
-                        <span class="icon is-small is-left">
-                          <i class="fas fa-envelope"></i>
-                        </span>
-                        <span class="icon is-small is-right">
-                          <i class="fas fa-check"></i>
-                        </span>
-                      </p>
-                    </div>
-                    <div class="field is-large">
-                      <p class="control has-icons-left">
-                        <input class="input" type="password" placeholder="Password">
-                        <span class="icon is-small is-left">
-                          <i class="fas fa-lock"></i>
-                        </span>
-                      </p>
-                    </div>
-                    <div class="field is-gruped-centered">
-                      <p class="control">
-                        <a class="button is-success is-large">
-                          Correo
-                        </a>
-                      </p>
-                      <p class="control">
-                        <a class="button is-primary is-large">
-                          Facebook
-                        </a>
-                      </p>
-                      <p class="control">
-                        <a class="button is-light is-large">
-                          <strong>Google</strong>
-                        </a>
-                      </p>
-                    </div>
-              </div>
-            </div>
-            
-           
-          </div>
+      <figure class="image is-256x256">
+        <img alt="Card" src="../../../assets/images/card-bingo-balls.png">
+      </figure>
+    </div>
+    <div class="column">
+      <p-card header="¡Registrate y Juega!" subheader="ingresa e-mail y contraseña" [style]="{width: '360px'}" styleClass="p-card-shadow">
+        <p-header>
+        </p-header>
+        <div>
+          <label for="username2">Correo</label>
         </div>
+        <div class="p-field">
+         
+          <input id="username2" type="username" aria-describedby="username2-help" class="p-invalid" pInputText />
+          <div><small id="username2-help" class="p-invalid">Username is not available.</small></div>
       </div>
-      
+      <div>
+        <label for="username2">Contraseña</label>
+        
+      </div>
+      <div class="p-field">
+        <input pPassword type="password"/>
+      </div>
+     
+        <ng-template pTemplate="footer">
+            <p-button label="Registrate" icon="pi pi-check"></p-button>
+            <div>
+              <a href="http://">olvide mi contraseña</a>
+            </div>
+        </ng-template>
+      </p-card>
     </div>
   </div>
-</section>
 
-
-
-<!-- <section class="hero">
-  <div class="section is-hero is-fullheight">
-    <div class="container is-centered is-fluid">
-
-        <div class="colums">
-           <div class="section">
-            <div class="column">
-                <div class="section">
-                  <div class="box">
-                    <figure class=" image is-4by3">
-                      <img src="../../../assets/images/card-bingo-balls.png">
-                     </figure>  
-                  </div>
-                </div>
-            </div>
-            <div class="column">
-                        <div class="section">
-                            <div class="notification">
-                                <h1 class="title is-centered">Inicia Sesión</h1>
-                                <div class="content is-medium">
-                                    <div class="field">
-                                        <p class="control has-icons-left has-icons-right">
-                                          <input class="input" type="email" placeholder="Email">
-                                          <span class="icon is-small is-left">
-                                            <i class="fas fa-envelope"></i>
-                                          </span>
-                                          <span class="icon is-small is-right">
-                                            <i class="fas fa-check"></i>
-                                          </span>
-                                        </p>
-                                      </div>
-                                      <div class="field is-large">
-                                        <p class="control has-icons-left">
-                                          <input class="input" type="password" placeholder="Password">
-                                          <span class="icon is-small is-left">
-                                            <i class="fas fa-lock"></i>
-                                          </span>
-                                        </p>
-                                      </div>
-                                      <div class="field is-grouped is-grouped-centered is-large">
-                                        <p class="control">
-                                          <a class="button is-success">
-                                            Submit
-                                          </a>
-                                        </p>
-                                        <p class="control">
-                                          <a class="button is-light">
-                                            Cancel
-                                          </a>
-                                        </p>
-                                      </div>
-                                </div>
-                              </div>
-                              
-                             </div>
-            </div>
-           </div>
-        </div>
-     
-    </div>
+ 
 </div>
-
-</section> -->
+</div>

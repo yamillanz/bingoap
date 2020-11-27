@@ -8,7 +8,7 @@ const routes: Routes = [
 	{ path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) },
 	{ path: 'landing', loadChildren: () => import('./landing/landing.module').then(m => m.LandingModule) },
 	{ path: 'mybingo', loadChildren: () => import('./mybingo/mybingo.module').then(m => m.MybingoModule) },
-	{ path: 'login', loadChildren: () => import('./auth/auth.module').then(m=> m.AuthModule) },
+	
 
 	{
 		path: '',

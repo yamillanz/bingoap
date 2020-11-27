@@ -1,5 +1,7 @@
 import { ViewportScroller } from '@angular/common';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import {Router} from '@angular/router'
+
 
 @Component({
   selector: 'app-landing',
@@ -11,7 +13,8 @@ export class LandingComponent implements OnInit {
   @ViewChild('navMenu') navMenu: ElementRef;
 
 
-  constructor(private viewportScroller: ViewportScroller) { }
+  constructor(private viewportScroller: ViewportScroller, private router: Router) { }
+
   onClickScroll(elementId: string): void {
     this.viewportScroller.scrollToAnchor(elementId);
 
@@ -28,6 +31,20 @@ export class LandingComponent implements OnInit {
     this.navMenu.nativeElement.classList.toggle('is-active');
 }
   ngOnInit(): void {
+  }
+  
+  simpleLogin(){
+
+  }
+
+  userRegister(){
+
+  }
+
+  goLogon(){
+    //window.alert('here goes action');
+
+    this.router.navigate(['/login'])
   }
 
 }
