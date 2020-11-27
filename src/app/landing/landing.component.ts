@@ -1,41 +1,50 @@
-import { Component, OnInit } from '@angular/core';
+import { ViewportScroller } from '@angular/common';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import {Router} from '@angular/router'
+
 
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
-  styleUrls: ['./landing.component.css']
+  styleUrls: ['./landing.component.scss']
 })
 export class LandingComponent implements OnInit {
+  @ViewChild('navBurger') navBurger: ElementRef;
+  @ViewChild('navMenu') navMenu: ElementRef;
 
-  constructor() { }
 
+  constructor(private viewportScroller: ViewportScroller, private router: Router) { }
+
+  onClickScroll(elementId: string): void {
+    this.viewportScroller.scrollToAnchor(elementId);
+
+    const elmnt = document.getElementById(elementId);
+    elmnt.scrollIntoView({behavior: "smooth"});
+  }
+/*   scroll(id){
+    const elmnt = document.getElementById(id);
+    elmnt.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+} */
+
+  toggleNavbar() {
+    this.navBurger.nativeElement.classList.toggle('is-active');
+    this.navMenu.nativeElement.classList.toggle('is-active');
+}
   ngOnInit(): void {
-    
-    document.addEventListener('DOMContentLoaded', () => {
+  }
+  
+  simpleLogin(){
 
-      // Get all "navbar-burger" elements
-      const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-    
-      // Check if there are any navbar burgers
-      if ($navbarBurgers.length > 0) {
-    
-        // Add a click event on each of them
-        $navbarBurgers.forEach( el => {
-          el.addEventListener('click', () => {
-    
-            // Get the target from the "data-target" attribute
-            const target = el.dataset.target;
-            const $target = document.getElementById(target);
-    
-            // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-            el.classList.toggle('is-active');
-            $target.classList.toggle('is-active');
-    
-          });
-        });
-      }
-    
-    });
+  }
+
+  userRegister(){
+
+  }
+
+  goLogon(){
+    //window.alert('here goes action');
+
+    this.router.navigate(['/login'])
   }
 
 }

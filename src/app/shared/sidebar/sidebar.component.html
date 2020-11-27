@@ -1,4 +1,4 @@
-<div class="columns is-variable is-0 active">
+<!-- <div class="columns is-variable is-0 active">
   <div>
     <div class="menu-container px-1 has-background-link-light">
       <div class="menu-wrapper py-1">
@@ -20,8 +20,9 @@
         </aside>
       </div>
     </div>
-  </div>
+  </div> -->
 
+  
 
 
   <!--  <p-sidebar visible = "true" [style]="{width:'15em'}" ariaCloseLabel="close">
@@ -34,3 +35,35 @@
     </p-sidebar>
 
  -->
+
+<div class="columns is-fullheight">
+  <div class="column is-2 is-sidebar-menu is-hidden-mobile">
+    <aside class="menu">
+  <p class="menu-label">
+    General
+  </p>
+  <ul class="menu-list" *ngFor = "let menus of Menu">
+    <!-- <li><a>Dashboard</a></li>
+    <li><a>Customers</a></li> -->
+    <li><a><i class="{{menus.icono}}"></i> {{menus.nombre}}</a></li>
+  </ul>
+  <p class="menu-label">
+    Usuario
+  </p>
+  <ul class="menu-list">
+    <li><a>Settings</a></li>
+    <li>
+      <a class="is-active">Modificar tu Perfíl</a>
+      <!-- <ul>
+        <li><a>Members</a></li>
+        <li><a>Plugins</a></li>
+        <li><a>Add a member</a></li>
+      </ul> -->
+    </li>
+    
+  </ul>
+  
+</aside>
+  </div>
+  
+</div>

@@ -9,23 +9,24 @@ import { SidebarModule } from 'primeng/sidebar';
 import { ButtonModule } from 'primeng/button';
 import { HttpClientModule} from '@angular/common/http';
 
+import { FooterComponent } from './footer/footer.component';
+
+
 
 @NgModule({
-  declarations: [MenuComponent, NavbarComponent, SidebarComponent ],
-  imports: [
-    CommonModule,
-    TooltipModule,
-    SidebarModule,
-    ButtonModule,
-    HttpClientModule
-    
-  ], 
-  exports: [
-    MenuComponent,
-    NavbarComponent,
-    SidebarComponent,
-    HttpClientModule
-  ]
+	declarations: [MenuComponent, FooterComponent, NavbarComponent, SidebarComponent],
+	imports: [
+		CommonModule,
+		HttpClientModule,
+		TooltipModule
+	],
+	exports: [
+		MenuComponent,
+		FooterComponent,
+		SidebarComponent,
+		NavbarComponent
+	]
+
 })
 
 export class SharedModule { }

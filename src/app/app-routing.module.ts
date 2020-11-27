@@ -5,24 +5,19 @@ import { environment } from 'src/environments/environment';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 
+
 const routes: Routes = [
 	{ path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) },
 	{ path: 'landing', loadChildren: () => import('./landing/landing.module').then(m => m.LandingModule) },
+	{ path: 'partidas', loadChildren: () => import('./mybingo/mybingo.module').then(m => m.MybingoModule) },
 	{ path: 'mybingo', loadChildren: () => import('./mybingo/mybingo.module').then(m => m.MybingoModule) },
+	
+
 	{
 		path: '',
 		redirectTo: 'landing',
 		pathMatch: 'full'
 	},
-
-	{ path: 'dashboard',      component: DashboardComponent },
-    { path: 'user-profile',   component: DashboardComponent },
-    { path: 'table-list',     component: DashboardComponent },
-    { path: 'typography',     component: DashboardComponent },
-    { path: 'icons',          component: DashboardComponent },
-    { path: 'maps',           component: DashboardComponent },
-    { path: 'notifications',  component: DashboardComponent },
-    { path: 'upgrade',        component: DashboardComponent }
 
 ];
 
@@ -32,7 +27,10 @@ export const AdminLayoutRoutes: Routes = [
 
 @NgModule({
 	imports: [
-		RouterModule.forRoot(routes),
+		RouterModule.forRoot(routes,{
+			//useHash: true,
+			anchorScrolling: 'enabled'
+		}),
 		NgxsModule.forRoot([], {
 			developmentMode: !environment.production
 		})

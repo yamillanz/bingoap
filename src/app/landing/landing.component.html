@@ -1,30 +1,31 @@
+<!-- <app-menu></app-menu> -->
 
-<section class="hero is-dark is-large" id="home">
+<section id="home">
     <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-          <a class="navbar-item" routerLink="/landing" >
+          <a class="navbar-item" (click)="onClickScroll('home')" >
             <img src="" width="112" height="28" alt="BINGO-APP">
           </a>
       
-          <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <a (click)="toggleNavbar()" role="button" #navBurger class="navbar-burger burger" aria-label="menu" aria-expanded="false">
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
           </a> 
         </div>
       
-        <div id="navbarBasicExample" class="navbar-menu">
+        <div id="navbarBasicExample" class="navbar-menu" #navMenu>
           <div class="navbar-start">
-            <a class="navbar-item" href="/#home">
+            <a class="navbar-item" (click)="onClickScroll('home')">
               Inicio
               
             </a>
       
-            <a class="navbar-item" href="/#who-are-we">
+            <a class="navbar-item" (click)="onClickScroll('who-are-we')">
                 Quienes Somos
             </a>
             
-            <a class="navbar-item" href="/#pricing">
+            <a class="navbar-item" (click)="onClickScroll('pricing')">
                    
                 Precios
             </a>
@@ -52,62 +53,222 @@
             </div>-->
           </div>
       
-         <!--  <div class="navbar-end">
+          <div class="navbar-end">
             <div class="navbar-item">
               <div class="buttons">
-                <a class="button is-primary">
-                  <strong>Sign up</strong>
+                <a class="button is-success is-hoverable">
+                  <strong>Crear cuenta nueva</strong>
                 </a>
-                <a class="button is-light">
-                  Log in
+                <a class="button is-danger is-hoverable" (click)="goLogon()">
+                  <strong>Iniciar sesión</strong>
                 </a>
               </div>
             </div>
-          </div> -->
+          </div>
         </div>
       </nav>
       <!--Hero space-->
-    <div class="hero-body">
-      <div class="container">
-        <h1 class="title">
-            BINGO-APP
-        </h1>
-        <h2 class="subtitle">
-          First Section
-        </h2>
+    <div class="section hero is-fullheight">
+      <div class="columns is-vcentered">
+        <div class="container is-centered">
+          <div class="column">
+            <div class="box">
+              <figure class=" image is-4by3">
+                <img src="../../assets/images/coinsandballs.png">
+               </figure>  
+            </div>
+           
+          </div>
+        </div>
+        <div class="column">
+          
+          <div class="has-text-centered">
+            <h1 class="title is-size-1">
+              <strong> BINGO-APP</strong> 
+            </h1>
+            <h2 class="subtitle">
+              Moderna, segura, divertida 
+            </h2>
+           <div>
+            <button (click)="goLogon()" class="button is-large is-danger"><strong>¡Juega Ahora!</strong></button>
+           </div>
+         </div>
+        </div>
+        
+        </div>
+      </div>
+
+      <!--Quienes Somos ¿como jugar?-->
+<div class="section hero is-black is-fullheight" id="who-are-we">
+  <div class="tile is-ancestor">
+    <div class="tile">
+      <!-- Add content or other tiles -->
+    </div>
+  </div>
+ <div class="level">
+  <!--<div class="block">-->
+    <div class="column">
+      
+      <div class="level">
+                  
+        <div class="columns is-vcentered">
+          <div class="column">
+            <div class="block">
+              <div class="notification is-link">
+                <h1 class="title">
+                  Reglas del Bingo
+                </h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad officia cupiditate minus expedita consequuntur ratione, est maiores unde debitis repudiandae?|</p>
+              </div>
+              <div class="notification is-danger">
+                <h1 class="title">
+                  Quienes Somos
+                </h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad officia cupiditate minus expedita consequuntur ratione, est maiores unde debitis repudiandae?|</p>
+              </div>
+              
+            </div>
+          </div>
+
+                    <div class="column">
+                        <div class="tile is-parent">
+                            <div class="container is-widescreen">
+                              <figure class="image is-4by3">
+                                <img src="../../assets/images/bingo-woman.png">
+                              </figure> 
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="column">
+                      <div class="block">
+                        <div class="notification is-black">
+                          <h1 class="title">
+                            Reglas del Bingo
+                          </h1>
+                          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad officia cupiditate minus expedita consequuntur ratione, est maiores unde debitis repudiandae?|</p>
+                        </div>
+                        <div class="notification is-black">
+                          <h1 class="title">
+                            Quienes Somos
+                          </h1>
+                          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad officia cupiditate minus expedita consequuntur ratione, est maiores unde debitis repudiandae?|</p>
+                        </div>
+                      </div>
+                    </div>
+      </div>
       </div>
     </div>
 
-<section class="hero is-link is-large" id="who-are-we">
-    <div class="hero-body">
-      <div class="container">
-        <h1 class="title">
-          Quienes Somos
-        </h1>
-        <h2 class="subtitle">
-          bingo-app
-        </h2>
+  </div>
+  <nav class="level">
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Suscritos</p>
+        <p class="title">3,456</p>
       </div>
     </div>
-  </section>
-  <section class="hero is-dark is-large" id="pricing">
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Ganadores</p>
+        <p class="title">123</p>
+      </div>
+    </div>
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Monedas</p>
+        <p class="title">456K</p>
+      </div>
+    </div>
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Salas</p>
+        <p class="title">789</p>
+      </div>
+    </div>
+  </nav>
+</div>
+       <!--  <div class="columns is-vcentered">
+          <div class="column">
+
+            <h1>Reglas del Bingo</h1>
+            <p class="bd-notification is-info">En el bingo se extraen al azar un a una hasta 90 bolas numeradas del 1 al 90.<br>
+
+              Puede haber un número ilimitado de jugadores, cada uno con al menos un cartón. <br>
+              
+              Cada cartón contiene 15 números de los 90 posibles.<br>
+              
+              Conforme se van extrayendo las bolas al azar, los jugadores deben tachar los números coincidentes de su cartón. </p>
+          </div>
+          <div class="column is-black">
+          <div class="container is-centered">
+            <div class="box">
+              <figure class="image is-4by3">
+                <img src="../../assets/images/bingo-woman.png">
+               </figure> 
+            </div> 
+          </div>
+          </div>
+          <div class="column">
+            <p class="bd-notification is-info">1st nested column</p>
+          </div>
+        </div> -->
+
+  
+  <!-- </section> -->
+  <section class="section is-fullheight" id="pricing">
     <div class="hero-body">
-      <div class="container">
-        <h1 class="title">
-          ¿Cómo Jugar?
-        </h1>
-        <h2 class="subtitle">
-          Planes y Precios
-        </h2>
+      <div class="column">
+       <!--Aqui Puede ir un título-->
+        <div class="columns is-mobile">
+          <div class="column">
+            <div class="notification is-success">
+              Maneja tus Salas de Bingo
+              Primar lorem ipsum dolor sit amet, consectetur
+              adipiscing elit lorem ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Sit amet,
+              consectetur adipiscing elit
+              <div class="has-text-right">
+                <button class="button is-dark is-inverted is-outlined">Maneja tu Sala</button>
+              </div>
+            </div>
+            <div class="notification is-dark">
+            Prueba tu suerte, ¡Juega y Gana!
+              Primar lorem ipsum dolor sit amet, consectetur
+              adipiscing elit lorem ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Sit amet,
+              consectetur adipiscing elit
+              
+              <div class="has-text-right">
+                <button class="button is-danger is-inverted is-outlined">¡Juega y Gana!</button>
+              </div>
+            </div>
+            <div class="notification is-secondary is-outlined">
+              ¡Juega Gratis!
+              Primar lorem ipsum dolor sit amet, consectetur
+              adipiscing elit lorem ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Sit amet,
+              consectetur adipiscing elit
+              <div class="has-text-right">
+                <button class="button is-primary is-inverted is-outlined">Juega Gratis</button>
+              </div>
+             
+            </div>
+          </div>
+          <div class="column">
+            <figure class=" image is-3by2">
+              <img src="../../assets/images/isometrico.png">
+             </figure> 
+          </div>
+        
+        </div>
       </div>
     </div>
   </section>
 </section>
-<footer class="footer">
+<!-- <footer class="footer">
     <div class="content has-text-centered">
       <p>
         <strong>BINGO-APP</strong> by <a href="https://jgthms.com">Discrete-Events</a><br>
         <strong>Noviembre2020</strong>
       </p>
     </div>
-  </footer>
+  </footer> -->
+<!-- <app-footer></app-footer> -->

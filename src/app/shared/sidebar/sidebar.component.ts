@@ -30,7 +30,7 @@ export const ROUTES: RouteInfo[] = [
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css'],
+  styleUrls: ['./sidebar.component.scss'],
   styles: [`
       :host ::ng-deep button {
           margin-right: .25em;

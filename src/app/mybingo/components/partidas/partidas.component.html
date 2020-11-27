@@ -1,0 +1,12 @@
+<div class="p-shadow-5 p-px-2">
+    <h1>Partidas Activas para ti Hoy</h1>
+    <p-card *ngFor="let partida of partidas" class="p-mb-1 p-px-1">
+        <p-header class="p-p-2">
+            Partida nro: {{partida.id}}
+        </p-header>
+        {{observaciones}}
+        <p-footer class="p-d-flex p-jc-end">
+            <button pButton type="button" label="Entra a Jugar" (click)="entrarPartida(partida)"></button>
+        </p-footer>
+    </p-card>
+</div>
