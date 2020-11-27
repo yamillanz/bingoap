@@ -1,4 +1,4 @@
-/* html,
+html,
 body {
   height: 100%;
   background-color: #efefef;
@@ -76,4 +76,11 @@ body {
             transform: translateX(0%);
   }
 }
- */
+
+.header {
+  background-color: #17212f;
+  color:  #DADCDE;
+  padding: 15px;
+}
+
+

@@ -15,6 +15,15 @@ const routes: Routes = [
 		pathMatch: 'full'
 	},
 
+	{ path: 'dashboard',      component: DashboardComponent },
+    { path: 'user-profile',   component: DashboardComponent },
+    { path: 'table-list',     component: DashboardComponent },
+    { path: 'typography',     component: DashboardComponent },
+    { path: 'icons',          component: DashboardComponent },
+    { path: 'maps',           component: DashboardComponent },
+    { path: 'notifications',  component: DashboardComponent },
+    { path: 'upgrade',        component: DashboardComponent }
+
 ];
 
 export const AdminLayoutRoutes: Routes = [

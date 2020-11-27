@@ -1,4 +1,4 @@
-/* html,
+html,
 body {
   height: 100%;
   background-color: #17212f;
@@ -7,14 +7,20 @@ body {
 
 .px-1,
 .p-1 {
-  padding-left: 1rem;
+  padding-left: 0.76rem;
   padding-right: 1rem;
 }
 
 .py-1,
 .p-1 {
-  padding-top: 16rem;
-  padding-bottom: 10rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.header {
+  background-color: #17212f;
+  color:  #DADCDE;
+  padding: 15px;
 }
 
 .box-shadow-y {
@@ -83,4 +89,7 @@ body {
   padding-bottom: 15rem;
 }
 
- */
+.active {
+  background-color: #17212f;
+  color: black;
+}
