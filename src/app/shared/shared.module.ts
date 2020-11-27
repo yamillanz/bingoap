@@ -2,30 +2,23 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MenuComponent } from './menu/menu.component';
-import { HttpClientModule } from '@angular/common/http';
+
+
+import { FooterComponent } from './footer/footer.component';
+
 
 
 @NgModule({
-<<<<<<< HEAD
-  declarations: [MenuComponent],
-  imports: [
-	CommonModule,
-	HttpClientModule
-  ], 
-  exports: [
-	MenuComponent,
-	HttpClientModule,
-  ]
-=======
-	declarations: [MenuComponent],
+	declarations: [MenuComponent, FooterComponent],
 	imports: [
 		CommonModule,
 		HttpClientModule
 	],
 	exports: [
 		MenuComponent,
+		FooterComponent,
 		HttpClientModule
 	]
->>>>>>> listadoPartidas
+
 })
 export class SharedModule { }

@@ -1,0 +1,41 @@
+<div class="section" >
+<div class="container">
+  <div class="columns is-vcentered">
+    <div class="column">
+      <figure class="image is-256x256">
+        <img alt="Card" src="../../../assets/images/card-bingo-balls.png">
+      </figure>
+    </div>
+    <div class="column">
+      <p-card header="¡Registrate y Juega!" subheader="ingresa e-mail y contraseña" [style]="{width: '360px'}" styleClass="p-card-shadow">
+        <p-header>
+        </p-header>
+        <div>
+          <label for="username2">Correo</label>
+        </div>
+        <div class="p-field">
+         
+          <input id="username2" type="username" aria-describedby="username2-help" class="p-invalid" pInputText />
+          <div><small id="username2-help" class="p-invalid">Username is not available.</small></div>
+      </div>
+      <div>
+        <label for="username2">Contraseña</label>
+        
+      </div>
+      <div class="p-field">
+        <input pPassword type="password"/>
+      </div>
+     
+        <ng-template pTemplate="footer">
+            <p-button label="Registrate" icon="pi pi-check"></p-button>
+            <div>
+              <a href="http://">olvide mi contraseña</a>
+            </div>
+        </ng-template>
+      </p-card>
+    </div>
+  </div>
+
+ 
+</div>
+</div>
