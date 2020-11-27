@@ -26,7 +26,7 @@ const config: SocketIoConfig = { url: 'http://localhost:4001', options: {} }; */
     SharedModule,
     AuthModule,
     SharedModule,
-  
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
