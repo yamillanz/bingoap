@@ -7,6 +7,7 @@ import { environment } from 'src/environments/environment';
 const routes: Routes = [
 	{ path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) },
 	{ path: 'landing', loadChildren: () => import('./landing/landing.module').then(m => m.LandingModule) },
+	{ path: 'partidas', loadChildren: () => import('./mybingo/mybingo.module').then(m => m.MybingoModule) },
 	{ path: 'mybingo', loadChildren: () => import('./mybingo/mybingo.module').then(m => m.MybingoModule) },
 	
 

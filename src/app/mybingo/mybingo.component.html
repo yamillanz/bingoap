@@ -1,1 +1,53 @@
-<p>mybingo works!</p>
+<!-- <p>{{numero}}</p> -->
+<!-- <div class="p-fluid p-grid">
+	<div class="p-col-6 p-shadow-5 p-text-center">
+		<div class="box">2</div>
+	</div>
+	<div class="p-col-6">6</div>
+	<div class="p-col-6">6</div>
+	<div class="p-col-6">6</div>
+</div> -->
+<p-dialog [(header)]="tituloDialogo" [(visible)]="displayDialog" [contentStyle]="{'overflow':'visible'}"
+	[style]="{width: '70vw'}" [resizable]="false" [modal]="true">
+	<h2>{{mensajeDialogo}}</h2>
+	<ng-template pTemplate="footer">
+		<p-button icon="pi pi-check" (click)="displayDialog=false" label="Aceptar" styleClass="p-button-text">
+		</p-button>
+	</ng-template>
+</p-dialog>
+
+<ng-container *ngIf="erroresServer == 0">
+	<div class="p-grid p-fluid p-text-center p-nogutter">
+		<div class="p-col-12">
+			<circle-progress [percent]="porcentaje" [title]="numero" [radius]="50" [outerStrokeWidth]="10"
+				[innerStrokeWidth]="10" [space]="-10" [outerStrokeColor]="'#4882c2'" [innerStrokeColor]="'#e7e8ea'"
+				[titleFontSize]="30" [unitsFontSize]="0" [showSubtitle]="false" [showTitle]="true" [animation]="true"
+				[animationDuration]="9100" [startFromZero]="true" [responsive]="false" [showUnits]="false"
+				[maxPercent]="100" titleColor="#ebee11"></circle-progress>
+		</div>
+		<ng-container *ngIf="esperando == 1">
+			<div class="p-col-12">
+				<h3>Esperamos 1 min. a otros jugadores...</h3>
+			</div>
+		</ng-container>
+		<div *ngFor="let nroCarton of nroCartones" class="p-col-12 p-md-4 p-lg-4 p-p-1">
+			<div class="p-shadow-5 p-p-2">
+				<p>Carton nro {{nroCarton + 1}}</p>
+				<app-carton [id]="nroCarton + 1" [numerosSorteados]="numerosYaSalieron"
+					(datosBingoCantado)="seCantoBingo($event)"></app-carton>
+			</div>
+		</div>
+		<div class="p-p-12">&nbsp;</div> 
+		<div class="p-p-12">&nbsp;</div> 
+		<div class="p-p-12">&nbsp;</div> 
+		<div class="p-p-12">&nbsp;</div> 
+		<div class="p-p-12">&nbsp;</div> 
+		<div class="p-p-12">&nbsp;</div> 
+		<div class="p-col-12 p-md-4 p-my-6 p-mx-auto">
+			<button pButton pRipple type="button" label="Salir de la Partida" class="p-button-outlined p-button-secondary"
+			(click)="volver()"></button>
+		</div>
+	
+	</div>
+</ng-container>
+<!-- <app-menu></app-menu> -->
