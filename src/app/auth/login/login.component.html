@@ -1,4 +1,4 @@
-<div class="section">
+<div class="section p-mt-5">
 	<div class="container">
 		<div class="columns is-vcentered">
 			<div class="column">
@@ -13,19 +13,19 @@
 						<p-header>
 						</p-header>
 
-						<div>
-							<label for="username2">Correo</label>
+						<div class="p-text-left">
+							<label for="username" >Correo</label>
 						</div>
 						<div class="p-field p-col-12">
 							<input name="userName" type="username" aria-describedby="username2-help"
 								[(ngModel)]="userName" pInputText />
 
 						</div>
-						<div>
-							<label for="username2">Contraseña</label>
+						<div class="p-text-left">
+							<label for="passUser" class="p-text-left">Contraseña</label>
 						</div>
 						<div class="p-field p-col-12">
-							<input name="passUser" pPassword type="password" [(ngModel)]="passUser" />
+							<input name="passUser" pInputText type="password" [(ngModel)]="passUser" />
 						</div>
 						<div *ngIf="errores" class="p-col-12"><small class="p-invalid">Usuario o Contraseña
 								invalidos!</small></div>
