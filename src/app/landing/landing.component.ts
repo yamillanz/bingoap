@@ -9,27 +9,10 @@ import {Router} from '@angular/router'
   styleUrls: ['./landing.component.scss']
 })
 export class LandingComponent implements OnInit {
-  @ViewChild('navBurger') navBurger: ElementRef;
-  @ViewChild('navMenu') navMenu: ElementRef;
 
-
-  constructor(private viewportScroller: ViewportScroller, private router: Router) { }
-
-  onClickScroll(elementId: string): void {
-    this.viewportScroller.scrollToAnchor(elementId);
-
-    const elmnt = document.getElementById(elementId);
-    elmnt.scrollIntoView({behavior: "smooth"});
-  }
-/*   scroll(id){
-    const elmnt = document.getElementById(id);
-    elmnt.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
-} */
-
-  toggleNavbar() {
-    this.navBurger.nativeElement.classList.toggle('is-active');
-    this.navMenu.nativeElement.classList.toggle('is-active');
-}
+  
+  constructor(private router: Router) { }
+  
   ngOnInit(): void {
   }
   

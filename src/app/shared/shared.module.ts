@@ -4,11 +4,12 @@ import { CommonModule } from '@angular/common';
 
 import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 
 @NgModule({
-	declarations: [MenuComponent, FooterComponent],
+	declarations: [MenuComponent, FooterComponent, NavbarComponent],
 	imports: [
 		CommonModule,
 		HttpClientModule
@@ -16,6 +17,7 @@ import { FooterComponent } from './footer/footer.component';
 	exports: [
 		MenuComponent,
 		FooterComponent,
+		NavbarComponent,
 	]
 
 })

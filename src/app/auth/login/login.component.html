@@ -7,34 +7,37 @@
 				</figure>
 			</div>
 			<div class="column">
-				<p-card header="¡Ingresa y Juega!" subheader="ingresa e-mail y contraseña" [style]="{width: '24em'} "
-					styleClass="p-card-shadow" class="p-fluid">
-					<p-header>
-					</p-header>
+				<div class="tile has-text-centered is-transparent">
+					<p-card header="¡Ingresa y Juega!" subheader="ingresa e-mail y contraseña"
+						[style]="{width: '24em'} " styleClass="p-card-shadow" class="p-fluid">
+						<p-header>
+						</p-header>
 
-					<div>
-						<label for="username2">Correo</label>
-					</div>
-					<div class="p-field p-col-12">
-						<input name="userName" type="username" aria-describedby="username2-help"  [(ngModel)]="userName"
-							pInputText /> 
-						
-					</div>
-					<div>
-						<label for="username2">Contraseña</label>
-					</div>
-					<div class="p-field p-col-12">
-						<input name="passUser" pPassword type="password" [(ngModel)]="passUser" />
-					</div>
-					<div *ngIf="errores" class="p-col-12"><small class="p-invalid">Usuario o Contraseña invalidos!</small></div>
-					<ng-template pTemplate="footer">
-						<p-button label="Registrate" icon="pi pi-check" (click)="iniciarSesion()"></p-button>
 						<div>
-							<a href="http://">Olvide mi contraseña</a>
+							<label for="username2">Correo</label>
 						</div>
-					</ng-template>
+						<div class="p-field p-col-12">
+							<input name="userName" type="username" aria-describedby="username2-help"
+								[(ngModel)]="userName" pInputText />
 
-				</p-card>
+						</div>
+						<div>
+							<label for="username2">Contraseña</label>
+						</div>
+						<div class="p-field p-col-12">
+							<input name="passUser" pPassword type="password" [(ngModel)]="passUser" />
+						</div>
+						<div *ngIf="errores" class="p-col-12"><small class="p-invalid">Usuario o Contraseña
+								invalidos!</small></div>
+						<ng-template pTemplate="footer">
+							<p-button label="Registrate" icon="pi pi-check" (click)="iniciarSesion()"></p-button>
+							<div>
+								<a href="http://">Olvide mi contraseña</a>
+							</div>
+						</ng-template>
+
+					</p-card>
+				</div>
 			</div>
 		</div>
 

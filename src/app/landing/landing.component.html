@@ -1,82 +1,25 @@
 <!-- <app-menu></app-menu> -->
+<app-navbar></app-navbar>
 
-<section id="home">
-    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-          <a class="navbar-item" (click)="onClickScroll('home')" >
-            <img src="" width="112" height="28" alt="BINGO-APP">
-          </a>
-      
-          <a (click)="toggleNavbar()" role="button" #navBurger class="navbar-burger burger" aria-label="menu" aria-expanded="false">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
-        </div>
-      
-        <div id="navbarBasicExample" class="navbar-menu" #navMenu>
-          <div class="navbar-start">
-            <a class="navbar-item" (click)="onClickScroll('home')">
-              Inicio
-            </a>
-      
-            <a class="navbar-item" (click)="onClickScroll('who-are-we')">
-                Quienes Somos
-            </a>
-            
-            <a class="navbar-item" (click)="onClickScroll('pricing')">
-                   
-                Precios
-            </a>
-      
-           <!--  <div class="navbar-item has-dropdown is-hoverable">
-              <a class="navbar-link">
-                More
-              </a>
-      
-              <div class="navbar-dropdown">
-                <a class="navbar-item">
-                  About
-                </a>
-                <a class="navbar-item">
-                  Jobs
-                </a>
-                <a class="navbar-item">
-                  Contact
-                </a>
-                <hr class="navbar-divider">
-                <a class="navbar-item">
-                  Report an issue
-                </a>
-              </div> 
-            </div>-->
-          </div>
-      
-          <div class="navbar-end">
-            <div class="navbar-item">
-              <div class="buttons">
-                <a class="button is-success is-hoverable">
-                  <strong>Crear cuenta nueva</strong>
-                </a>
-                <a class="button is-danger is-hoverable" (click)="goLogon()">
-                  <strong>Iniciar sesión</strong>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
-      <!--Hero space-->
-    <div class="section hero is-fullheight">
+<section id="home" >
+       <!--Hero space-->
+  <!--   <div class="section hero is-fullheight is-dark" style="background-image: url('../../assets/images/bingo-bg.png');  background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;"> -->
+    <div class="section hero is-fullheight is-dark">
       <div class="columns is-vcentered">
         <div class="container is-centered">
           <div class="column">
-            <div class="box">
-              <figure class=" image is-4by3">
-                <img src="../../assets/images/coinsandballs.png">
-               </figure>  
+            <div class="notification is-dark">
+            <div>
+            <figure class=" image is-4by3">
+                <img src="../../assets/images/coinmod.png">
+               </figure> 
+               
+              <!--   <div class="ball"></div> --> 
+
             </div>
-           
+            </div>           
           </div>
         </div>
         <div class="column">
@@ -95,8 +38,14 @@
         </div>
         
         </div>
+        <div>
+          <article class="message is-black">
+            <div class="message-body">
+              <span class ="icon is-medium"> <i class="pi pi-star-o"></i> </span> Pro-Tip: pueden dar infromacion de conctacto; <strong>oferta</strong>, o promoción que invite a registrarse <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>
+            </div>
+          </article>
+        </div>
       </div>
-
       <!--Quienes Somos ¿como jugar?-->
 <div class="section hero is-black is-fullheight" id="who-are-we">
   <div class="tile is-ancestor">
@@ -217,11 +166,10 @@
   <!-- </section> -->
   <section class="section is-fullheight" id="pricing">
     <div class="hero-body">
-      <div class="column">
-       <!--Aqui Puede ir un título-->
-        <div class="columns is-mobile">
-          <div class="column">
-            <div class="notification is-success">
+      <div class="tile is-ancestor">
+        <div class="tile is-4 is-vertical is-parent">
+        
+           <div class="tile is-child notification is-success">
               Maneja tus Salas de Bingo
               Primar lorem ipsum dolor sit amet, consectetur
               adipiscing elit lorem ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Sit amet,
@@ -229,18 +177,22 @@
               <div class="has-text-right">
                 <button class="button is-dark is-inverted is-outlined">Maneja tu Sala</button>
               </div>
+            
             </div>
-            <div class="notification is-dark">
-            Prueba tu suerte, ¡Juega y Gana!
-              Primar lorem ipsum dolor sit amet, consectetur
-              adipiscing elit lorem ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Sit amet,
-              consectetur adipiscing elit
-              
-              <div class="has-text-right">
-                <button class="button is-danger is-inverted is-outlined">¡Juega y Gana!</button>
+          
+            <div class="tile is-child notification is-dark">
+              Prueba tu suerte, ¡Juega y Gana!
+                Primar lorem ipsum dolor sit amet, consectetur
+                adipiscing elit lorem ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Sit amet,
+                consectetur adipiscing elit
+                
+                <div class="has-text-right">
+                  <button class="button is-danger is-inverted is-outlined">¡Juega y Gana!</button>
+                </div>
               </div>
-            </div>
-            <div class="notification is-secondary is-outlined">
+          
+      
+            <div class=" tile is-child notification is-secondary is-outlined">
               ¡Juega Gratis!
               Primar lorem ipsum dolor sit amet, consectetur
               adipiscing elit lorem ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Sit amet,
@@ -248,17 +200,25 @@
               <div class="has-text-right">
                 <button class="button is-primary is-inverted is-outlined">Juega Gratis</button>
               </div>
-             
             </div>
-          </div>
-          <div class="column">
-            <figure class=" image is-3by2">
+         
+        </div>
+        
+        
+        <div class="tile is-parent">
+          <div class="tile is-child">
+              
+            <figure class="image is-4by3">
               <img src="../../assets/images/isometrico.png">
              </figure> 
-          </div>
         
+          </div>
         </div>
       </div>
+
+
+
+      
     </div>
   </section>
 </section>
