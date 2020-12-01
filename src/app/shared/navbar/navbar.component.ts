@@ -17,10 +17,12 @@ export class NavbarComponent implements OnInit {
 
   onClickScroll(elementId: string): void {
     this.viewportScroller.scrollToAnchor(elementId);
-    //const elmnt = document.getElementById(elementId);
     
-       
+    //const elmnt = document.getElementById(elementId);
+
   }
+
+
 
 
 /*   scroll(id){
