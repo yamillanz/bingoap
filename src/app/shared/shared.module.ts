@@ -10,7 +10,9 @@ import { ButtonModule } from 'primeng/button';
 import { HttpClientModule} from '@angular/common/http';
 
 import { FooterComponent } from './footer/footer.component';
-
+import {MenuModule} from 'primeng/menu';
+import {PanelMenuModule} from 'primeng/panelmenu';
+import {MenuItem} from 'primeng/api'
 
 
 @NgModule({
@@ -18,13 +20,17 @@ import { FooterComponent } from './footer/footer.component';
 	imports: [
 		CommonModule,
 		HttpClientModule,
-		TooltipModule
+		TooltipModule,
+		MenuModule,
+		PanelMenuModule
+
 	],
 	exports: [
 		MenuComponent,
 		FooterComponent,
 		SidebarComponent,
-		NavbarComponent
+		NavbarComponent,
+		MenuModule
 	]
 
 })

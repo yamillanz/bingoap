@@ -24,7 +24,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@nastyox/rando.js": "^2.0.5",
-    "@ngxs/store": "^3.7.0",
+    "@ngxs/store": "^3.7.1",
     "bulma": "^0.9.1",
     "bulmaswatch": "^0.8.1",
     "ng-circle-progress": "^1.6.0",
@@ -38,12 +38,12 @@
     "zone.js": "~0.10.3"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^0.1100.0",
+    "@angular-devkit/build-angular": "^0.1100.2",
     "@angular/cli": "~10.0.7",
     "@angular/compiler-cli": "~10.0.11",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
-    "@types/node": "^12.11.1",
+    "@types/node": "^12.19.7",
     "codelyzer": "^6.0.0",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~5.0.0",

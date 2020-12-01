@@ -33,7 +33,8 @@
 							"node_modules/primeng/resources/primeng.min.css",
 							"node_modules/primeicons/primeicons.css",
 							"src/styles.scss",
-							"./node_modules/primeflex/primeflex.css"
+							"./node_modules/primeflex/primeflex.css",
+							"src/assets/lightning-admin.scss"
 						],
 						"scripts": []
 					},
