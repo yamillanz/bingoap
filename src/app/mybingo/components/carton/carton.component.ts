@@ -13,7 +13,6 @@ export class CartonComponent implements OnInit/* , OnChanges */ {
 	@Output() datosBingoCantado: EventEmitter<{}> = new EventEmitter<{}>();
 
 	bingoEsteCarton: any = false;
-	q
 	columns: string[] = ["B", "I", "N", "G", "O"];
 	rowsB: string[] = []; // randoSequence(1, 15);
 	rowsI: string[] = [];

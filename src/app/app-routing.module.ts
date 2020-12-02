@@ -1,4 +1,4 @@
-import { LoginComponent } from './auth/login/login.component';
+
 import { AuthLoadGuard } from './guards/auth-load.guard';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';

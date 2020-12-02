@@ -17,6 +17,10 @@
 				"build": {
 					"builder": "@angular-devkit/build-angular:browser",
 					"options": {
+						"allowedCommonJsDependencies": [
+							"@nastyox/rando.js",
+							"socket.io-client"
+						 ],
 						"outputPath": "dist/bingo",
 						"index": "src/index.html",
 						"main": "src/main.ts",
