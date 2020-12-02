@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
-import { User } from './../models/user';
-import { AuthService } from './../services/auth.service';
+import { User } from '../../../users/models/user';
+import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 
 
@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
 		this.errores = false;
 		try {
 			const dataUser: User = await this.srvAuth.login({ email: this.userName, pass: this.passUser }).toPromise();
-			if (dataUser.userData) {
+			if (dataUser.accessToken) {
 				this.srvAuth.setUserSubject(dataUser);
 				delete dataUser.userData.email;
 				sessionStorage.setItem('currentUser', JSON.stringify(dataUser));

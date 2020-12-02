@@ -1,7 +1,7 @@
 import { HomeComponent } from './components/home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from '../auth/login/login.component';
+import { LoginComponent } from '../auth/components/login/login.component';
 
 import { LandingComponent } from './landing.component';
 
@@ -13,8 +13,7 @@ const routes: Routes = [
 			{ path: 'login', component: LoginComponent }
 
 		]
-	},
-	{ path: '*', component: HomeComponent }
+	}
 ];
 
 @NgModule({

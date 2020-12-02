@@ -1,17 +1,17 @@
 interface data {
-    id;
-    email;
+    id?;
+    email?;
     fechaCreacion?;
-    activo;
+    activo?;
     tipo?;
-    sesionActiva;
+    sesionActiva?;
     idCliente?;
     fechaUltimaConeccion?;
 }
 
 
 export interface User {
-   userData : data;
-   accessToken: string;
+   userData? : data;
+   accessToken? : string;
 
 }

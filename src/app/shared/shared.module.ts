@@ -1,4 +1,5 @@
-import { HttpClientModule } from '@angular/common/http';
+import { TokenInterceptor } from './../auth/token.interceptor';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -14,11 +15,18 @@ import { NavbarComponent } from './navbar/navbar.component';
 		CommonModule,
 		HttpClientModule
 	],
+	providers: [
+		{
+			provide: HTTP_INTERCEPTORS,
+			useClass: TokenInterceptor,
+			multi: true
+		}
+	],
 	exports: [
 		MenuComponent,
 		FooterComponent,
 		NavbarComponent,
 	]
-
+	
 })
 export class SharedModule { }
