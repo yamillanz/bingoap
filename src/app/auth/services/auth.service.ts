@@ -11,7 +11,6 @@ import { environment } from '../../../environments/environment';
 })
 export class AuthService {
 
-	private userBh : User = {};
 
 	private userData$: BehaviorSubject<User> = new BehaviorSubject<User>(this._initBehavior());
 
