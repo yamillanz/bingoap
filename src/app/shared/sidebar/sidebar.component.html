@@ -1,0 +1,95 @@
+<div class="wrapper">
+  
+  <nav id="sidebar">
+
+      <div id="toggleSidebar">
+          <i class="fas fa-arrow-left"></i>
+      </div>
+
+      <div class="sidebar-header ">
+        
+          
+          <div class="user-picture m-auto d-flex flex-column justify-content-center"> 
+            <img src="./assets/img/trump1.jpeg" class="img " alt="">
+          </div>
+
+          <a class="collapse list-unstyled" href="#homeSubmenu" data-toggle="toggleSidebar" aria-expanded="false"><strong>@{{this.usuario}}</strong> | {{this.rol}}</a>
+          <span class="p-tag p-tag-rounded p-tag-success"> {{this.status}}</span>
+          
+      </div>
+
+      <ul class="list-unstyled components">
+        <hr class= "line" style="height:0.6px;width:100%;border-style:0.6px solid #000;text-align:right;margin-right:0px;" />
+          <li class="active">
+
+              <ul class="collapse list-unstyled" id="homeSubmenu">
+                  <li>
+                      <a href="#"><i class="pi pi-bell"></i> Notificaciones</a>
+                  </li>
+                  <li>
+                      <a href="#"><i class="pi pi-user-edit"></i> Perfil</a>
+                  </li>
+              </ul>
+          </li>
+          <hr class= "line" style="height:0.6px;width:100%;border-style:0.6px solid #000;text-align:right;margin-right:0px;" />
+         <li>
+          <a href="#homeSubmenu" data-toggle="toggleSidebar" aria-expanded="false">Configuraciones</a>
+              <ul class="collapse list-unstyled"  *ngFor = "let menus of Menu">
+                  <li>
+                      <a href="#"><i class="{{menus.icono}} icon"></i> {{menus.nombre}}</a>
+                  </li>
+              </ul>
+          </li>
+          <hr class= "line" style="height:0.6px;width:100%;border-style:0.6px solid #000;text-align:right;margin-right:0px;" />
+          <li>
+             <a href="https://t.me/DiscreteEvents"> <i class="pi pi-send"></i> Soporte al usuario en Telegram</a>
+          </li>
+      </ul>
+  </nav>
+
+  <!-- Page Content -->
+<!--   <div id="content">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container">
+
+              <button type="button" id="toggeled-sidebar" class="sidebar">
+                  <i class="pi pi-angle-double-left"></i>
+                  <span>Toggle Sidebar</span>
+              </button>
+
+              
+
+          </div>
+      </nav>
+  </div> -->
+  
+
+
+
+<!-- <div class="sidebar">
+  <div class="column is-2 is-sidebar-menu is-hidden-mobile">
+    <aside class="menu">
+  <p class="menu-label">
+    General
+  </p>
+  <ul class="menu-list" *ngFor = "let menus of Menu">
+   
+    <li><a><i class="{{menus.icono}}"></i> {{menus.nombre}}</a></li>
+  </ul>
+  <p class="menu-label">
+    Usuario
+  </p>
+  <ul class="menu-list">
+    <li><a>Settings</a></li>
+    <li>
+      <a class="is-active">Modificar tu Perfíl</a>
+      
+    </li>
+  
+  </ul>
+  
+</aside>
+  </div>
+  
+</div> -->

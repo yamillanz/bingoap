@@ -19,6 +19,7 @@ export class MybingoComponent implements OnInit, OnDestroy {
 	//private sub : Subject<any> = new Subject(); //Subscription;
 	private sub: Subscription; //;
 	private sub2: Subscription; //;
+	
 	tituloDialogo: string = "";
 	displayDialog: boolean = false;
 	displayDialogTermino: boolean = false;
@@ -92,9 +93,11 @@ export class MybingoComponent implements OnInit, OnDestroy {
 		this.srvSocket.disconnect();
 		if (this.sub) {
 			this.sub.unsubscribe();
+			this.sub = null;
 		}
 		if (this.sub2) {
 			this.sub2.unsubscribe();
+			this.sub2 = null;
 		}
 	}
 

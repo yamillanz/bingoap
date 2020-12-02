@@ -6,10 +6,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { LandingRoutingModule } from './landing-routing.module';
 import { LandingComponent } from './landing.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 @NgModule({
-  declarations: [LandingComponent],
+  declarations: [LandingComponent, HomeComponent],
   imports: [
   CommonModule,
   SharedModule,

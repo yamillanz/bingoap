@@ -9,6 +9,9 @@ import {Router} from '@angular/router'
   styleUrls: ['./landing.component.scss']
 })
 export class LandingComponent implements OnInit {
+  @ViewChild('navBurger') navBurger: ElementRef;
+  @ViewChild('navMenu') navMenu: ElementRef;
+
 
   
   constructor(private router: Router) { }
