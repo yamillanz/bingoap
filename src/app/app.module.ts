@@ -1,3 +1,5 @@
+import { AuthService } from './auth/services/auth.service';
+import { AuthLoadGuard } from './guards/auth-load.guard';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
@@ -26,10 +28,9 @@ const config: SocketIoConfig = { url: 'http://localhost:4001', options: {} }; */
     SharedModule,
     AuthModule,
     SharedModule,
-  
+    BrowserAnimationsModule
   ],
-  
-  providers: [],
+  providers: [AuthLoadGuard, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

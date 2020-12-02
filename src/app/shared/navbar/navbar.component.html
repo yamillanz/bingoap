@@ -1,65 +1,81 @@
-<!-- <nav class="navbar ">
-  <div class="navbar-brand">
-    <a class="navbar-item" href="http://bulma.io">
-      <img src="../../assets/images/bingo-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
-    </a>
-
-    <a class="navbar-item is-hidden-desktop" href="https://github.com/jgthms/bulma" target="_blank">
-      <span class="icon" style="color: #333;">
-        <i class="fa fa-github"></i>
-      </span>
-    </a>
-
-    <a class="navbar-item is-hidden-desktop" href="https://twitter.com/jgthms" target="_blank">
-      <span class="icon" style="color: #55acee;">
-        <i class="fa fa-twitter"></i>
-      </span>
-    </a>
-
-    <div class="navbar-burger burger" data-target="navMenubd-example">
-      <span></span>
-      <span></span>
-      <span></span>
+<nav class="navbar is-fixed-top is-dark is-boxed" #navbar role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" (click)="onClickScroll('home')" >
+        <img src="../../../assets/images/bingo-logo.png" width="75px" height="30px" alt="BINGO-APP">
+      </a>
+  
+      <a (click)="toggleNavbar()" role="button" #navBurger class="navbar-burger burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
     </div>
-  </div>
-
-      <a href="#" class="navbar-item">
-        <span class="bd-emoji">🏫</span> Home
-      </a>
-     
-      <a href="#" class="navbar-item">
-        <span class="bd-emoji">🏦</span>
-        Salas
-      </a>
-      <a href="#" class="navbar-item">
-        <span class="bd-emoji">🤑</span> Pricing</a>
   
-      <a class="navbar-item " href="/dashboard">
-        <span class="bd-emoji">🎨</span>
-        Juega Gratis
-      </a>
-      <a class="navbar-item " href="/dashboard">
-        <span class="bd-emoji">❤️</span>
-        My Bingo
-      </a>
-    
-    <div class="navbar-item">
-      <a class="navbar-item is-hidden-desktop-only" href="https://github.com/jgthms/bulma" target="_blank">
-        <span class="icon" style="color: #333;">
-          <i class="fa fa-github"></i>
-        </span>
-      </a>
-      <a class="navbar-item is-hidden-desktop-only" href="https://twitter.com/jgthms" target="_blank">
-        <span class="icon" style="color: #55acee;">
-          <i class="fa fa-twitter"></i>
-        </span>
-      </a>
+    <div id="navbarBasicExample" class="navbar-menu" #navMenu>
+ 
+        <div class="tabs is-hoverable">
+            <ul>
+                <span class="icon is-small"></span>
+                <a class="navbar-item" (click)="onClickScroll('home')">
+                <li>
+                    <strong> Inicio </strong> <span class ="icon is-small"> <i class="pi pi-home"></i> </span>
+                 </li>
+                </a>
+          
+               
+                <a class="navbar-item" (click)="onClickScroll('who-are-we')">
+                 <li>
+                    <strong>Quienes Somos</strong> <span class ="icon is-small"> <i class="pi pi-star-o"></i> </span>
+                </li>
+
+                </a>
+                
+                
+                    <a class="navbar-item" (click)="onClickScroll('pricing')">
+                         
+                       <li>
+                        <strong>Pricing</strong><span class ="icon is-small"> <i class="pi pi-dollar"></i> </span>
+                       </li>
+                    </a>
+             
+            </ul>
+
+        </div>
+  
+       <!--  <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            More
+          </a>
+  
+          <div class="navbar-dropdown">
+            <a class="navbar-item">
+              About
+            </a>
+            <a class="navbar-item">
+              Jobs
+            </a>
+            <a class="navbar-item">
+              Contact
+            </a>
+            <hr class="navbar-divider">
+            <a class="navbar-item">
+              Report an issue
+            </a>
+          </div> 
+        </div>-->
       
-      </div>
   
-    
-</nav> -->
-
-        
-
-    
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <a class="button is-success is-hoverable">
+              <strong>Crear cuenta nueva</strong>
+            </a>
+            <a class="button is-danger is-hoverable" (click)="goLogon()">
+              <strong>Iniciar sesión</strong>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>

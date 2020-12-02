@@ -11,10 +11,12 @@ import {BlockUIModule} from 'primeng/blockui';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import {PasswordModule} from 'primeng/password';
 import {InputTextModule} from 'primeng/inputtext';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LogoutComponent } from './components/logout/logout.component';
 
 
 @NgModule({
- declarations: [LoginComponent, RegisterComponent],
+ declarations: [LoginComponent, RegisterComponent, LogoutComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,
@@ -25,6 +27,8 @@ import {InputTextModule} from 'primeng/inputtext';
     ProgressSpinnerModule,
     InputTextModule,
     PasswordModule,
+    FormsModule,
+		ReactiveFormsModule,
   ],
  
 })
