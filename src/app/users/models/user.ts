@@ -11,7 +11,6 @@ interface data {
 
 
 export interface User {
-   userData? : data;
+   userData : data;
    accessToken? : string;
-
 }
