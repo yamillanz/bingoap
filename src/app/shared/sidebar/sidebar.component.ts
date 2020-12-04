@@ -18,6 +18,7 @@ export class SidebarComponent implements OnInit {
   usuario: any = [];
   rol: any = [];
   status: any = [];
+  cliente: any = [];
   
   constructor(private primengConfig: PrimeNGConfig, private router: Router, 
     public menuService: MenuService, private sidebarService: SidebarService) {
@@ -36,7 +37,11 @@ export class SidebarComponent implements OnInit {
     }
 
   ngOnInit(): void {
-    // this.Menu.idRol = JSON.parse(sessionStorage.getItem('menu')).idRol; // Obtiene el perfil del usuario
+    // this.Menu.idRol = JSON.parse(localStorage.getItem('menu')).idRol; // Obtiene el perfil del usuario
+    this.cliente.idCliente = JSON.parse(sessionStorage.getItem('currentUser')).userData.idCliente;
+    /* this.cliente = sessionStorage.getItem('currentUser'); */
+    
+    console.log('esto es lo que me traje del session storage: =>', this.cliente.idCliente);
     this.Menu.idRol = 1;
     console.log('el rol es:', this.Menu.idRol);
     this.loadMenu(this.Menu.idRol);

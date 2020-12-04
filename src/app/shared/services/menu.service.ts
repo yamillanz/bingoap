@@ -19,7 +19,7 @@ export class MenuService {
   }
 
   constructor(private httpClient: HttpClient) { 
-    this.url = environment.apiUrlDashoard +  'rol';
+    this.url = environment.apiUrlDashoard +  'menu-users';
   }
 
   /* getMemusPorRol(idRol): Observable<MenuModel[]> {
@@ -28,7 +28,7 @@ export class MenuService {
 
 
   getMenuByIdRol(idRol:number) : Observable<MenuModel[]>{
-    const url = `${this.url}/${idRol}`;
+    const url = `${this.url}/rol/${idRol}`;
     console.log(url);
     return this.httpClient.get<MenuModel[]>(url)      
   }

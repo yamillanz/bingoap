@@ -4,5 +4,6 @@ export interface MenuModel {
 	descripcion?,
 	isActive?,
 	idRol?,
-	icono?
+	icono?,
+	idCliente?,
 }

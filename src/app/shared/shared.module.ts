@@ -14,11 +14,12 @@ import { ButtonModule } from 'primeng/button';
 
 import {MenuModule} from 'primeng/menu';
 import {PanelMenuModule} from 'primeng/panelmenu';
-import {MenuItem} from 'primeng/api'
+import {MenuItem} from 'primeng/api';
+import { NotificacionesComponent } from './notificaciones/notificaciones.component'
 
 
 @NgModule({
-	declarations: [MenuComponent, FooterComponent, NavbarComponent, SidebarComponent],
+	declarations: [MenuComponent, FooterComponent, NavbarComponent, SidebarComponent, NotificacionesComponent],
 	imports: [
 		CommonModule,
 		HttpClientModule

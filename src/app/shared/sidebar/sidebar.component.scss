@@ -149,19 +149,21 @@ a, a:hover, a:focus {
 
 #sidebar {
   /* don't forget to add all the previously mentioned styles here too */
-  background: #17212f;
+  background: #001F27;
   color: #fff;
   transition: all 0.3s;
 }
 
 #sidebar .sidebar-header {
-  padding: 20px;
-  background: #17212f;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-top: 50px;
+  background: #001F27;
 }
 
 #sidebar ul.components {
   padding: 10px 0;
-  border-bottom: 1px solid #17212f;
+  border-bottom: 1px solid #001F27;
 }
 
 #sidebar ul p {
@@ -182,12 +184,12 @@ a, a:hover, a:focus {
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
   color: #fff;
-  background: #17212f;
+  background: #001F27;
 }
 ul li a hr {
   font-size: 0.9em !important;
   padding-left: 30px !important;
-  background: #17212f;
+  background: #001F27;
 }
 
 .icon {
@@ -212,6 +214,10 @@ ul li a hr {
 
   texto {
     padding-left: 10%;
-    font-size: 1em
+    font-size: 1em;
+  }
+
+  badge {
+    font-size: 5em;
   }
 }

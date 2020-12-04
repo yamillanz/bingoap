@@ -5,7 +5,7 @@
 
 export const environment = {
   production: false,
-  apiUrlDashoard: 'http://localhost:3050/menu/',
+  apiUrlDashoard: 'http://localhost:3050/',
   apiUrlReg: 'http://localhost:3010/api/user/register', 
   apiUrlAuth :  "http://localhost:3010/"
 };
