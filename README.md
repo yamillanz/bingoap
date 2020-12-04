@@ -5,6 +5,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 # BACKS
     cliuser - login y seguridad
     mybingo - partidas y motor de juego multijugador en linea
+    dashboard-users - toda la data que requiere el dashboard
 
 ## Development server
 
