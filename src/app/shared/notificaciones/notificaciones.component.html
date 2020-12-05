@@ -1,1 +1,30 @@
-<p>notificaciones works!</p>
+<app-navbar></app-navbar>
+<app-sidebar></app-sidebar>
+ <div class="container">
+    <div class="container">
+        <p class="title is-4"> <i class="pi pi-cloud-download" style="font-size: 2rem"></i> Mensajeria</p>
+        <!-- <button pButton type="button" 
+                label="Marcar todos como leidos" icon="pi pi-check" iconPos="left" 
+                class="p-button-danger container1" (onClick)="handleClick($event)">
+        </button> -->
+        <button pButton type="button" 
+                label="Marcar todos como leidos" icon="pi pi-check" iconPos="left" 
+                class="p-button-danger container1">
+        </button>
+    </div>
+    <div class="card is-horizontal is-half">
+      <div class="card-content">
+        <div class="content" *ngFor="let notificacion of notificaciones">
+            <div class="card-header"><h3>{{notificacion.mensaje}}</h3></div>
+            <a class="card-body"> Enviado el: {{notificacion.fechaEnvio | date: 'dd/MM/yyyy'}} a las {{notificacion.fechaEnvio | date: 'hh:MM:ss'}}</a>
+          <br>
+          <time datetime="2016-1-1">{{notificacion.fechaEnvio}}</time>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+
+  
+ 

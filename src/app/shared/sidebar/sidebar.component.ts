@@ -4,9 +4,12 @@ import { MenuService } from '../services/menu.service';
 import { MenuModel } from '../models/menu';
 import { PrimeNGConfig } from 'primeng/api';
 import { SidebarService } from '../services/sidebar.service';
+import { NotificacionesModel } from '../models/notificaciones';
+import { NotificacionesService } from '../services/notificaciones.service';
+
 
 @Component({
-  selector: 'app-sidebar',
+  selector: 'app-sidebar', 
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss'] 
 })
@@ -19,9 +22,13 @@ export class SidebarComponent implements OnInit {
   rol: any = [];
   status: any = [];
   cliente: any = [];
+
+  notif: any = [];
+  notificaciones: NotificacionesModel[];
+  cantidadNotificaciones: NotificacionesModel[];
   
   constructor(private primengConfig: PrimeNGConfig, private router: Router, 
-    public menuService: MenuService, private sidebarService: SidebarService) {
+    public menuService: MenuService, private sidebarService: SidebarService, public notificacionesService: NotificacionesService) {
       
      }
 
@@ -38,16 +45,18 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit(): void {
     // this.Menu.idRol = JSON.parse(localStorage.getItem('menu')).idRol; // Obtiene el perfil del usuario
-    this.cliente.idCliente = JSON.parse(sessionStorage.getItem('currentUser')).userData.idCliente;
+    this.cliente.id = JSON.parse(sessionStorage.getItem('currentUser')).userData.id;
     /* this.cliente = sessionStorage.getItem('currentUser'); */
     
-    console.log('esto es lo que me traje del session storage: =>', this.cliente.idCliente);
+    console.log('esto es lo que me traje del session storage: =>', this.cliente.id);
     this.Menu.idRol = 1;
     console.log('el rol es:', this.Menu.idRol);
     this.loadMenu(this.Menu.idRol);
     this.usuario = 'potus';
     this.rol = 'Administrador';
     this.status = 'online';
+
+    this.loadCantNotificacion(this.notif.idUsuarioRecibe);
   }
     
 
@@ -55,6 +64,17 @@ export class SidebarComponent implements OnInit {
     return this.menuService.getMenuByIdRol(idRol).subscribe( data => this.Menu = data ),  console.log('este es el menu', this.Menu)  ;
    
   }
+
+
+   // Esto es para obtener la data de las cant de notificaciones del usuario en el badge
+  loadCantNotificacion(idUsuarioRecibe) {
+    this.notif.idUsuarioRecibe = JSON.parse(sessionStorage.getItem('currentUser')).userData.id;
+    this.notificacionesService.getCantNotificationsByUser(this.notif.idUsuarioRecibe).subscribe(data =>{
+      this.notificaciones = data;
+      console.log('Cantidad de  notificaciones:', data[0].cantidadNotificaciones);
+      this.cantidadNotificaciones = data[0].cantidadNotificaciones;
+    });
+    }
 
 
   isMobileMenu() {
