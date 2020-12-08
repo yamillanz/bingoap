@@ -26,7 +26,7 @@ export class DashboardComponent implements OnInit {
 	}
 
 	logout() {
-		console.log("dalio del beta");
+		//console.log("dalio del beta");
 		this.router.navigate(['/logout'])
 		// this.svrAuth.logOut();
 	}

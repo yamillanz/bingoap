@@ -16,6 +16,8 @@ import { DialogModule } from 'primeng/dialog';
 import { PartidasComponent } from './components/partidas/partidas.component';
 /* import { SocketClientService } from './services/socket-client.service'; */
 import { CardModule } from 'primeng/card';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { ToastModule } from 'primeng/toast';
 
 
 /* const config: SocketIoConfig = { url: 'http://localhost:4001', options: {} }; */
@@ -32,7 +34,9 @@ import { CardModule } from 'primeng/card';
 		SharedModule,
 		SocketIoModule,
 		NgCircleProgressModule.forRoot({}),
-		CardModule
+		CardModule,
+		InputNumberModule,
+		ToastModule,
 		//SocketIoModule.forRoot(config)
 	],
 	providers: [/* SocketClientService */]

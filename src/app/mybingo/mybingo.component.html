@@ -30,24 +30,35 @@
 				<h3>Esperamos 1 min. a otros jugadores...</h3>
 			</div>
 		</ng-container>
-		<div *ngFor="let nroCarton of nroCartones" class="p-col-12 p-md-4 p-lg-4 p-p-1">
-			<div class="p-shadow-5 p-p-2">
-				<p>Carton nro {{nroCarton + 1}}</p>
-				<app-carton [id]="nroCarton + 1" [numerosSorteados]="numerosYaSalieron"
-					(datosBingoCantado)="seCantoBingo($event)"></app-carton>
+		<div class="p-col-12 p-grid p-m-2"> 
+			<!-- p-col-12 p-md-4 p-lg-4 p-p-1 -->
+			<div *ngFor="let nroCarton of nroCartones" class="p-col-12 p-md-6 p-lg-4"> 
+				<div class="p-shadow-5 p-p-2">
+					<p>Carton nro {{nroCarton + 1}}</p>
+					<app-carton [id]="nroCarton + 1" [numerosSorteados]="numerosYaSalieron"
+						(datosBingoCantado)="seCantoBingo($event)"></app-carton>
+				</div>
 			</div>
+
+		<!-- 	<div class="p-col-4">4</div>
+			<div class="p-col-4">4</div>
+			<div class="p-col-4">4</div> -->
 		</div>
-		<div class="p-p-12">&nbsp;</div> 
-		<div class="p-p-12">&nbsp;</div> 
-		<div class="p-p-12">&nbsp;</div> 
-		<div class="p-p-12">&nbsp;</div> 
-		<div class="p-p-12">&nbsp;</div> 
-		<div class="p-p-12">&nbsp;</div> 
-		<div class="p-col-12 p-md-4 p-my-6 p-mx-auto">
-			<button pButton pRipple type="button" label="Salir de la Partida" class="p-button-outlined p-button-secondary"
+		<!-- <div class="p-col-12 p-p-6">
+			<div class="p-mx-6">
+				<button pButton pRipple type="button" label="Salir de la Partida" class="p-button-raised p-button-secondary p-d-block p-mx-auto"
 			(click)="volver()"></button>
+			</div>			
+		</div> -->
+		<!-- <div class="p-col-12 p-p-1"> -->
+		<!-- <div class="p-col-4">&nbsp;</div> -->
+		<div class="p-col-12 p-lg-4 p-lg-offset-4 p-p-2">
+			<button pButton pRipple type="button" label="Salir de la Partida"
+				class="p-button-raised p-button-secondary p-d-block p-mx-auto" (click)="volver()"></button>
 		</div>
-	
+		<!-- <div class="p-col-4">&nbsp;</div> -->
+		<!-- </div> -->
+
 	</div>
 </ng-container>
 <!-- <app-menu></app-menu> -->

@@ -171,10 +171,10 @@ export class CartonComponent implements OnInit/* , OnChanges */ {
 	}
 
 	cantarBingo() {
-		if (this.bingoEsteCarton) {
+		//if (this.bingoEsteCarton) {
 			//console.log("Canto: ", this.bingoEsteCarton);
 			this.datosBingoCantado.emit({ nroCarton: this.id, modoBingo: this.bingoEsteCarton, numsBingo: this.marcadosYasalieron });
-		}
+		//}
 	}
 
 	/* ngOnChanges(changes: SimpleChanges) {

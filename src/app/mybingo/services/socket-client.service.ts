@@ -39,7 +39,7 @@ export class SocketClientService extends Socket {
 
 	getNumers() {
 		//this.numbersGenerated$ = this.fromEvent<string[]>('msgToAllClients');
-		this.numbersGenerated$ = this.fromEvent<string[]>('msgToAllClients');
+		this.numbersGenerated$ = this.fromEvent<string[]>('msgToMySala');
 		return this.numbersGenerated$;
 
 	}
@@ -49,7 +49,15 @@ export class SocketClientService extends Socket {
 		return this.msgToMe$;
 	}
 
+	enjoySala(idSala){
+		this.emit("enjoySala", idSala);//
+	}
+
+	leaveSala(idSala){
+		this.emit("leaveSala", idSala);
+	}
+
 	setBingo(data) {
-		this.emit("msgToServerBingo", data)
+		this.emit("msgToMySala", data)
 	}
 }

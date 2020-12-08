@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   apiUrlReg: 'http://localhost:3010/api/user/register', 
-  apiUrlAuth :  "http://localhost:3010/"
+  apiUrlAuth :  "http://localhost:3010/",
+  apiUrlPartidas :  "http://localhost:3000/partidas",
 };
 
 
