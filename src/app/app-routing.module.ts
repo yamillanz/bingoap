@@ -1,18 +1,24 @@
 
 import { AuthLoadGuard } from './guards/auth-load.guard';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { NgxsModule } from '@ngxs/store';
 import { environment } from 'src/environments/environment';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { NotificacionesComponent } from './shared/notificaciones/notificaciones.component';
+
+
 
 
 const routes: Routes = [
 	{ path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule), canLoad: [AuthLoadGuard] },
+	{path: 'notificaciones', component: NotificacionesComponent},
 	{
 		path: 'landing', loadChildren: () => import('./landing/landing.module').then(m => m.LandingModule),
 	},
 	{ path: 'partidas/:idSala', loadChildren: () => import('./mybingo/mybingo.module').then(m => m.MybingoModule) },
 	{ path: 'mybingo', loadChildren: () => import('./mybingo/mybingo.module').then(m => m.MybingoModule) },
+	
 	//{ path: 'login', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
 	{ path: 'login', redirectTo: 'landing/login', },
 
@@ -24,6 +30,10 @@ const routes: Routes = [
 	},
 
 ];
+
+export const AdminLayoutRoutes: Routes = [
+	{ path: "dashboard", component: DashboardComponent },
+  ];
 
 @NgModule({
 	imports: [

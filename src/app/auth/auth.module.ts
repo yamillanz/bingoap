@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthRoutingModule } from './aut-routing.module' 
-import { LoginComponent} from '../auth/components/login/login.component';
+import { LoginComponent } from "../../app/auth/components/login/login.component";
 import { RegisterComponent } from '../auth/register/register.component';
 
 import {ButtonModule} from 'primeng/button';
