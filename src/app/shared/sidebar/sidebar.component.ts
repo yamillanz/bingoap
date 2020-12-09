@@ -1,4 +1,5 @@
-import { Component,  OnInit} from '@angular/core';
+import { ViewportScroller } from '@angular/common';
+import { Component,  OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuService } from '../services/menu.service';
 import { MenuModel } from '../models/menu';
@@ -15,6 +16,11 @@ import { NotificacionesService } from '../services/notificaciones.service';
 })
 
 export class SidebarComponent implements OnInit {
+
+  @ViewChild('navBurger') navBurger: ElementRef;
+	@ViewChild('navMenu') navMenu: ElementRef;
+  @ViewChild('navBar') navbar: ElementRef;
+  
   menuItems: any[];
   Menu: any = [];
   menu: MenuModel[];
@@ -28,9 +34,26 @@ export class SidebarComponent implements OnInit {
   cantidadNotificaciones: NotificacionesModel[];
   
   constructor(private primengConfig: PrimeNGConfig, private router: Router, 
-    public menuService: MenuService, private sidebarService: SidebarService, public notificacionesService: NotificacionesService) {
+    public menuService: MenuService, private sidebarService: SidebarService, 
+    public notificacionesService: NotificacionesService, private viewportScroller: ViewportScroller,) {
       
      }
+
+     onClickScroll(elementId: string): void {
+      if (elementId == "home") {
+        this.router.navigate(['/landing']);
+      } else {
+        this.viewportScroller.scrollToAnchor(elementId);
+      }
+      //
+      //const elmnt = document.getElementById(elementId);
+  
+    }
+
+    toggleNavbar() {
+      this.navBurger.nativeElement.classList.toggle('is-active');
+      this.navMenu.nativeElement.classList.toggle('is-active');
+    }
 
      getClasses() {
       const classes = {
@@ -39,6 +62,8 @@ export class SidebarComponent implements OnInit {
       }
       return classes;
     }
+
+
     toggleSidebar() {
       this.sidebarService.toggleSidebar();
     }
