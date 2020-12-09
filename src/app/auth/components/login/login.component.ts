@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
 				sessionStorage.setItem('currentUser', JSON.stringify(dataUser));
 				//Probando setear un BehaviorSubject
 				this.router.navigate(['/dashboard']);
-				//console.log(dataUser);
+				console.log(dataUser);
 			}
 		} catch (error) {
 			// vacio 400 "bad request" .ok .status:400 
