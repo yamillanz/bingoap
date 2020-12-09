@@ -15,7 +15,7 @@ export class PartidasComponent implements OnInit {
 
 	partidas: Partidas[] = [];
 	idSala: string = "";
-	cartonesComprar: number = 1;
+	cartonesComprar: number = 1; 
 	nroCartones: ElementRef<any>;
 
 	constructor(private srvPartidas: PartidasService,
