@@ -25,7 +25,7 @@ export class AuthService {
 	}
 
 	_initBehavior() {
-		let initUser: User = { userData: { id: "", email: "", activo: "", sesionActiva: "" }, accessToken: "" };
+		let initUser: User = { userData: { id: "", email: "", activo: true, sesionActiva: "" }, accessToken: "" };
 		return initUser
 	}
 
@@ -45,8 +45,14 @@ export class AuthService {
 		return this.userData$.asObservable();
 	}
 
-	logOut() {
-		this.unsetUserSubjet();
+	accionarSesion(user : User){		
+		return this.http.post(`${environment.apiUrlAuth}users/accionarsesion`, user.userData);
+	}
+
+	async logOut() {
+		let currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+		await this.accionarSesion(currentUser).toPromise();
+		//this.unsetUserSubjet();
 		sessionStorage.removeItem('currentUser');
 	}
 

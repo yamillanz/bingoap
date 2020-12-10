@@ -3,11 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 import { NotificacionesComponent } from '../shared/notificaciones/notificaciones.component';
 import { DashboardComponent } from './dashboard.component';
 
-const routes: Routes = [{ path: '', component: DashboardComponent},
-                        {path: 'notificaciones', component: NotificacionesComponent } ];
+const routes: Routes = [
+	{
+		path: '', component: DashboardComponent,
+		children: [{ path: '', component: NotificacionesComponent }]
+	}
+];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+	imports: [RouterModule.forChild(routes)],
+	exports: [RouterModule]
 })
 export class DashboardRoutingModule { }
