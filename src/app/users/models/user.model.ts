@@ -1,5 +1,6 @@
-interface data {
+export interface user {
     id?;
+    pass?,
     email?;
     fechaCreacion?;
     activo?;
@@ -8,11 +9,4 @@ interface data {
     idCliente?;
     fechaUltimaConeccion?;
     emailValido?,
-}
-
-
-export interface User {
-   userData? : data;
-   accessToken? : string;
-
 }

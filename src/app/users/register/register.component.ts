@@ -3,11 +3,10 @@ import {
   FormGroup,
   FormBuilder 
 } from '@angular/forms';
-import {client} from '../../users/models/client';
-import { Component, OnInit, NgModule } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CustomValidators } from './customValidator';
 import { DatePipe } from '@angular/common';
-import { user } from '../models/user'; // hay que revisar y unicar esos modelos de user, eso creo.
+import { user } from '../models/user.model'; // hay que revisar y unicar esos modelos de user, eso creo.
 import { UserAdminService } from '../services/user-admin.service';
 
 @Component({

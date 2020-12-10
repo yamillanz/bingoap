@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { AuthModule } from './auth/auth.module';
+import { UsersModule } from './users/users.module';
 
 /* import { HttpClientModule } from '@angular/common/http'; */
 
@@ -17,20 +18,6 @@ import { AuthModule } from './auth/auth.module';
 const config: SocketIoConfig = { url: 'http://localhost:4001', options: {} }; */
 
 @NgModule({
-<<<<<<< HEAD
-	declarations: [
-		AppComponent
-	],
-	imports: [
-		BrowserModule,
-		BrowserAnimationsModule,
-		AppRoutingModule,
-		SharedModule,
-		// SocketIoModule.forRoot(config)
-	],
-	providers: [],
-	bootstrap: [AppComponent]
-=======
   declarations: [
     AppComponent,
   ],
@@ -40,10 +27,10 @@ const config: SocketIoConfig = { url: 'http://localhost:4001', options: {} }; */
     SharedModule,
     AuthModule,
     SharedModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    UsersModule,
   ],
   providers: [AuthLoadGuard, AuthService],
   bootstrap: [AppComponent]
->>>>>>> 46c7d17b12537f2bfd34051f45287162c542ee4e
 })
 export class AppModule { }
