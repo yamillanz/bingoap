@@ -50,11 +50,11 @@ export class PartidasComponent implements OnInit {
 			//console.log("logeado:", idUsuarioLoged);
 			await this.srvPartidas.ingresarUsuarioAlaPartida({ idPartida: partidap.id, idUsuario: idUsuarioLoged }).toPromise();
 			partidap.idEstatus = 2;
-			console.log("partida", partidap);
+			//console.log("partida", partidap);
 
 			await this.srvPartidas.cambiarEstadoPartida(partidap).toPromise();
 			//beteto
-			//this.router.navigate(['mybingo'], { queryParams: { idSala: partidap.id, nrocartones: nrocartones.getAttribute('aria-valuenow') }, relativeTo: this.route, skipLocationChange: true });
+			this.router.navigate(['mybingo'], { queryParams: { idSala: partidap.id, nrocartones: nrocartones.getAttribute('aria-valuenow') }, relativeTo: this.route, skipLocationChange: true });
 		} else {
 			this.messageService.add({ key: 'tc', severity: 'warn', summary: '', detail: 'Ingrese la cantidad de cartones' });
 		}
