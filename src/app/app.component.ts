@@ -1,3 +1,4 @@
+import { environment } from './../environments/environment';
 import { AuthService } from './auth/services/auth.service';
 import { Component, OnDestroy } from '@angular/core';
 
@@ -14,14 +15,16 @@ export class AppComponent implements OnDestroy {
 
 	// Keep me Signed in
 	public doUnload(): void {
-		this.doBeforeUnload();
+		//this.doBeforeUnload();
 	}
 
 	// Keep me Signed in
 	public doBeforeUnload(): void {
 		// Clear localStorage
 		//localStorage.removeItem('username_key');
-		this.srvAuth.logOut();
+		if (environment.production) {
+			this.srvAuth.logOut(); 
+		}		
 	}
 
 	ngOnDestroy(): void {

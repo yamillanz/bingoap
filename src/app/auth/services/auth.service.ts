@@ -45,7 +45,8 @@ export class AuthService {
 		return this.userData$.asObservable();
 	}
 
-	accionarSesion(user : User){		
+	accionarSesion(user : User){	
+
 		return this.http.post(`${environment.apiUrlAuth}users/accionarsesion`, user.userData);
 	}
 
