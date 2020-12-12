@@ -14,4 +14,8 @@ export class UsersService {
 	getAllUsers() {
 		return this.http.get<User[]>(`${environment.apiUrlAuth}users`);
 	}
+
+	/* accionarSesion(user : User){
+		return this.http.post(`${environment.apiUrlAuth}users/accionarsesion`, user.userData);
+	} */
 }

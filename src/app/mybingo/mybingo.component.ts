@@ -2,6 +2,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { SocketClientService } from './services/socket-client.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject, Observable, Subscription } from 'rxjs';
+import { first } from 'rxjs/operators';
 
 @Component({
 	selector: 'app-mybingo',
@@ -14,18 +15,21 @@ export class MybingoComponent implements OnInit, OnDestroy {
 	numero: string = "   ";
 	porcentaje: number = 0;
 	idPartidaUsuario: string = "0-0";
-	nroCartones = [0, 1, 2]; // Array(3).fill(3).map((x, i) => i);
+	//nroCartones = [0, 1, 2]; // Array(3).fill(3).map((x, i) => i);
+	nroCartones: number[];
 	numerosYaSalieron: string[] = [];
 	//private sub : Subject<any> = new Subject(); //Subscription;
 	private sub: Subscription; //;
 	private sub2: Subscription; //;
-	
+
 	tituloDialogo: string = "";
 	displayDialog: boolean = false;
 	displayDialogTermino: boolean = false;
 	mensajeDialogo: string = "";
 	erroresServer: number = 0;
 	esperando = 1;
+
+	idSala: string = "";
 
 	constructor(private srvSocket: SocketClientService,
 		private router: Router,
@@ -45,6 +49,18 @@ export class MybingoComponent implements OnInit, OnDestroy {
 	ngOnInit(): void {
 		//this.srvSocket.connect();
 		//this.numero = "B 14";
+		this.route.queryParams
+			.pipe(first())
+			.subscribe(params => {
+				// Defaults to 0 if no query param provided.
+
+				this.nroCartones = [...Array(parseInt(params.nrocartones)).keys()]; //Array(params.nrocartones).fill(params.nrocartones).map((x, i) => i); //params.nrocartones;
+				console.log("generados : ", params.nrocartones);
+				this.idSala = params.idSala;
+				this.srvSocket.enjoySala(this.idSala);
+			});
+
+		
 		this.sub = this.srvSocket.getNumers().subscribe((data) => {
 			console.log("Rec desde SERVER: ", data);
 			this.esperando = 0;
@@ -86,10 +102,11 @@ export class MybingoComponent implements OnInit, OnDestroy {
 	}
 
 	volver() {
-		this.router.navigate(['partidas']);
+		this.router.navigate(['partidas', this.idSala]);
 	}
 
 	ngOnDestroy(): void {
+		this.srvSocket.leaveSala(this.idSala);
 		this.srvSocket.disconnect();
 		if (this.sub) {
 			this.sub.unsubscribe();
@@ -105,6 +122,7 @@ export class MybingoComponent implements OnInit, OnDestroy {
 		//console.log("Bingo: ", dataBingo);
 		//this.tituloDialogo = "BINGO";
 		//this.displayDialog = true;
+		dataBingo.idSala = this.idSala;
 		this.srvSocket.setBingo(dataBingo);
 		//this.srvSocket.connect();
 		//TODO: 

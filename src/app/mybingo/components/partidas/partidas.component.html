@@ -1,12 +1,20 @@
+<p-toast position="top-center" key="tc" life="3000"></p-toast>
 <div class="p-shadow-5 p-px-2">
     <h1>Partidas Activas para ti Hoy</h1>
     <p-card *ngFor="let partida of partidas" class="p-mb-1 p-px-1">
         <p-header class="p-p-2">
             Partida nro: {{partida.id}}
         </p-header>
-        <!-- {{observaciones}} -->
+        <!-- {{observaciones}} --> Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio rerum voluptates enim commodi mollitia, corporis quae sequi. Error corporis rerum quidem aperiam officia harum sed consequatur, iusto, odit quisquam mollitia.
         <p-footer class="p-d-flex p-jc-end">
-            <button pButton type="button" label="Entra a Jugar" (click)="entrarPartida(partida)"></button>
+            <div class="p-mr-2">
+                <label for="minmax">Cant Cartones: </label>
+                <p-inputNumber [(ngModel)]="cartonesComprar" value="1" mode="decimal" [showButtons]="true" inputId="{{'cant' + partida.id}}" [min]="1" [max]="10">
+                </p-inputNumber>
+            </div>
+            <div class="p-mr-2">
+                <button pButton type="button" label="Entra a Jugar" (click)="entrarPartida(partida)"></button>
+            </div>
         </p-footer>
     </p-card>
 </div>

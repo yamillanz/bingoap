@@ -1,2 +1,21 @@
-<p>algo : {{dataUser.userData.id}}</p>
+<div class="p-grid p-fluid ">
+	<div class="p-col-12">
+		<app-navbar></app-navbar>
+	</div>
+	<div class="p-col-2">
+		<app-sidebar></app-sidebar>
+	</div>
+	<div class="p-col-10">
+		<main>
+			<router-outlet></router-outlet>
+		</main>
+	</div>
+</div>
+
+
+
+
+<!-- <div>
+<p class="texto">algo : {{dataUser.userData.id}}</p>
 <button (click)="logout()">logout</button>
+</div> -->

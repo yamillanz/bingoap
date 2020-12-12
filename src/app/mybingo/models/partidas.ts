@@ -6,5 +6,6 @@ export interface Partidas {
     fechaPrograma?;
     monto?;
     limiteCartones?;
-    idSala
+    idSala,
+    idEstatus?: number
 }

@@ -27,12 +27,14 @@ export class LoginComponent implements OnInit {
 		try {
 			const dataUser: User = await this.srvAuth.login({ email: this.userName, pass: this.passUser }).toPromise();
 			if (dataUser.accessToken) {
-				this.srvAuth.setUserSubject(dataUser);
+				//this.srvAuth.setUserSubject(dataUser);
+				await this.srvAuth.accionarSesion(dataUser).toPromise();				
 				delete dataUser.userData.email;
 				sessionStorage.setItem('currentUser', JSON.stringify(dataUser));
 				//Probando setear un BehaviorSubject
 				this.router.navigate(['/dashboard']);
 				console.log(dataUser);
+				
 			}
 		} catch (error) {
 			// vacio 400 "bad request" .ok .status:400 

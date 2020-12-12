@@ -1,10 +1,11 @@
 
 import { AuthLoadGuard } from './guards/auth-load.guard';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { NgxsModule } from '@ngxs/store';
 import { environment } from 'src/environments/environment';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { NotificacionesComponent } from './shared/notificaciones/notificaciones.component';
 
 
 
@@ -15,6 +16,9 @@ const routes: Routes = [
 	{ path: 'partidas', loadChildren: () => import('./mybingo/mybingo.module').then(m => m.MybingoModule) },
 	{ path: 'mybingo', loadChildren: () => import('./mybingo/mybingo.module').then(m => m.MybingoModule) },
 	{ path: 'registro', loadChildren: () => import('./users/users.module').then(m => m.UsersModule) },
+	{path: 'notificaciones', component: NotificacionesComponent},
+	{ path: 'partidas/:idSala', loadChildren: () => import('./mybingo/mybingo.module').then(m => m.MybingoModule) },
+	//{ path: 'login', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
 	{ path: 'login', redirectTo: 'landing/login', },
 	
 	//{ path: 'register', redirectTo: 'landing/register', },

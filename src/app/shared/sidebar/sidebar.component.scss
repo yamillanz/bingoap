@@ -108,6 +108,9 @@ ul {
   background: #192229;
 } */
 
+
+
+
 .wrapper {
   display: ruby-base-container;
   align-items: stretch;
@@ -148,20 +151,22 @@ a, a:hover, a:focus {
 }
 
 #sidebar {
-  /* don't forget to add all the previously mentioned styles here too */
-  background: #17212f;
+  
+  background: #A6BF00;
   color: #fff;
   transition: all 0.3s;
 }
 
 #sidebar .sidebar-header {
-  padding: 20px;
-  background: #17212f;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-top: 50px;
+  background: #001F27;
 }
 
 #sidebar ul.components {
   padding: 10px 0;
-  border-bottom: 1px solid #17212f;
+  border-bottom: 1px solid #001F27;
 }
 
 #sidebar ul p {
@@ -182,23 +187,27 @@ a, a:hover, a:focus {
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
   color: #fff;
-  background: #17212f;
+  background: #001F27;
 }
+
+
 ul li a hr {
-  font-size: 0.9em !important;
+  font-size: 1.5em !important;
   padding-left: 30px !important;
-  background: #17212f;
+  background: #001F27;
 }
 
 .icon {
-  font-size: 1em !important;
-  padding-left: 1px !important;
+  font-size: 20px !important;
+  padding-left: 20px !important;
+  padding-top: 20px;
+  padding-right: 20px;
 }
 
 .user-picture {
-  
-  width: 60px;
-  height: 60px;
+  margin-left: 80px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   overflow: hidden;
 
@@ -211,7 +220,29 @@ ul li a hr {
   }
 
   texto {
-    padding-left: 10%;
-    font-size: 1em
+    margin-left: 10px;
+    font-size: 1em;
+  }
+
+  badge {
+    font-size: 5em;
   }
 }
+
+.buttonsOpenSidebar {
+  padding-top: 8px;
+  padding-left: 10px;
+}
+
+.textoTitulo {
+  padding-top: 15px;
+  padding-left: 40px;
+  margin-right: 8px;
+}
+
+.textoTituloNavbar {
+  padding-top: 2px;
+  padding-left: 20px;
+}
+
+
