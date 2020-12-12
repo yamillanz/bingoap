@@ -6,12 +6,11 @@ import { RouterModule } from '@angular/router';
 import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
-
+import {TableModule} from 'primeng/table';
 import { TooltipModule } from 'primeng/tooltip'
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { SidebarModule } from 'primeng/sidebar';
 import { ButtonModule } from 'primeng/button';
-
 import {MenuModule} from 'primeng/menu';
 import {PanelMenuModule} from 'primeng/panelmenu';
 import {MenuItem} from 'primeng/api';
@@ -24,7 +23,10 @@ import { NotificacionesComponent } from './notificaciones/notificaciones.compone
 		CommonModule,
 		HttpClientModule,
 		RouterModule,
-		ButtonModule
+		ButtonModule,
+		SidebarModule,
+		TooltipModule,
+		TableModule
 	],
 	providers: [
 		{

@@ -25,13 +25,19 @@ export class MenuService {
     this.url1 = environment.apiUrlDashoard +  'notificaciones';
   }
 
-  /* getMemusPorRol(idRol): Observable<MenuModel[]> {
-    return this.httpClient.get<MenuModel[]>(this.apiUrl + 'rol/' + idRol);
+  /* getMenusPorRol(idRolUsuario): Observable<MenuModel[]> {
+    return this.httpClient.get<MenuModel[]>(this.url1 + 'rol/' + idRolUsuario);
   } */
 
 
   getMenuByIdRol(idRol:number) : Observable<MenuModel[]>{
     const url = `${this.url}/rol/${idRol}`;
+    console.log(url);
+    return this.httpClient.get<MenuModel[]>(url)      
+  }
+
+  getClientUsersData(idCliente:number) : Observable<MenuModel[]>{
+    const url = `${this.url1}/client/${idCliente}`;
     console.log(url);
     return this.httpClient.get<MenuModel[]>(url)      
   }

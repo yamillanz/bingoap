@@ -1,18 +1,17 @@
-<app-navbar></app-navbar>
 <app-sidebar></app-sidebar>
- <div class="container">
+ <!-- <div class="container">
     <div class="container">
-        <p class="title is-4"> <i class="pi pi-cloud-download" style="font-size: 2rem"></i> Mensajeria</p>
+        <p class="title is-4 container"> <i class="pi pi-cloud-download" style="font-size: 2rem"></i> Mensajeria</p> -->
         <!-- <button pButton type="button" 
                 label="Marcar todos como leidos" icon="pi pi-check" iconPos="left" 
                 class="p-button-danger container1" (onClick)="handleClick($event)">
         </button> -->
-        <button pButton type="button" 
+       <!--  <button pButton type="button" 
                 label="Marcar todos como leidos" icon="pi pi-check" iconPos="left" 
                 class="p-button-danger container1">
         </button>
-    </div>
-    <div class="card is-horizontal is-half">
+    </div> -->
+    <!-- <div class="card is-horizontal is-half">
       <div class="card-content">
         <div class="content" *ngFor="let notificacion of notificaciones">
             <div class="card-header"><h3>{{notificacion.mensaje}}</h3></div>
@@ -20,11 +19,29 @@
           <br>
           <time datetime="2016-1-1">{{notificacion.fechaEnvio}}</time>
         </div>
-      </div>
-    </div>
-  </div>
+      </div> -->
 
+     
+
+  <!--   </div> -->
   
+
+    <p-table [value]="notificaciones">
+      <ng-template pTemplate="header">
+          <tr>
+              <th>Fecha recibido</th>
+              <th>Mensaje</th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-notificaciones>
+          <tr>
+              <td>{{notificaciones.fechaEnvio}}</td>
+              <td>{{notificaciones.mensaje}}</td>
+              <!-- <td>{{notificaciones.category}}</td>
+              <td>{{notificaciones.quantity}}</td> -->
+          </tr>
+      </ng-template>
+  </p-table>
 
   
  

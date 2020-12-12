@@ -5,6 +5,8 @@
     flex-grow: 0;
     flex-shrink: 1;
     box-shadow: none;
+    margin-left: 50px;
+    margin-right: 50px;
   }
   
   .card.is-horizontal .card-image {
@@ -40,16 +42,17 @@
 
   .container {
     padding-left: 1em;
-    padding-top: 0;
+    padding-top: 50px;
     padding-bottom: 0;
     font-size: 1em;
   }
 
   .container1 {
-    padding-left: 1em;
+    padding-left: 0px;
     padding-top: 0;
     padding-bottom: 0;
     font-size: 1em;
+    margin-bottom: 20px;
   }
 
  

@@ -5,6 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { MessageService } from 'primeng/api';
 
+
 @Component({
 	selector: 'app-partidas',
 	templateUrl: './partidas.component.html',

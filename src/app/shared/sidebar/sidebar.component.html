@@ -1,9 +1,10 @@
 <nav class="navbar is-fixed-top is-dark is-boxed" #navbar role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" (click)="onClickScroll('home')" >
-      <img src="../../../assets/images/bingo-logo.png" width="200px" height="120px" alt="BINGO-APP">
-    </a>
-
+    <div class="buttonsOpenSidebar">
+      <a class="button is- is-success" (click)="visibleSidebar1 = true" pTooltip="Abrir menú" > 
+      <i class="fas fa-angle-double-right fa-1x" ></i></a>
+     
+ </div>
     <a (click)="toggleNavbar()" role="button" #navBurger class="navbar-burger burger" aria-label="menu" aria-expanded="false">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
@@ -14,52 +15,27 @@
   <div id="navbarBasicExample" class="navbar-menu" #navMenu>
 
       <div class="tabs is-hoverable">
-          <ul>
-              <span class="icon is-small"></span>
-              <a class="navbar-item" (click)="onClickScroll('home')">
-              <li>
-                  <strong> Inicio </strong> <span class ="icon is-small"> <i class="pi pi-home"></i> </span>
-               </li>
-              </a>
-        
-             
-              <a class="navbar-item" (click)="onClickScroll('who-are-we')">
-               <li>
-                  <strong>Quienes Somos</strong> <span class ="icon is-small"> <i class="pi pi-star-o"></i> </span>
-              </li>
-
-              </a>
-              
-              
-                  <a class="navbar-item" (click)="onClickScroll('pricing')">
-                       
-                     <li>
-                      <strong>Pricing</strong><span class ="icon is-small"> <i class="pi pi-dollar"></i> </span>
-                     </li>
-                  </a>
-           
-          </ul>
-
       </div>
 
-       <div class="navbar-item has-dropdown is-hoverable">
+       <div class="textoTituloNavbar navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
-          More
+          BINGO GAME
         </a>
+       
 
         <div class="navbar-dropdown">
           <a class="navbar-item">
-            About
+            MyBingo
           </a>
           <a class="navbar-item">
-            Jobs
+            Perfil
           </a>
           <a class="navbar-item">
-            Contact
+            Notificaciones
           </a>
           <hr class="navbar-divider">
           <a class="navbar-item">
-            Report an issue
+            Reportar un error
           </a>
         </div> 
       </div>
@@ -68,12 +44,9 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-          <a class="button is-success is-hoverable">
-            <strong>Crear cuenta nueva</strong>
-          </a>
-          <a class="button is-danger is-hoverable">
-            <strong>Iniciar sesión</strong>
-          </a>
+             <a pTooltip="Cerrar sesión" class="button is-danger is-hoverable" (click)="logout()"> 
+             <i class="fa fa-power-off fa-1x"></i></a>
+             
         </div>
       </div>
     </div>
@@ -81,41 +54,61 @@
 </nav>
 
 
+<p-sidebar class="sidebar" [(visible)]="visibleSidebar1" [baseZIndex]="10000">
+    <div class="user-picture m-auto d-flex flex-column justify-content-center"> 
+      <img src="./assets/img/trump1.jpeg" class="img " alt="">
+    </div>
+        <a class="textoTitulo"><strong>@{{this.nickname}} | {{this.rol}}</strong></a>
+        <hr class= "line" style="height:0.6px;width:100%;border-style:0.6px solid #000;text-align:right;margin-right:0px;" />
+        <ul class="components">
+          <hr class= "line" style="height:0.6px;width:100%;border-style:0.6px solid #000;text-align:right;margin-right:0px;" />
+                <ul class="collapse list-unstyled" id="homeSubmenu">
+                    <li>
+                        <a href="notificaciones"> <i class="pi pi-bell" style="font-size: 1em"></i> Notificaciones 
+                          <ng-container *ngIf="cantidadNotificaciones!'0'">
+                              <span class="p-badge p-badge-danger badge" style="font-size: 0.8em">{{cantidadNotificaciones}}</span>
+                         </ng-container>
+                            
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="pi pi-user-edit"></i> Perfil</a>
+                    </li>
+                </ul>
+            <hr class= "line" style="height:0.6px;width:100%;border-style:0.6px solid #000;text-align:right;margin-right:0px;" />
+           <li>
+                <a><i class="pi pi-cog"></i> Configuraciones</a>
+                <ul class="collapse list-unstyled"  *ngFor = "let menus of Menu">
+                    <li>
+                        <a href="#"><i class="{{menus.icono}} icon"></i> {{menus.nombre}}</a>
+                    </li>
+                </ul>
+            </li>
+            <hr class= "line" style="height:0.6px;width:100%;border-style:0.6px solid #000;text-align:right;margin-right:0px;" />
+            <li>
+               <a href="https://t.me/DiscreteEvents"> <i class="pi pi-send"></i> Soporte al usuario en Telegram</a>
+            </li>
+        </ul>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="wrapper">
-  
-  <nav id="sidebar">
-
-      <div id="toggleSidebar">
-          <i class="fas fa-arrow-left"></i>
-      </div>
-
-      <div class="sidebar-header">
         
-          
+        
+</p-sidebar>
+
+
+
+
+
+
+
+<!-- <div class="wrapper">
+  <nav id="sidebar">
+      <div class="sidebar-header">
           <div class="user-picture m-auto d-flex flex-column justify-content-center"> 
             <img src="./assets/img/trump1.jpeg" class="img " alt="">
           </div>
-
-          <a class="collapse list-unstyled" href="#homeSubmenu" data-toggle="toggleSidebar" aria-expanded="false"><strong>@{{this.usuario}}</strong> | {{this.rol}}</a>
+          
+          <a class="collapse list-unstyled" href="#homeSubmenu" data-toggle="toggleSidebar" aria-expanded="false"><strong>@{{this.nickname}}</strong> | {{this.rol}}</a>
           <span class="p-tag p-tag-rounded p-tag-success"> {{this.status}}</span>
           
       </div>
@@ -127,7 +120,10 @@
               <ul class="collapse list-unstyled" id="homeSubmenu">
                   <li>
                       <a href="#"> <i class="pi pi-bell" style="font-size: 1em"></i> Notificaciones 
-                          <span class="p-badge p-badge-danger badge" style="font-size: 0.8em">{{cantidadNotificaciones}}</span>
+                        <ng-container *ngIf="cantidadNotificaciones!'0'">
+                            <span class="p-badge p-badge-danger badge" style="font-size: 0.8em">{{cantidadNotificaciones}}</span>
+                       </ng-container>
+                          
                       </a>
                   </li>
                   <li>
@@ -137,7 +133,7 @@
           </li>
           <hr class= "line" style="height:0.6px;width:100%;border-style:0.6px solid #000;text-align:right;margin-right:0px;" />
          <li>
-          <a href="#homeSubmenu" data-toggle="toggleSidebar" aria-expanded="false">Configuraciones</a>
+          <a href="#homeSubmenu" data-toggle="toggleSidebar" aria-expanded="false"><i class="pi pi-cog"></i> Configuraciones</a>
               <ul class="collapse list-unstyled"  *ngFor = "let menus of Menu">
                   <li>
                       <a href="#"><i class="{{menus.icono}} icon"></i> {{menus.nombre}}</a>
@@ -149,51 +145,4 @@
              <a href="https://t.me/DiscreteEvents"> <i class="pi pi-send"></i> Soporte al usuario en Telegram</a>
           </li>
       </ul>
-  </nav>
-
-  <!-- Page Content -->
-<!--   <div id="content">
-
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <div class="container">
-
-              <button type="button" id="toggeled-sidebar" class="sidebar">
-                  <i class="pi pi-angle-double-left"></i>
-                  <span>Toggle Sidebar</span>
-              </button>
-
-              
-
-          </div>
-      </nav>
-  </div> -->
-  
-
-
-
-<!-- <div class="sidebar">
-  <div class="column is-2 is-sidebar-menu is-hidden-mobile">
-    <aside class="menu">
-  <p class="menu-label">
-    General
-  </p>
-  <ul class="menu-list" *ngFor = "let menus of Menu">
-   
-    <li><a><i class="{{menus.icono}}"></i> {{menus.nombre}}</a></li>
-  </ul>
-  <p class="menu-label">
-    Usuario
-  </p>
-  <ul class="menu-list">
-    <li><a>Settings</a></li>
-    <li>
-      <a class="is-active">Modificar tu Perfíl</a>
-      
-    </li>
-  
-  </ul>
-  
-</aside>
-  </div>
-  
-</div> -->
+  </nav> -->
