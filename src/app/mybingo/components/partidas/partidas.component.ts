@@ -39,13 +39,22 @@ export class PartidasComponent implements OnInit {
 
 	}
 
-	entrarPartida(partidap: Partidas) {
+	async entrarPartida(partidap: Partidas) {
 		//console.log(partidap);
 
 		let nrocartones: Element = document.getElementById('cant' + partidap.id) as HTMLElement;
-		console.log("valor element: ", nrocartones.getAttribute('aria-valuenow')); //return;
+		//console.log("valor element: ", nrocartones.getAttribute('aria-valuenow')); //return;
+
 
 		if (nrocartones.getAttribute('aria-valuenow')) {
+			let idUsuarioLoged = JSON.parse(sessionStorage.getItem('currentUser')).userData.id;
+			//console.log("logeado:", idUsuarioLoged);
+			await this.srvPartidas.ingresarUsuarioAlaPartida({ idPartida: partidap.id, idUsuario: idUsuarioLoged }).toPromise();
+			partidap.idEstatus = 2;
+			//console.log("partida", partidap);
+
+			await this.srvPartidas.cambiarEstadoPartida(partidap).toPromise();
+			//beteto
 			this.router.navigate(['mybingo'], { queryParams: { idSala: partidap.id, nrocartones: nrocartones.getAttribute('aria-valuenow') }, relativeTo: this.route, skipLocationChange: true });
 		} else {
 			this.messageService.add({ key: 'tc', severity: 'warn', summary: '', detail: 'Ingrese la cantidad de cartones' });

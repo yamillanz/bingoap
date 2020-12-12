@@ -60,7 +60,7 @@ export class MybingoComponent implements OnInit, OnDestroy {
 				this.srvSocket.enjoySala(this.idSala);
 			});
 
-		return;
+		
 		this.sub = this.srvSocket.getNumers().subscribe((data) => {
 			console.log("Rec desde SERVER: ", data);
 			this.esperando = 0;

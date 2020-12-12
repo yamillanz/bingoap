@@ -156,7 +156,7 @@ export class CartonComponent implements OnInit/* , OnChanges */ {
 			const sisalio = this.numerosSorteados.find(elemento => elemento == celdaP.substring(celdaP.indexOf("-") + 1, celdaP.length));
 
 			//console.log("salio: ", );
-			if (this.celda.className != 'touched'  && sisalio ) {
+			if (this.celda.className != 'touched' && sisalio) {
 				this.celda.className = 'touched';
 				this.marcadosYasalieron = [... this.marcadosYasalieron, this.matrizCarton[fila][col]];
 				this.bingoEsteCarton = this.marcadosVsPatrones(this.matrizCarton[fila][col], fila, col);
@@ -171,10 +171,10 @@ export class CartonComponent implements OnInit/* , OnChanges */ {
 	}
 
 	cantarBingo() {
-		//if (this.bingoEsteCarton) {
+		if (this.bingoEsteCarton) {
 			//console.log("Canto: ", this.bingoEsteCarton);
 			this.datosBingoCantado.emit({ nroCarton: this.id, modoBingo: this.bingoEsteCarton, numsBingo: this.marcadosYasalieron });
-		//}
+		}
 	}
 
 	/* ngOnChanges(changes: SimpleChanges) {

@@ -27,12 +27,12 @@ export class DashboardComponent implements OnInit {
 	  
 
 	async ngOnInit(){
-		this.svrAuth.getObservableBevior().subscribe((data) => {
+		/* this.svrAuth.getObservableBevior().subscribe((data) => {
 			this.dataUser = { ...data }; console.log(data);
 		});
-
-		this.usuarios = await this.svrUsers.getAllUsers().toPromise();
-		console.log("usuarios", this.usuarios);
+ */
+		//this.usuarios = await this.svrUsers.getAllUsers().toPromise();
+		//console.log("usuarios", this.usuarios);
 		
 		this.loadDataUser(this.idCliente);
 
@@ -48,10 +48,6 @@ export class DashboardComponent implements OnInit {
 		}
 	
 
-	logout() {
-		//console.log("dalio del beta");
-		this.router.navigate(['/logout'])
-		// this.svrAuth.logOut();
-	}
+
 
 }
