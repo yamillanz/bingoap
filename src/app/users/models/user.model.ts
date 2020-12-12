@@ -3,10 +3,10 @@ export interface user {
     pass?,
     email?;
     fechaCreacion?;
+    idRolUsuario?;
     activo?;
     tipo?;
     sesionActiva?;
     idCliente?;
-    fechaUltimaConeccion?;
     emailValido?,
 }
