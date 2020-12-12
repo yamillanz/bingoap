@@ -5,11 +5,14 @@ import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { ToastModule } from 'primeng/toast';
 import { PasswordModule } from 'primeng/password';
+import {DropdownModule} from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
+import {CalendarModule} from 'primeng/calendar';
+import {RadioButtonModule} from 'primeng/radiobutton';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from '../users/register/register.component';
 import { ClientAdminComponent } from '../users/client-admin/client-admin.component'
-import { UsersRoutingModule } from '../users/users-routing.module'
+import { UsersRoutingModule } from '../users/users-routing.module';
 
 
 @NgModule({
@@ -25,6 +28,9 @@ import { UsersRoutingModule } from '../users/users-routing.module'
     ReactiveFormsModule,
     SharedModule,
     UsersRoutingModule,
+    DropdownModule,
+    CalendarModule,
+    RadioButtonModule,
   ]
 })
 export class UsersModule { }
