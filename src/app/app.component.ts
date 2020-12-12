@@ -22,9 +22,9 @@ export class AppComponent implements OnDestroy {
 	public doBeforeUnload(): void {
 		// Clear localStorage
 		//localStorage.removeItem('username_key');
-		if (environment.production) {
+		//if (environment.production) {
 			this.srvAuth.logOut(); 
-		}		
+		//}		
 	}
 
 	ngOnDestroy(): void {

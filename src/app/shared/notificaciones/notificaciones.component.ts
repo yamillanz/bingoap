@@ -5,6 +5,7 @@ import { NotificacionesService } from '../services/notificaciones.service';
 import { MenuService } from '../services/menu.service';
 
 
+
 @Component({
 	selector: 'app-notificaciones',
 	templateUrl: './notificaciones.component.html',
@@ -13,7 +14,7 @@ import { MenuService } from '../services/menu.service';
 export class NotificacionesComponent implements OnInit {
 
 	notif: any = [];
-	notificaciones: NotificacionesModel[];
+	notificaciones: NotificacionesModel[] = [];
 	cantidadNotificaciones: NotificacionesModel[];
 
 	constructor(private router: Router, public notificacionesService: NotificacionesService) { }

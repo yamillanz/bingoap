@@ -6,16 +6,11 @@ import { RouterModule } from '@angular/router';
 import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
-
-import { TooltipModule } from 'primeng/tooltip'
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { SidebarModule } from 'primeng/sidebar';
 import { ButtonModule } from 'primeng/button';
-
-import {MenuModule} from 'primeng/menu';
-import {PanelMenuModule} from 'primeng/panelmenu';
-import {MenuItem} from 'primeng/api';
+import { MenuModule } from 'primeng/menu';
 import { NotificacionesComponent } from './notificaciones/notificaciones.component'
+import { TableModule } from 'primeng/table';
 
 
 @NgModule({
@@ -24,7 +19,8 @@ import { NotificacionesComponent } from './notificaciones/notificaciones.compone
 		CommonModule,
 		HttpClientModule,
 		RouterModule,
-		ButtonModule
+		ButtonModule,
+		TableModule, 
 	],
 	providers: [
 		{
@@ -41,7 +37,7 @@ import { NotificacionesComponent } from './notificaciones/notificaciones.compone
 		MenuModule,
 		NotificacionesComponent
 	]
-	
+
 })
 
 export class SharedModule { }

@@ -45,7 +45,7 @@ export class AuthService {
 		return this.userData$.asObservable();
 	}
 
-	accionarSesion(user : User){	
+	accionarSesion(user: User) {
 
 		return this.http.post(`${environment.apiUrlAuth}users/accionarsesion`, user.userData);
 	}
@@ -54,7 +54,9 @@ export class AuthService {
 		let currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
 		await this.accionarSesion(currentUser).toPromise();
 		//this.unsetUserSubjet();
-		sessionStorage.removeItem('currentUser');
+		if (environment.production) {
+			sessionStorage.removeItem('currentUser');
+		}
 	}
 
 }
