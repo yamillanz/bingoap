@@ -1,4 +1,4 @@
-<!-- <app-sidebar></app-sidebar> -->
+<app-sidebar></app-sidebar>
  <!-- <div class="container">
     <div class="container">
         <p class="title is-4 container"> <i class="pi pi-cloud-download" style="font-size: 2rem"></i> Mensajeria</p> -->
@@ -35,7 +35,7 @@
       </ng-template>
       <ng-template pTemplate="body" let-notificaciones>
           <tr>
-              <td>{{notificaciones.fechaEnvio}}</td>
+              <td>{{notificaciones.fechaEnvio | date: 'dd/MM/yyyy'}} </td>
               <td>{{notificaciones.mensaje}}</td>
               <!-- <td>{{notificaciones.category}}</td>
               <td>{{notificaciones.quantity}}</td> -->

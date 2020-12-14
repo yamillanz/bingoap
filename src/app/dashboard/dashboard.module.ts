@@ -4,7 +4,6 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 
 import {SidebarModule} from 'primeng/sidebar';
 import {ButtonModule} from 'primeng/button';
-
 import { DashboardComponent } from './dashboard.component';
 import { SharedModule } from '../shared/shared.module';
 
