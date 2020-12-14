@@ -48,7 +48,7 @@
 								<p-dropdown [options]="countries" [(ngModel)]="selectedCountry" optionLabel="name" [filter]="true" filterBy="name" [showClear]="true" placeholder="Select a Country"  [ngModelOptions]="{standalone: true}" >
 									<ng-template pTemplate="selectedItem">
 										<div class="country-item country-item-value"  *ngIf="selectedCountry">
-											<div  >{{selectedCountry.name}}</div>
+											<!-- <div>{{selectedCountry.name}}</div> -->
 										</div>
 									</ng-template>
 									<ng-template let-country pTemplate="item">
