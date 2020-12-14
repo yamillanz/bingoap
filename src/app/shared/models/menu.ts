@@ -6,4 +6,9 @@ export interface MenuModel {
 	idRol?,
 	icono?,
 	idCliente?,
+	email?,
+	nombreCompleto?,
+	nickname?,
+	numeroTelefono?,
+	rol?,
 }

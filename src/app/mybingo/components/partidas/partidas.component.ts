@@ -5,6 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { MessageService } from 'primeng/api';
 
+
 @Component({
 	selector: 'app-partidas',
 	templateUrl: './partidas.component.html',
@@ -15,7 +16,7 @@ export class PartidasComponent implements OnInit {
 
 	partidas: Partidas[] = [];
 	idSala: string = "";
-	cartonesComprar: number = 1;
+	cartonesComprar: number = 1; 
 	nroCartones: ElementRef<any>;
 
 	constructor(private srvPartidas: PartidasService,

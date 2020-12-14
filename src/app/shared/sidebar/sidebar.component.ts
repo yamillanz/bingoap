@@ -1,4 +1,5 @@
-import { Component,  OnInit} from '@angular/core';
+import { ViewportScroller } from '@angular/common';
+import { Component,  OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuService } from '../services/menu.service';
 import { MenuModel } from '../models/menu';
@@ -14,23 +15,64 @@ import { NotificacionesService } from '../services/notificaciones.service';
   styleUrls: ['./sidebar.component.scss'] 
 })
 
+
+
 export class SidebarComponent implements OnInit {
+
+    visibleSidebar1;
+
+    visibleSidebar2;
+
+    visibleSidebar3;
+
+    visibleSidebar4;
+
+    visibleSidebar5;
+
+  @ViewChild('navBurger') navBurger: ElementRef;
+	@ViewChild('navMenu') navMenu: ElementRef;
+  @ViewChild('navBar') navbar: ElementRef;
+
+  @ViewChild('sidebarBurger') sidebarBurger: ElementRef;
+	@ViewChild('sidebarMenu') sidebarMenu: ElementRef;
+  @ViewChild('sideBar') sideBar: ElementRef;
+  
   menuItems: any[];
   Menu: any = [];
-  menu: MenuModel[];
   usuario: any = [];
   rol: any = [];
+  nickname: any = [];
   status: any = [];
   cliente: any = [];
-
+  /* DataCliente: MenuModel[]; */
+  dataCliente: any = [];
+  DataCliente: MenuModel[];
   notif: any = [];
   notificaciones: NotificacionesModel[];
-  cantidadNotificaciones: NotificacionesModel[];
-  
+  cantidadNotificaciones: string;
+  idCliente: any = [];
+
   constructor(private primengConfig: PrimeNGConfig, private router: Router, 
-    public menuService: MenuService, private sidebarService: SidebarService, public notificacionesService: NotificacionesService) {
+    public menuService: MenuService, private sidebarService: SidebarService, 
+    public notificacionesService: NotificacionesService, private viewportScroller: ViewportScroller,) {
       
      }
+
+     onClickScroll(elementId: string): void {
+      if (elementId == "home") {
+        this.router.navigate(['/landing']);
+      } else {
+        this.viewportScroller.scrollToAnchor(elementId);
+      }
+      //
+      //const elmnt = document.getElementById(elementId);
+  
+    }
+
+    toggleNavbar() {
+      this.navBurger.nativeElement.classList.toggle('is-active');
+      this.navMenu.nativeElement.classList.toggle('is-active');
+    }
 
      getClasses() {
       const classes = {
@@ -39,30 +81,36 @@ export class SidebarComponent implements OnInit {
       }
       return classes;
     }
+
+
     toggleSidebar() {
       this.sidebarService.toggleSidebar();
+      /* this.sidebarBurger.nativeElement.classList.toggle('is-active');
+      this.sidebarMenu.nativeElement.classList.toggle('is-active'); */
     }
 
   ngOnInit(): void {
-    // this.Menu.idRol = JSON.parse(localStorage.getItem('menu')).idRol; // Obtiene el perfil del usuario
     this.cliente.id = JSON.parse(sessionStorage.getItem('currentUser')).userData.id;
-    /* this.cliente = sessionStorage.getItem('currentUser'); */
-    
-    console.log('esto es lo que me traje del session storage: =>', this.cliente.id);
-    this.Menu.idRol = 1;
-    console.log('el rol es:', this.Menu.idRol);
-    this.loadMenu(this.Menu.idRol);
-    this.usuario = 'potus';
-    this.rol = 'Administrador';
+    this.loadMenu(this.Menu.idRolUsuario);
     this.status = 'online';
-
+    this.loadDataUser(this.idCliente);
     this.loadCantNotificacion(this.notif.idUsuarioRecibe);
-  }
     
+  }
+  
+  loadDataUser(idCliente) {
+    this.dataCliente.idCliente = JSON.parse(sessionStorage.getItem('currentUser')).userData.idCliente;
+    this.menuService.getClientUsersData(this.dataCliente.idCliente).subscribe(data =>{
+      this.DataCliente = data;
+      const nick = this.nickname= data[0].nickname;
+      this.rol= data[0].rol;
+    });
+    }
 
   loadMenu(idRol) {
-    return this.menuService.getMenuByIdRol(idRol).subscribe( data => this.Menu = data ),  console.log('este es el menu', this.Menu)  ;
-   
+    this.Menu.idRol = JSON.parse(sessionStorage.getItem('currentUser')).userData.idRolUsuario;
+    return this.menuService.getMenuByIdRol(this.Menu.idRol).subscribe( data => this.Menu = data ),  
+    console.log('este es el rol del usuario', this.Menu.idRol)  ;
   }
 
 
@@ -76,7 +124,7 @@ export class SidebarComponent implements OnInit {
     });
     }
 
-
+ 
   isMobileMenu() {
     if (window.innerWidth > 991) {
       return false;
@@ -84,8 +132,9 @@ export class SidebarComponent implements OnInit {
     return true;
   }
 
-  close (){
-
+  logout() {
+		this.router.navigate(['/logout'])
   }
+
 }
 
