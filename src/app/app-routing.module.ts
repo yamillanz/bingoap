@@ -21,13 +21,12 @@ const routes: Routes = [
 	
 	//{ path: 'login', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
 	{ path: 'login', redirectTo: 'landing/login', },
-
-
 	{
 		path: '',
 		redirectTo: 'landing',
 		pathMatch: 'full'
 	},
+	{ path: 'freegame', loadChildren: () => import('./free-game/free-game.module').then(m => m.FreeGameModule) },
 
 ];
 

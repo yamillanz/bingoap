@@ -150,9 +150,7 @@ export class CartonComponent implements OnInit/* , OnChanges */ {
 	marcarBola(celdaP: string, fila, col) {
 		if (!(fila == "2" && col == "2")) {
 			this.celda = document.getElementById(celdaP) as HTMLElement;
-			//console.log("id celda: ", celdaP);
-			//console.log("valor: ", celdaP.substring(celdaP.indexOf("-") + 1, celdaP.length));
-			//console.log("valor: ", this.matrizCarton[fila][col]);
+
 			const sisalio = this.numerosSorteados.find(elemento => elemento == celdaP.substring(celdaP.indexOf("-") + 1, celdaP.length));
 
 			//console.log("salio: ", );

@@ -1,4 +1,5 @@
 
+
 import { TokenInterceptor } from './../auth/token.interceptor';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
@@ -13,12 +14,14 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { ButtonModule } from 'primeng/button';
 import { MenuModule } from 'primeng/menu';
 
+import { CartonComponent } from './../mybingo/components/carton/carton.component';
+
 import { NotificacionesComponent } from './notificaciones/notificaciones.component'
 import { TableModule } from 'primeng/table';
 
 
 @NgModule({
-	declarations: [MenuComponent, FooterComponent, NavbarComponent, SidebarComponent, NotificacionesComponent],
+	declarations: [MenuComponent, FooterComponent, NavbarComponent, SidebarComponent, NotificacionesComponent, CartonComponent],
 	imports: [
 		CommonModule,
 		HttpClientModule,
@@ -40,7 +43,8 @@ import { TableModule } from 'primeng/table';
 		SidebarComponent,
 		NavbarComponent,
 		MenuModule,
-		NotificacionesComponent
+		NotificacionesComponent,
+		CartonComponent,
 	]
 
 })

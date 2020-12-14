@@ -1,6 +1,6 @@
 import { PartidasService } from './../../services/partidas.service';
 import { Partidas } from './../../models/partidas';
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit/* , ElementRef, ViewChild  */ } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { MessageService } from 'primeng/api';
@@ -16,8 +16,8 @@ export class PartidasComponent implements OnInit {
 
 	partidas: Partidas[] = [];
 	idSala: string = "";
-	cartonesComprar: number = 1; 
-	nroCartones: ElementRef<any>;
+	cartonesComprar: number = 1;
+	//nroCartones: ElementRef<any>;
 
 	constructor(private srvPartidas: PartidasService,
 		private router: Router,
@@ -48,14 +48,19 @@ export class PartidasComponent implements OnInit {
 
 		if (nrocartones.getAttribute('aria-valuenow')) {
 			let idUsuarioLoged = JSON.parse(sessionStorage.getItem('currentUser')).userData.id;
-			//console.log("logeado:", idUsuarioLoged);
 			await this.srvPartidas.ingresarUsuarioAlaPartida({ idPartida: partidap.id, idUsuario: idUsuarioLoged }).toPromise();
+			
 			partidap.idEstatus = 2;
-			//console.log("partida", partidap);
-
 			await this.srvPartidas.cambiarEstadoPartida(partidap).toPromise();
 			//beteto
-			this.router.navigate(['mybingo'], { queryParams: { idSala: partidap.id, nrocartones: nrocartones.getAttribute('aria-valuenow') }, relativeTo: this.route, skipLocationChange: true });
+			this.router.navigate(['mybingo'], {
+				queryParams: {
+					idSalaPartida: this.idSala,
+					idPartida: partidap.id,
+					nrocartones: nrocartones.getAttribute('aria-valuenow')
+				},
+				relativeTo: this.route, skipLocationChange: true
+			});
 		} else {
 			this.messageService.add({ key: 'tc', severity: 'warn', summary: '', detail: 'Ingrese la cantidad de cartones' });
 		}

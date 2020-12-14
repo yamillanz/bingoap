@@ -1,0 +1,24 @@
+<p-toast position="top-center" key="tc" life="3000"></p-toast>
+<div class="p-shadow-5 p-px-2">
+    <h1>JUEGO GRATIS</h1>
+    <p-card class="p-mb-1 p-px-1">
+        <p-header class="p-p-2">
+            La PC vs TUS HABILIDADES en el bingo
+        </p-header>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio rerum voluptates enim commodi mollitia,
+        corporis quae sequi. Error corporis rerum quidem aperiam officia harum sed consequatur, iusto, odit quisquam
+        mollitia.
+        <p-footer class="p-d-flex p-jc-end">
+            <div class="p-mr-2">
+                <label for="minmax">Cant Cartones: </label>
+                 <p-inputNumber [(ngModel)]="cartonesComprar" mode="decimal" [showButtons]="true"></p-inputNumber>
+              <!--   <p-inputNumber [(ngModel)]="cartonesComprar" value="1" mode="decimal" [showButtons]="true"
+                    inputId="nrocatones" [min]="1" [max]="10">
+                </p-inputNumber> -->     
+            </div>
+            <div class="p-mr-2">
+                <button pButton type="button" label="JUEGA GRATIS!!!" (click)="entrarPartida()"></button>
+            </div>
+        </p-footer>
+    </p-card>
+</div>
