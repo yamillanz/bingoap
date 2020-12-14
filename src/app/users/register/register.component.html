@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <div class="section p-mt-5">
 	<div class="container">
 		<div class="columns is-vcentered">
@@ -41,7 +42,7 @@
 						<ng-template pTemplate="footer">
 							<p-button label="Iniciar Registro"  [disabled]="newUserForm.invalid" (click)="onSubmit()" icon="pi pi-check" ></p-button>
 							<div>
-								<a href="http://">Ya estoy registrado, Iniciar sesión</a>
+								<a (click)="goLogin()">Ya estoy registrado, Iniciar sesión</a>
 							</div>
 						</ng-template>
 
@@ -53,3 +54,4 @@
 
 	</div>
 </div>
+<app-footer></app-footer>

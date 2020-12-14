@@ -49,4 +49,9 @@ export class NavbarComponent implements OnInit {
 
 		this.router.navigate(['/login'])
 	}
+
+	newUser(){
+		this.router.navigate(['/registro'])
+	}
+
 }

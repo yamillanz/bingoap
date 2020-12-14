@@ -9,6 +9,7 @@ import { CustomValidators } from './customValidator';
 import { DatePipe } from '@angular/common';
 import { user } from '../models/user.model'; 
 import { UserAdminService } from '../services/user-admin.service';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-register',
@@ -29,8 +30,9 @@ export class RegisterComponent implements OnInit {
   showPassword: boolean;
   newUser: user = {};
   myDate = new Date();
-  sendEmail = {email: '', mensaje: ''};
-constructor(private fb: FormBuilder, private userAdmin: UserAdminService, private datePipe: DatePipe) {
+  sendEmail = {email: '', 
+              mensaje: ''};
+constructor(private fb: FormBuilder, private userAdmin: UserAdminService, private datePipe: DatePipe,  private router: Router) {
 
 
   this.newUserForm = this.fb.group({
@@ -76,6 +78,8 @@ onSubmit() {
       console.log(res, 'saving this user');
       this.newUser = {};
     }); 
+
+  this.registerNextStep();
 }
 
 get email() { return this.newUserForm.get('email'); }
@@ -84,13 +88,21 @@ get pass() { return this.newUserForm.get('pass'); }
 
 sendMail(){
   this.sendEmail = {email: this.newUserForm.value.email,
-                    mensaje: 'Moderna, segura y divertida; bienvenido'};
+                    mensaje: '<p>Moderna, segura y divertida; bienvenido</p>'};
   console.log(this.sendEmail);
   this.userAdmin.mailer(this.sendEmail).toPromise()
     .then(res => {
       console.log('revisa el email, confirma y regresa, tenemos q validar usuario');
     });
 }
+
+goLogin() {
+  this.router.navigate(['/login'])
+}
+registerNextStep(){
+  this.router.navigate(['/cliente'])
+}
+
 }
 
 
