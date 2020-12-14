@@ -169,6 +169,7 @@ export class CartonComponent implements OnInit/* , OnChanges */ {
 	}
 
 	cantarBingo() {
+		//this.datosBingoCantado.emit({ nroCarton: this.id, modoBingo: this.bingoEsteCarton, numsBingo: this.marcadosYasalieron }); return true;
 		if (this.bingoEsteCarton) {
 			//console.log("Canto: ", this.bingoEsteCarton);
 			this.datosBingoCantado.emit({ nroCarton: this.id, modoBingo: this.bingoEsteCarton, numsBingo: this.marcadosYasalieron });
