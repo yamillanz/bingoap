@@ -7,6 +7,7 @@ interface data {
     sesionActiva?;
     idCliente?;
     fechaUltimaConeccion?;
+    emailValido?,
 }
 
 

@@ -1,0 +1,55 @@
+<div class="section p-mt-5">
+	<div class="container">
+		<div class="columns is-vcentered">
+			<div class="column">
+				<figure class="image is-256x256">
+					<img alt="Card" src="../../../assets/images/bingo-woman.png">
+				</figure>
+			</div>
+			<div class="column">
+				<div class="tile has-text-centered is-transparent">
+					<p-card header="Nuevo Usuario" subheader="ingresa tu e-mail y contraseña"
+						[style]="{width: '24em'} " styleClass="p-card-shadow" class="p-fluid">
+						<p-header>
+						</p-header>
+                        <form [formGroup]="newUserForm" (ngSubmit)="onSubmit()">
+                            <div class="p-text-left">
+                                <label for="email" >Correo</label>
+							</div>
+                            <div class="p-field p-col-12">
+                                <input name="email" type="email" pInputText formControlName="email" [email]="true"/>
+							 </div>
+							 <!-- <div *ngIf="email.errors.required">
+								E-mail es requerido
+							  </div> -->
+                            <div class="p-text-left">
+                                <label for="passUser" class="p-text-left">Contraseña</label>
+                            </div>
+                            <div class="p-field p-col-12">
+                                <input name="password" pInputText type="password" formControlName="pass" icon="pi pi-check"/>
+                            </div>
+                            <div class="p-text-left">
+                                <label for="passUser" class="p-text-left">Repita su contraseña</label>
+                            </div>
+                            <div class="p-field p-col-12">
+                                <input name="repeat_password" pInputText type="password" formControlName="repeat_password"/>
+                            </div>
+                            <div *ngIf="newUserForm.invalid" class="p-col-12"><small class="p-invalid">Usuario o Contraseña invalidos!</small></div>
+
+                        </form>
+						
+						<ng-template pTemplate="footer">
+							<p-button label="Iniciar Registro"  [disabled]="newUserForm.invalid" (click)="onSubmit()" icon="pi pi-check" ></p-button>
+							<div>
+								<a href="http://">Ya estoy registrado, Iniciar sesión</a>
+							</div>
+						</ng-template>
+
+					</p-card>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+</div>

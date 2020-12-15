@@ -51,11 +51,14 @@ export class AuthService {
 	}
 
 	async logOut() {
-		let currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+		//let currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+		let currentUser = JSON.parse(localStorage.getItem('currentUser'));
 		await this.accionarSesion(currentUser).toPromise();
 		//this.unsetUserSubjet();
 		if (environment.production) {
-			sessionStorage.removeItem('currentUser');
+			//sessionStorage.removeItem('currentUser');
+			localStorage.removeItem('currentUser');
+			
 		}
 	}
 

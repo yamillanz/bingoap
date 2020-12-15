@@ -1,4 +1,4 @@
-<!-- <nav class="navbar is-fixed-top is-dark is-boxed" #navbar role="navigation" aria-label="main navigation">
+<nav class="navbar is-fixed-top is-dark is-boxed" #navbar role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <div class="buttonsOpenSidebar">
       <a class="button is- is-success" (click)="visibleSidebar1 = true" pTooltip="Abrir menú" > 
@@ -43,6 +43,8 @@
 
     <div class="navbar-end">
       <div class="navbar-item">
+        
+         <a class="textoTitulo"><i class="fab fa-bitcoin fa-1x"></i><strong> Saldo disponible: {{this.Transacciones}},00 </strong></a>
         <div class="buttons">
              <a pTooltip="Cerrar sesión" class="button is-danger is-hoverable" (click)="logout()"> 
              <i class="fa fa-power-off fa-1x"></i></a>
@@ -52,7 +54,6 @@
     </div>
   </div>
 </nav>
- -->
 
 <p-sidebar class="sidebar" [(visible)]="visibleSidebar1" [baseZIndex]="10000">
     <div class="user-picture m-auto d-flex flex-column justify-content-center"> 
@@ -88,11 +89,7 @@
             <li>
                <a href="https://t.me/DiscreteEvents"> <i class="pi pi-send"></i> Soporte al usuario en Telegram</a>
             </li>
-        </ul>
-
-
-        
-        
+        </ul> 
 </p-sidebar>
 
 

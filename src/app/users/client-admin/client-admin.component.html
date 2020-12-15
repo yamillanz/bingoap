@@ -1,0 +1,96 @@
+<div class="section p-mt-5">
+	<div class="container">
+		<div class="columns is-vcentered">
+			<div class="column">
+				<figure class="image is-256x256">
+					<img alt="happy peanuts playing bingo" src="../../../assets/images/kisspng-animal-happiness-clip-art-online-bingo-5b51c4c859b890.9868430315320854483675.png">
+				</figure>
+			</div> 
+			<div class="column">
+				<div class="tile has-text-centered is-transparent">
+					<p-card header="¡Sólo un paso más!" subheader="completa tus datos"
+						[style]="{width: '24em'} " styleClass="p-card-shadow" class="p-fluid">
+						<p-header>
+						</p-header>
+                        <form [formGroup]="clientAdminForm" (ngSubmit)="onSubmit()">
+                            <div class="p-text-left">
+                                <label for="nombreCompleto" >Nombre Completo</label>
+							</div>
+                            <div class="p-field p-col-12">
+								<div class="p-inputgroup">
+								<span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                                <input name="nombreCompleto" type="nombreCompleto" placeholder="Nombre Completo" pInputText formControlName="nombreCompleto"/>
+								</div>
+							</div>
+							 <div class="p-text-left">
+                                <label for="nickname" >Nombre de Usuario</label>
+							</div>
+                            <div class="p-field p-col-12">
+								<div class="p-inputgroup">
+								<span class="p-inputgroup-addon"><i class="pi pi-user-plus"></i></span>
+                                <input name="nickname" type="nickname" placeholder="nickname, alias..." pInputText formControlName="nickname"/>
+								</div>
+							</div>
+							 <!-- <div *ngIf="email.errors.required">
+								E-mail es requerido
+							  </div> -->
+                            <div class="p-text-left">
+                                <label for="fechaNacimiento" class="p-text-left">Fecha de Nacimiento</label>
+                            </div>
+                            <div class="p-field p-col-12">
+								<p-calendar name="fechaNacimiento" formControlName="fechaNacimiento"  [monthNavigator]="true" [yearNavigator]="true" yearRange="1950:2030" inputId="navigators"></p-calendar>
+                            </div>
+                            <div class="p-text-left">
+                                <label for="idPais" class="p-text-left">País</label>
+                            </div>
+                            <div class="p-field p-col-12">
+							
+								<p-dropdown [options]="countries" [(ngModel)]="selectedCountry" optionLabel="name" [filter]="true" filterBy="name" [showClear]="true" placeholder="Select a Country"  [ngModelOptions]="{standalone: true}" >
+									<ng-template pTemplate="selectedItem">
+										<div class="country-item country-item-value"  *ngIf="selectedCountry">
+											<!-- <div>{{selectedCountry.name}}</div> -->
+										</div>
+									</ng-template>
+									<ng-template let-country pTemplate="item">
+										<div class="country-item">
+											<div>{{country.name}}</div>
+										</div>
+									</ng-template>
+								</p-dropdown>
+							</div>
+						
+							<div class="p-text-left">
+                                <label for="genero" class="p-text-left">Género</label>
+                            </div>
+                            <div class="p-field p-col-12">
+								<div class="p-formgroup-inline">
+									<div class="p-field-checkbox">
+									<p-radioButton name="femenino" value="F" [(ngModel)]="newClient.genero" inputId=F [ngModelOptions]="{standalone: true}"></p-radioButton>
+									<label for="generoF">Mujer</label>
+									</div>
+									<div class="p-field-checkbox">
+										<p-radioButton name="masculino" value="M" [(ngModel)]="newClient.genero" inputId=M [ngModelOptions]="{standalone: true}"> </p-radioButton>
+										<label for="generoM">Hombre</label>
+									</div>
+									<div class="p-field-checkbox">
+										<p-radioButton name="otro" value="O" [(ngModel)]="newClient.genero" inputId=O [ngModelOptions]="{standalone: true}"></p-radioButton>
+										<label for="generoO">Otro</label>
+									</div>
+								</div>
+                            </div>
+                            
+						</form>
+						
+						<ng-template pTemplate="footer">
+							<p-button label="Guardar"  [disabled]="clientAdminForm.invalid" (click)="onSubmit()" icon="pi pi-check" ></p-button>
+						
+						</ng-template>
+
+					</p-card>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+</div>

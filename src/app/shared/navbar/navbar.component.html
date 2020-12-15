@@ -1,81 +1,61 @@
 <nav class="navbar is-fixed-top is-dark is-boxed" #navbar role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      <a class="navbar-item" (click)="onClickScroll('home')" >
-        <img src="../../../assets/images/bingo-logo.png" width="70px" height="30px" alt="BINGO-APP">
-      </a>
-  
-      <a (click)="toggleNavbar()" role="button" #navBurger class="navbar-burger burger" aria-label="menu" aria-expanded="false">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
-    </div>
-  
-    <div id="navbarBasicExample" class="navbar-menu" #navMenu>
- 
-        <div class="tabs is-hoverable">
-            <ul>
-                <span class="icon is-small"></span>
-                <a class="navbar-item" (click)="onClickScroll('home')">
-                <li>
-                    <strong> Inicio </strong> <span class ="icon is-small"> <i class="pi pi-home"></i> </span>
-                 </li>
-                </a>
-          
-               
-                <a class="navbar-item" (click)="onClickScroll('who-are-we')">
-                 <li>
-                    <strong>Quienes Somos</strong> <span class ="icon is-small"> <i class="pi pi-star-o"></i> </span>
-                </li>
+	<div class="navbar-brand">
+		<a class="navbar-item" (click)="onClickScroll('home')">
+			<img src="../../../assets/images/bingo-logo.png" width="70px" height="30px" alt="BINGO-APP">
+		</a>
 
-                </a>
-                
-                
-                    <a class="navbar-item" (click)="onClickScroll('pricing')">
-                         
-                       <li>
-                        <strong>Pricing</strong><span class ="icon is-small"> <i class="pi pi-dollar"></i> </span>
-                       </li>
-                    </a>
-             
-            </ul>
+		<a (click)="toggleNavbar()" role="button" #navBurger class="navbar-burger burger" aria-label="menu"
+			aria-expanded="false">
+			<span aria-hidden="true"></span>
+			<span aria-hidden="true"></span>
+			<span aria-hidden="true"></span>
+		</a>
+	</div>
 
-        </div>
-  
-       <!--  <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">
-            More
-          </a>
-  
-          <div class="navbar-dropdown">
-            <a class="navbar-item">
-              About
-            </a>
-            <a class="navbar-item">
-              Jobs
-            </a>
-            <a class="navbar-item">
-              Contact
-            </a>
-            <hr class="navbar-divider">
-            <a class="navbar-item">
-              Report an issue
-            </a>
-          </div> 
-        </div>-->
-      
-  
-      <div class="navbar-end">
-        <div class="navbar-item">
-          <div class="buttons">
-            <a class="button is-success is-hoverable">
-              <strong>Crear cuenta nueva</strong>
-            </a>
-            <a class="button is-danger is-hoverable" (click)="goLogon()">
-              <strong>Iniciar sesión</strong>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </nav>
+	<div id="navbarBasicExample" class="navbar-menu" #navMenu>
+
+		<div class="tabs is-hoverable">
+			<ul>
+				<span class="icon is-small"></span>
+				<a class="navbar-item" (click)="onClickScroll('home')">
+					<li>
+						<strong> Inicio </strong> <span class="icon is-small"> <i class="pi pi-home"></i> </span>
+					</li>
+				</a>
+
+
+				<a class="navbar-item" (click)="onClickScroll('who-are-we')">
+					<li>
+						<strong>Quienes Somos</strong> <span class="icon is-small"> <i class="pi pi-star-o"></i> </span>
+					</li>
+
+				</a>
+
+
+				<a class="navbar-item" (click)="onClickScroll('pricing')">
+
+					<li>
+						<strong>Pricing</strong><span class="icon is-small"> <i class="pi pi-dollar"></i> </span>
+					</li>
+				</a>
+
+			</ul>
+
+		</div>
+
+		<div class="navbar-end">
+			<div class="navbar-item">
+				<div class="buttons">
+					<a class="button is-success is-hoverable">
+						<strong>Crear cuenta nueva</strong>
+					</a>
+					<a class="button is-danger is-hoverable" (click)="goLogon()">
+						<strong>Iniciar sesión</strong>
+					</a>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+</nav>

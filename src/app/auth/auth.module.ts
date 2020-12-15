@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthRoutingModule } from './aut-routing.module' 
-import { LoginComponent } from "../../app/auth/components/login/login.component";
-import { RegisterComponent } from '../auth/register/register.component';
-
+import { LoginComponent } from "./components/login/login.component";
 import {ButtonModule} from 'primeng/button';
 import {CardModule} from 'primeng/card';
 import {ToastModule} from 'primeng/toast';
@@ -16,7 +14,7 @@ import { LogoutComponent } from './components/logout/logout.component';
 
 
 @NgModule({
- declarations: [LoginComponent, RegisterComponent, LogoutComponent],
+ declarations: [LoginComponent, LogoutComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,
