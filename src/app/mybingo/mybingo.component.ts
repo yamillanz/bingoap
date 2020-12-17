@@ -1,3 +1,4 @@
+import { ConfigsGeneService } from './../shared/services/configs-gene.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { SocketClientService } from './services/socket-client.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
@@ -11,10 +12,10 @@ import { first } from 'rxjs/operators';
 })
 export class MybingoComponent implements OnInit, OnDestroy {
 
-	//numerosBingo$ : Observable<number[]>;
 	numero: string = "   ";
 	porcentaje: number = 0;
 	idPartidaUsuario: string = "0-0";
+	duracionanimacion : number = 9100;
 	//nroCartones = [0, 1, 2]; // Array(3).fill(3).map((x, i) => i);
 	nroCartones: number[];
 	numerosYaSalieron: string[] = [];
@@ -35,10 +36,10 @@ export class MybingoComponent implements OnInit, OnDestroy {
 
 	constructor(private srvSocket: SocketClientService,
 		private router: Router,
-		private route: ActivatedRoute) {
+		private route: ActivatedRoute,
+		private srvConfigs :ConfigsGeneService) {
 		this.srvSocket.errores.subscribe((error) => {
 			if (error != "") {
-				console.log("se murio");
 				this.erroresServer = 1;
 				this.tituloDialogo = "UPS!!! Problemas de conección";
 				this.mensajeDialogo = "Existen problemas de conección con el servidor, revisa tu internet o intentalo mas tarde";
@@ -48,19 +49,17 @@ export class MybingoComponent implements OnInit, OnDestroy {
 	}
 
 
-	ngOnInit(): void {
+	async ngOnInit() {
 		//this.srvSocket.connect();
 		//this.numero = "B 14";
 		this.route.queryParams
 			.pipe(first())
 			.subscribe(params => {
-				// Defaults to 0 if no query param provided.
-
 				this.nroCartones = [...Array(parseInt(params.nrocartones)).keys()]; //Array(params.nrocartones).fill(params.nrocartones).map((x, i) => i); //params.nrocartones;
 				//console.log("generados : ", params.nrocartones);
 				this.idPartida = params.idPartida;
 				this.idSalaPartida = params.idSalaPartida;
-				console.log(this.idPartida);
+				//console.log(this.idPartida);
 
 				this.srvSocket.enjoySala(this.idPartida);
 			});
@@ -99,7 +98,9 @@ export class MybingoComponent implements OnInit, OnDestroy {
 				this.displayDialog = true;
 			}
 
-		})
+		});
+
+		this.duracionanimacion = ((await this.srvConfigs.findAll().toPromise())[0].emisionBolas) - 500;
 	}
 
 	volver() {
@@ -125,10 +126,6 @@ export class MybingoComponent implements OnInit, OnDestroy {
 		//this.displayDialog = true;
 		dataBingo.idSala = this.idPartida;
 		this.srvSocket.setBingo(dataBingo);
-		//this.srvSocket.connect();
-		//TODO: 
-		//Mensaje Socket al servidor
-		//Registrar en la BD 
 	}
 
 	aceptarMesaje() {

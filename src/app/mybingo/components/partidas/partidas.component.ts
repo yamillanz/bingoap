@@ -48,7 +48,7 @@ export class PartidasComponent implements OnInit {
 
 		if (nrocartones.getAttribute('aria-valuenow')) {
 			//let idUsuarioLoged = JSON.parse(sesionStorage.getItem('currentUser')).userData.id;
-			let idUsuarioLoged = JSON.parse(localStorage.getItem('currentUser')).userData.id;
+			let idUsuarioLoged = JSON.parse(sessionStorage.getItem('currentUser')).userData.id;
 			await this.srvPartidas.ingresarUsuarioAlaPartida({ idPartida: partidap.id, idUsuario: idUsuarioLoged }).toPromise();
 
 			/* partidap.idEstatus = 2;

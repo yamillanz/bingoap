@@ -93,8 +93,8 @@ export class SidebarComponent implements OnInit {
   }
   
   loadDataUser(idCliente) {
-    //this.dataCliente.idCliente = JSON.parse(sessionStorage.getItem('currentUser')).userData.idCliente;
-    this.dataCliente.idCliente = JSON.parse(localStorage.getItem('currentUser')).userData.idCliente;
+    this.dataCliente.idCliente = JSON.parse(sessionStorage.getItem('currentUser')).userData.idCliente;
+   //this.dataCliente.idCliente = JSON.parse(localStorage.getItem('currentUser')).userData.idCliente;
     this.menuService.getClientUsersData(this.dataCliente.idCliente).subscribe(data =>{
       this.DataCliente = data;
       const nick = this.nickname= data[0].nickname;

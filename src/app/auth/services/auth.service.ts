@@ -11,7 +11,7 @@ import { environment } from '../../../environments/environment';
 })
 export class AuthService {
 
-
+	isLogged: boolean = false;
 	private userData$: BehaviorSubject<User> = new BehaviorSubject<User>(this._initBehavior());
 
 	constructor(private http: HttpClient) {
@@ -21,8 +21,16 @@ export class AuthService {
 	}
 
 	login(user: LoginUser) {
-		return this.http.post<User>(`${environment.apiUrlAuth}auth/login`, user);
+		try {
+			this.isLogged = true;
+			return this.http.post<User>(`${environment.apiUrlAuth}auth/login`, user);
+		} catch (error) {
+			this.isLogged = false;
+			return error;
+		}
+
 	}
+	get isUserLogged() { return this.isLogged }
 
 	_initBehavior() {
 		let initUser: User = { userData: { id: "", email: "", activo: true, sesionActiva: "" }, accessToken: "" };
@@ -51,15 +59,23 @@ export class AuthService {
 	}
 
 	async logOut() {
-		//let currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
-		let currentUser = JSON.parse(localStorage.getItem('currentUser'));
-		await this.accionarSesion(currentUser).toPromise();
+		let currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+		//let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+		/* if(currentUser && currentUser.userData.sesionActiva === 1){
+			await this.accionarSesion(currentUser).toPromise();
+			sessionStorage.removeItem('currentUser');
+		} */
 		//this.unsetUserSubjet();
-		if (environment.production) {
-			//sessionStorage.removeItem('currentUser');
-			localStorage.removeItem('currentUser');
-			
+		//if (environment.production) {
+		if (currentUser) {
+			await this.accionarSesion(currentUser).toPromise();
+			sessionStorage.removeItem('currentUser');
+			this.isLogged = false;
 		}
+
+		//localStorage.removeItem('currentUser');
+
+		//}
 	}
 
 }

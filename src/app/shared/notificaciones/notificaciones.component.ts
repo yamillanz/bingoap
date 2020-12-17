@@ -20,8 +20,8 @@ export class NotificacionesComponent implements OnInit {
 	constructor(private router: Router, public notificacionesService: NotificacionesService) { }
 
 	ngOnInit(): void {
-		//this.notif.idUsuarioRecibe = JSON.parse(sessionStorage.getItem('currentUser')).userData.id;
-		this.notif.idUsuarioRecibe = JSON.parse(localStorage.getItem('currentUser')).userData.id;
+		this.notif.idUsuarioRecibe = JSON.parse(sessionStorage.getItem('currentUser')).userData.id;
+		//this.notif.idUsuarioRecibe = JSON.parse(localStorage.getItem('currentUser')).userData.id;
 		console.log('este es el id del usuario quien recibe las notif:', this.notif.idUsuarioRecibe);
 		this.loadNotificacion(this.notif.idUsuarioRecibe);
 
