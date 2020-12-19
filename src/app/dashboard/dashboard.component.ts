@@ -43,6 +43,7 @@ export class DashboardComponent implements OnInit {
 		  this.DataCliente = data;
 		  this.nickname= data[0].nickname;
 		  this.rol= data[0].rol;
+		  console.log('rol:', data[0].rol);
 		  this.idCliente= data[0].idCliente;
 		});
 		}

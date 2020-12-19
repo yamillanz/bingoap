@@ -94,11 +94,10 @@ ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-} */
+} 
 
-/* Rectangle 1 */
 
-/* .sidebar {
+.sidebar {
   position: absolute;
   width: 142px;
   height: 1024px;
@@ -106,8 +105,8 @@ ul {
   top: 0px;
   
   background: #192229;
-} */
-
+}
+ */
 
 
 
@@ -152,8 +151,8 @@ a, a:hover, a:focus {
 
 #sidebar {
   
-  background: #A6BF00;
-  color: #fff;
+ background: #A6BF00;
+  color: #fff; 
   transition: all 0.3s;
 }
 
@@ -166,7 +165,7 @@ a, a:hover, a:focus {
 
 #sidebar ul.components {
   padding: 10px 0;
-  border-bottom: 1px solid #001F27;
+  /* border-bottom: 1px solid #001F27; */
 }
 
 #sidebar ul p {
@@ -212,7 +211,6 @@ ul li a hr {
   overflow: hidden;
 
   img {
-    
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -220,12 +218,15 @@ ul li a hr {
   }
 
   texto {
-    margin-left: 10px;
+    margin-left: 50px;
     font-size: 1em;
   }
 
-  badge {
-    font-size: 5em;
+  .p-badge {
+    font-size: 1em; 
+    width: 5px;
+    height: 5px;
+    margin-left: 20px ;
   }
 }
 
@@ -234,15 +235,61 @@ ul li a hr {
   padding-left: 10px;
 }
 
-.textoTitulo {
-  padding-top: 15px;
-  padding-left: 40px;
+.textoSaldo {
+  padding-top: 5px;
+  padding-left: 60px;
   margin-right: 8px;
+}
+
+.textoTitulo {
+  padding-top: 0px;
+  margin-top: 0px;
+  margin-left: 15px;
+  display: inline-flex;
 }
 
 .textoTituloNavbar {
   padding-top: 2px;
-  padding-left: 20px;
+  padding-left: 25px;
 }
 
+.user-picture-navbar {
+  margin-bottom: 5px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  overflow: hidden;
+  border-width: 1px;
+  border-style:solid;
+  border-color: #2EBD75;
+  text-align: center;
+  background: #2EBD75;
+  padding-top: 5px;
+}
+
+.user-picture-sidebar {
+  padding-left: 13px;
+  padding-top: 6px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  overflow: hidden;
+  /* border-width: 1px;
+  border-style:solid;
+  border-color: #2EBD75; */
+  text-align: center;
+  background: #2EBD75;
+  display: inline-flex;
+  
+}
+
+
+   .button {
+     width: 40px;
+     height: 30px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+ 
 

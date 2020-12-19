@@ -1,0 +1,92 @@
+<app-sidebar></app-sidebar>
+
+ <div class="center"> 
+        <img src="../../assets/img/banners-perfil/profile-cover-({{this.weekday}}).jpg" height="500"/>
+        <div class="card">
+            <div class="card-redonda">
+                {{primeraLetra}}
+            </div>
+            <p><strong>{{this.nombreCompleto}}</strong></p>
+            <p><strong>@{{this.nickname}}</strong></p>
+            <p><img src="https://s.svgbox.net/flags-hd.svg?ic={{this.iso}}" height="20" width="20"/> {{this.nombre}}</p> 
+            
+            <div class=boton> 
+                <a (click)="showModalDialog()" class="button is-danger is-hoverable" ><strong>Editar perfil</strong></a>
+            </div>
+            </div>
+         
+  </div>
+
+
+<p-dialog class="dialog" header="Editar perfil" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
+    [draggable]="false" [resizable]="false">
+    <!-- <div class="p-fluid">
+        <div class="p-field p-grid">
+            
+            <div class="p-col-12 p-md-10">
+                <label for="firstname" class="p-col-12">Nombre completo:</label>
+                <input class="input" style="width:200px" id="firstname" type="text" pInputText [(ngModel)]="this.nombreCompleto"> 
+            </div>
+        </div>
+        <div class="p-field p-grid">
+            <label for="nickname" class="p-col-12">Nickname:</label>
+            <div class="p-col-12">
+                <input class="input" style="width:200px" id="nickname" type="text" pInputText [(ngModel)]="this.nickname"> 
+            </div>
+        </div>
+        <div class="p-field p-grid" >
+            <label for="direccion" class="p-col-12">Direccion completa:</label>
+            <div class="p-col-12">
+                <input class="input" style="width:500px" id="direccion" type="text" pInputText [(ngModel)]="this.direccion"> 
+            </div>
+        </div>
+        <div class="p-field p-grid">
+            <label for="phone-number" class="p-col-12">Nro de Teléfono:</label>
+            <div class="p-col-12">
+                <input class="input" style="width:200px" id="phone-number" type="text" pInputText [(ngModel)]="this.telefono"> 
+            </div>
+        </div>
+        <div class="p-field p-grid">
+            <label for="idCliente" class="p-col-12">Id:</label>
+            <div class="p-col-12">
+                <input class="input" style="width:200px" id="idCliente" type="text" pInputText [(ngModel)]="this.idCliente"> 
+            </div>
+        </div>
+    </div> -->
+   <!--  <form (ngSubmit)="onSubmit()"> -->
+        <form >
+      <div class="form-group">
+        <label for="nombreCompleto">Nombre</label>
+        <input type="text" class="form-control" id="nombreCompleto" [(ngModel)]="this.nombreCompleto" name="nombreCompleto">
+      
+      </div>
+      <div class="form-group">
+        <label for="name">Nickname</label>
+        <input type="text" class="form-control" id="nickname" [(ngModel)]="this.nickname" name="nickname">
+      
+      </div>
+      <div class="form-group">
+        <label for="name">Direccion</label>
+        <input type="text" class="form-control" id="direccion" [(ngModel)]="this.direccion" name="direccion">
+      
+      </div>
+      <div class="form-group">
+        <label for="name">Telefono</label>
+        <input type="text" class="form-control" id="numeroTelefono" [(ngModel)]="this.telefono" name="numeroTelefono">
+      </div>
+      <button style='margin-right:16px' class="btn btn-success">Submit</button>
+      
+      </form>
+
+
+    <!-- <p class="p-m-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> -->
+        <ng-template pTemplate="footer">
+        <p-button icon="pi pi-save"  label="Guardar" styleClass="p-button-text"></p-button>
+        </ng-template>
+</p-dialog>
+
+
+  
+  

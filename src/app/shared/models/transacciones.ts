@@ -6,4 +6,5 @@ export interface TransaccionesModel {
 	fechaCreacion?,
 	tipo_moneda?,
 	idUsuarioEnvia?,
+	nickname?,
 }

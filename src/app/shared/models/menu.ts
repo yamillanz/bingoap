@@ -11,4 +11,16 @@ export interface MenuModel {
 	nickname?,
 	numeroTelefono?,
 	rol?,
+	idPais?,
+	iso?,
+	direccion?,
+	fechaNacimiento?,
+	id?,
 }
+
+export class ApiResponse{
+    status:number;
+    message:number;
+    result: any;
+}
+

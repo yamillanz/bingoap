@@ -12,13 +12,23 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { SidebarModule } from 'primeng/sidebar';
 import { ButtonModule } from 'primeng/button';
 import {MenuModule} from 'primeng/menu';
-import {PanelMenuModule} from 'primeng/panelmenu';
-import {MenuItem} from 'primeng/api';
+import {DropdownModule} from 'primeng/dropdown';
+import {ToastModule} from 'primeng/toast';
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
+import {ToolbarModule} from 'primeng/toolbar';
+import {FileUploadModule} from 'primeng/fileupload';
+import {RatingModule} from 'primeng/rating';
 import { NotificacionesComponent } from './notificaciones/notificaciones.component'
-
+import { DialogModule } from 'primeng/dialog';
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { InputNumberModule } from 'primeng/inputnumber';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import { FormsModule } from '@angular/forms';
+import { PerfilComponent } from './perfil/perfil.component';
 
 @NgModule({
-	declarations: [MenuComponent, FooterComponent, NavbarComponent, SidebarComponent, NotificacionesComponent],
+	declarations: [MenuComponent, FooterComponent, NavbarComponent, SidebarComponent, NotificacionesComponent, PerfilComponent],
 	imports: [
 		CommonModule,
 		HttpClientModule,
@@ -26,7 +36,19 @@ import { NotificacionesComponent } from './notificaciones/notificaciones.compone
 		ButtonModule,
 		SidebarModule,
 		TooltipModule,
-		TableModule
+		TableModule,
+		ToastModule,
+		DropdownModule,
+		MessagesModule,
+		MessageModule,
+		ToolbarModule,
+		FileUploadModule,
+		RatingModule,
+		DialogModule,
+		RadioButtonModule,
+		InputNumberModule,
+		ConfirmDialogModule,
+		FormsModule
 	],
 	providers: [
 		{
@@ -41,7 +63,8 @@ import { NotificacionesComponent } from './notificaciones/notificaciones.compone
 		SidebarComponent,
 		NavbarComponent,
 		MenuModule,
-		NotificacionesComponent
+		NotificacionesComponent,
+		PerfilComponent
 	]
 	
 })

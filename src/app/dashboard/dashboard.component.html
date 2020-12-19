@@ -1,6 +1,7 @@
 <div class="p-grid p-fluid ">
 	<div class="p-col-12">
-		<app-navbar></app-navbar>
+		<!-- <app-navbar></app-navbar> -->
+		
 	</div>
 	<div class="p-col-2">
 		<app-sidebar></app-sidebar>
@@ -9,28 +10,34 @@
 		<main>
 			<router-outlet></router-outlet>
 			
-		</main>
-		<div class="p-col-10">
-			<div class="has-text-centered">
-				<h1 class="title is-size-1">
-					<strong> BINGO-APP</strong>
-				</h1>
-				<h2 class="subtitle">
-					Gana mucho dinero jugando
-				</h2>
-				<div>
-					<button class="button is-large is-danger"><strong>¡Juega
-							Ahora!</strong></button>
-				</div>
-			</div>
-		</div>
+		</main> 
 	</div>
+		
+		
 </div>
 
+<div class="imag" *ngIf="this.rol=='Usuario'">
+	<img src="../../assets/img/kisspng-bingo.png" width="300" /></div>
+<div class="boton" *ngIf="this.rol=='Usuario'">
+	<a href="/partidas"><button  class="button is-large is-danger"><strong>¡Juega
+	Ahora!</strong></button></a>
+</div>		
 
 
 
-<!-- <div>
-<p class="texto">algo : {{dataUser.userData.id}}</p>
-<button (click)="logout()">logout</button>
-</div> -->
+<!-- <div class="p-grid p-fluid image"  *ngIf="this.rol=='Usuario'">
+			<div class="has-text-centered ">
+				
+				<img src="../../assets/img/kisspng-bingo.png">
+				<br>
+				<div>
+					<a href="/partidas"><button  class="button is-large is-danger"><strong>¡Juega
+						Ahora!</strong></button></a>
+				</div>
+
+				
+
+
+
+			</div>
+		</div> -->

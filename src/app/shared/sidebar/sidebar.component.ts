@@ -10,7 +10,6 @@ import { NotificacionesService } from '../services/notificaciones.service';
 import { TransaccionesModel } from '../models/transacciones';
 import { user } from '../../auth/models/user';
 
-
 @Component({
   selector: 'app-sidebar', 
   templateUrl: './sidebar.component.html',
@@ -32,22 +31,28 @@ export class SidebarComponent implements OnInit {
   usuario: any = [];
   rol: any = [];
   nickname: any = [];
+  nombre: any = [];
   status: any = [];
   cliente: any = [];
-  userRecibe: any = [];
-  /* DataCliente: MenuModel[]; */
+  userBalance: any = [];
   dataCliente: any = [];
   DataCliente: MenuModel[];
   notif: any = [];
   notificaciones: NotificacionesModel[];
+  selectedNotificaciones: NotificacionesModel;
   cantidadNotificaciones: string;
   idCliente: any = [];
-  transacciones: TransaccionesModel[];
+  transacciones: TransaccionesModel[] = [];
   Transacciones: any = [];
+  montoTransaccion: any = [];
+  fechaTransaccion: any = [];
+  quienTransfiere: any = [];
+  primeraLetra:any = [];
 
   constructor(private primengConfig: PrimeNGConfig, private router: Router, 
     public menuService: MenuService, private sidebarService: SidebarService, 
-    public notificacionesService: NotificacionesService, private viewportScroller: ViewportScroller,) {
+    public notificacionesService: NotificacionesService, 
+    private viewportScroller: ViewportScroller) {
       
      }
 
@@ -87,17 +92,22 @@ export class SidebarComponent implements OnInit {
     this.loadMenu(this.Menu.idRolUsuario);
     this.loadDataUser(this.idCliente);
     this.loadCantNotificacion(this.notif.idUsuarioRecibe);
-    this.loadBalance(this.userRecibe);
+    this.loadBalance(this.userBalance);
+    
     
   }
-  
+   
   loadDataUser(idCliente) {
     this.dataCliente.idCliente = JSON.parse(sessionStorage.getItem('currentUser')).userData.idCliente;
     this.menuService.getClientUsersData(this.dataCliente.idCliente).subscribe(data =>{
       this.DataCliente = data;
       const nick = this.nickname= data[0].nickname;
+      this.nombre = data[0].nombreCompleto;
       this.rol= data[0].rol;
-    });
+      const cadena = this.nombre;
+      this.primeraLetra = cadena.charAt(0);
+      console.log ('primera letra:', this.primeraLetra );
+    }); 
     }
 
   loadMenu(idRol) {
@@ -107,11 +117,15 @@ export class SidebarComponent implements OnInit {
   }
 
   loadBalance(idUsuarioRecibe) {
-    this.userRecibe = JSON.parse(sessionStorage.getItem('currentUser')).userData.id;
-    this.notificacionesService.getBalanceByUser(this.userRecibe).subscribe( data =>{
+    this.userBalance= JSON.parse(sessionStorage.getItem('currentUser')).userData.id;
+    console.log
+    this.notificacionesService.getBalanceByUser(this.userBalance).subscribe( data =>{
       this.transacciones = data;
       console.log('este es el balance', data[0].acumulado);
-      this.Transacciones = data[0].acumulado
+      this.Transacciones = data[0].acumulado;
+      this.montoTransaccion = data[0].monto;
+      this.fechaTransaccion= data[0].fechaCreacion;
+      this.quienTransfiere= data[0].nickname;
     });
   }
 
@@ -126,6 +140,7 @@ export class SidebarComponent implements OnInit {
     });
   }
 
+ 
  
   isMobileMenu() {
     if (window.innerWidth > 991) {

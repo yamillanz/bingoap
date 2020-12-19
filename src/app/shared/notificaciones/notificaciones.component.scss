@@ -48,17 +48,38 @@
   }
 
   .container1 {
-    padding-left: 0px;
+    padding-left: 5px;
     padding-top: 0;
+    padding-right: 5px;
     padding-bottom: 0;
     font-size: 1em;
     margin-bottom: 20px;
+    
   }
 
   .table {
+    background:#002B36;
     margin-top: 100px;
-    margin-left: 300px;
+    margin-left: 100px;
     margin-right: 100px;
+    text-align: center;
+    color:lightgrey;
+    /* th {
+      background:#002B36;
+      border:2px solid    #2f4f4f; padding:15px;
+      color:lightgrey;
+    }
+    td {
+      white-space: wrap;
+      background:#002B36;
+      border:2px solid #2f4f4f; padding:15px;
+      color: lightgrey;
+     } */
   }
 
- 
+  .boton{
+    margin-top: 40px;
+    margin-left: 100px;
+    font-size: 1em;
+  }
+  
