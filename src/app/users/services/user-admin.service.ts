@@ -12,7 +12,7 @@ export class UserAdminService {
   constructor(private http: HttpClient) { }
 
   createUser(user: user){
-		return this.http.post<user>(`${environment.apiUrlAuth}users/register`, user)
+		return this.http.post<user>(`${environment.apiUrlAuth}users/register`, user);
   }
   
   mailer(mensaje: any){
