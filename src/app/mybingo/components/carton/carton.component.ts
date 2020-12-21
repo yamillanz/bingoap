@@ -150,9 +150,7 @@ export class CartonComponent implements OnInit/* , OnChanges */ {
 	marcarBola(celdaP: string, fila, col) {
 		if (!(fila == "2" && col == "2")) {
 			this.celda = document.getElementById(celdaP) as HTMLElement;
-			//console.log("id celda: ", celdaP);
-			//console.log("valor: ", celdaP.substring(celdaP.indexOf("-") + 1, celdaP.length));
-			//console.log("valor: ", this.matrizCarton[fila][col]);
+
 			const sisalio = this.numerosSorteados.find(elemento => elemento == celdaP.substring(celdaP.indexOf("-") + 1, celdaP.length));
 
 			//console.log("salio: ", );
@@ -161,26 +159,16 @@ export class CartonComponent implements OnInit/* , OnChanges */ {
 				this.marcadosYasalieron = [... this.marcadosYasalieron, this.matrizCarton[fila][col]];
 				this.bingoEsteCarton = this.marcadosVsPatrones(this.matrizCarton[fila][col], fila, col);
 				//console.log("Canto: ", this.bingoEsteCarton);
-
-				//this.marcadosVsPatrones(this.matrizCarton[fila][col], fila, col);
-				//this.findInMatrix("3");
 			}
 		}
-
-
 	}
 
 	cantarBingo() {
+		//this.datosBingoCantado.emit({ nroCarton: this.id, modoBingo: this.bingoEsteCarton, numsBingo: this.marcadosYasalieron }); return true;
 		if (this.bingoEsteCarton) {
 			//console.log("Canto: ", this.bingoEsteCarton);
 			this.datosBingoCantado.emit({ nroCarton: this.id, modoBingo: this.bingoEsteCarton, numsBingo: this.marcadosYasalieron });
 		}
 	}
-
-	/* ngOnChanges(changes: SimpleChanges) {
-		//console.log("Salieron Carton: ", changes.numerosSorteados.currentValue);
-		//console.log("Salieron Carton: ", this.numerosSorteados);
-
-	} */
 
 }

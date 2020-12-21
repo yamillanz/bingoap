@@ -8,6 +8,7 @@ import { MessageService } from 'primeng/api';
 import { NgForm } from '@angular/forms';
 import { Location } from '@angular/common';
 
+
 @Component({
 	selector: 'app-notificaciones',
 	templateUrl: './notificaciones.component.html',
@@ -114,6 +115,7 @@ export class NotificacionesComponent implements OnInit {
 
 	loadNotificacion(idUsuarioRecibe) {
 		this.notif.idUsuarioRecibe = JSON.parse(sessionStorage.getItem('currentUser')).userData.id;
+		//this.notif.idUsuarioRecibe = JSON.parse(localStorage.getItem('currentUser')).userData.id;
 		this.notificacionesService.getNotificationsByUser(this.notif.idUsuarioRecibe).subscribe(data => {
 			 this.notificaciones = data;
 			 /* this.idNotifi =data[0].idNotificacion; */

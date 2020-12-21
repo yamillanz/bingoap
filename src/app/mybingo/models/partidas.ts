@@ -7,5 +7,6 @@ export interface Partidas {
     monto?;
     limiteCartones?;
     idSala,
-    idEstatus?: number
+    idEstatus?: number,
+    observaciones?
 }

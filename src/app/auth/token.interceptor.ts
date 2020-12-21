@@ -14,6 +14,7 @@ export class TokenInterceptor implements HttpInterceptor {
 
 	intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 		let currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+		//let currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
 		if (currentUser) {
 			request = request.clone({
@@ -22,6 +23,6 @@ export class TokenInterceptor implements HttpInterceptor {
 				}
 			});
 		}
-		return next.handle(request); 
+		return next.handle(request);
 	}
 }

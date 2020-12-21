@@ -15,7 +15,7 @@ import { NotificacioneditComponent } from './shared/notificaciones/notificacione
 
 const routes: Routes = [
 	{ path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule), canLoad: [AuthLoadGuard] },
-	{path: 'landing', loadChildren: () => import('./landing/landing.module').then(m => m.LandingModule)},
+	{ path: 'landing', loadChildren: () => import('./landing/landing.module').then(m => m.LandingModule) },
 	{ path: 'partidas', loadChildren: () => import('./mybingo/mybingo.module').then(m => m.MybingoModule) },
 	{ path: 'mybingo', loadChildren: () => import('./mybingo/mybingo.module').then(m => m.MybingoModule) },
 	{ path: 'registro', loadChildren: () => import('./users/users.module').then(m => m.UsersModule) },
@@ -26,21 +26,19 @@ const routes: Routes = [
 	{ path: 'partidas/:idSala', loadChildren: () => import('./mybingo/mybingo.module').then(m => m.MybingoModule) },
 	//{ path: 'login', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
 	{ path: 'login', redirectTo: 'landing/login', },
-	
 	//{ path: 'register', redirectTo: 'landing/register', },
-
-
 	{
 		path: '',
 		redirectTo: 'landing',
 		pathMatch: 'full'
 	},
+	{ path: 'freegame', loadChildren: () => import('./free-game/free-game.module').then(m => m.FreeGameModule) },
 
 ];
 
 export const AdminLayoutRoutes: Routes = [
 	{ path: "dashboard", component: DashboardComponent },
-  ];
+];
 
 @NgModule({
 	imports: [
