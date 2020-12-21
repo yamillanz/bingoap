@@ -9,5 +9,6 @@ export interface NotificacionesModel {
 	mensajeForAll?,
 	email?,
 	cantidadNotificaciones?,
+	idNotificacion?,
     
 }

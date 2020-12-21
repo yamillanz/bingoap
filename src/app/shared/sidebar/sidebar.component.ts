@@ -10,7 +10,6 @@ import { NotificacionesService } from '../services/notificaciones.service';
 import { TransaccionesModel } from '../models/transacciones';
 import { user } from '../../auth/models/user';
 
-
 @Component({
   selector: 'app-sidebar', 
   templateUrl: './sidebar.component.html',
@@ -32,22 +31,30 @@ export class SidebarComponent implements OnInit {
   usuario: any = [];
   rol: any = [];
   nickname: any = [];
+  nombre: any = [];
   status: any = [];
   cliente: any = [];
-  userRecibe: any = [];
-  /* DataCliente: MenuModel[]; */
+  userBalance: any = [];
   dataCliente: any = [];
+  /* DataCliente: MenuModel[]; */
   DataCliente: MenuModel[];
   notif: any = [];
   notificaciones: NotificacionesModel[];
+  selectedNotificaciones: NotificacionesModel;
   cantidadNotificaciones: string;
   idCliente: any = [];
-  transacciones: TransaccionesModel[];
+  transacciones: TransaccionesModel[] = [];
   Transacciones: any = [];
+  montoTransaccion: any = [];
+  fechaTransaccion: any = [];
+  quienTransfiere: any = [];
+  primeraLetra:any = [];
+  userRecibe: any = [];
 
   constructor(private primengConfig: PrimeNGConfig, private router: Router, 
     public menuService: MenuService, private sidebarService: SidebarService, 
-    public notificacionesService: NotificacionesService, private viewportScroller: ViewportScroller,) {
+    public notificacionesService: NotificacionesService, 
+    private viewportScroller: ViewportScroller) {
       
      }
 
@@ -83,55 +90,65 @@ export class SidebarComponent implements OnInit {
     }
 
   ngOnInit(): void {
-    //this.cliente.id = JSON.parse(sessionStorage.getItem('currentUser')).userData.id;
-    this.cliente.id = JSON.parse(localStorage.getItem('currentUser')).userData.id;
+    this.cliente.id = JSON.parse(sessionStorage.getItem('currentUser')).userData.id;
+    /* this.cliente.id = JSON.parse(localStorage.getItem('currentUser')).userData.id; */
     this.loadMenu(this.Menu.idRolUsuario);
     this.loadDataUser(this.idCliente);
     this.loadCantNotificacion(this.notif.idUsuarioRecibe);
-    this.loadBalance(this.userRecibe);
+    this.loadBalance(this.userBalance);
+    
     
   }
-  
+   
   loadDataUser(idCliente) {
     this.dataCliente.idCliente = JSON.parse(sessionStorage.getItem('currentUser')).userData.idCliente;
    //this.dataCliente.idCliente = JSON.parse(localStorage.getItem('currentUser')).userData.idCliente;
     this.menuService.getClientUsersData(this.dataCliente.idCliente).subscribe(data =>{
       this.DataCliente = data;
       const nick = this.nickname= data[0].nickname;
+      this.nombre = data[0].nombreCompleto;
       this.rol= data[0].rol;
-    });
+      const cadena = this.nombre;
+      console.log('cadena', cadena);
+      this.primeraLetra = cadena.charAt(0);
+      console.log ('primera letra:', this.primeraLetra );
+    }); 
     }
 
   loadMenu(idRol) {
-    //this.Menu.idRol = JSON.parse(sessionStorage.getItem('currentUser')).userData.idRolUsuario;
-    this.Menu.idRol = JSON.parse(localStorage.getItem('currentUser')).userData.idRolUsuario;
+    this.Menu.idRol = JSON.parse(sessionStorage.getItem('currentUser')).userData.idRolUsuario;
+    /* this.Menu.idRol = JSON.parse(localStorage.getItem('currentUser')).userData.idRolUsuario; */
     return this.menuService.getMenuByIdRol(this.Menu.idRol).subscribe( data => this.Menu = data ),  
     console.log('este es el rol del usuario', this.Menu.idRol)  ;
   }
 
   loadBalance(idUsuarioRecibe) {
-    //this.userRecibe = JSON.parse(sessionStorage.getItem('currentUser')).userData.id;
-    this.userRecibe = JSON.parse(localStorage.getItem('currentUser')).userData.id;
+    this.userRecibe = JSON.parse(sessionStorage.getItem('currentUser')).userData.id;
+    /* this.userRecibe = JSON.parse(localStorage.getItem('currentUser')).userData.id; */
     this.notificacionesService.getBalanceByUser(this.userRecibe).subscribe( data =>{
       this.transacciones = data;
       console.log('este es el balance', data[0].acumulado);
-      this.Transacciones = data[0].acumulado
+      this.Transacciones = data[0].acumulado;
+      this.montoTransaccion = data[0].monto;
+      this.fechaTransaccion= data[0].fechaCreacion;
+      this.quienTransfiere= data[0].nickname;
     });
   }
 
 
    // Esto es para obtener la data de las cant de notificaciones del usuario en el badge
   loadCantNotificacion(idUsuarioRecibe) {
-    //this.notif.idUsuarioRecibe = JSON.parse(sessionStorage.getItem('currentUser')).userData.id;
-    this.notif.idUsuarioRecibe = JSON.parse(localStorage.getItem('currentUser')).userData.id;
+    this.notif.idUsuarioRecibe = JSON.parse(sessionStorage.getItem('currentUser')).userData.id;
+    //this.notif.idUsuarioRecibe = JSON.parse(localStorage.getItem('currentUser')).userData.id;
     
     this.notificacionesService.getCantNotificationsByUser(this.notif.idUsuarioRecibe).subscribe(data =>{
       this.notificaciones = data;
       console.log('Cantidad de  notificaciones:', data[0].cantidadNotificaciones);
       this.cantidadNotificaciones = data[0].cantidadNotificaciones;
-    });
+    }); 
   }
 
+ 
  
   isMobileMenu() {
     if (window.innerWidth > 991) {

@@ -13,6 +13,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from '../users/register/register.component';
 import { ClientAdminComponent } from '../users/client-admin/client-admin.component'
 import { UsersRoutingModule } from '../users/users-routing.module';
+import {BlockUIModule} from 'primeng/blockui';
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
 
 
 @NgModule({
@@ -31,6 +34,9 @@ import { UsersRoutingModule } from '../users/users-routing.module';
     DropdownModule,
     CalendarModule,
     RadioButtonModule,
+    BlockUIModule,
+    MessageModule,
+    MessagesModule,
   ]
 })
 export class UsersModule { }

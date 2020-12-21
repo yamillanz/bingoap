@@ -1,50 +1,38 @@
 <app-sidebar></app-sidebar>
-<!-- <app-navbar></app-navbar> -->
- <!-- <div class="container">
-    <div class="container">
-        <p class="title is-4 container"> <i class="pi pi-cloud-download" style="font-size: 2rem"></i> Mensajeria</p> -->
-        <!-- <button pButton type="button" 
-                label="Marcar todos como leidos" icon="pi pi-check" iconPos="left" 
-                class="p-button-danger container1" (onClick)="handleClick($event)">
-        </button> -->
-       <!--  <button pButton type="button" 
-                label="Marcar todos como leidos" icon="pi pi-check" iconPos="left" 
-                class="p-button-danger container1">
-        </button>
-    </div> -->
-    <!-- <div class="card is-horizontal is-half">
-      <div class="card-content">
-        <div class="content" *ngFor="let notificacion of notificaciones">
-            <div class="card-header"><h3>{{notificacion.mensaje}}</h3></div>
-            <a class="card-body"> Enviado el: {{notificacion.fechaEnvio | date: 'dd/MM/yyyy'}} a las {{notificacion.fechaEnvio | date: 'hh:MM:ss'}}</a>
-          <br>
-          <time datetime="2016-1-1">{{notificacion.fechaEnvio}}</time>
-        </div>
-      </div> -->
 
-     
-
-  <!--   </div> -->
-  
-<div class="table" >
-    <p-table [value]="notificaciones">
-      <ng-template pTemplate="header">
-          <tr>
-              <th></th>
-              <th>Fecha recibido</th>
-              <th>Mensaje</th>
-          </tr>
-      </ng-template>
-      <ng-template pTemplate="body" let-notificaciones>
-          <tr>
-              <td><i class="far fa-envelope"></i></td>
-              <td>{{notificaciones.fechaEnvio | date: 'dd/MM/yyyy'}} </td>
-              <td>{{notificaciones.mensaje}}</td>
-              <!-- <td>{{notificaciones.category}}</td>
-              <td>{{notificaciones.quantity}}</td> -->
-          </tr>
-      </ng-template>
-  </p-table>
+    
+<div class="p-card">
+    <p-card>
+        <p-header>
+            <i class="pi pi-inbox" style="font-size: 1rem"></i> Buzon de entrada
+        </p-header>
+        <ul *ngFor="let notificacion of notificaciones">
+            <li>
+                <a pTooltip="Abrir mensaje" tooltipPosition="bottom" [routerLink]="['/notificaciones/edit', notificacion.idNotificacion]"> <i class="pi pi-envelope" style="font-size: 1rem"></i> {{notificacion.mensaje}}</a>
+            </li>
+            <br>
+            <li>
+                <i class="pi pi-calendar"  style="font-size: 1rem"></i> {{notificacion.fechaEnvio | date: 'dd/MM/yyyy HH:MM:SS'}}
+            </li>
+            <br>
+           <!--  <li>
+                <br>
+                <a (click)="showDialog()"  class="button is-danger is-hoverable" ><strong>Borrar mensaje</strong></a>
+            </li> -->
+            <br> 
+            
+        </ul>
+        <p-footer>
+            <i class="pi pi-eye" style="font-size: 1rem"></i>  Tienes {{this.cantidadNotificaciones}} mensajes sin leer.
+        </p-footer>
+    </p-card>
 </div>
-  
+
+
+
+
+
+
+
  
+  
