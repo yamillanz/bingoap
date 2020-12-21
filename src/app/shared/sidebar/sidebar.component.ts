@@ -90,8 +90,8 @@ export class SidebarComponent implements OnInit {
     }
 
   ngOnInit(): void {
-    //this.cliente.id = JSON.parse(sessionStorage.getItem('currentUser')).userData.id;
-    this.cliente.id = JSON.parse(localStorage.getItem('currentUser')).userData.id;
+    this.cliente.id = JSON.parse(sessionStorage.getItem('currentUser')).userData.id;
+    /* this.cliente.id = JSON.parse(localStorage.getItem('currentUser')).userData.id; */
     this.loadMenu(this.Menu.idRolUsuario);
     this.loadDataUser(this.idCliente);
     this.loadCantNotificacion(this.notif.idUsuarioRecibe);
@@ -116,15 +116,15 @@ export class SidebarComponent implements OnInit {
     }
 
   loadMenu(idRol) {
-    //this.Menu.idRol = JSON.parse(sessionStorage.getItem('currentUser')).userData.idRolUsuario;
-    this.Menu.idRol = JSON.parse(localStorage.getItem('currentUser')).userData.idRolUsuario;
+    this.Menu.idRol = JSON.parse(sessionStorage.getItem('currentUser')).userData.idRolUsuario;
+    /* this.Menu.idRol = JSON.parse(localStorage.getItem('currentUser')).userData.idRolUsuario; */
     return this.menuService.getMenuByIdRol(this.Menu.idRol).subscribe( data => this.Menu = data ),  
     console.log('este es el rol del usuario', this.Menu.idRol)  ;
   }
 
   loadBalance(idUsuarioRecibe) {
-    //this.userRecibe = JSON.parse(sessionStorage.getItem('currentUser')).userData.id;
-    this.userRecibe = JSON.parse(localStorage.getItem('currentUser')).userData.id;
+    this.userRecibe = JSON.parse(sessionStorage.getItem('currentUser')).userData.id;
+    /* this.userRecibe = JSON.parse(localStorage.getItem('currentUser')).userData.id; */
     this.notificacionesService.getBalanceByUser(this.userRecibe).subscribe( data =>{
       this.transacciones = data;
       console.log('este es el balance', data[0].acumulado);
@@ -138,8 +138,8 @@ export class SidebarComponent implements OnInit {
 
    // Esto es para obtener la data de las cant de notificaciones del usuario en el badge
   loadCantNotificacion(idUsuarioRecibe) {
-    //this.notif.idUsuarioRecibe = JSON.parse(sessionStorage.getItem('currentUser')).userData.id;
-    this.notif.idUsuarioRecibe = JSON.parse(localStorage.getItem('currentUser')).userData.id;
+    this.notif.idUsuarioRecibe = JSON.parse(sessionStorage.getItem('currentUser')).userData.id;
+    //this.notif.idUsuarioRecibe = JSON.parse(localStorage.getItem('currentUser')).userData.id;
     
     this.notificacionesService.getCantNotificationsByUser(this.notif.idUsuarioRecibe).subscribe(data =>{
       this.notificaciones = data;
