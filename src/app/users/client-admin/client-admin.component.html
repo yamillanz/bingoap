@@ -32,9 +32,7 @@
                                 <input name="nickname" type="nickname" placeholder="nickname, alias..." pattern="[a-zA-Z ]*" pInputText formControlName="nickname"/>
 								</div>
 							</div>
-						<!-- 	 <div *ngIf="nickname.errors">
-							<small>El nickname no debe contiene espacios</small>
-							  </div> -->
+						
                             <div class="p-text-left">
                                 <label for="fechaNacimiento" class="p-text-left">Fecha de Nacimiento</label>
                             </div>
@@ -58,19 +56,7 @@
                             </div>
                             <div class="p-field p-col-12">
 								
-									<!-- <div class="p-field-checkbox">
-									<p-radioButton name="femenino" value="F" [(ngModel)]="newClient.genero" inputId="F" [ngModelOptions]="{standalone: true}"></p-radioButton>
-									<label for="generoF">Mujer</label>
-									</div>
-									<div class="p-field-checkbox">
-										<p-radioButton name="masculino" value="M" [(ngModel)]="newClient.genero" inputId="M" [ngModelOptions]="{standalone: true}"></p-radioButton>
-										<label for="generoM">Hombre</label>
-									</div>
-									<div class="p-field-checkbox">
-										<p-radioButton name="otro" value="O" [(ngModel)]="newClient.genero" inputId="O" [ngModelOptions]="{standalone: true}"></p-radioButton>
-										<label for="generoO">Otro</label>
-									</div> -->
-									<p-dropdown [options]="gender" [(ngModel)]="selectedGender" optionLabel="label"  optionValue="selectedGender.value" [showTransitionOptions]="'0ms'" [hideTransitionOptions]="'0ms'" (onChange)="setGender()" [ngModelOptions]="{standalone: true}"></p-dropdown>
+								<p-dropdown [options]="gender" [(ngModel)]="selectedGender" optionLabel="label"  optionValue="selectedGender.value" [showTransitionOptions]="'0ms'" [hideTransitionOptions]="'0ms'" (onChange)="setGender()" [ngModelOptions]="{standalone: true}"></p-dropdown>
 	
                             </div>
                             
