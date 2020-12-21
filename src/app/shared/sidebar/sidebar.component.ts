@@ -36,6 +36,7 @@ export class SidebarComponent implements OnInit {
   cliente: any = [];
   userBalance: any = [];
   dataCliente: any = [];
+  /* DataCliente: MenuModel[]; */
   DataCliente: MenuModel[];
   notif: any = [];
   notificaciones: NotificacionesModel[];
@@ -105,6 +106,7 @@ export class SidebarComponent implements OnInit {
       this.nombre = data[0].nombreCompleto;
       this.rol= data[0].rol;
       const cadena = this.nombre;
+      console.log('cadena', cadena);
       this.primeraLetra = cadena.charAt(0);
       console.log ('primera letra:', this.primeraLetra );
     }); 
@@ -137,7 +139,7 @@ export class SidebarComponent implements OnInit {
       this.notificaciones = data;
       console.log('Cantidad de  notificaciones:', data[0].cantidadNotificaciones);
       this.cantidadNotificaciones = data[0].cantidadNotificaciones;
-    });
+    }); 
   }
 
  

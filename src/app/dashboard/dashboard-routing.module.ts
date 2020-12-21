@@ -8,7 +8,9 @@ const routes: Routes = [
 	{
 		path: '', component: DashboardComponent,
 		children: [{ path: 'notificaciones', component: NotificacionesComponent},
-		{path: 'perfil', component: PerfilComponent }],
+		{path: 'perfil', component: PerfilComponent },
+		
+	],
 	}
 ];
 

@@ -44,15 +44,23 @@ export class NotificacionesService {
     
   };
 
-  getDialogData() {
-    return this.dialogData;
-  } 
-
+  
   getNotificationsByUser(idUsuarioRecibe:number) : Observable<NotificacionesModel[]>{
-    const url = `${this.url}/usuario/${idUsuarioRecibe}`;
+    /* const url = `${this.url}/usuario/${idUsuarioRecibe}`; */
+    const url = `${this.url}/mensaje/${idUsuarioRecibe}`;
     console.log('Esta es la URL: ', url);
     return this.httpClient.get<NotificacionesModel[]>(url)      
   }
+
+
+  getNotification(idNotificacion:number) : Observable<NotificacionesModel[]>{
+    /* const url = `${this.url}/usuario/${idUsuarioRecibe}`; */
+    const url = `${this.url}/notif/${idNotificacion}`;
+    console.log('Esta es la URL: ', url);
+    return this.httpClient.get<NotificacionesModel[]>(url)      
+  }
+
+  
 
   getCantNotificationsByUser(idUsuarioRecibe:number) : Observable<NotificacionesModel[]>{
     const url = `${this.url}/usuario/cant/${idUsuarioRecibe}`;
@@ -66,8 +74,8 @@ export class NotificacionesService {
     return this.httpClient.get<TransaccionesModel[]>(url1)       
   }
 
-  updateMensaje(idNotificacion, mensajesData){
-    return this.httpClient.put(this.url + '/mensaje/' + idNotificacion, mensajesData);
+  updateMensaje(idNotificacion: number, mensaje: NotificacionesModel): Observable<NotificacionesModel> {
+    return this.httpClient.put(`${this.url}/mensaje/${idNotificacion}`, mensaje);
   }
 
   

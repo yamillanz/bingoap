@@ -26,9 +26,14 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import { FormsModule } from '@angular/forms';
 import { PerfilComponent } from './perfil/perfil.component';
+import { EditComponent } from './perfil/edit/edit.component';
+import {CardModule} from 'primeng/card';
+import { NotificacioneditComponent } from './notificaciones/notificacionedit/notificacionedit.component';
+import {InputTextareaModule} from 'primeng/inputtextarea';
+
 
 @NgModule({
-	declarations: [MenuComponent, FooterComponent, NavbarComponent, SidebarComponent, NotificacionesComponent, PerfilComponent],
+	declarations: [MenuComponent, FooterComponent, NavbarComponent, SidebarComponent, NotificacionesComponent, PerfilComponent, EditComponent, NotificacioneditComponent],
 	imports: [
 		CommonModule,
 		HttpClientModule,
@@ -48,7 +53,9 @@ import { PerfilComponent } from './perfil/perfil.component';
 		RadioButtonModule,
 		InputNumberModule,
 		ConfirmDialogModule,
-		FormsModule
+		FormsModule,
+		CardModule,
+		InputTextareaModule
 	],
 	providers: [
 		{

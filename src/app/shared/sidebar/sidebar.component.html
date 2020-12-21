@@ -83,7 +83,7 @@
           
                 <ul class="collapse list-unstyled" id="homeSubmenu">
                     <li>
-                        <a routerLink="/notificaciones"> <i class="pi pi-bell" style="font-size: 1em"></i> Notificaciones 
+                        <a class="a-sidebar" routerLink="/notificaciones" > <i class="icon pi pi-bell" style="font-size: 1em"></i> Notificaciones 
                           <ng-container *ngIf="cantidadNotificaciones!'0'">
                               <span class="p-badge p-badge-danger badge" style="font-size: 0.8em"><strong>{{cantidadNotificaciones}}</strong></span>
                          </ng-container>
@@ -91,8 +91,11 @@
                         </a>
                     </li>
                     <li>
-                        <a routerLink="/perfil"><i class="pi pi-user-edit"></i> Perfil</a>
+                        <a class="a-sidebar" routerLink="/perfil"><i class="icon pi pi-user-edit"></i> Perfil</a>
                     </li>
+                    <li>
+                      <a class="a-sidebar" routerLink="/dashboard"><i class="icon pi pi-th-large"></i> Dashboard</a>
+                  </li>
                 </ul>
             <hr class= "line" style="height:0.6px;width:100%;border-style:0.6px solid #000;text-align:right;margin-right:0px;" />
            <li>

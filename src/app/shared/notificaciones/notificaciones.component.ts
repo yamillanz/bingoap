@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NotificacionesModel } from '../models/notificaciones';
 import { NotificacionesService } from '../services/notificaciones.service';
 import { MenuService } from '../services/menu.service';
@@ -86,19 +86,28 @@ export class NotificacionesComponent implements OnInit {
 	mensajesData: NotificacionesModel= {}; 
 	notif: any = [];
 	notificaciones: NotificacionesModel[] = [];
+	displayModal: boolean = false;
 	cantidadNotificaciones: NotificacionesModel[];
 	mensajeDialog: boolean;
 	submitted: boolean;
 	selectedMensaje: NotificacionesModel[];
+	idUsuarioRecibe:any;
+	idNotifi:any;
+	fechaEnvio:string;
+	mensaje:any;
 
-	constructor(private router: Router, public notificacionesService: NotificacionesService,  
+	constructor(private actroute: ActivatedRoute, private router: Router, public notificacionesService: NotificacionesService,  
 		private messageService: MessageService, private confirmationService: ConfirmationService) { }
 
-	ngOnInit(): void {
+	ngOnInit() {
+		
+
+
 		this.notif.idUsuarioRecibe = JSON.parse(sessionStorage.getItem('currentUser')).userData.id;
+		this.idUsuarioRecibe = JSON.parse(sessionStorage.getItem('currentUser')).userData.id;
 		console.log('este es el id del usuario quien recibe las notif:', this.notif.idUsuarioRecibe);
 		this.loadNotificacion(this.notif.idUsuarioRecibe);
-		
+		this.loadCantNotificacion(this.idUsuarioRecibe);
 
 	}
 
@@ -107,6 +116,8 @@ export class NotificacionesComponent implements OnInit {
 		this.notif.idUsuarioRecibe = JSON.parse(sessionStorage.getItem('currentUser')).userData.id;
 		this.notificacionesService.getNotificationsByUser(this.notif.idUsuarioRecibe).subscribe(data => {
 			 this.notificaciones = data;
+			 /* this.idNotifi =data[0].idNotificacion; */
+			
 			 /* sessionStorage.setItem('MisNotificaciones', JSON.stringify(data)); */
 			})
 		
@@ -119,101 +130,49 @@ export class NotificacionesComponent implements OnInit {
 		// this.svrAuth.logOut();
 	}
 
-	/* updateMensaje(idNotificacion: number, mensaje: string, fechaEnvio: string) {
-		console.log("mensaje leido:", this.mensajesData.leido);
-		this.idNotificacion = idNotificacion;
-		/* console.log("ID Notificacion:", this.idNotificacion); */
-		/* if(window.confirm('Esta seguro de marcar el mensaje como leido')) {
-		  this.notificacionesService.updateNotificacion(this.notificaciones[0].idNotificacion, this.mensajesData.leido)
-			.subscribe(data => this.mensajesData = data)
-		} */
-	
-
-	  /* updateMensaje() {
-		const mensajesData = this.mensajesData.leido=1;
-		this.mensajesData.idNotificacion = JSON.parse(sessionStorage.getItem('MisNotificaciones')).idNotificacion;
-		
-		console.log("Este es el numero de la notificacion:", this.mensajesData.idNotificacion);
-        if(window.confirm('Esta seguro de eliminar este mensaje?')) {
-				this.notificacionesService.updateMensaje(this.mensajesData.idNotificacion, mensajesData).subscribe(data => {
-					this.mensajesData = data;
-            })
-        } 
-	  } */
-	  
-
-	  confirm() {
-		const mensajesData = this.mensajesData.leido=1;
-		console.log("leido:::", mensajesData)
-		const idNotificacion = JSON.parse(sessionStorage.getItem('MisNotificaciones'))[0].idNotificacion
-		console.log("id Notificacion:::", idNotificacion)
-        this.confirmationService.confirm({
-            message: 'Esta seguro de eliminar el mensaje?',
-            accept: () => {
-                this.notificacionesService.updateMensaje(idNotificacion, mensajesData).subscribe(data => {
-					this.mensajesData = data;
-            })
-            }
-        });
+	showDialog() {
+        this.displayModal = true; 
     }
 
-	  editMensaje( ) {
+	updateNotificacion() {
+		/* this.idNotifi = JSON.parse(sessionStorage.getItem('currentUser')).userData.id;
+		console.log('idNotificacion', this.idNotifi )
+		this.notificacionesService.updateMensaje(this.idNotifi , this.mensaje)
+		  .subscribe(
+			res => { 
+			  console.log(res);
+			 
+			},
+			err => console.error(err)
+		  ) */
+		  
+	  }
+	  
 
-		  const mensajesData = this.mensajesData.leido=1;
-		  this.notificacionesService.updateMensaje(this.Notificaciones.idNotificacion, mensajesData)
-		  .subscribe(data => { console.log('actualizarSMS:', data);
-				  this.router.navigate(['/notificaciones'])
-				})
-		this.mensajesData = {...this.mensajesData};
-        this.mensajeDialog = true;
-        
-        
-	}
-	
-	saveMensaje() {
-        this.submitted = true;
-
-        if (this.Notificaciones.mensaje.trim()) {
-            if (this.Notificaciones.idNotificacion) {
-                this.Notificaciones[this.findIndexById(this.Notificaciones.idNotificacion)] = this.Notificaciones;                
-                this.messageService.add({severity:'success', summary: 'Successful', detail: 'Mensaje Updated', life: 3000});
-            }
-            
-
-            this.Notificaciones = [...this.Notificaciones];
-            this.mensajeDialog = false;
-            this.Notificaciones = {};
-        }
-	}
-	
-
-	findIndexById(idNotificacion: string): number {
-        let index = -1;
-        for (let i = 0; i < this.Notificaciones.length; i++) {
-            if (this.Notificaciones[i].idNotificacion === idNotificacion) {
-                index = i;
-                break;
-            }
-        }
-
-        return index;
-	}
-	
-
-	createId(): string {
-        let idNotificacion = '';
-        var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-        for ( var i = 0; i < 5; i++ ) {
-            idNotificacion += chars.charAt(Math.floor(Math.random() * chars.length));
-        }
-        return idNotificacion;
-	}
-	
-
-	
-	  onPreUpdateBook(idNotificacion: NotificacionesModel): void {
-		this.notificacionesService.selectedMensaje = Object.assign({}, idNotificacion);
+	  loadCantNotificacion(idUsuarioRecibe) {
+		
+		this.notificacionesService.getCantNotificationsByUser(this.idUsuarioRecibe).subscribe(data =>{
+		  this.cantidadNotificaciones = data;
+		  console.log('Cantidad de  notificaciones:', data[0].cantidadNotificaciones);
+		  this.cantidadNotificaciones = data[0].cantidadNotificaciones;
+		 
+		});
 	  }
 
+	  
+	  /* updateMensaje(idNotificacion: number){
+		this.router.navigate(['/notificaciones/edit/', this.idNotifi]);
+	  } */
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	  
 
 }
