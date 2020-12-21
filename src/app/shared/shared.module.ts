@@ -1,32 +1,34 @@
+
+
 import { TokenInterceptor } from './../auth/token.interceptor';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+
+import { SidebarModule } from 'primeng/sidebar';
 import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import {TableModule} from 'primeng/table';
-import { TooltipModule } from 'primeng/tooltip'
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { SidebarModule } from 'primeng/sidebar';
 import { ButtonModule } from 'primeng/button';
-import {MenuModule} from 'primeng/menu';
-import {PanelMenuModule} from 'primeng/panelmenu';
-import {MenuItem} from 'primeng/api';
+import { MenuModule } from 'primeng/menu';
+
+import { CartonComponent } from './../mybingo/components/carton/carton.component';
+
 import { NotificacionesComponent } from './notificaciones/notificaciones.component'
+import { TableModule } from 'primeng/table';
 
 
 @NgModule({
-	declarations: [MenuComponent, FooterComponent, NavbarComponent, SidebarComponent, NotificacionesComponent],
+	declarations: [MenuComponent, FooterComponent, NavbarComponent, SidebarComponent, NotificacionesComponent, CartonComponent],
 	imports: [
 		CommonModule,
 		HttpClientModule,
 		RouterModule,
 		ButtonModule,
 		SidebarModule,
-		TooltipModule,
-		TableModule
+		TableModule,
 	],
 	providers: [
 		{
@@ -41,9 +43,10 @@ import { NotificacionesComponent } from './notificaciones/notificaciones.compone
 		SidebarComponent,
 		NavbarComponent,
 		MenuModule,
-		NotificacionesComponent
+		NotificacionesComponent,
+		CartonComponent,
 	]
-	
+
 })
 
 export class SharedModule { }

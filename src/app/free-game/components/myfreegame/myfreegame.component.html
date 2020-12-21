@@ -1,0 +1,26 @@
+<div class="p-grid p-fluid p-text-center p-nogutter">
+    <div class="p-col-12">
+        <circle-progress [percent]="porcentaje" [title]="numero" [radius]="50" [outerStrokeWidth]="10"
+            [innerStrokeWidth]="10" [space]="-10" [outerStrokeColor]="'#4882c2'" [innerStrokeColor]="'#e7e8ea'"
+            [titleFontSize]="30" [unitsFontSize]="0" [showSubtitle]="false" [showTitle]="true" [animation]="true"
+            [animationDuration]="9100" [startFromZero]="true" [responsive]="false" [showUnits]="false"
+            [maxPercent]="100" titleColor="#ebee11"></circle-progress>
+    </div>
+
+    <div class="p-col-12 p-grid p-m-2"> 
+        <div *ngFor="let nroCarton of nroCartones" class="p-col-12 p-md-6 p-lg-4"> 
+            <div class="p-shadow-5 p-p-2">
+                <p>Carton nro {{nroCarton + 1}}</p>
+                <app-carton [id]="nroCarton + 1" [numerosSorteados]="numerosYaSalieron"
+                    (datosBingoCantado)="seCantoBingo($event)"></app-carton>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="p-col-12 p-lg-4 p-lg-offset-4 p-p-2">
+        <button pButton pRipple type="button" label="Salir de la Partida"
+            class="p-button-raised p-button-secondary p-d-block p-mx-auto" (click)="volver()"></button>
+    </div>
+
+</div>

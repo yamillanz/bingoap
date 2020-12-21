@@ -10,6 +10,7 @@ export class AuthLoadGuard implements CanLoad {
 	canLoad()
 	/* 	segments: UrlSegment[]): Observable<boolean> | Promise<boolean> | boolean */ {
 		let currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+		//let currentUser = JSON.parse(localStorage.getItem('currentUser'));
         if (currentUser) {
             // loggcaned in so return true
             return true;

@@ -15,8 +15,8 @@ import { MenuService } from '../shared/services/menu.service';
 })
 export class DashboardComponent implements OnInit {
 	usuarios = [];
-	constructor(private svrAuth: AuthService, private router: Router, private svrUsers : UsersService,
-		private sidebarService : SidebarService, public menuService: MenuService) { }
+	constructor(private svrAuth: AuthService, private router: Router, private svrUsers: UsersService,
+		private sidebarService: SidebarService, public menuService: MenuService) { }
 	dataUser: User;
 	dataCliente: any = [];
 	DataCliente: MenuModel[];
@@ -24,29 +24,30 @@ export class DashboardComponent implements OnInit {
 	nickname: any = [];
 	idCliente: any = [];
 
-	  
 
-	async ngOnInit(){
+
+	async ngOnInit() {
 		/* this.svrAuth.getObservableBevior().subscribe((data) => {
 			this.dataUser = { ...data }; console.log(data);
 		});
  */
 		//this.usuarios = await this.svrUsers.getAllUsers().toPromise();
 		//console.log("usuarios", this.usuarios);
-		
+
 		this.loadDataUser(this.idCliente);
 
 	}
 	loadDataUser(idCliente) {
 		this.dataCliente.idCliente = JSON.parse(sessionStorage.getItem('currentUser')).userData.idCliente;
-		this.menuService.getClientUsersData(this.dataCliente.idCliente).subscribe(data =>{
-		  this.DataCliente = data;
-		  this.nickname= data[0].nickname;
-		  this.rol= data[0].rol;
-		  this.idCliente= data[0].idCliente;
+		//this.dataCliente.idCliente = JSON.parse(localStorage.getItem('currentUser')).userData.idCliente;
+		this.menuService.getClientUsersData(this.dataCliente.idCliente).subscribe(data => {
+			this.DataCliente = data;
+			this.nickname = data[0].nickname;
+			this.rol = data[0].rol;
+			this.idCliente = data[0].idCliente;
 		});
-		}
-	
+	}
+
 
 
 
