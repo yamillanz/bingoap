@@ -9,13 +9,15 @@ import { CustomValidators } from './customValidator';
 import { DatePipe } from '@angular/common';
 import { user } from '../models/user.model'; 
 import { UserAdminService } from '../services/user-admin.service';
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
+import {Message} from 'primeng//api';
+import {MessageService} from 'primeng/api';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
-  providers: [DatePipe],
+  providers: [DatePipe, MessageService],
 })
 
 export class RegisterComponent implements OnInit {
@@ -31,7 +33,11 @@ export class RegisterComponent implements OnInit {
   showForm: boolean = true;
   receivedCode: number;
   currentUser: user;
-constructor(private fb: FormBuilder, private userAdmin: UserAdminService, private datePipe: DatePipe,  private router: Router) {
+constructor(private fb: FormBuilder, 
+            private userAdmin: UserAdminService, 
+            private datePipe: DatePipe,  
+            private router: Router,
+            private  messageService: MessageService ) {
 
   this.newUserForm = this.fb.group({
     email: new FormControl( '', [
@@ -52,18 +58,21 @@ constructor(private fb: FormBuilder, private userAdmin: UserAdminService, privat
  
 }
 onSubmit() {
-  console.warn(this.newUserForm);
+ 
+  //console.warn(this.newUserForm);
+  this.newUser.email = this.newUserForm.value.email;
   //need to verify if email exist
-
-  //generate confirmation code for emial send
+  this.verifyEmail(this.newUser);
+  console.log('am at this point');
+     //  alert('todo va bien');
   this.confirmationCode = this.generateCode();
   //console.log('this code wil be sen for confirm', this. confirmationCode);
   //then hide form
   this.showForm = false;
-  this.sendMail();
-
-}
-
+  //this.sendMail(); 
+  
+  }
+          
 get email() { return this.newUserForm.get('email'); }
 
 get pass() { return this.newUserForm.get('pass'); }
@@ -101,6 +110,19 @@ onConfirm(receivedCode){
   }
 }
 
+verifyEmail(user: user){
+  
+   this.userAdmin.useEmail(user).toPromise()
+   .then(res =>{
+     console.log(res);
+  
+   })
+    //this.messageService.add({severity:'error', summary:`${err}`, detail:'Via MessageService'});
+    //return err
+  
+  //});
+}
+
 async saveUser(){
 
   this.newUser.email = this.newUserForm.value.email;
@@ -115,28 +137,12 @@ async saveUser(){
   this.currentUser = await this.userAdmin.createUser(this.newUser).toPromise()
     if(this.currentUser.emailValido){
       const data = sessionStorage.setItem('currentUser', JSON.stringify(this.currentUser))
-      console.log('ladata que debeia estar en storage y retorna de guardar', data);
+      //console.log('ladata que debeia estar en storage y retorna de guardar', data);
       this.registerNextStep();
     } 
-  /* .then(res =>{
-       //now save user tem data on local estorage
-      this.newUser = res[0];
-      sessionStorage.setItem('currentUser', JSON.stringify(this.newUser))
-      //console.log( 'CREATED this user', this.newUser);
-      //this.setDataonLS(this.newUser);
-      this.newUser = {};
-    });  */
-
-
   
 }
-//setDataonLS(newUser){
- // console.log('esto es loq entra a parsear con localstorage', newUser)
-  //this.currentUser = sessionStorage.setItem('currentUser', JSON.stringify(newUser))
- //this.currentUser = localStorage.setItem('new User', newUser);
- //console.log('esto es lo del localestorage:', this.currentUser);
- //return this.currentUser;
-//}
+
 
 }
 

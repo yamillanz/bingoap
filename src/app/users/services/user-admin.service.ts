@@ -18,4 +18,9 @@ export class UserAdminService {
   mailer(mensaje: any){
     return this.http.post(`${environment.apiUrlAuth}users/sendmail`, mensaje)
   }
+
+  useEmail(user: user){
+   
+   return this.http.get(`${environment.apiUrlAuth}users/validate`, user.email);
+  }
 }
