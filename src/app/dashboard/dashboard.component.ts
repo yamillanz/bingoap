@@ -34,16 +34,19 @@ export class DashboardComponent implements OnInit {
 		//this.usuarios = await this.svrUsers.getAllUsers().toPromise();
 		//console.log("usuarios", this.usuarios);
 
-		this.loadDataUser(this.idCliente);
+		this.loadDataUser(this.dataCliente.idCliente);
 
 	}
 	loadDataUser(idCliente) {
-		this.dataCliente.idCliente = JSON.parse(sessionStorage.getItem('currentUser')).userData.idCliente;
+		this.dataCliente.id= JSON.parse(sessionStorage.getItem('currentUser')).userData.id;
+		console.log('id cliente', this.dataCliente.id);
 		//this.dataCliente.idCliente = JSON.parse(localStorage.getItem('currentUser')).userData.idCliente;
-		this.menuService.getClientUsersData(this.dataCliente.idCliente).subscribe(data => {
+		this.menuService.getClient(this.dataCliente.id).subscribe(data => {
 			this.DataCliente = data;
+			console.log('data cliente', data);
 			this.nickname = data[0].nickname;
 			this.rol = data[0].rol;
+			console.log('Rol usuario', this.rol);
 			this.idCliente = data[0].idCliente;
 		});
 	}
