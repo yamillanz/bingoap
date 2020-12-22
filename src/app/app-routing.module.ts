@@ -14,18 +14,19 @@ import { NotificacioneditComponent } from './shared/notificaciones/notificacione
 
 
 const routes: Routes = [
-	{ path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule), canLoad: [AuthLoadGuard] },
+	{ path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)/* , canLoad: [AuthLoadGuard] */ },
 	{ path: 'landing', loadChildren: () => import('./landing/landing.module').then(m => m.LandingModule) },
 	{ path: 'partidas', loadChildren: () => import('./mybingo/mybingo.module').then(m => m.MybingoModule) },
 	{ path: 'mybingo', loadChildren: () => import('./mybingo/mybingo.module').then(m => m.MybingoModule) },
 	{ path: 'registro', loadChildren: () => import('./users/users.module').then(m => m.UsersModule) },
-	{path: 'notificaciones', component: NotificacionesComponent},
-	{path: 'perfil', component: PerfilComponent},
-	{path: 'perfil/edit/:id', component: EditComponent },
-	{path: 'notificaciones/edit/:id', component: NotificacioneditComponent },
+	{ path: 'notificaciones', component: NotificacionesComponent },
+	{ path: 'perfil', component: PerfilComponent },
+	{ path: 'perfil/edit/:id', component: EditComponent },
+	{ path: 'notificaciones/edit/:id', component: NotificacioneditComponent },
 	{ path: 'partidas/:idSala', loadChildren: () => import('./mybingo/mybingo.module').then(m => m.MybingoModule) },
 	//{ path: 'login', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
 	{ path: 'login', redirectTo: 'landing/login', },
+	//{ path: 'publicidad', redirectTo: 'dashboard/login', },
 	//{ path: 'register', redirectTo: 'landing/register', },
 	{
 		path: '',
@@ -33,6 +34,7 @@ const routes: Routes = [
 		pathMatch: 'full'
 	},
 	{ path: 'freegame', loadChildren: () => import('./free-game/free-game.module').then(m => m.FreeGameModule) },
+	//{ path: 'publicidad', loadChildren: () => import('./publicidad/publicidad.module').then(m => m.PublicidadModule) },
 
 ];
 

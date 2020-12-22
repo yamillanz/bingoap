@@ -1,3 +1,4 @@
+
 import { TokenInterceptor } from './../auth/token.interceptor';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
@@ -10,40 +11,48 @@ import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ButtonModule } from 'primeng/button';
-import {MenuModule} from 'primeng/menu';
-import {DropdownModule} from 'primeng/dropdown';
-import {ToastModule} from 'primeng/toast';
-import {MessagesModule} from 'primeng/messages';
-import {MessageModule} from 'primeng/message';
-import {ToolbarModule} from 'primeng/toolbar';
-import {FileUploadModule} from 'primeng/fileupload';
-import {RatingModule} from 'primeng/rating';
+import { MenuModule } from 'primeng/menu';
+import { DropdownModule } from 'primeng/dropdown';
+import { ToastModule } from 'primeng/toast';
+import { MessagesModule } from 'primeng/messages';
+import { MessageModule } from 'primeng/message';
+import { ToolbarModule } from 'primeng/toolbar';
+import { FileUploadModule } from 'primeng/fileupload';
+import { RatingModule } from 'primeng/rating';
 import { NotificacionesComponent } from './notificaciones/notificaciones.component'
 import { DialogModule } from 'primeng/dialog';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { InputNumberModule } from 'primeng/inputnumber';
-import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { FormsModule } from '@angular/forms';
 import { PerfilComponent } from './perfil/perfil.component';
 import { EditComponent } from './perfil/edit/edit.component';
-import {CardModule} from 'primeng/card';
+import { CardModule } from 'primeng/card';
 import { NotificacioneditComponent } from './notificaciones/notificacionedit/notificacionedit.component';
-import {InputTextareaModule} from 'primeng/inputtextarea';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 import { CartonComponent } from '../mybingo/components/carton/carton.component';
-import { TooltipModule } from 'primeng/tooltip';
-import { TableModule } from 'primeng/table';
 
 
 @NgModule({
-	declarations: [MenuComponent, FooterComponent, NavbarComponent, SidebarComponent, NotificacionesComponent, PerfilComponent, EditComponent, NotificacioneditComponent, CartonComponent],
+	declarations: [
+		MenuComponent,
+		FooterComponent,
+		NavbarComponent,
+		SidebarComponent,
+		NotificacionesComponent,
+		PerfilComponent,
+		EditComponent,
+		NotificacioneditComponent,
+		CartonComponent
+	],
 	imports: [
 		CommonModule,
 		HttpClientModule,
 		RouterModule,
-		ButtonModule,
-		SidebarModule,
-		TooltipModule,
-		TableModule,
+		/* ButtonModule, */
+		 SidebarModule,
+		/*TooltipModule, */
+	/* 	 TableModule, */
 		ToastModule,
 		DropdownModule,
 		MessagesModule,
@@ -57,7 +66,7 @@ import { TableModule } from 'primeng/table';
 		ConfirmDialogModule,
 		FormsModule,
 		CardModule,
-		InputTextareaModule
+		InputTextareaModule,
 	],
 	providers: [
 		{
@@ -74,7 +83,8 @@ import { TableModule } from 'primeng/table';
 		MenuModule,
 		NotificacionesComponent,
 		PerfilComponent,
-		CartonComponent
+		CartonComponent,
+		/* TableModule, */
 	]
 
 })

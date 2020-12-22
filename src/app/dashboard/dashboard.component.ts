@@ -34,7 +34,7 @@ export class DashboardComponent implements OnInit {
 		//this.usuarios = await this.svrUsers.getAllUsers().toPromise();
 		//console.log("usuarios", this.usuarios);
 
-		this.loadDataUser(this.dataCliente.idCliente);
+		//this.loadDataUser(this.dataCliente.idCliente);
 
 	}
 	loadDataUser(idCliente) {
