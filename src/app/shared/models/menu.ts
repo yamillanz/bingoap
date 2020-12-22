@@ -4,7 +4,7 @@ export interface MenuModel {
 	descripcion?,
 	isActive?,
 	idRol?,
-	icono?,
+	icono?, 
 	idCliente?,
 	email?,
 	nombreCompleto?,
@@ -18,9 +18,9 @@ export interface MenuModel {
 	id?,
 }
 
-export class ApiResponse{
+/* export class ApiResponse{
     status:number;
     message:number;
     result: any;
-}
+} */
 

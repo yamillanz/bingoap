@@ -11,6 +11,7 @@ import {Message} from 'primeng//api';
   styleUrls: ['./edit.component.scss'],
   providers: [MessageService], 
 })
+
 export class EditComponent implements OnInit {
   displayModal: boolean;
   edit: boolean = false; 

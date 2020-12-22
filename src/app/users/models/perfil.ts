@@ -10,4 +10,14 @@ export class PerfilCliente {
     genero?
     tarjetaDeCredito?
     numeroTelefono?
+    idMenu?
+	nombre?
+	descripcion?
+	isActive?
+	idRol?
+	icono?
+	idCliente?
+	email?
+	iso?
+	rol?
 }

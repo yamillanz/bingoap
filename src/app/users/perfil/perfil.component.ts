@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { DatePipe, WeekDay } from '@angular/common';
-import { MenuService } from '../services/menu.service';
-import { ApiResponse, MenuModel } from '../models/menu';
-import { Cliente } from '../models/clientes';
+import {  PerfilCliente } from '../models/perfil';
+import { client } from '../models/client';
 import { ActivatedRoute, Router } from '@angular/router';
+import { PerfilService } from '../services/perfil.service';
 
 @Component({
   selector: 'app-perfil',
@@ -17,8 +17,8 @@ export class PerfilComponent implements OnInit {
   profileImg: any;
   weekday: any;
   /* DataCliente: Cliente[]; */
-  DataCliente: Cliente[];
-  PaisCliente: MenuModel[];
+  DataCliente: client[];
+  PaisCliente: PerfilCliente[];
   dataCliente: any = [];
   primeraLetra:any = [];
   nickname: any = [];
@@ -32,12 +32,12 @@ export class PerfilComponent implements OnInit {
   datosClientes: any = [];
   
   id: number;
-  cliente:Cliente;
+  cliente:client;
   submitted=false;
   clientes: any = [];
 
   constructor(private actroute: ActivatedRoute, private router: Router, private datePipe: DatePipe, 
-    public menuService: MenuService) { 
+    public perfilService:PerfilService ) { 
     this.myDate[0] = this.datePipe.transform(this.myDate, 'yyyy-MM-dd');
     this.weekday = this.myDate.getDay();
     console.log('fecha:', this.myDate[0]);
@@ -48,11 +48,8 @@ export class PerfilComponent implements OnInit {
   ngOnInit(): void {
     const params = this.actroute.snapshot.params; 
     console.log('params:', params);
-
-
     this.id = JSON.parse(sessionStorage.getItem('currentUser')).userData.id;
-    
-    this.menuService.getClient(this.id).subscribe(res =>{
+    this.perfilService.getClient(this.id).subscribe(res =>{
       this.DataCliente = res;
       console.log(res);
       this.nickname= res[0].nickname;

@@ -10,7 +10,8 @@ export const environment = {
   apiUrlAuth :  "http://localhost:3010/",
   apiUrlPartidas :  "http://localhost:3000/partidas",
   apiUrlPartidasUsers :  "http://localhost:3000/partidas-users",
-  apiConfig : "http://localhost:3010/configs-gene", 
+  apiConfig : "http://localhost:3010/configs-gene",
+  apiUploadImgs: "localhost:3050/uploadfile/",
 };
 
 

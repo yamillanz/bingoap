@@ -1,4 +1,4 @@
-export class Cliente {
+/* export class Cliente {
 	id?
 	nombreCompleto?
 	direccion?
@@ -10,4 +10,5 @@ export class Cliente {
     genero?
     tarjetaDeCredito?
     numeroTelefono?
-}
+} */
+// eliminar este modelo OJO

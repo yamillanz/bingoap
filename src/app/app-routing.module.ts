@@ -6,8 +6,8 @@ import { NgxsModule } from '@ngxs/store';
 import { environment } from 'src/environments/environment';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NotificacionesComponent } from './shared/notificaciones/notificaciones.component';
-import { PerfilComponent } from './shared/perfil/perfil.component';
-import { EditComponent } from './shared/perfil/edit/edit.component';
+import { PerfilComponent } from './users/perfil/perfil.component';
+import { EditComponent } from './users/perfil/edit/edit.component';
 import { NotificacioneditComponent } from './shared/notificaciones/notificacionedit/notificacionedit.component';
 
 

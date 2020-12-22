@@ -4,8 +4,8 @@ import { User } from '../users/models/user';
 import { AuthService } from './../auth/services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { SidebarService } from '../shared/services/sidebar.service';
-import { MenuModel } from '../shared/models/menu';
-import { MenuService } from '../shared/services/menu.service';
+import { client } from '../users/models/client';
+import { PerfilService } from '../users/services/perfil.service';
 
 
 @Component({
@@ -16,10 +16,10 @@ import { MenuService } from '../shared/services/menu.service';
 export class DashboardComponent implements OnInit {
 	usuarios = [];
 	constructor(private svrAuth: AuthService, private router: Router, private svrUsers: UsersService,
-		private sidebarService: SidebarService, public menuService: MenuService) { }
+		private sidebarService: SidebarService,  public perfilService: PerfilService) { }
 	dataUser: User;
 	dataCliente: any = [];
-	DataCliente: MenuModel[];
+	DataCliente: client[];
 	rol: any = [];
 	nickname: any = [];
 	idCliente: any = [];
@@ -41,7 +41,7 @@ export class DashboardComponent implements OnInit {
 		this.dataCliente.id= JSON.parse(sessionStorage.getItem('currentUser')).userData.id;
 		console.log('id cliente', this.dataCliente.id);
 		//this.dataCliente.idCliente = JSON.parse(localStorage.getItem('currentUser')).userData.idCliente;
-		this.menuService.getClient(this.dataCliente.id).subscribe(data => {
+		this.perfilService.getClient(this.dataCliente.id).subscribe(data => {
 			this.DataCliente = data;
 			console.log('data cliente', data);
 			this.nickname = data[0].nickname;

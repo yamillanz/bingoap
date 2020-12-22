@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { environment } from '../../../../src/environments/environment';
-import { MenuModel, ApiResponse } from '../models/menu';
-import { NotificacionesModel } from '../models/notificaciones';
+import { MenuModel } from '../models/menu';
+/* import { NotificacionesModel } from '../models/notificaciones'; */
 import { HttpClient, HttpEvent, HttpErrorResponse, HttpEventType, HttpHeaders, HttpParams} from '@angular/common/http';
 
 
@@ -46,11 +46,11 @@ export class MenuService {
     return this.httpClient.get<MenuModel[]>(url1);      
   } */
 
-  getClientUsersData(idCliente:number) : Observable<MenuModel[]>{
+  /* getClientUsersData(idCliente:number) : Observable<MenuModel[]>{
     const url2 = `${this.url2}clientes/${idCliente}`;
     console.log(url2);
     return this.httpClient.get<MenuModel[]>(url2);      
-  }
+  } */
 
   /* getClient(id:number) : Observable<MenuModel[]>{
     const url = `${this.url}/usuario/${id}`;
@@ -58,7 +58,7 @@ export class MenuService {
     return this.httpClient.get<MenuModel[]>(url);      
   } */
 
-  getClient(id:number) : Observable<MenuModel[]>{
+  /* getClient(id:number) : Observable<MenuModel[]>{
     const url2 = `${this.url2}users/user/${id}`;
     console.log(url2);
     return this.httpClient.get<MenuModel[]>(url2);      
@@ -68,9 +68,9 @@ export class MenuService {
     const url = `${this.url}/paises`;
     console.log(url);
     return this.httpClient.get<MenuModel[]>(url);      
-  }
+  } */
 
-  
+ 
 
 
 }

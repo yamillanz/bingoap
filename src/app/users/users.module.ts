@@ -16,17 +16,24 @@ import { UsersRoutingModule } from '../users/users-routing.module';
 import {BlockUIModule} from 'primeng/blockui';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { DialogModule } from 'primeng/dialog';
+import { PerfilComponent } from './perfil/perfil.component';
+import { EditComponent } from './perfil/edit/edit.component';
+import { SidebarComponent } from '../shared/sidebar/sidebar.component';
 
 
 @NgModule({
-  declarations: [RegisterComponent, ClientAdminComponent],
+  declarations: [RegisterComponent, ClientAdminComponent, PerfilComponent, EditComponent, SidebarComponent],
   imports: [
     CommonModule,
+    DialogModule,
     ButtonModule,
     CardModule,
     ToastModule,
     PasswordModule,
     InputTextModule,
+    InputTextareaModule,
     FormsModule,
     ReactiveFormsModule,
     SharedModule,

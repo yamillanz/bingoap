@@ -1,15 +1,12 @@
-<app-sidebar></app-sidebar>
-
- <div class="center"> 
-        <img src="../../assets/img/banners-perfil/profile-cover-({{this.weekday}}).jpg" height="500"/>
+<div class="center"> 
+       <img src="http://localhost:3050/uploadfile/img/profile-cover-({{this.weekday}}).jpg" height="500"/>
         <div class="card">
             <div class="card-redonda">
                 {{primeraLetra}}
             </div>
             <p><strong>{{this.nombreCompleto}}</strong></p>
             <p><strong>@{{this.nickname}}</strong></p>
-            <p><img src="https://s.svgbox.net/flags-hd.svg?ic={{this.iso}}" height="20" width="20"/> {{this.nombre}}</p> 
-            
+            <p><img src="https://s.svgbox.net/flags-hd.svg?ic={{this.iso}}" height="20" width="20"/> {{this.nombre}}</p>
             <div class=boton> 
                 <a  [routerLink]="['/perfil/edit', this.idCliente]" class="button is-danger is-hoverable" ><strong>Editar perfil</strong></a>
             </div>
