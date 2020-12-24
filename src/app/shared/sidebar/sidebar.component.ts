@@ -1,13 +1,13 @@
 import { ViewportScroller } from '@angular/common';
 import { Component,  OnInit, ViewChild, ElementRef } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { MenuService } from '../services/menu.service';
 import { MenuModel } from '../models/menu';
 import { PrimeNGConfig } from 'primeng/api';
 import { SidebarService } from '../services/sidebar.service';
-import { NotificacionesModel } from '../models/notificaciones';
-import { NotificacionesService } from '../services/notificaciones.service';
-import { TransaccionesModel } from '../models/transacciones';
+import { NotificacionesModel } from '../../notificaciones/models/notificaciones';
+import { NotificacionesService } from '../../notificaciones/services/notificaciones.service';
+import { TransaccionesModel } from '../../users/models/transacciones';
 import { user } from '../../auth/models/user';
 import { PerfilService } from '../../users/services/perfil.service';
 
@@ -55,7 +55,7 @@ export class SidebarComponent implements OnInit {
   constructor(private primengConfig: PrimeNGConfig, private router: Router, 
     public menuService: MenuService, private sidebarService: SidebarService, 
     public notificacionesService: NotificacionesService, private perfilService: PerfilService,
-    private viewportScroller: ViewportScroller) {
+    private viewportScroller: ViewportScroller, private actRouter: ActivatedRoute) {
       
      }
 
@@ -163,6 +163,21 @@ export class SidebarComponent implements OnInit {
   logout() {
 		this.router.navigate(['/logout'])
   }
+
+  goToPerfil() {
+    this.router.navigate(['dashboard/perfil'],{
+      skipLocationChange: true
+    });
+    
+  }
+
+
+  goToNotificaciones() {
+    this.router.navigate(['dashboard/notificaciones'],{
+      skipLocationChange: true
+    });
+    
+  } 
 
 }
 

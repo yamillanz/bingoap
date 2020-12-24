@@ -3,7 +3,7 @@ import { Observable, of } from 'rxjs';
 import { environment } from '../../../../src/environments/environment';
 import { NotificacionesModel } from '../models/notificaciones';
 import { HttpClient, HttpEvent, HttpErrorResponse, HttpEventType, HttpHeaders, HttpParams} from '@angular/common/http';
-import { TransaccionesModel } from '../models/transacciones';
+import { TransaccionesModel } from '../../users/models/transacciones';
 import { map } from 'rxjs/operators';
 
 @Injectable({

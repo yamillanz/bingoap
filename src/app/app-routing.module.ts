@@ -5,10 +5,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { NgxsModule } from '@ngxs/store';
 import { environment } from 'src/environments/environment';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { NotificacionesComponent } from './shared/notificaciones/notificaciones.component';
 import { PerfilComponent } from './users/perfil/perfil.component';
 import { EditComponent } from './users/perfil/edit/edit.component';
-import { NotificacioneditComponent } from './shared/notificaciones/notificacionedit/notificacionedit.component';
 
 
 
@@ -19,10 +17,10 @@ const routes: Routes = [
 	{ path: 'partidas', loadChildren: () => import('./mybingo/mybingo.module').then(m => m.MybingoModule) },
 	{ path: 'mybingo', loadChildren: () => import('./mybingo/mybingo.module').then(m => m.MybingoModule) },
 	{ path: 'registro', loadChildren: () => import('./users/users.module').then(m => m.UsersModule) },
-	{path: 'notificaciones', component: NotificacionesComponent},
-	{path: 'perfil', component: PerfilComponent},
-	{path: 'perfil/edit/:id', component: EditComponent },
-	{path: 'notificaciones/edit/:id', component: NotificacioneditComponent },
+	/* {path: 'notificaciones', component: NotificacionesComponent}, */
+	/* {path: 'perfil', loadChildren: () => import('./users/users.module').then(m => m.UsersModule)}, */
+	/* {path: 'perfil/edit/:id', component: EditComponent },
+	{path: 'notificaciones/edit/:id', component: NotificacioneditComponent }, */
 	{ path: 'partidas/:idSala', loadChildren: () => import('./mybingo/mybingo.module').then(m => m.MybingoModule) },
 	//{ path: 'login', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
 	{ path: 'login', redirectTo: 'landing/login', },

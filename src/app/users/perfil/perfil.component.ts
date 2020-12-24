@@ -67,7 +67,12 @@ export class PerfilComponent implements OnInit {
     });
   }
 
-  
+  goToEditar() {
+    this.router.navigate(['dashboard/perfil/editar', this.idCliente],{
+      skipLocationChange: true
+    });
+    
+  } 
 
     
 

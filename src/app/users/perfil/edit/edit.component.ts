@@ -71,7 +71,10 @@ updatePerfil() {
 }
 
 close(){
-  this.router.navigate(['/perfil']);
+  this.router.navigate(['dashboard/perfil'],{
+    skipLocationChange: true
+  });
+  
 }
 
 addSingle() {

@@ -6,7 +6,6 @@ import { SidebarModule } from 'primeng/sidebar';
 import { ButtonModule } from 'primeng/button';
 import { DashboardComponent } from './dashboard.component';
 import { SharedModule } from '../shared/shared.module';
-import { NotificacionesComponent } from '../shared/notificaciones/notificaciones.component';
 import { CardModule } from 'primeng/card';
 import { TooltipModule } from 'primeng/tooltip';
 import { SidebarComponent } from '../shared/sidebar/sidebar.component';
@@ -22,8 +21,7 @@ import { SidebarComponent } from '../shared/sidebar/sidebar.component';
 		CardModule,
 		FormsModule,
 		TooltipModule,
-		NotificacionesComponent,
-		SidebarComponent
+		
 		
 
 	]

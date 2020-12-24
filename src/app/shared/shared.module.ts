@@ -7,7 +7,7 @@ import { ButtonModule } from 'primeng/button';
 /* import {MenuModule} from 'primeng/menu'; */
 /* import {ToolbarModule} from 'primeng/toolbar'; */
 /* import {FileUploadModule} from 'primeng/fileupload'; */
-/* import {RatingModule} from 'primeng/rating'; */
+/* import {RatingModule} from 'primeng/rating'; */ 
 /* import { RadioButtonModule } from 'primeng/radiobutton'; */
 /* import { TableModule } from 'primeng/table'; */
 import {DropdownModule} from 'primeng/dropdown';
@@ -29,27 +29,26 @@ import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { CartonComponent } from '../mybingo/components/carton/carton.component';
-import { NotificacioneditComponent } from './notificaciones/notificacionedit/notificacionedit.component';
 import { SidebarModule } from 'primeng/sidebar';
 
 @NgModule({
-	declarations: [MenuComponent, FooterComponent, NavbarComponent, SidebarComponent, NotificacioneditComponent, CartonComponent],
+	declarations: [MenuComponent, FooterComponent, NavbarComponent, CartonComponent, SidebarComponent],
 	imports: [
 		CommonModule,
 		HttpClientModule,
 		RouterModule,
-		ButtonModule,
 		SidebarModule,
+		/* ButtonModule,
 		TooltipModule,
-		ToastModule,
+		ToastModule, */
 		/* DropdownModule, */
-		MessagesModule,
-		MessageModule,
+		/* MessagesModule,
+		MessageModule, */
 		/* DialogModule, */
-		ConfirmDialogModule,
+		/* ConfirmDialogModule,
 		DialogModule,
 		FormsModule,
-		CardModule,
+		CardModule, */
 		/* InputTextareaModule, */
 	],
 	providers: [
@@ -64,7 +63,6 @@ import { SidebarModule } from 'primeng/sidebar';
 		FooterComponent,
 		SidebarComponent,
 		NavbarComponent,
-		NotificacioneditComponent,
 		CartonComponent
 	]
 

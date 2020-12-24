@@ -119,7 +119,9 @@ export class NotificacioneditComponent implements OnInit {
 	  }
 
 	  close(){
-		this.router.navigate(['/notificaciones']);
-	  }
+		this.router.navigate(['dashboard/notificaciones'],{
+			skipLocationChange: true
+		  }); 
+	  } 
 
 }

@@ -5,7 +5,12 @@
         </p-header>
         <ul *ngFor="let notificacion of notificaciones">
             <li>
-                <a pTooltip="Abrir mensaje" tooltipPosition="bottom" [routerLink]="['/notificaciones/edit', notificacion.idNotificacion]"> <i class="pi pi-envelope" style="font-size: 1rem"></i> {{notificacion.mensaje}}</a>
+                <!-- <a pTooltip="Abrir mensaje" tooltipPosition="bottom" [routerLink]="['/notificaciones/edit', notificacion.idNotificacion]"> 
+                    <i class="pi pi-envelope" style="font-size: 1rem"></i> {{notificacion.mensaje}}
+                </a> -->
+                <a pTooltip="Abrir mensaje" tooltipPosition="bottom" (click)="goToUpdateNotificacion(notificacion.idNotificacion)"> 
+                    <i class="pi pi-envelope" style="font-size: 1rem"></i> {{notificacion.mensaje}}
+                </a>
             </li>
             <br>
             <li>
