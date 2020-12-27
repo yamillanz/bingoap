@@ -1,13 +1,12 @@
 <div class="p-card">
-    <p-card>
-        <p-header>
+    <p-header class="p-header">
+        <h1>
             <i class="pi pi-inbox" style="font-size: 1rem"></i> Buzon de entrada
-        </p-header>
+        </h1>
+    </p-header>
+    <p-card>
         <ul *ngFor="let notificacion of notificaciones">
             <li>
-                <!-- <a pTooltip="Abrir mensaje" tooltipPosition="bottom" [routerLink]="['/notificaciones/edit', notificacion.idNotificacion]"> 
-                    <i class="pi pi-envelope" style="font-size: 1rem"></i> {{notificacion.mensaje}}
-                </a> -->
                 <a pTooltip="Abrir mensaje" tooltipPosition="bottom" (click)="goToUpdateNotificacion(notificacion.idNotificacion)"> 
                     <i class="pi pi-envelope" style="font-size: 1rem"></i> {{notificacion.mensaje}}
                 </a>
@@ -17,17 +16,11 @@
                 <i class="pi pi-calendar"  style="font-size: 1rem"></i> {{notificacion.fechaEnvio | date: 'dd/MM/yyyy HH:MM:SS'}}
             </li>
             <br>
-           <!--  <li>
-                <br>
-                <a (click)="showDialog()"  class="button is-danger is-hoverable" ><strong>Borrar mensaje</strong></a>
-            </li> -->
-            <br> 
-            
         </ul>
-        <p-footer>
-            <i class="pi pi-eye" style="font-size: 1rem"></i>  Tienes {{this.cantidadNotificaciones}} mensajes sin leer.
-        </p-footer>
     </p-card>
+    <p-footer>
+        <i class="pi pi-eye" style="font-size: 1rem"></i>  Tienes {{this.cantidadNotificaciones}} mensajes sin leer.
+    </p-footer>
 </div>
 
 

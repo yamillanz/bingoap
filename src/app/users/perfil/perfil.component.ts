@@ -35,7 +35,8 @@ export class PerfilComponent implements OnInit {
   cliente:client;
   submitted=false;
   clientes: any = [];
-
+  email: any;
+  
   constructor(private actroute: ActivatedRoute, private router: Router, private datePipe: DatePipe, 
     public perfilService:PerfilService ) { 
     this.myDate[0] = this.datePipe.transform(this.myDate, 'yyyy-MM-dd');
@@ -60,6 +61,7 @@ export class PerfilComponent implements OnInit {
       this.direccion = res[0].direccion;
       this.telefono = res[0].numeroTelefono;
       this.idCliente = res[0].idCliente;
+      this.email = res[0].email;
       const cadena = this.nombreCompleto;
       this.primeraLetra = cadena.charAt(0);
       console.log ('primera letra:', this.primeraLetra );
