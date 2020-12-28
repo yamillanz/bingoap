@@ -1,26 +1,10 @@
+
 import { TokenInterceptor } from './../auth/token.interceptor';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { ButtonModule } from 'primeng/button';
-/* import {MenuModule} from 'primeng/menu'; */
-/* import {ToolbarModule} from 'primeng/toolbar'; */
-/* import {FileUploadModule} from 'primeng/fileupload'; */
-/* import {RatingModule} from 'primeng/rating'; */ 
-/* import { RadioButtonModule } from 'primeng/radiobutton'; */
-/* import { TableModule } from 'primeng/table'; */
-import {DropdownModule} from 'primeng/dropdown';
-import {ToastModule} from 'primeng/toast';
-import {MessagesModule} from 'primeng/messages';
-import {MessageModule} from 'primeng/message';
-import { DialogModule } from 'primeng/dialog';
-/* import { InputNumberModule } from 'primeng/inputnumber'; */
-import {ConfirmDialogModule} from 'primeng/confirmdialog';
-import { FormsModule } from '@angular/forms';
-import {CardModule} from 'primeng/card';
-/* import {InputTextareaModule} from 'primeng/inputtextarea'; */
-import { TooltipModule } from 'primeng/tooltip';
+
 /* import { SidebarModule } from 'primeng/sidebar'; */
 
 
