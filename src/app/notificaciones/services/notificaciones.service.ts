@@ -3,11 +3,7 @@ import { Observable, of } from 'rxjs';
 import { environment } from '../../../../src/environments/environment';
 import { NotificacionesModel } from '../models/notificaciones';
 import { HttpClient, HttpEvent, HttpErrorResponse, HttpEventType, HttpHeaders, HttpParams} from '@angular/common/http';
-<<<<<<< HEAD:src/app/shared/services/notificaciones.service.ts
-import { TransaccionesModel } from '../models/transacciones';
-=======
 import { TransaccionesModel } from '../../users/models/transacciones';
->>>>>>> 2ba917b68f1475673bc012ee73c4920f2070abfe:src/app/notificaciones/services/notificaciones.service.ts
 import { map } from 'rxjs/operators';
 
 @Injectable({

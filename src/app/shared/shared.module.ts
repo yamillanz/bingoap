@@ -38,24 +38,6 @@ import { SidebarModule } from 'primeng/sidebar';
 		HttpClientModule,
 		RouterModule,
 		SidebarModule,
-<<<<<<< HEAD
-		TooltipModule,
-		TableModule,
-		ToastModule,
-		DropdownModule,
-		MessagesModule,
-		MessageModule,
-		ToolbarModule,
-		FileUploadModule,
-		RatingModule,
-		DialogModule,
-		RadioButtonModule,
-		InputNumberModule,
-		ConfirmDialogModule,
-		FormsModule,
-		CardModule,
-		InputTextareaModule
-=======
 		/* ButtonModule,
 		TooltipModule,
 		ToastModule, */
@@ -68,7 +50,6 @@ import { SidebarModule } from 'primeng/sidebar';
 		FormsModule,
 		CardModule, */
 		/* InputTextareaModule, */
->>>>>>> 2ba917b68f1475673bc012ee73c4920f2070abfe
 	],
 	providers: [
 		{
@@ -82,12 +63,6 @@ import { SidebarModule } from 'primeng/sidebar';
 		FooterComponent,
 		SidebarComponent,
 		NavbarComponent,
-<<<<<<< HEAD
-		MenuModule,
-		NotificacionesComponent,
-		PerfilComponent,
-=======
->>>>>>> 2ba917b68f1475673bc012ee73c4920f2070abfe
 		CartonComponent
 	]
 
