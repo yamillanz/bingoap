@@ -3,7 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { PublicidadComponent } from './publicidad.component';
 
-const routes: Routes = [{ path: '', component: PublicidadComponent }];
+const routes: Routes = [
+    { path: '', component: PublicidadComponent }
+  ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
