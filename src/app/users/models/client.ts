@@ -6,4 +6,7 @@ export interface client {
     idUsuario?;
     fechaNacimiento?;
     genero?;
+    fechaCreacion?;
+    tarjetaDeCredito?;
+    numeroTelefono?;
 }

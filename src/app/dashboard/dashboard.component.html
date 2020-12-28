@@ -1,15 +1,10 @@
-<div class="p-grid p-fluid ">
-	<div class="p-col-12">
-		<!-- <app-navbar></app-navbar> -->
-		
-	</div>
+<div class="p-grid">
 	<div class="p-col-2">
 		<app-sidebar></app-sidebar>
 	</div>
-	<div class="p-col-10">
+	<div class="p-col-12">
 		<main>
-			<router-outlet></router-outlet> 
-			
+		    <router-outlet></router-outlet>
 		</main> 
 	</div>
 		
@@ -29,6 +24,23 @@
 <div class="imag" *ngIf="this.rol=='Administrador'">
 	<a>Usuarios en linea: 5000</a>
 </div>
+
+
+
+<!-- <div class="imag" *ngIf="this.rol=='Administrador'">
+<p>Dashboard</p> 
+</div>
+
+<div class="imag" *ngIf="this.rol=='Usuario'">
+	<img src="../../assets/img/kisspng-bingo.png" width="300" /></div>
+<div class="boton" *ngIf="this.rol=='Usuario'">
+	<a href="/partidas"><button  class="button is-large is-danger"><strong>¡Juega
+	Ahora!</strong></button></a>
+</div>
+
+<div class="imag" *ngIf="this.rol=='Administrador'">
+	<a>Usuarios en linea: 5000</a>
+</div> -->
 
 
 

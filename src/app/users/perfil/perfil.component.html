@@ -1,0 +1,24 @@
+<div class="container-img">
+    <img class="img-fluid" src="http://localhost:3050/uploadfile/img/profile-cover-({{this.weekday}}).jpg"/>
+    <div class="card">
+        <div class="card-redonda">
+            {{primeraLetra}}
+        </div>
+        <p><strong>{{this.nombreCompleto}}</strong></p>
+        <p><strong>@{{this.nickname}}</strong></p>
+        <p>{{this.email}}</p>
+        <p><img src="https://s.svgbox.net/flags-hd.svg?ic={{this.iso}}" height="20" width="20"/> {{this.nombre}}</p>
+        <div class=boton> 
+           <a  (click)="goToEditar()" class="button is-danger is-hoverable" ><strong>Editar perfil</strong></a>
+        </div>
+    </div>  
+</div>
+
+
+
+
+  
+
+
+  
+  

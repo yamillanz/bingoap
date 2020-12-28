@@ -2,7 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NotificacionesModel } from '../models/notificaciones';
 import { NotificacionesService } from '../services/notificaciones.service';
-import { MenuService } from '../services/menu.service';
 import { ConfirmationService } from 'primeng/api';
 import { MessageService } from 'primeng/api';
 import { NgForm } from '@angular/forms';
@@ -136,18 +135,10 @@ export class NotificacionesComponent implements OnInit {
         this.displayModal = true; 
     }
 
-	updateNotificacion() {
-		/* this.idNotifi = JSON.parse(sessionStorage.getItem('currentUser')).userData.id;
-		console.log('idNotificacion', this.idNotifi )
-		this.notificacionesService.updateMensaje(this.idNotifi , this.mensaje)
-		  .subscribe(
-			res => { 
-			  console.log(res);
-			 
-			},
-			err => console.error(err)
-		  ) */
-		  
+	goToUpdateNotificacion(idNotificacion) {
+		this.router.navigate(['dashboard/notificaciones/editar', idNotificacion],{
+			skipLocationChange: true
+		  });
 	  }
 	  
 

@@ -1,8 +1,8 @@
 <nav class="navbar is-fixed-top is-dark is-boxed" #navbar role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <div class="buttonsOpenSidebar">
-      <div class="user-picture-navbar"> 
-        <a (click)="visibleSidebar1 = true"><strong>{{this.primeraLetra}}</strong></a>
+      <div (click)="visibleSidebar1 = true" class="user-picture-navbar"> 
+         <a ><strong>{{this.primeraLetra}}</strong></a>
         <!-- <img (click)="visibleSidebar1 = true" src="./assets/img/trump1.jpeg" class="user-picture-navbar " alt=""> -->
       </div>
       <!-- <a class="button is- is-success" (click)="visibleSidebar1 = true" pTooltip="Abrir menú" > 
@@ -46,10 +46,10 @@
             <a class="navbar-item">
               <ul class="collapse list-unstyled">
                 <li >
-                  <a>{{this.nickname}} te ha enviado  {{this.montoTransaccion}} monedas el {{this.fechaTransaccion | date: 'dd/MM/yyyy HH:MM:SS'}}</a>
+                  <strong><a>{{this.quienTransfiere}} te ha enviado  {{this.montoTransaccion}} monedas el {{this.fechaTransaccion | date: 'dd-MM-yyyy HH:MM:SS'}}</a></strong>
                 </li>
               </ul>
-            </a>
+            </a> 
           </div> 
         </div>
 
@@ -83,18 +83,18 @@
           
                 <ul class="collapse list-unstyled" id="homeSubmenu">
                     <li>
-                        <a class="a-sidebar" routerLink="/notificaciones" > <i class="icon pi pi-bell" style="font-size: 1em"></i> Notificaciones 
+                        <a class="a-sidebar" (click)="goToNotificaciones(); visibleSidebar1 = false" > <i class="icon pi pi-bell" style="font-size: 1em"></i> Notificaciones 
                           <ng-container *ngIf="cantidadNotificaciones!'0'">
                               <span class="p-badge p-badge-danger badge" style="font-size: 0.8em"><strong>{{cantidadNotificaciones}}</strong></span>
                          </ng-container>
                             
                         </a>
+                    </li> 
+                    <li>
+                        <a class="a-sidebar" (click)="goToPerfil() ; visibleSidebar1 = false"><i class="icon pi pi-user-edit"></i> Perfil</a>
                     </li>
                     <li>
-                        <a class="a-sidebar" routerLink="/perfil"><i class="icon pi pi-user-edit"></i> Perfil</a>
-                    </li>
-                    <li>
-                      <a class="a-sidebar" routerLink="/dashboard"><i class="icon pi pi-th-large"></i> Dashboard</a>
+                      <a class="a-sidebar" (click)="visibleSidebar1 = false" routerLink="/dashboard"><i class="icon pi pi-th-large"></i> Dashboard</a>
                   </li>
                 </ul>
             <hr class= "line" style="height:0.6px;width:100%;border-style:0.6px solid #000;text-align:right;margin-right:0px;" />
