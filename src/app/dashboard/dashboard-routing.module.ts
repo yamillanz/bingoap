@@ -9,12 +9,10 @@ const routes: Routes = [
 	{
 		path: '', component: DashboardComponent,
 		children: [
-			/* { path: 'notificaciones', component: NotificacionesComponent }, */
-			/* { path: 'notificaciones', loadChildren: () => import('../users/users.module').then(m => m.UsersModule)}, */
-			/* { path: 'perfil', component: PerfilComponent }, */
 			{ path: 'perfil', loadChildren: () => import('../users/users.module').then(m => m.UsersModule)},
 			{ path: 'notificaciones', loadChildren: () => import('../notificaciones/notificaciones.module').then(m => m.NotificacionesModule)},
 			{ path: 'notificaciones/editar', loadChildren: () => import('../notificaciones/notificaciones.module').then(m => m.NotificacionesModule)},
+			{ path: 'publicidad', loadChildren: () => import('../publicidad/publicidad.module').then(m => m.PublicidadModule)},
 	],
 	}
 ];

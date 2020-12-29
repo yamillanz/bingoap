@@ -2,6 +2,7 @@ export interface client {
     id?;
     nombreCompleto?;
     nickname?;
+    direccion?;
     idPais?;
     idUsuario?;
     fechaNacimiento?;

@@ -6,7 +6,8 @@
 export const environment = {
   production: false,
   apiUrlDashoard: 'http://localhost:3050/',
-  apiUrlReg: 'http://localhost:3010/api/user/register', 
+  apiUrlUsuarios: 'http://localhost:3010/users', 
+  apiUrlClientes: 'http://localhost:3010/clientes', 
   apiUrlAuth :  "http://localhost:3010/",
   apiUrlPartidas :  "http://localhost:3000/partidas",
   apiUrlPartidasUsers :  "http://localhost:3000/partidas-users",

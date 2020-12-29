@@ -20,6 +20,7 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { DialogModule } from 'primeng/dialog';
 import { PerfilComponent } from './perfil/perfil.component';
 import { EditComponent } from './perfil/edit/edit.component';
+import {CheckboxModule} from 'primeng/checkbox';
 
 
 
@@ -44,6 +45,7 @@ import { EditComponent } from './perfil/edit/edit.component';
     BlockUIModule,
     MessageModule,
     MessagesModule,
+    CheckboxModule
   ],
   exports: [
 	]

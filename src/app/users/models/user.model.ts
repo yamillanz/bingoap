@@ -9,4 +9,5 @@ export interface user {
     sesionActiva?;
     idCliente?;
     emailValido?,
+    aceptoCondiciones?,
 }
