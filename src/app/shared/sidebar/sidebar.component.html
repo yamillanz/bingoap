@@ -103,6 +103,7 @@
                 <ul class="collapse list-unstyled"  *ngFor = "let menus of Menu">
                     <li>
                         <a (click)="goToRouterLink(menus.routerLink); visibleSidebar1 = false"><i class="{{menus.icono}} icon"></i> {{menus.nombre}}</a>
+                       
                     </li>
                 </ul>
             </li>

@@ -8,9 +8,9 @@ import { AdminUsersComponent } from './admin-users/admin-users.component';
 import { EditarUsuarioComponent } from './admin-users/editar-usuario/editar-usuario.component';
 
 const routes: Routes = [
+        {path: 'admin-users', component: AdminUsersComponent },
         {path: '', component: PerfilComponent},
         {path: 'editar/:id', component: EditComponent },
-        {path: 'admin-users', component: AdminUsersComponent },
         { path: 'register', component: RegisterComponent},
         {path: 'cliente', component: ClientAdminComponent},
         {path: 'cliente/editar/:id', component: EditarUsuarioComponent  },

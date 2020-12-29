@@ -11,7 +11,9 @@ const routes: Routes = [
 			/* { path: 'notificaciones', component: NotificacionesComponent }, */
 			/* { path: 'notificaciones', loadChildren: () => import('../users/users.module').then(m => m.UsersModule)}, */
 			/* { path: 'perfil', component: PerfilComponent }, */
+			{ path: 'salas', loadChildren: () => import('../salas/salas.module').then(m => m.SalasModule)},
 			{ path: 'perfil', loadChildren: () => import('../users/users.module').then(m => m.UsersModule)},
+			{ path: 'admin-users', loadChildren: () => import('../users/users.module').then(m => m.UsersModule)},
 			{ path: 'usuarios', loadChildren: () => import('../users/users.module').then(m => m.UsersModule)},
 			/* { path: 'admin-users', loadChildren: () => import('../users/users.module').then(m => m.UsersModule)}, */
 			{ path: 'notificaciones', loadChildren: () => import('../notificaciones/notificaciones.module').then(m => m.NotificacionesModule)},

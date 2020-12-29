@@ -35,7 +35,7 @@ export class SidebarComponent implements OnInit {
   cliente: any = [];
   userBalance: any = [];
   dataCliente: any = [];
-  DataCliente: MenuModel[];
+  DataCliente: MenuModel[] = [];
   notif: any = [];
   notificaciones: NotificacionesModel[];
   selectedNotificaciones: NotificacionesModel;
@@ -94,8 +94,8 @@ export class SidebarComponent implements OnInit {
   loadDataUser(idCliente) {
     this.dataCliente.idCliente = JSON.parse(sessionStorage.getItem('currentUser')).userData.idCliente;
     this.perfilService.getClientUsersData(this.dataCliente.idCliente).subscribe(data =>{
-      this.DataCliente = data;
-      const nick = this.nickname= data[0].nickname;
+      this.DataCliente = data; 
+      this.nickname = data[0].nickname;
       this.nombre = data[0].nombreCompleto;
       this.rol= data[0].rol;
       const cadena = this.nombre;
@@ -108,6 +108,7 @@ export class SidebarComponent implements OnInit {
     return this.menuService.getMenuByIdRol(this.Menu.idRol).subscribe( data => {
       this.Menu = data;
       this.routerLink= data[0].routerLink;
+      console.log('routerlink', this.routerLink)
      } );
   }
 
@@ -156,11 +157,19 @@ export class SidebarComponent implements OnInit {
     
   } 
 
-  goToRouterLink(routerLink) {
+  /* goToRouterLink(routerLink) {
     this.router.navigate(['dashboard/perfil/', routerLink],{
       skipLocationChange: true
     });
+  } */
+
+  goToRouterLink(routerLink) {
+    this.router.navigate(['dashboard/' + routerLink],{
+      /* skipLocationChange: true */
+    });
   }
+
+  
 
 }
 

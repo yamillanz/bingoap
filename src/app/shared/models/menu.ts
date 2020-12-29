@@ -17,6 +17,7 @@ export interface MenuModel {
 	fechaNacimiento?,
 	id?,
 	routerLink?,
+
 }
 
 /* export class ApiResponse{

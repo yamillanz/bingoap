@@ -19,7 +19,7 @@ export class PerfilService {
     this.url2 = environment.apiUrlAuth;
   }
 
-  getCliente(id: string) {
+  getCliente(id: string) { 
     return this.httpClient.get(`${this.url}clientes/${id}`);
   } 
 
