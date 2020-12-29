@@ -17,7 +17,7 @@ export class MyValidations {
 			const value: any = control.value;
 			return codigoValido === value ? null : { 'notEqualsCode': true };
 		};
-	}
+	} 
 
 	static checkEmailTacked(srvUsuario: UsersService) {
 		return (control: AbstractControl) => {
