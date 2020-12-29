@@ -1,18 +1,14 @@
 <div class="container">
     <h1>Mensaje</h1>
     <p-card class="card">
-        <ul>
-            <li>
                <a> <i class="pi pi-file" style="font-size: 1rem"></i> {{mensajes.mensaje}}</a>
-            </li>
-            <li>
-               <i class="pi pi-calendar" style="font-size: 1rem"></i> {{mensajes.fechaEnvio | date: 'dd/MM/yyyy'}}
-            </li>
-        </ul>
+                 <br>
+               <i class="pi pi-calendar p-pt-2" style="font-size: 1rem"></i> {{dateLatest | date:'dd-MM-yyyy'}}
+
         <div class="container1">
             <p-button  icon="pi pi-arrow-circle-left"  (click)="close()" label="Atrás" styleClass="p-button-text" ></p-button>
             <p-button  icon="pi pi-trash"  (click)="updateMensaje()" label="Eliminar" styleClass="p-button-text"></p-button>
         </div>
     </p-card>
-</div> 
+</div>  
 

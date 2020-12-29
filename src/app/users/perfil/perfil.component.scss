@@ -1,21 +1,4 @@
 
-  /* .card {
-    position: absolute;   
-    bottom: 0;             
-    top: 180px;
-    margin-left: 60px;
-    width: 67mm;
-    height: 88mm;
-    background: #212E36;
-    text-align: center;
-    border: 0;
-    p {
-      margin-top: 15px;
-    }
-  } */
-
-
-  
 
   .container-img-banner {
    /*  margin-top: 5px;
@@ -30,14 +13,10 @@
 
   }
 
-
+ 
 
  
-  .center {
-    /* margin-top: 5px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block; */
+ /*  .center {
     display: flex;
     width: auto;
     margin-top: 5px;
@@ -47,9 +26,9 @@
 
 .boton {
   margin-top: 20px;
-}
+} */
 
-.input {
+/* .input {
   color:whitesmoke;
   background: #2EBD75;
 }
@@ -57,8 +36,7 @@
 .dialog {
   color: whitesmoke;
   background: #2EBD75;
- /* background:#001F27; */
-}
+} */
 
 
 // nuevo css
@@ -72,7 +50,7 @@
 .card {
   position: absolute;           
   top: 100px;
-  margin-left: 95px;
+  margin-left: 65px;
   width: 67mm;
   height: 100mm;
   background: #212E36;
@@ -97,6 +75,10 @@
   padding-top: 45px;
   color: white;
   font-size: 1.5em;
+}
+
+.boton {
+  margin-top: 20px;
 }
 
 @media(min-width: 600px) {
@@ -133,6 +115,10 @@
     padding-top: 28px;
     color: white;
     font-size: 3em;
+  }
+
+  .boton {
+    margin-top: 20px;
   }
 
 }
@@ -172,6 +158,10 @@
     padding-top: 28px;
     color: white;
     font-size: 3em;
+  }
+
+  .boton {
+    margin-top: 20px;
   }
 
 }

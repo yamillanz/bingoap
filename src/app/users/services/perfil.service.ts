@@ -33,23 +33,23 @@ export class PerfilService {
 
   getClient(id:number) : Observable<PerfilCliente[]>{
     const url2 = `${this.url2}users/user/${id}`;
-    console.log(url2);
     return this.httpClient.get<PerfilCliente[]>(url2);      
   }
 
   getPaises() : Observable<PerfilCliente[]>{
     const url = `${this.url}/paises`;
-    console.log(url);
+    return this.httpClient.get<PerfilCliente[]>(url);      
+  }
+
+  getPerfiles() : Observable<PerfilCliente[]>{
+    const url = `${this.url}menu-users/perfiles`;
     return this.httpClient.get<PerfilCliente[]>(url);      
   }
 
   getClientUsersData(idCliente:number) : Observable<PerfilCliente[]>{
     const url2 = `${this.url2}clientes/${idCliente}`;
-    console.log(url2);
     return this.httpClient.get<PerfilCliente[]>(url2);      
   }
 
   
- 
-
 }

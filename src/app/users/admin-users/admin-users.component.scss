@@ -1,0 +1,132 @@
+/* .line-container {
+    height: 300px;
+    width: 100%;
+    display: block;
+  }
+  .gauge-container {
+    height: 300px;
+    width: 100%;
+    display: block;
+  } */
+
+  .card {
+    padding: 10px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .container {
+    margin-top: 80px;
+    text-align: center;
+    align-items: center;
+    vertical-align: middle;
+    padding-top: 5px;
+    padding-left: 5px;
+  }
+
+  .table {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+
+  :host ::ng-deep {    
+    .p-datatable-responsive-demo .p-datatable-tbody > tr > td .p-column-title {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 50rem) {
+    :host ::ng-deep {
+        .p-datatable {
+            &.p-datatable-responsive-demo {
+                .p-datatable-thead > tr > th,
+                .p-datatable-tfoot > tr > td {
+                    display: none !important;
+                }
+
+                .p-datatable-tbody > tr > td {
+                    text-align: left;
+                    display: block;
+                    width: 100%;
+                    float: left;
+                    clear: left;
+                    border: 0 none;
+
+                    .p-column-title {
+                        padding: .4rem;
+                        min-width: 30%;
+                        display: inline-block;
+                        margin: -.4em 1em -.4em -.4rem;
+                        font-weight: bold;
+                    }
+
+                    &:last-child {
+                        border-bottom: 1px solid var(--surface-d);
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+ /*  .table > th{
+    
+    border-top: none;
+      border-bottom: none;
+      vertical-align: middle;
+  }
+
+  .table > td{
+    vertical-align: middle;
+    text-align: center;
+  } */
+
+ 
+  
+  /* .badge {
+    
+    background: red;
+    color: white;
+    border-radius: 10px;
+    font-weight: bold;
+    width:80px;
+    height:19px;
+  }
+ */
+ 
+
+
+
+
+
+/*   .client-card .table-responsive .table {
+    th {
+      border-top: none;
+      border-bottom: none;
+      vertical-align: middle;
+    }
+    tbody {
+      tr:first-child td {
+        border-top: none;
+      }
+      td {
+        vertical-align: middle;
+        p {
+          display: inline-block;
+          margin-left: 30px;
+        }
+      }
+    }
+  }
+
+  .btn-default {
+    background-color: transparent;
+    color: #bdc3c7;
+    border-color: #bdc3c7;
+    cursor: pointer;
+    transition: all ease-in 0.3s;
+  } */

@@ -98,11 +98,11 @@
                   </li>
                 </ul>
             <hr class= "line" style="height:0.6px;width:100%;border-style:0.6px solid #000;text-align:right;margin-right:0px;" />
-           <li>
+           <li> 
                 <a><i class="pi pi-cog"></i> Opciones</a>
                 <ul class="collapse list-unstyled"  *ngFor = "let menus of Menu">
                     <li>
-                        <a href="#"><i class="{{menus.icono}} icon"></i> {{menus.nombre}}</a>
+                        <a (click)="goToRouterLink(menus.routerLink); visibleSidebar1 = false"><i class="{{menus.icono}} icon"></i> {{menus.nombre}}</a>
                     </li>
                 </ul>
             </li>

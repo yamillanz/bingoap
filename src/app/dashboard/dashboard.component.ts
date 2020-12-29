@@ -39,19 +39,13 @@ export class DashboardComponent implements OnInit {
 	}
 	loadDataUser(idCliente) {
 		this.dataCliente.id= JSON.parse(sessionStorage.getItem('currentUser')).userData.id;
-		console.log('id cliente', this.dataCliente.id);
-		//this.dataCliente.idCliente = JSON.parse(localStorage.getItem('currentUser')).userData.idCliente;
 		this.perfilService.getClient(this.dataCliente.id).subscribe(data => {
 			this.DataCliente = data;
-			console.log('data cliente', data);
 			this.nickname = data[0].nickname;
 			this.rol = data[0].rol;
-			console.log('Rol usuario', this.rol);
 			this.idCliente = data[0].idCliente;
 		});
 	}
-
-
 
 
 }
