@@ -15,9 +15,10 @@ import { InputSwitchModule } from 'primeng/inputswitch';
 import { PublicidadRoutingModule } from './publicidad-routing.module';
 import { PublicidadComponent } from './publicidad.component';
 import { ButtonModule } from 'primeng/button';
+import { PubliToastComponent } from './publi-toast/publi-toast.component';
 
 @NgModule({
-	declarations: [PublicidadComponent],
+	declarations: [PublicidadComponent, PubliToastComponent],
 	imports: [
 		CommonModule,
 		PublicidadRoutingModule,

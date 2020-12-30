@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
 			// vacio 400 "bad request" .ok .status:400 
 			// invalid mail o pass "bad request" .ok .status:406 
 			this.errores = true;
-			console.log(error);
+			//console.log(error);
 
 		}
 
