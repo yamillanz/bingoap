@@ -21,6 +21,10 @@ export class LoginComponent implements OnInit {
 	ngOnInit(): void {
 	}
 
+	goForgot(){
+		this.router.navigate(["/olvidepass"]);
+	}
+
 	async iniciarSesion() {
 		//console.log(this.userName, this.passUser)
 		this.errores = false;

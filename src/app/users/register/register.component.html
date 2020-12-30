@@ -1,26 +1,26 @@
 <p-toast position="center" key="t1" life="5000" (onClose)="redirect()"></p-toast>
 
-
-<div class="section p-mt-5">
+<div class="section p-mt-6 p-mx-auto">
 	<div class="container">
-		<div class="columns is-vcentered">
-			<div class="column">
+		<div class="columns is-vcentered ">
+			<div class="column p-d-none p-d-md-block">
 				<figure class="image is-256x256">
 					<img alt="Card" src="../../../assets/images/bingo-woman.png">
 				</figure>
 			</div>
 			<div class="column">
 				<div class="tile has-text-centered is-transparent">
-					<div *ngIf=showFormUser >
+					<div *ngIf=showFormUser>
 						<p-card header="Registrate como nuevo usuario" [style]="{width: '25em'} "
-							styleClass="p-card-shadow" class="p-fluid">
+							styleClass="p-card-shadow" class="p-fluid p-grid">
 							<p-header>
 							</p-header>
-							<form [formGroup]="newUserForm" novalidate>
-								<div class="p-text-left">
+							<form [formGroup]="newUserForm" novalidate class="p-mx-1">
+								<div class="p-text-left ">
 									<label for="email">Correo</label>
 								</div>
-								<div class="p-field p-col-12">
+
+								<div class="p-col-12">
 									<input name="email" type="email" pInputText formControlName="email"
 										[email]="true" />
 									<ng-container *ngIf="email.errors && email.touched">
@@ -31,21 +31,36 @@
 										<small *ngIf="email.hasError('notAvailable')" id="email-tomado"
 											class="p-invalid">Email ya registrado</small>
 									</ng-container>
+
 								</div>
+								<!-- <div class="p-text-right p-col-1">
+									<h2>(*)</h2>
+								</div> -->
+
 
 								<div class="p-text-left">
 									<label for="passUser" class="p-text-left">Contraseña</label>
 								</div>
 								<div class="p-field p-col-12">
-									<input name="password" pInputText type="password" formControlName="pass"
-										icon="pi pi-check" />
+									<!-- <input name="password" pInputText type="password" formControlName="pass"
+										icon="pi pi-check" /> -->
+									<input name="password" pPassword type="password" promptLabel="" weakLabel="Debil"
+										formControlName="pass" icon="pi pi-check" />
 									<ng-container *ngIf="pass.errors && pass.touched && pass.dirty">
 										<small *ngIf="pass.hasError('required')" id="pass-required"
 											class="p-invalid">Contraseña requerida</small>
 										<small *ngIf="pass.hasError('minlength')" id="pass-minimun"
 											class="p-invalid">Contraseña minimo 8 caracteres</small>
+										<small *ngIf="pass.hasError('pattern')" id="pass-minimun"
+											class="p-invalid">Contraseña debe contener numeros, letras y un simbolo como
+											. - ? * - </small>
 									</ng-container>
 								</div>
+
+								<!-- 	<div class="p-text-right p-col-1">
+									<h2>(*)</h2>
+								</div> -->
+
 								<div class="p-text-left">
 									<label for="passUser" class="p-text-left">Repita su contraseña</label>
 								</div>
@@ -53,12 +68,11 @@
 									<input name="repeat_password" pInputText type="password"
 										formControlName="repeat_password" />
 									<ng-container *ngIf="repeat_password.errors && repeat_password.touched">
-										<!-- 		<small *ngIf="repeat_password.hasError('required')" id="repeat-required"
-											class="p-invalid">Confirme la Contarseña</small> -->
 										<small *ngIf="repeat_password.hasError('notEquals')" id="repeat-notiequals"
 											class="p-invalid">La confirmación no coincide </small>
 									</ng-container>
 								</div>
+
 								<div class="p-field-checkbox p-col-12">
 									<p-checkbox id="declaro" [binary]="true" formControlName="declaro"
 										(onChange)="aceptarCondi($event)"></p-checkbox>
@@ -96,7 +110,7 @@
 							<ng-template pTemplate="footer">
 								<p-button label="Registrate" [disabled]="newUserForm.invalid"
 									(click)="registarUsuario()" icon="pi pi-pencil"></p-button>
-								<div>
+								<div class="p-pt-3">
 									<a (click)="goLogin()">Ya estoy registrado, Iniciar sesión</a>
 								</div>
 							</ng-template>
@@ -143,8 +157,7 @@
 								</div>
 
 								<p-footer>
-									<p-button label="Culminar Registro" icon="pi pi-check"
-										(click)="registrarFull()">
+									<p-button label="Culminar Registro" icon="pi pi-check" (click)="registrarFull()">
 									</p-button>
 								</p-footer>
 							</p-card>

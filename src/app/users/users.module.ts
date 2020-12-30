@@ -21,11 +21,12 @@ import { DialogModule } from 'primeng/dialog';
 import { PerfilComponent } from './perfil/perfil.component';
 import { EditComponent } from './perfil/edit/edit.component';
 import {CheckboxModule} from 'primeng/checkbox';
+import { ForgotpassComponent } from './forgotpass/forgotpass.component';
 
 
 
 @NgModule({
-  declarations: [RegisterComponent, ClientAdminComponent, PerfilComponent, EditComponent],
+  declarations: [RegisterComponent, ClientAdminComponent, PerfilComponent, EditComponent, ForgotpassComponent],
   imports: [
     CommonModule,
     DialogModule,

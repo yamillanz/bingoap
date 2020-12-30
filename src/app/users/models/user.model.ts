@@ -10,4 +10,7 @@ export interface user {
     idCliente?;
     emailValido?,
     aceptoCondiciones?,
+
+    newpass?: string;
 }
+
