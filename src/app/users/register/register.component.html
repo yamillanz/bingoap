@@ -9,8 +9,8 @@
 				</figure>
 			</div>
 			<div class="column">
-				<div class="tile has-text-centered is-transparent">
-					<div *ngIf=showFormUser>
+				<div class="tile has-text-centered is-transparent" xyz="origin-center short-100 duration-10">
+					<div *ngIf=showFormUser >
 						<p-card header="Registrate como nuevo usuario" [style]="{width: '25em'} "
 							styleClass="p-card-shadow" class="p-fluid p-grid">
 							<p-header>
@@ -117,7 +117,8 @@
 
 						</p-card>
 					</div>
-					<div *ngIf=showFormCliente>
+					<!-- 	<ng-container *ngIf=showFormCliente class="xyz-in"> -->
+					<div *ngIf=showFormCliente class="xyz-in">
 						<form [formGroup]="newClienteForm" novalidate>
 							<p-card header="Casi estas listo" subheader="Solo ingresa un par de datos mas..."
 								[style]="{width: '25em'} " styleClass="p-card-shadow" class="p-fluid">
