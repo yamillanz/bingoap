@@ -51,6 +51,14 @@ export class UsersService {
 		return this.http.put(`${environment.apiUrlUsuarios}/${usuario.id}`, usuario)
 	}
 
+	getUsuario(id : number){
+		return this.http.get<user>(`${environment.apiUrlUsuarios}/by-email/${id}`)
+	}
+
+	changePass(usuario : user){
+		return this.http.post(`${environment.apiUrlUsuarios}/change-password`, usuario)
+	}
+
 	
 
 	/* accionarSesion(user : User){

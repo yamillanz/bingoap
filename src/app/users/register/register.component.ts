@@ -51,7 +51,10 @@ export class RegisterComponent implements OnInit {
 
 		this.newUserForm = this.fb.group({
 			email: new FormControl('', [Validators.required, Validators.email,], MyValidations.checkEmailTacked(this.srvUser)),
-			pass: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(15),]),
+			pass: new FormControl('', [
+				Validators.required, Validators.minLength(8),
+				Validators.pattern(`^(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-.]).{8,}$`)
+			]),
 			repeat_password: new FormControl('',),
 			declaro: new FormControl('', Validators.required),
 			codigoRecived: new FormControl(''),
@@ -87,8 +90,7 @@ export class RegisterComponent implements OnInit {
 	get nickname() { return this.newClienteForm.get('nickname'); }
 
 	registarUsuario() {
-		//console.warn(this.newUserForm);
-		console.log("errores", this.newUserForm.errors);
+
 		if (this.newUserForm.valid) {
 			this.newUser.email = this.newUserForm.value.email;
 			this.newUser.pass = this.newUserForm.value.pass;
@@ -164,6 +166,7 @@ export class RegisterComponent implements OnInit {
 			)
 				.subscribe((clientefinal) => {
 					this.newUser.idCliente = clientefinal.id;
+					delete this.newUser.pass;
 					this.srvUser.actualizarUser(this.newUser).subscribe((respFinal) => {
 						this.messageService.clear();
 						this.messageService.add({ key: "t1", severity: 'success', summary: 'Felicidades!!!', detail: 'Ahora inicia sesión para disfrutar del bingo' });
@@ -179,27 +182,27 @@ export class RegisterComponent implements OnInit {
 		this.router.navigate(['/login']);
 	}
 
-
-	async saveUser() {
-
-		this.newUser.email = this.newUserForm.value.email;
-		this.newUser.pass = this.newUserForm.value.pass;
-		this.newUser.fechaCreacion = this.datePipe.transform(this.myDate, 'yyyy-MM-dd');// arrreglar ese espanglish
-		this.newUser.activo = 0;
-		this.newUser.emailValido = true;
-		this.newUser.idCliente = 0;
-		this.newUser.sesionActiva = 0;
-		this.newUser.idRolUsuario = 0;
-		this.newUser.tipo = 0;
-		//this.currentUser = await this.userAdmin.createUser(this.newUser).toPromise()
-		if (this.currentUser.emailValido) {
-			const data = sessionStorage.setItem('currentUser', JSON.stringify(this.currentUser))
-			//console.log('ladata que debeia estar en storage y retorna de guardar', data);
-			this.registerNextStep();
+	/* 
+		async saveUser() {
+	
+			this.newUser.email = this.newUserForm.value.email;
+			this.newUser.pass = this.newUserForm.value.pass;
+			this.newUser.fechaCreacion = this.datePipe.transform(this.myDate, 'yyyy-MM-dd');// arrreglar ese espanglish
+			this.newUser.activo = 0;
+			this.newUser.emailValido = true;
+			this.newUser.idCliente = 0;
+			this.newUser.sesionActiva = 0;
+			this.newUser.idRolUsuario = 0;
+			this.newUser.tipo = 0;
+			//this.currentUser = await this.userAdmin.createUser(this.newUser).toPromise()
+			if (this.currentUser.emailValido) {
+				const data = sessionStorage.setItem('currentUser', JSON.stringify(this.currentUser))
+				//console.log('ladata que debeia estar en storage y retorna de guardar', data);
+				this.registerNextStep();
+			}
+	
 		}
-
-	}
-
+	 */
 
 }
 

@@ -13,15 +13,17 @@ const routes: Routes = [
 	{ path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)/* , canLoad: [AuthLoadGuard] */ },
 	{ path: 'landing', loadChildren: () => import('./landing/landing.module').then(m => m.LandingModule) },
 	{ path: 'partidas', loadChildren: () => import('./mybingo/mybingo.module').then(m => m.MybingoModule) },
-	{ path: 'mybingo', loadChildren: () => import('./mybingo/mybingo.module').then(m => m.MybingoModule) },
-	{ path: 'partidas/:idSala', loadChildren: () => import('./mybingo/mybingo.module').then(m => m.MybingoModule) },
+	//{ path: 'mybingo', loadChildren: () => import('./mybingo/mybingo.module').then(m => m.MybingoModule) },
+	//{ path: 'partidas/:idSala', loadChildren: () => import('./mybingo/mybingo.module').then(m => m.MybingoModule) },
+	{ path: 'partidas/:idSala', redirectTo: 'dashboard/partidas/:idSala' },
 	{ path: 'login', redirectTo: 'landing/login', },
+	{ path: 'olvidepass', redirectTo: 'landing/users/olvidepass', },
 	{
 		path: '',
 		redirectTo: 'landing',
 		pathMatch: 'full'
 	},
-	{ path: 'freegame', loadChildren: () => import('./free-game/free-game.module').then(m => m.FreeGameModule) },
+	//{ path: 'freegame', loadChildren: () => import('./free-game/free-game.module').then(m => m.FreeGameModule) },
 
 ];
 

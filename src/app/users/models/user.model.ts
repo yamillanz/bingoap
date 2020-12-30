@@ -13,6 +13,8 @@ export interface user {
 	rol?
 	idPais?;
 	aceptoCondiciones?;
+
+	newpass?: string;
 }
 
 export interface Perfil {
