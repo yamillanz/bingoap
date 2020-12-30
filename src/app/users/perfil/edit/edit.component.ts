@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PerfilCliente } from '../../models/perfil';
 import { PerfilService } from '../../services/perfil.service';
-import {MessageService} from 'primeng/api';
-import {Message} from 'primeng//api';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-edit',
@@ -30,19 +29,17 @@ export class EditComponent implements OnInit {
     numeroTelefono: '',
   };
 
-  constructor(private messageService: MessageService, private perfilService: PerfilService, private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private messageService: MessageService, private perfilService: PerfilService, private router: Router, 
+    private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.displayModal = true;
     const params = this.activatedRoute.snapshot.params;
-    console.log('params', params);
     if (params.id) {
       this.perfilService.getCliente(params.id)
         .subscribe(
           res => {
-            console.log(res);
             this.perfil = res[0];
-             
             this.edit = true;
           },
           err => console.log(err)
@@ -50,19 +47,15 @@ export class EditComponent implements OnInit {
     }
   }
 
-  showModalDialog() {
+showModalDialog() {
     this.displayModal = true;
+    
 }
 
-
 updatePerfil() {
-  /* delete this.perfil.created_at; */
-  
   this.perfilService.updateCliente(this.perfil.id, this.perfil)
     .subscribe(
       res => { 
-        console.log(res);
-        /* this.router.navigate(['/perfil']); */
         this.addSingle();
       },
       err => console.error(err)

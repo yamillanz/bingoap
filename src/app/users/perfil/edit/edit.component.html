@@ -1,7 +1,6 @@
-<p-toast></p-toast>
+<p-toast position="top-center"></p-toast> 
 <p-dialog class="dialog" header="Editar perfil"  [(visible)]="displayModal" [modal]="true" [style]="{width: '300px'}" [baseZIndex]="10000"
     [draggable]="false" [resizable]="false" [closeIcon]="false">
-
             <div class="p-field p-grid">
                     <label for="nickname" class="p-col-12">Nombre:</label>
                     <div class="p-col-12">
@@ -25,13 +24,11 @@
                     <div class="p-col-12">
                         <input class="input" style="width:200px" id="phone-number" type="text" pInputText [(ngModel)]="perfil.numeroTelefono"> 
                     </div>
-                </div>
+                </div> 
                 <ng-template pTemplate="footer">
                     <p-button icon="pi pi-times"  (click)="close()" label="Cancelar" styleClass="p-button-text"></p-button>
                     <p-button icon="pi pi-save"  (click)="updatePerfil()" label="Guardar" styleClass="p-button-text"></p-button>
                 </ng-template>
-
- 
 </p-dialog>
 
 

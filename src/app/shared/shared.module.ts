@@ -4,10 +4,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-
-/* import { SidebarModule } from 'primeng/sidebar'; */
-
-
 import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -21,19 +17,7 @@ import { SidebarModule } from 'primeng/sidebar';
 		CommonModule,
 		HttpClientModule,
 		RouterModule,
-		SidebarModule,
-		/* ButtonModule,
-		TooltipModule,
-		ToastModule, */
-		/* DropdownModule, */
-		/* MessagesModule,
-		MessageModule, */
-		/* DialogModule, */
-		/* ConfirmDialogModule,
-		DialogModule,
-		FormsModule,
-		CardModule, */
-		/* InputTextareaModule, */
+		SidebarModule
 	],
 	providers: [
 		{

@@ -16,38 +16,39 @@ import { UsersRoutingModule } from '../users/users-routing.module';
 import { BlockUIModule } from 'primeng/blockui';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
-import { InputTextareaModule } from 'primeng/inputtextarea';
 import { DialogModule } from 'primeng/dialog';
 import { PerfilComponent } from './perfil/perfil.component';
 import { EditComponent } from './perfil/edit/edit.component';
-import {CheckboxModule} from 'primeng/checkbox';
+import { CheckboxModule } from 'primeng/checkbox';
 
+import { AdminUsersComponent } from './admin-users/admin-users.component';
+import { TableModule } from 'primeng/table';
+import { EditarUsuarioComponent } from './admin-users/editar-usuario/editar-usuario.component';
 
 
 @NgModule({
-  declarations: [RegisterComponent, ClientAdminComponent, PerfilComponent, EditComponent],
-  imports: [
-    CommonModule,
-    DialogModule,
-    ButtonModule,
-    CardModule,
-    ToastModule,
-    PasswordModule,
-    InputTextModule,
-    InputTextareaModule, 
-    FormsModule,
-    ReactiveFormsModule,
-    SharedModule,
-    UsersRoutingModule,
-    DropdownModule,
-    CalendarModule,
-    RadioButtonModule,
-    BlockUIModule,
-    MessageModule,
-    MessagesModule,
-    CheckboxModule
-  ],
-  exports: [
+	declarations: [RegisterComponent, ClientAdminComponent, PerfilComponent, EditComponent, AdminUsersComponent, EditarUsuarioComponent],
+	imports: [
+		CommonModule,
+		DialogModule,
+		ButtonModule,
+		CardModule,
+		ToastModule,
+		PasswordModule,
+		InputTextModule,
+		FormsModule,
+		ReactiveFormsModule,
+		SharedModule,
+		UsersRoutingModule,
+		DropdownModule,
+		CalendarModule,
+		BlockUIModule,
+		MessageModule,
+		MessagesModule,
+		CheckboxModule,
+		TableModule
+	],
+	exports: [
 	]
 })
 export class UsersModule { }

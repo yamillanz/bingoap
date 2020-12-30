@@ -1,0 +1,92 @@
+
+
+.card {
+    padding-top: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: whitesmoke;
+  }
+
+  
+  .container {
+    padding-top: 20px;
+    margin-top: 80px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: whitesmoke;
+    text-align:center;
+    background:#1F2D40;
+    border-radius: 10px;
+  }
+  
+  @media(min-width: 533px) {
+    .card {
+      padding-top: 5px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      margin-left: 10px;
+      margin-right: 10px;
+      text-align: justify;
+      color: whitesmoke;
+    }
+    
+    .container {
+      padding-top: 20px;
+      margin-top: 80px;
+      margin-bottom: 5px;
+      margin-left: 20px;
+      margin-right: 20px;
+      color: whitesmoke;
+      text-align:center;
+      background:#1F2D40;
+      border-radius: 10px;
+    }
+  
+    .container1 {
+      text-align:center;
+      margin: 20px;
+    }
+  }
+  
+  @media(min-width: 1000px) {
+    .card {
+      padding-top: 5px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      margin-left: 10px;
+      margin-right: 10px;
+      text-align: justify;
+      color: whitesmoke;
+    }
+    
+    .container {
+      padding-top: 20px;
+      margin-top: 80px;
+      margin-bottom: 5px;
+      margin-left: 80px;
+      margin-right: 20px;
+      color: whitesmoke;
+      text-align:center;
+      background:#1F2D40;
+      border-radius: 10px;
+      align-items: center;
+    }
+
+    .select {
+      color:whitesmoke;
+      background: #2EBD75;
+      border-radius: 5px;
+      border-color: whitesmoke;
+    }
+
+    .input {
+      color:whitesmoke;
+      background: #2EBD75;
+    }
+  
+  
+  }
+  

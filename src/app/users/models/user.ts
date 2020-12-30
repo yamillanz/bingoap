@@ -8,6 +8,8 @@ interface data {
     idCliente?;
     fechaUltimaConeccion?;
     emailValido?,
+    rol?,
+    idRol?,
 }
 
 
