@@ -1,0 +1,98 @@
+<p-toast position="center" key="t1" life="5000" (onClose)="redirect()"></p-toast>
+
+<div class="section p-mt-5 p-mx-auto">
+    <div class="container">
+        <div class="is-vcentered">
+            <div class="tile has-text-centered is-transparent">
+                <p-card header="Ingresa tu correo registrado para recuperar tu contraseña" styleClass="p-card-shadow"
+                    class="p-fluid p-mx-auto">
+                    <p-header></p-header>
+
+                    <form [formGroup]="forgotForm" novalidate>
+                        <div class="p-text-left">
+                            <label for="email">Correo Electrónico</label>
+                        </div>
+                        <div class="p-field p-col-12">
+                            <input name="email" type="email" pInputText formControlName="email" [email]="true" />
+                            <ng-container *ngIf="email.errors && email.touched">
+                                <small *ngIf="email.hasError('required')" id="username-required"
+                                    class="p-invalid">Correo Requerido.</small>
+                                <small *ngIf="email.hasError('email')" id="email-format" class="p-invalid">Formato de
+                                    email Inavalido.</small>
+                            </ng-container>
+                        </div>
+
+                        <ng-container *ngIf=showCodigo>
+                            {{confirmationCode}}
+                            <div class="p-text-left">
+                                <label for="codigo">ATENCIÓN: Revisa Tu email, has recibido un codigo de
+                                    validación</label>
+                            </div>
+                            <div class="p-field p-col-12">
+                                <div class="p-inputgroup">
+                                    <span class="p-inputgroup-addon"><i class="pi pi-key"></i></span>
+                                    <input type="text" pInputText formControlName="codigoRecived"
+                                        placeholder="Ingresa el código recibido">
+                                    <ng-container
+                                        *ngIf="codigoRecived.errors && codigoRecived.touched && codigoRecived.dirty">
+                                        <div class="p-text-left">
+                                            <small *ngIf="codigoRecived.hasError('notEqualsCode')" id="notequalscode"
+                                                class="p-invalid">El codigo no coincide con
+                                                el
+                                                enviado </small>
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </form>
+                    <ng-container *ngIf=showReset>
+                        <p-card header="Resetear contraseña" styleClass="p-card-shadow" class="p-fluid">
+                            <p-header></p-header>
+                            <form [formGroup]="formResetPass" novalidate>
+                                <div class="p-text-left">
+                                    <label for="passUser" class="p-text-left">Nueva Contraseña</label>
+                                </div>
+                                <div class="p-field p-col-12">
+                                    <input name="password" pInputText type="password" formControlName="pass"
+                                        icon="pi pi-check" />
+                                    <ng-container *ngIf="pass.errors && pass.touched && pass.dirty">
+                                        <small *ngIf="pass.hasError('required')" id="pass-required"
+                                            class="p-invalid">Contraseña requerida</small>
+                                        <small *ngIf="pass.hasError('minlength')" id="pass-minimun"
+                                            class="p-invalid">Contraseña minimo 8 caracteres</small>
+                                    </ng-container>
+                                  
+                                </div>
+                                <div class="p-text-left">
+                                    <label for="passUser" class="p-text-left">Repita su contraseña</label>
+                                </div>
+                                <div class="p-field p-col-12">
+                                    <input name="repeat_password" pInputText type="password"
+                                        formControlName="repeat_password" />
+                                    <ng-container *ngIf="repeat_password.errors && repeat_password.touched">
+                                        <small *ngIf="repeat_password.hasError('notEquals')" id="repeat-notiequals"
+                                            class="p-invalid">La confirmación no coincide </small>
+                                    </ng-container>
+                                </div>
+                            </form>
+                            <ng-template pTemplate="footer">
+                                <div class="p-mb-2">
+                                    <p-button label="Resetear Contraseña" [disabled]="formResetPass.invalid"
+                                    (click)="resetarContrasenna()" icon="pi pi-pencil"></p-button>
+                                    <br>
+                                </div>                                
+                                <p-button label="Cancelar Proceso" [disabled]="formResetPass.invalid"
+                                    (click)="cancelarProceso()" icon="pi pi-times"></p-button>
+                            </ng-template>
+                        </p-card>
+                    </ng-container>
+                    <ng-template pTemplate="footer">
+                        <p-button label="Solicitar Código" [disabled]=showReset *ngIf=!showReset (click)="solicitarCodigo()"
+                            icon="pi pi-pencil"></p-button>
+                    </ng-template>
+                </p-card>
+            </div>
+        </div>
+    </div>
+</div>

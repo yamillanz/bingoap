@@ -12,3 +12,63 @@
     </p-card>
 </div>  
 
+<!-- </p-dialog> -->
+
+<!-- <p-dialog class="dialog" header="Mensaje" [(visible)]="displayModal" [modal]="true" [style]="{width: '350px'}" [baseZIndex]="10000"
+    [draggable]="false" [resizable]="false" [closeIcon]="true">
+       <div class="p-field p-grid">
+          <textarea class="p-inputtextarea"  pInputTextarea style="height: 200px;" disabled="true" [(ngModel)]="mensajes.mensaje"></textarea>
+          <textarea class="p-inputtextarea" [rows]="5" [cols]="40" pInputTextarea autoResize="autoResize"  [(ngModel)]="mensajes.mensaje"></textarea> 
+        </div>
+        <div class="p-field p-grid">
+            <label for="fechaEnvio" class="p-col-12">Fecha de envío:</label>
+            <div class="p-col-12">
+                <input class="input" style="width:500px"  id="fechaEnvio"  [(ngModel)]="mensajes.fechaEnvio">
+            </div>
+        </div>
+        
+        
+        <ng-template pTemplate="footer">
+            <p-button icon="pi pi-times"  (click)="close()" label="Cancelar" styleClass="p-button-text"></p-button>
+            <p-button icon="pi pi-save"  (click)="updateMensaje()" label="Guardar" styleClass="p-button-text"></p-button>
+        </ng-template>
+</p-dialog> -->
+
+
+
+<!-- <p-dialog header="Atención" [(visible)]="displayModal" [style]="{width: '300px'}">
+    Esta seguro de eliminar el mensaje? {{this.leido}}
+    <ng-template pTemplate="footer">
+        
+        <p-button (click)="updateMensaje()" icon="pi pi-save"   label="Guardar" styleClass="p-button-text"></p-button>
+    </ng-template>
+</p-dialog>
+<div class="p-card">
+    <p-card>
+        <p-header>
+            <i class="pi pi-comments" style="font-size: 1rem"></i> Mensaje
+        </p-header>
+        <ul>
+            <li>
+                <a> <i class="pi pi-file" style="font-size: 1rem"></i> {{this.mensaje}}</a>
+            </li>
+            <li>
+                <i class="pi pi-calendar" style="font-size: 1rem"></i> {{this.fechaEnvio | date: 'dd/MM/yyyy HH:MM:SS'}}
+                <i class="pi pi-calendar" style="font-size: 1rem"></i> {{this.leido}}
+            </li>
+            <li>
+                <br>
+                <p-button icon="pi pi-trash" (click)="showDialog()"  label="Eliminar mensaje" styleClass="p-button-text"></p-button>
+               
+            </li>
+            <br> 
+            
+        </ul>
+        <p-footer>
+         
+        
+        </p-footer>
+        
+    </p-card>
+</div>
+ -->

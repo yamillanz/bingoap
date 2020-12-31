@@ -21,6 +21,10 @@ export class LoginComponent implements OnInit {
 	ngOnInit(): void {
 	}
 
+	goForgot(){
+		this.router.navigate(["/olvidepass"]);
+	}
+
 	async iniciarSesion() {
 		//console.log(this.userName, this.passUser)
 		this.errores = false;
@@ -41,7 +45,7 @@ export class LoginComponent implements OnInit {
 			// vacio 400 "bad request" .ok .status:400 
 			// invalid mail o pass "bad request" .ok .status:406 
 			this.errores = true;
-			console.log(error);
+			//console.log(error);
 
 		}
 

@@ -20,6 +20,9 @@ import { MessageModule } from 'primeng/message';
 import { DialogModule } from 'primeng/dialog';
 import { PerfilComponent } from './perfil/perfil.component';
 import { EditComponent } from './perfil/edit/edit.component';
+import { CheckboxModule } from 'primeng/checkbox';
+import { ForgotpassComponent } from './forgotpass/forgotpass.component';
+
 import { AdminUsersComponent } from './admin-users/admin-users.component';
 import { TableModule } from 'primeng/table';
 import { EditarUsuarioComponent } from './admin-users/editar-usuario/editar-usuario.component';
@@ -27,16 +30,18 @@ import { TooltipModule } from 'primeng/tooltip';
 
 
 @NgModule({
-  declarations: [RegisterComponent, ClientAdminComponent, PerfilComponent, EditComponent, AdminUsersComponent, EditarUsuarioComponent],
+  declarations: [RegisterComponent, ClientAdminComponent,
+    PerfilComponent, EditComponent, AdminUsersComponent, EditarUsuarioComponent, ForgotpassComponent],
   imports: [
+    RadioButtonModule,
     CommonModule,
-    DialogModule, 
+    DialogModule,
     ButtonModule,
-    CardModule, 
-    ToastModule, 
+    CardModule,
+    ToastModule,
     PasswordModule,
-    InputTextModule, 
-    FormsModule, 
+    InputTextModule,
+    FormsModule,
     ReactiveFormsModule,
     SharedModule,
     UsersRoutingModule,
@@ -48,8 +53,10 @@ import { TooltipModule } from 'primeng/tooltip';
     TableModule,
     InputSwitchModule,
     TooltipModule
+    CheckboxModule,
+    TableModule
   ],
   exports: [
-	]
+  ]
 })
 export class UsersModule { }
