@@ -108,7 +108,6 @@ export class SidebarComponent implements OnInit {
     return this.menuService.getMenuByIdRol(this.Menu.idRol).subscribe( data => {
       this.Menu = data;
       this.routerLink= data[0].routerLink;
-      console.log('routerlink', this.routerLink)
      } );
   }
 
@@ -165,7 +164,7 @@ export class SidebarComponent implements OnInit {
 
   goToRouterLink(routerLink) {
     this.router.navigate(['dashboard/' + routerLink],{
-      /* skipLocationChange: true */
+      skipLocationChange: true
     });
   }
 

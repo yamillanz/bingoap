@@ -9,6 +9,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
 import { CalendarModule } from 'primeng/calendar';
 import { RadioButtonModule } from 'primeng/radiobutton';
+import { InputSwitchModule } from 'primeng/inputswitch';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from '../users/register/register.component';
 import { ClientAdminComponent } from '../users/client-admin/client-admin.component'
@@ -22,6 +23,7 @@ import { EditComponent } from './perfil/edit/edit.component';
 import { AdminUsersComponent } from './admin-users/admin-users.component';
 import { TableModule } from 'primeng/table';
 import { EditarUsuarioComponent } from './admin-users/editar-usuario/editar-usuario.component';
+import { TooltipModule } from 'primeng/tooltip';
 
 
 @NgModule({
@@ -43,7 +45,9 @@ import { EditarUsuarioComponent } from './admin-users/editar-usuario/editar-usua
     BlockUIModule,
     MessageModule,
     MessagesModule,
-    TableModule
+    TableModule,
+    InputSwitchModule,
+    TooltipModule
   ],
   exports: [
 	]

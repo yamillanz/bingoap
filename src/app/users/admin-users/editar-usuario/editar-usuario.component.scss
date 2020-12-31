@@ -21,6 +21,18 @@
     background:#1F2D40;
     border-radius: 10px;
   }
+
+  .select {
+    color:whitesmoke;
+    background: #2EBD75;
+    border-radius: 5px;
+    border-color: whitesmoke;
+  }
+
+  .input {
+    color:whitesmoke;
+    background: #2EBD75;
+  }
   
   @media(min-width: 533px) {
     .card {
@@ -48,6 +60,18 @@
     .container1 {
       text-align:center;
       margin: 20px;
+    }
+
+    .select {
+      color:whitesmoke;
+      background: #2EBD75;
+      border-radius: 5px;
+      border-color: whitesmoke;
+    }
+
+    .input {
+      color:whitesmoke;
+      background: #2EBD75;
     }
   }
   

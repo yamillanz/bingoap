@@ -53,6 +53,8 @@ showModalDialog() {
 }
 
 updatePerfil() {
+  delete this.perfil.fechaCreacion;
+  delete this.perfil.fechaNacimiento;
   this.perfilService.updateCliente(this.perfil.id, this.perfil)
     .subscribe(
       res => { 

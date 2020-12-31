@@ -28,10 +28,13 @@
                       <td *ngIf="usuario.idRolUsuario ==1"><button  class="p-button-danger" pButton type="button" label="Administrador" ><i class="pi pi-star"></i></button></td>
                       <td *ngIf="usuario.idRolUsuario ==2"><button  class="p-button-warning" pButton type="button" label="Dealer" ><i class="pi pi-android"></i></button></td>
                       <td *ngIf="usuario.idRolUsuario ==3"> Usuario </td>
-                      <td *ngIf="usuario.activo ==0">Inactivo</td>
-                      <td *ngIf="usuario.activo ==1">Activo</td>
-                      <td *ngIf="usuario.sesionActiva ==0">No</td>
-                      <td *ngIf="usuario.sesionActiva ==1">Si</td>
+                      <!-- <td  *ngIf="usuario.activo ==1" ><p-inputSwitch  pTooltip="Para cambiar debe modificar" disabled="true" [(ngModel)]="checked"></p-inputSwitch></td> -->
+                      <td><p-inputSwitch  pTooltip="Para cambiar debe modificar" disabled="true" [(ngModel)]="usuario.activo"></p-inputSwitch></td>
+                     <!--  <td *ngIf="usuario.sesionActiva ==0">No</td>
+                      <td *ngIf="usuario.sesionActiva ==1">Si</td> -->
+                      <!-- <td *ngIf="usuario.sesionActiva ==1" ><p-inputSwitch pTooltip="Para cambiar debe modificar" disabled="true" [(ngModel)]="checked"></p-inputSwitch></td> -->
+                      <td><p-inputSwitch pTooltip="Para cambiar debe modificar" disabled="true" [(ngModel)]="usuario.sesionActiva"></p-inputSwitch></td>
+                     
                       <td> <p-button (click)="goToEditarUser(usuario.id)" icon="pi pi-user-edit" label="Modificar" styleClass="p-button-text"></p-button></td>
                     </tr>
                 </ng-template>

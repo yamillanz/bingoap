@@ -37,6 +37,8 @@ export class EditarUsuarioComponent implements OnInit {
     idRol: 0,
   };
 
+ 
+
   constructor(private usersService: UsersService, private messageService: MessageService, 
     private router: Router, private activatedRoute: ActivatedRoute) { 
 
@@ -46,7 +48,7 @@ export class EditarUsuarioComponent implements OnInit {
         {name: 'Usuario', code: '3'}
        ];
 
-      this.usuarioActivo = [
+      /* this.usuarioActivo = [
         {name: 'Si', code: '1'},
         {name: 'No', code: '0'}
       ];
@@ -54,7 +56,7 @@ export class EditarUsuarioComponent implements OnInit {
       this.sesionesActivas = [
       {name: 'Si', code: '1'},
       {name: 'No', code: '0'}
-       ];
+       ]; */
 
     }
 
@@ -74,6 +76,8 @@ export class EditarUsuarioComponent implements OnInit {
     
      
   }
+
+  
 
   onPerfilSelected(event) {
     this.usuario.idRolUsuario = parseInt(event.target.value, 10);
@@ -111,6 +115,8 @@ export class EditarUsuarioComponent implements OnInit {
       }); 
       
   }  
+
+  
 
 
 }
