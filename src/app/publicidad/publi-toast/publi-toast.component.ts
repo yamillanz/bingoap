@@ -13,8 +13,8 @@ import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 })
 export class PubliToastComponent implements OnInit, OnDestroy {
 
-	@Input() show: boolean;
-	@Input() idPublicidad: number;
+	@Input() show: boolean = false;
+	@Input() idPublicidad: number = -1;
 
 	intervalo = null;
 	dataPublicidad: Publicidad = null;
@@ -28,13 +28,19 @@ export class PubliToastComponent implements OnInit, OnDestroy {
 	async ngOnInit() {
 		this.dataPublicidad = await this.svrPublicidad.findOpnePublicidad(this.idPublicidad).toPromise();
 		if (this.dataPublicidad && this.show) {
-			this.messageService.add({ key: 'c', severity: 'info', summary: `${this.dataPublicidad.titulo}`, detail: `${this.dataPublicidad.imagen}`, life: this.tiempoVista });
+			this.messageService.add({
+				key: 'c', severity: 'info',
+				summary: `${this.dataPublicidad.titulo}`,
+				detail: `${this.dataPublicidad.imagen}`,
+				life: this.tiempoVista,
+			});
 			//this.intervalo = setInterval(() => { this.show = false }, 10000) 
+			this.show = false;
 		}
 	}
 
 	vamos() {
-		window.open("//" + this.dataPublicidad.url, '_blank');
+		window.open(this.dataPublicidad.url, '_blank');
 	}
 
 	onReject() {
