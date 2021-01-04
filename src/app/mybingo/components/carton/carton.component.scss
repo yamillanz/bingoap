@@ -1,3 +1,58 @@
+/* table {
+    border-collapse: collapse;    
+    border-style: hidden;
+} */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.carton {
+    
+    color: white;
+    border: 0px solid #1C6EA4; 
+    border-radius: 10px;  
+    width: 100%;
+    height: 45vh;    
+}
+
+.carton th {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.25em;
+    color: white;
+    background-color: #DA5596;
+    text-align: center;
+    vertical-align: middle;  
+    border: 0px; 
+    width: auto; 
+    margin-bottom: 5px; 
+}
+
+/* .carton td {
+ 
+} */
+
+.numero{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 90%;
+    height: 90%;
+    border-radius: 5px;
+    //background-color: #1C6EA4;
+    margin-top: 5px;
+}
+
 .touched {
-    background-color: aqua;
+    background-color: #2EBD75;
+}
+
+.comodin {
+    border-radius: 10px;
+
+    background-color: #E5E5F7;
+    opacity: 0.4;
+    background-image:  linear-gradient(135deg, #2EBD75 25%, transparent 25%), linear-gradient(225deg, #2EBD75 25%, transparent 25%), linear-gradient(45deg, #2EBD75 25%, transparent 25%), linear-gradient(315deg, #2EBD75 25%, #E5E5F7 25%);
+    background-position:  9px 0, 9px 0, 0 0, 0 0;
+    background-size: 9px 9px;
+    background-repeat: repeat;
 }

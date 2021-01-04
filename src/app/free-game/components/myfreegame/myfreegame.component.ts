@@ -29,8 +29,6 @@ export class MyfreegameComponent implements OnInit, OnDestroy {
 		this.intervalo && clearInterval(this.intervalo);
 	}
 
-
-
 	ngOnInit(): void {
 		const nrocartonesParam: string = this.route.snapshot.queryParams.cartones;
 		console.log("generado", nrocartonesParam);
@@ -56,7 +54,7 @@ export class MyfreegameComponent implements OnInit, OnDestroy {
 				this.intervalo = null;
 			}
 
-		}, 5000);
+		}, 12000);
 
 	}
 	seCantoBingo(e) {
@@ -67,7 +65,7 @@ export class MyfreegameComponent implements OnInit, OnDestroy {
 	}
 
 	volver() {
-		this.router.navigate(['freegame']);
+		this.router.navigate(['dashboard/freegame']);
 	}
 
 }

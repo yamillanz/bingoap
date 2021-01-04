@@ -15,6 +15,7 @@ const routes: Routes = [
 			{ path: 'mybingo', loadChildren: () => import('../mybingo/mybingo.module').then(m => m.MybingoModule) },
 			{ path: 'partidas/:idSala', loadChildren: () => import('../mybingo/mybingo.module').then(m => m.MybingoModule) },
 			{ path: 'publicidad', loadChildren: () => import('../publicidad/publicidad.module').then(m => m.PublicidadModule)},
+			{ path: 'freegame', loadChildren: () => import('../free-game/free-game.module').then(m => m.FreeGameModule) },
 	],
 	}
 ];

@@ -1,4 +1,3 @@
-
 import { TokenInterceptor } from './../auth/token.interceptor';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
@@ -10,14 +9,20 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { CartonComponent } from '../mybingo/components/carton/carton.component';
 import { SidebarModule } from 'primeng/sidebar';
+import { PubliToastComponent } from './../publicidad/publi-toast/publi-toast.component';
+import { ToastModule } from 'primeng/toast';
+import { ButtonModule } from 'primeng/button';
+
 
 @NgModule({
-	declarations: [MenuComponent, FooterComponent, NavbarComponent, CartonComponent, SidebarComponent],
+	declarations: [MenuComponent, FooterComponent, NavbarComponent, CartonComponent, SidebarComponent, PubliToastComponent],
 	imports: [
 		CommonModule,
 		HttpClientModule,
 		RouterModule,
-		SidebarModule
+		SidebarModule,
+		ToastModule,
+		ButtonModule,
 	],
 	providers: [
 		{
@@ -31,7 +36,8 @@ import { SidebarModule } from 'primeng/sidebar';
 		FooterComponent,
 		SidebarComponent,
 		NavbarComponent,
-		CartonComponent
+		CartonComponent,
+		PubliToastComponent
 	]
 
 })

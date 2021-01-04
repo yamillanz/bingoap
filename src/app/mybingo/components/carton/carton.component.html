@@ -1,18 +1,27 @@
-<table border="1" style="width: 100%; height: 50vh;">
-    <tr>
-        <th *ngFor="let row of columns">{{row}}</th>
-    </tr>
-    <tr *ngFor="let rows of matrizCarton | keyvalue">
-        <td *ngFor="let cell of matrizCarton[rows.key] | keyvalue"
-            (click)="marcarBola(id + '-' + columns[cell.key] + cell.value, rows.key, cell.key)"
-            id="{{id + '-' + columns[cell.key] + cell.value}}">
-            {{cell.value}}
-        </td>
-        <!-- <td>{{rows.key}}</td> -->
-    </tr>
-</table>
-<br> 
-<button pButton pRipple type="button" label="Bingo!" class="p-button-raised"  (click)="cantarBingo()"></button>
+<div class="p-shadow-5 p-mx-2 p-mb-2 ">
+    <div class="p-mb-2">
+        <table class="carton">
+            <!-- border="1" style="width: 100%; height: 50vh;" -->
+            <tr>
+                <th *ngFor="let row of columns">{{row}}</th>
+            </tr>
+            <tr *ngFor="let rows of matrizCarton | keyvalue">
+                <td *ngFor="let cell of matrizCarton[rows.key] | keyvalue" 
+                    (click)="marcarBola(id + '-' + columns[cell.key] + cell.value, rows.key, cell.key)" >
+                    <div class="numero {{ cell.value === '&' ? 'comodin' : ''}}" id="{{id + '-' + columns[cell.key] + cell.value}}">
+                        {{cell.value !=='&' ? cell.value : ''}}
+                    </div>
+                    
+                </td >
+                <!-- <td>{{rows.key}}</td> -->
+            </tr>
+        </table>
+    </div>
+    <div class="p-mt-2 p-p-1">
+        <button pButton pRipple type="button" label="Bingo!" class="p-button-raised" (click)="cantarBingo()"></button>
+    </div>
+
+</div>
 <!-- <table border="1">
     
 </table> -->

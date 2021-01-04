@@ -1,1 +1,19 @@
-<p>publi-toast works!</p>
+<p-toast position="bottom-center" key="c" (onClose)="onReject()" [baseZIndex]="5000">
+    <ng-template let-message pTemplate="message">
+        <div class="p-flex p-flex-column" style="flex: 1">
+            <div class="p-text-center">                
+                <h4>{{message.summary}}</h4>
+				<!-- <p>{{message.detail}}</p> -->
+				<img *ngIf="message.detail" [src]="apiPublicidad + '/imagenes/' + message.detail" />
+            </div>
+            <div class="p-grid p-fluid p-jc-end">
+                <div class="p-col-6">
+                    <button type="button" pButton (click)="vamos()" label="Ir al sitio" class="p-button-success"></button>
+                </div>
+             <!--    <div class="p-col-6">
+                    <button type="button" pButton (click)="onReject()" label="No" class="p-button-secondary"></button>
+                </div> -->
+            </div>
+        </div>
+    </ng-template>
+</p-toast>
