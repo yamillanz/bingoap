@@ -1,5 +1,5 @@
 import { ViewportScroller } from '@angular/common';
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core'; 
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router'
 
 @Component({
@@ -15,15 +15,18 @@ export class NavbarComponent implements OnInit {
 
 	constructor(private viewportScroller: ViewportScroller, private router: Router) { }
 
-	onClickScroll(elementId: string): void {
-		if (elementId == "home") {
-			this.router.navigate(['/landing']);
-		} else {
-			this.viewportScroller.scrollToAnchor(elementId);
-		}
+	async onClickScroll(elementId: string){
+		/* 	if (elementId == "home") {
+				this.router.navigate(['/landing']);
+				this.viewportScroller.scrollToAnchor(elementId);
+			} else {
+				this.router.navigate(['/landing']);
+				this.viewportScroller.scrollToAnchor(elementId);
+			} */
 		//
 		//const elmnt = document.getElementById(elementId);
-
+		await this.router.navigate(['/landing']);
+		this.viewportScroller.scrollToAnchor(elementId);
 	}
 
 
@@ -50,7 +53,7 @@ export class NavbarComponent implements OnInit {
 		this.router.navigate(['/login'])
 	}
 
-	newUser(){
+	newUser() {
 		this.router.navigate(['/landing/users/register'])
 	}
 

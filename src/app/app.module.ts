@@ -14,6 +14,7 @@ import { SharedModule } from './shared/shared.module';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -32,9 +33,10 @@ const config: SocketIoConfig = { url: 'http://localhost:4001', options: {} }; */
 		CommonModule, // Es mas eficiente asi...!!!
 		BrowserModule,
 		AppRoutingModule,
-		AuthModule,
+		//AuthModule,
 		BrowserAnimationsModule,
-		UsersModule,
+		//UsersModule,
+		HttpClientModule,
 	],
 	providers: [AuthLoadGuard, AuthService],
 	bootstrap: [AppComponent]

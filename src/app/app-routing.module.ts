@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { environment } from 'src/environments/environment';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { LogoutComponent } from './auth/components/logout/logout.component';
 /* import { PerfilComponent } from './users/perfil/perfil.component';
 import { EditComponent } from './users/perfil/edit/edit.component'; */
 
@@ -23,7 +24,9 @@ const routes: Routes = [
 		redirectTo: 'landing',
 		pathMatch: 'full'
 	},
+	/* { path: 'login', redirectTo: 'landing/login', }, */
 	/* { path: 'freegame', loadChildren: () => import('./free-game/free-game.module').then(m => m.FreeGameModule) }, */
+	{ path: 'logout', component: LogoutComponent }
 
 ];
 
