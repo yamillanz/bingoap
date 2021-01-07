@@ -150,8 +150,6 @@ export class RegisterComponent implements OnInit {
 		}
 	}
 
-
-	const variable = (paramatero1 , param2)=>{return 1};
 	registrarFull() {
 		if (this.newClienteForm.valid) {
 			let newClient: client = {};

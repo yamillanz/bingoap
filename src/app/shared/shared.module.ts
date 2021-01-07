@@ -17,7 +17,7 @@ import { ButtonModule } from 'primeng/button';
 @NgModule({
 	declarations: [MenuComponent, FooterComponent, NavbarComponent, CartonComponent, SidebarComponent, PubliToastComponent],
 	imports: [
-		CommonModule,
+		/* CommonModule, */ // es mas eficiente asi
 		HttpClientModule,
 		RouterModule,
 		SidebarModule,
