@@ -10,10 +10,11 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SharedModule } from './shared/shared.module';
+/* import { SharedModule } from './shared/shared.module';
 import { AuthModule } from './auth/auth.module';
-import { UsersModule } from './users/users.module';
-import { environment } from 'src/environments/environment';
+import { UsersModule } from './users/users.module'; */
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -29,13 +30,13 @@ const config: SocketIoConfig = { url: 'http://localhost:4001', options: {} }; */
 		AppComponent,
 	],
 	imports: [
+		CommonModule, // Es mas eficiente asi...!!!
 		BrowserModule,
 		AppRoutingModule,
-		SharedModule,
-		AuthModule,
-		SharedModule,
+		//AuthModule,
 		BrowserAnimationsModule,
-		UsersModule,
+		//UsersModule,
+		HttpClientModule,
 	],
 	providers: [AuthLoadGuard, AuthService],
 	bootstrap: [AppComponent]

@@ -34,6 +34,7 @@ export class PartidasComponent implements OnInit {
 				this.idSala = params.idSala;
 
 			});
+
 		this.cartonesComprar = 1;
 		this.partidas = [... await this.srvPartidas.findToPlay(this.idSala).toPromise()];
 

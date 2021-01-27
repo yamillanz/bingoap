@@ -9,8 +9,8 @@
 
     <div class="p-col-12 p-grid p-m-2"> 
         <div *ngFor="let nroCarton of nroCartones" class="p-col-12 p-md-6 p-lg-4"> 
-            <div class="p-shadow-5 p-p-2">
-                <p>Carton nro {{nroCarton + 1}}</p>
+            <div class=""> <!-- p-shadow-5 p-p-2 -->
+                <!-- <h2>Carton nro {{nroCarton + 1}}</h2> -->
                 <app-carton [id]="nroCarton + 1" [numerosSorteados]="numerosYaSalieron"
                     (datosBingoCantado)="seCantoBingo($event)"></app-carton>
             </div>

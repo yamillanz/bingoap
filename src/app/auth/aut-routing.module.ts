@@ -4,13 +4,13 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 const routes: Routes = [
-/* 	{
-		path: '',
-		children: [{ path: 'login', component: LoginComponent }]
-	}, */
+	/* 	{
+			path: '',
+			children: [{ path: 'logout', component: LogoutComponent }]
+		}, */
 	//{ path: 'login', component: LoginComponent },
 
-	{ path: 'logout', component: LogoutComponent }
+	/* { path: 'logout', component: LogoutComponent } */
 ];
 
 @NgModule({

@@ -18,6 +18,7 @@ const routes: Routes = [
 			{ path: 'partidas/:idSala', loadChildren: () => import('../mybingo/mybingo.module').then(m => m.MybingoModule) },
 			{ path: 'publicidad', loadChildren: () => import('../publicidad/publicidad.module').then(m => m.PublicidadModule)},
 			{ path: 'banking', loadChildren: () => import('../banking/banking.module').then(m => m.BankingModule)},
+			{ path: 'freegame', loadChildren: () => import('../free-game/free-game.module').then(m => m.FreeGameModule) },
 	],
 	}
 ];

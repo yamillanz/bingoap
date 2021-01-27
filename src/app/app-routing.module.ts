@@ -2,11 +2,12 @@
 import { AuthLoadGuard } from './guards/auth-load.guard';
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { NgxsModule } from '@ngxs/store';
+
 import { environment } from 'src/environments/environment';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { PerfilComponent } from './users/perfil/perfil.component';
-import { EditComponent } from './users/perfil/edit/edit.component';
+import { LogoutComponent } from './auth/components/logout/logout.component';
+/* import { PerfilComponent } from './users/perfil/perfil.component';
+import { EditComponent } from './users/perfil/edit/edit.component'; */
 
 
 const routes: Routes = [
@@ -23,7 +24,9 @@ const routes: Routes = [
 		redirectTo: 'landing',
 		pathMatch: 'full'
 	},
-	//{ path: 'freegame', loadChildren: () => import('./free-game/free-game.module').then(m => m.FreeGameModule) },
+	/* { path: 'login', redirectTo: 'landing/login', }, */
+	/* { path: 'freegame', loadChildren: () => import('./free-game/free-game.module').then(m => m.FreeGameModule) }, */
+	{ path: 'logout', component: LogoutComponent }
 
 ];
 
@@ -37,9 +40,9 @@ export const AdminLayoutRoutes: Routes = [
 			//useHash: true,
 			anchorScrolling: 'enabled'
 		}),
-		NgxsModule.forRoot([], {
-			developmentMode: !environment.production
-		})
+		/* 	NgxsModule.forRoot([], {
+				developmentMode: !environment.production
+			}) */
 	],
 	exports: [RouterModule]
 })

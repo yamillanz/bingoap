@@ -5,4 +5,5 @@ export interface Publicidad {
     imagen?;
     activo?;
     fechaCreacion?;
+    url? : string;
 }

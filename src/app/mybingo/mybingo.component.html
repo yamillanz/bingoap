@@ -25,7 +25,7 @@
 			<!-- p-col-12 p-md-4 p-lg-4 p-p-1 -->
 			<div *ngFor="let nroCarton of nroCartones" class="p-col-12 p-md-6 p-lg-4">
 				<div class="p-shadow-5 p-p-2">
-					<p>Carton nro {{nroCarton + 1}}</p>
+					<!-- <p>Carton nro {{nroCarton + 1}}</p> -->
 					<app-carton [id]="nroCarton + 1" [numerosSorteados]="numerosYaSalieron"
 						(datosBingoCantado)="seCantoBingo($event)"></app-carton>
 				</div>

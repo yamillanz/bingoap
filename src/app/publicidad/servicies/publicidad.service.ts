@@ -15,19 +15,24 @@ export class PublicidadService {
 		//return this.http.get<Publicidad[]>(`http://localhost:3011/publicidad`); 
 	}
 
-	savePublicidad(publi :Publicidad){
+	findOpnePublicidad(id: number) {
+		return this.http.get<Publicidad>(`${environment.apiPublicidad}/${id}`);
+	}
+
+
+	savePublicidad(publi: Publicidad) {
 		return this.http.post<Publicidad>(`${environment.apiPublicidad}`, publi);
 	}
 
-	updatePublicidad(id: number, publi :Publicidad){
+	updatePublicidad(id: number, publi: Publicidad) {
 		return this.http.put(`${environment.apiPublicidad}/${id}`, publi);
 	}
 
-	subirImagenPublicidad(id: number, imagen){
+	subirImagenPublicidad(id: number, imagen) {
 		return this.http.post(`${environment.apiSubirImgPublicidad}/${id}`, imagen);
 	}
 
-	removePublicidad(id: number){
+	removePublicidad(id: number) {
 		return this.http.delete(`${environment.apiPublicidad}/${id}`);
 	}
 

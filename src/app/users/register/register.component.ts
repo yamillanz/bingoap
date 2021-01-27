@@ -210,8 +210,8 @@ export class RegisterComponent implements OnInit {
 						this.messageService.clear();
 						this.messageService.add({ key: "t1", severity: 'success', summary: 'Felicidades!!!', detail: 'Ahora inicia sesión para disfrutar del bingo' });
 						//this.router.navigate(['/login'])
-						console.log("actualizado final", respFinal);
-						
+						//await this.balanceServicio.registrarCero(idUsuairo).toPromise();
+						//console.log("actualizado final", respFinal);
 					});
 
 				});

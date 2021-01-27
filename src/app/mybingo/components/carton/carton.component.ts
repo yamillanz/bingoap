@@ -155,7 +155,7 @@ export class CartonComponent implements OnInit/* , OnChanges */ {
 
 			//console.log("salio: ", );
 			if (this.celda.className != 'touched' && sisalio) {
-				this.celda.className = 'touched';
+				this.celda.className += ' touched';
 				this.marcadosYasalieron = [... this.marcadosYasalieron, this.matrizCarton[fila][col]];
 				this.bingoEsteCarton = this.marcadosVsPatrones(this.matrizCarton[fila][col], fila, col);
 				//console.log("Canto: ", this.bingoEsteCarton);
