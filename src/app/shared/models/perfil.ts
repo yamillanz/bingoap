@@ -10,4 +10,8 @@ export class PerfilCliente {
     genero?
     tarjetaDeCredito?
     numeroTelefono?
+    country?
+    countryCode?
+    ip?
+    url?
 }

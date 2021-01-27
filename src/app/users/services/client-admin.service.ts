@@ -3,6 +3,7 @@ import { client } from '../models/client';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { user } from '../models/user.model';
+import { PerfilCliente } from '../models/perfil';
 
 @Injectable({
 	providedIn: 'root'
@@ -25,6 +26,8 @@ export class ClientAdminService {
 	getnickname(client: client) {
 		return this.http.get(`${environment.apiUrlAuth}clientes/nickname`, client.nickname);
 	}
+
+	
 
 
 }

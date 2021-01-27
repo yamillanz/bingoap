@@ -2,6 +2,8 @@ import { Router } from '@angular/router';
 import { User } from '../../../users/models/user';
 import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
+import { BankingService } from 'src/app/banking/services/banking.service';
+import { BalanceService } from 'src/app/users/services/balance.service';
 
 
 @Component({
@@ -11,12 +13,17 @@ import { Component, OnInit } from '@angular/core';
 
 })
 export class LoginComponent implements OnInit {
-
+	idUsuario: any;
+	SaldoUsuario:any ={};
 	userName: string = "";
 	passUser: string = "";
 	errores: boolean = false;
+	idRol: any;
 
-	constructor(private srvAuth: AuthService, private router: Router) { }
+	
+
+	constructor(private srvAuth: AuthService, private router: Router, 
+		private bankingService: BankingService, private balanceService: BalanceService) { }
 
 	ngOnInit(): void {
 	}
@@ -37,9 +44,18 @@ export class LoginComponent implements OnInit {
 				sessionStorage.setItem('currentUser', JSON.stringify(dataUser));
 				//localStorage.setItem('currentUser', JSON.stringify(dataUser));
 				//Probando setear un BehaviorSubject
-				this.router.navigate(['dashboard']);
-				//console.log(dataUser);
-
+				this.idRol = JSON.parse(sessionStorage.getItem('currentUser')).userData.idRolUsuario;
+				if (this.idRol == 3)
+				{
+					this.router.navigate(['dashboard/notificaciones']);
+				}
+				if (this.idRol != 3)
+				{
+					this.router.navigate(['dashboard']);
+					//console.log(dataUser);
+				}
+				
+				
 			}
 		} catch (error) {
 			// vacio 400 "bad request" .ok .status:400 
@@ -49,7 +65,11 @@ export class LoginComponent implements OnInit {
 
 		}
 
+		
+
 	}
 
 
+	
+		
 }

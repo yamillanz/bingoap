@@ -5,6 +5,7 @@
 
 export const environment = {
   production: false,
+  apiUrlBalance: 'http://localhost:3060/',
   apiUrlDashoard: 'http://localhost:3050/',
   apiUrlUsuarios: 'http://localhost:3010/users', 
   apiUrlClientes: 'http://localhost:3010/clientes', 

@@ -53,9 +53,9 @@ export class NotificacionesService {
     return this.httpClient.get<NotificacionesModel[]>(url)      
   }
 
-  getBalanceByUser(idUsuarioRecibe:number) : Observable<TransaccionesModel[]>{
+  getBalanceByUser(idUsuarioRecibe: number) : Observable<TransaccionesModel>{
     const url1 = `${this.url1}/usuario/${idUsuarioRecibe}`;
-    return this.httpClient.get<TransaccionesModel[]>(url1)       
+    return this.httpClient.get<TransaccionesModel>(url1)       
   }
 
   updateMensaje(idNotificacion: number, mensaje: NotificacionesModel): Observable<NotificacionesModel> {

@@ -17,10 +17,13 @@ import { SalasRoutingModule } from './salas-routing.module';
 import { SalasBingoComponent } from './salas-bingo/salas-bingo.component';
 import { SalasEditComponent } from './salas-bingo/salas-edit/salas-edit.component';
 import { SalaNuevaComponent } from './salas-bingo/sala-nueva/sala-nueva.component';
+import { SalasDashboardComponent } from './salas-dashboard/salas-dashboard.component';
+import { CarouselModule } from 'primeng/carousel';
+
 
 
 @NgModule({
-  declarations: [SalasBingoComponent, SalasEditComponent, SalaNuevaComponent],
+  declarations: [SalasBingoComponent, SalasEditComponent, SalaNuevaComponent, SalasDashboardComponent],
   imports: [
     CommonModule,
     SalasRoutingModule,
@@ -34,7 +37,11 @@ import { SalaNuevaComponent } from './salas-bingo/sala-nueva/sala-nueva.componen
     ButtonModule,
     TooltipModule,
     InputSwitchModule,
-    ConfirmDialogModule
-  ]
+    ConfirmDialogModule,
+    CarouselModule
+  ],
+  exports: [
+		SalasDashboardComponent
+	]
 })
 export class SalasModule { }

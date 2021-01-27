@@ -8,24 +8,23 @@ import { Salas } from '../../models/salas';
   selector: 'app-salas-edit',
   templateUrl: './salas-edit.component.html',
   styleUrls: ['./salas-edit.component.scss'],
-  providers: [ConfirmationService, MessageService]
+  providers: [ConfirmationService, MessageService],
 })
-
 export class SalasEditComponent implements OnInit {
   displayModal: boolean;
-  dealers: Salas [];
-  idDealer:any;
+  dealers: Salas[];
+  idDealer: any;
+  id: any;
+  /*  salas: Salas[] = []; */
 
- /*  salas: Salas[] = []; */
-
-	/* nombre: any;
+  /* nombre: any;
 	descripcion: any;
 	activo: any;
 	nro_participantes: any;
 	monto: any;
 	estatus: any;
   nro_partidas_max: any; */
-  
+
   sala: Salas = {
     id: 0,
     idDealer: 0,
@@ -40,21 +39,27 @@ export class SalasEditComponent implements OnInit {
     nro_partidas_max: 0,
   };
 
-  constructor(private messageService: MessageService, private salasService: SalasService, private router: Router, 
-    private activatedRoute: ActivatedRoute, private confirmationService: ConfirmationService) { }
+  constructor(
+    private messageService: MessageService,
+    private salasService: SalasService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private confirmationService: ConfirmationService
+  ) {}
 
   ngOnInit(): void {
     this.getDealers();
     this.displayModal = true;
     const params = this.activatedRoute.snapshot.params;
-    console.log('params id sala',params.id );
+    console.log('params id sala', params.id);
     if (params.id) {
-      this.salasService.getSala(params.id)
-     
+      this.salasService
+        .getSala(params.id)
+
         .subscribe(
-          res => {
+          (res) => {
             this.sala = res[0];
-            console.log('data sala', this.sala)
+            console.log('data sala', this.sala);
             /* this.nombre = res[0].nombre;
             this.descripcion = res[0].descripcion;
             this.activo = res[0].activo;
@@ -64,9 +69,9 @@ export class SalasEditComponent implements OnInit {
             this.nro_partidas_max = res[0].nro_partidas_max;
             console.log('salas data', this.salas) */
           },
-          err => console.log(err)
-        )
-    } 
+          (err) => console.log(err)
+        );
+    }
   }
 
   onSalaSelected(event) {
@@ -78,41 +83,38 @@ export class SalasEditComponent implements OnInit {
     /* delete this.salas.fechaCreacion;
     delete this.usuario.emailValido; */
     delete this.sala.fechaCreacion;
-    this.salasService.updateSala(this.sala.id, this.sala)
-      .subscribe( 
-        res => { 
-          console.log('data modificada', res)
-          this.addSingle();
-        },
-        err => console.error(err)
-      )
-      
+    this.salasService.updateSala(this.sala.id, this.sala).subscribe(
+      (res) => {
+        console.log('data modificada', res);
+        this.addSingle();
+      },
+      (err) => console.error(err)
+    );
   }
 
-  getDealers(){
-    this.salasService.getDealers()
-      .subscribe( 
-        res => { 
-          this.dealers = res;
-          this.idDealer = res[0].idDealer;
-          console.log('data de los dealers', this.dealers)
-          
-        },
-        err => console.error(err)
-      )
+  getDealers() {
+    this.salasService.getDealers().subscribe(
+      (res) => {
+        this.dealers = res;
+        this.idDealer = res[0].idDealer;
+        console.log('data de los dealers', this.dealers);
+      },
+      (err) => console.error(err)
+    );
   }
-
-  
 
   addSingle() {
-    this.messageService.add({severity:'success', summary:'Excelente', detail:'Sala Modificada'});
+    this.messageService.add({
+      severity: 'success',
+      summary: 'Excelente',
+      detail: 'Sala Modificada',
+    });
   }
 
-  close(){
-		this.router.navigate(['dashboard/salas'],{
-			skipLocationChange: true
-      }); 
-      
+  close() {
+    this.router.navigate(['dashboard/salas'], {
+      skipLocationChange: true,
+    });
   }
 
   /* confirm() {
@@ -125,26 +127,46 @@ export class SalasEditComponent implements OnInit {
     });
 } */
 
+  
 
-deleteSala(id: number) {
-  this.salasService.deleteSala(id)
-    .subscribe(
-      res => {
-        console.log(res);
-      },
-      err => console.error(err)
-    )
-}
-
-confirm() {
-  this.confirmationService.confirm({
-      message: 'Are you sure that you want to perform this action?',
+  confirm() {
+    this.id = this.sala.id;
+    this.confirmationService.confirm({
+      message: 'Estas seguro de eliminar esta sala?',
       accept: () => {
-          //Actual logic to perform a confirmation
-          this.deleteSala(this.sala.id);
-          console.log('esta es la salaa eliminar desde confirm', this.sala.id)
-      }
-  });
-}
+        //Actual logic to perform a confirmation
+        /* this.deleteSala(this.sala.id); */
+        this.salasService.deleteSala(this.id).subscribe(
+          (res) => {
+            this.messageService.add({ key: "t1", severity: 'success', summary: 'Atención', detail: 'Sala eliminada' });
+            
+          },
+          (err) => console.error(err)
+        );
+        
+      },
+      reject: () => {
+        this.messageService.add({
+          severity: 'info',
+          summary: 'Sin cambios',
+          detail: 'No eliminaste la sala',
+          
+        });
+        
+        this.router.navigate(['dashboard/salas/editar-sala', this.sala.id],{
+          skipLocationChange: true
+        });
+      },
+    });
+  }
+
+  redirect() {
+    this.router.navigate(['dashboard/salas']), {
+      skipLocationChange: true
+    }
+  }
+
 
 }
+
+

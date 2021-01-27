@@ -96,7 +96,6 @@ export class SalaNuevaComponent implements OnInit {
   }
 
   redirect() {
-    
 		this.router.navigate(['dashboard/salas']);
 	}
 

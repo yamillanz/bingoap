@@ -10,7 +10,9 @@ import { SharedModule } from '../shared/shared.module';
 import { CardModule } from 'primeng/card';
 import { TooltipModule } from 'primeng/tooltip';
 import { SidebarComponent } from '../shared/sidebar/sidebar.component';
-
+import {CarouselModule} from 'primeng/carousel';
+import { SalasModule } from '../salas/salas.module';
+import { NotificacionesModule } from '../notificaciones/notificaciones.module';
 
 @NgModule({
 	declarations: [DashboardComponent],
@@ -23,6 +25,9 @@ import { SidebarComponent } from '../shared/sidebar/sidebar.component';
 		CardModule,
 		FormsModule,
 		TooltipModule,
+		CarouselModule,
+		SalasModule,
+		NotificacionesModule
 
 	]
 })

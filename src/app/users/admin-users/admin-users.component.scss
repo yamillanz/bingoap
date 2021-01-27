@@ -15,8 +15,12 @@
     align-items: center;
   }
 
+  .labelInvisible {
+    display: none !important;
+  }
+
   .container {
-    margin-top: 80px;
+    margin-top: 20px;
     text-align: center;
     align-items: center;
     vertical-align: middle;
@@ -43,6 +47,12 @@
                 .p-datatable-thead > tr > th,
                 .p-datatable-tfoot > tr > td {
                     display: none !important;
+                }
+                .labelInvisible {
+                  display: initial !important;
+                  float: left;
+                  padding-top: 10px;
+                  padding-left: 14px;
                 }
 
                 .p-datatable-tbody > tr > td {

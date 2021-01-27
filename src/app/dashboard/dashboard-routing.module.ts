@@ -7,6 +7,7 @@ const routes: Routes = [
 		path: '', component: DashboardComponent,
 		children: [
 			{ path: 'salas', loadChildren: () => import('../salas/salas.module').then(m => m.SalasModule)},
+			{ path: 'sala-showroom', loadChildren: () => import('../salas/salas.module').then(m => m.SalasModule)},
 			{ path: 'salas/editar-sala', loadChildren: () => import('../salas/salas.module').then(m => m.SalasModule)},
 			{ path: 'perfil', loadChildren: () => import('../users/users.module').then(m => m.UsersModule)},
 			{ path: 'admin-users', loadChildren: () => import('../users/users.module').then(m => m.UsersModule)},
@@ -16,6 +17,7 @@ const routes: Routes = [
 			{ path: 'mybingo', loadChildren: () => import('../mybingo/mybingo.module').then(m => m.MybingoModule) },
 			{ path: 'partidas/:idSala', loadChildren: () => import('../mybingo/mybingo.module').then(m => m.MybingoModule) },
 			{ path: 'publicidad', loadChildren: () => import('../publicidad/publicidad.module').then(m => m.PublicidadModule)},
+			{ path: 'banking', loadChildren: () => import('../banking/banking.module').then(m => m.BankingModule)},
 	],
 	}
 ];
