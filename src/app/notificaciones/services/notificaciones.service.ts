@@ -28,7 +28,7 @@ export class NotificacionesService {
   notificacion: Observable<any>;
 
   public selectedMensaje: NotificacionesModel = {
-    idNotificacion: null,
+    idNotificacion: 0,
     idUsuarioRecibe: '',
     idUsuarioEnvia: '',
     mensaje: '',
@@ -59,7 +59,13 @@ export class NotificacionesService {
   }
 
   updateMensaje(idNotificacion: number, mensaje: NotificacionesModel): Observable<NotificacionesModel> {
+    console.log(mensaje);
     return this.httpClient.put(`${this.url}/mensaje/${idNotificacion}`, mensaje);
+  }
+
+  enviarMensaje(notificacion) : Observable<NotificacionesModel> {
+    console.log(notificacion);
+    return this.httpClient.post(`${this.url}`, notificacion);
   }
 
 }

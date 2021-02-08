@@ -13,7 +13,7 @@ import { AppComponent } from './app.component';
 /* import { SharedModule } from './shared/shared.module';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module'; */
-import { CommonModule } from '@angular/common';
+/* import { CommonModule } from '@angular/common'; */
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -30,7 +30,7 @@ const config: SocketIoConfig = { url: 'http://localhost:4001', options: {} }; */
 		AppComponent,
 	],
 	imports: [
-		CommonModule, // Es mas eficiente asi...!!!
+		/* CommonModule, */ // Es mas eficiente asi...!!!
 		BrowserModule,
 		AppRoutingModule,
 		//AuthModule,

@@ -1,7 +1,7 @@
 import { TokenInterceptor } from './../auth/token.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http'; //HttpClientModule, 
 import { NgModule } from '@angular/core';
-/* import { CommonModule } from '@angular/common'; */
+import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
@@ -18,7 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
 	declarations: [MenuComponent, FooterComponent, NavbarComponent, CartonComponent, SidebarComponent, PubliToastComponent],
 	imports: [
-		/* CommonModule, */ // es mas eficiente asi
+		CommonModule, // es mas eficiente asi
 		/* HttpClientModule, */
 		RouterModule,
 		SidebarModule,

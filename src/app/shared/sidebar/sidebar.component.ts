@@ -189,7 +189,17 @@ export class SidebarComponent implements OnInit {
     ).userData.id; 
     this.bankingService.getSaldoGlobalUsuario(this.userRecibe).subscribe((data) => {
       this.saldos = data;
-      this.saldoNeto = data[0].saldoGlobal;
+      
+      if (this.saldos.length == undefined)
+      {
+        this.saldoNeto = 0;
+      }
+      if (this.saldos.length != undefined)
+      {
+        this.saldoNeto = data[0].saldoGlobal;
+      }
+
+      
      
       
       /* this.saldo = data[0].saldo; */

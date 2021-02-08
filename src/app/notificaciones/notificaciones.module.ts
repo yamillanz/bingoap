@@ -11,7 +11,7 @@ import { ToastModule } from 'primeng/toast';
 import { TooltipModule } from 'primeng/tooltip';
 import { ButtonModule } from 'primeng/button';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
-
+import { AutoCompleteModule } from 'primeng/autocomplete';
 @NgModule({
   declarations: [NotificacionesComponent, NotificacioneditComponent],
   imports: [
@@ -24,6 +24,7 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
     TooltipModule,
     ButtonModule,
     ConfirmDialogModule,
+    AutoCompleteModule
 
   ],
   exports: [

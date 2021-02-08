@@ -86,7 +86,7 @@ export class BankingComponent implements OnInit {
       if (user.email.toLowerCase().indexOf(query.toLowerCase()) == 0) {
         filtered.push(user);
       }
-    }
+    } 
 
     this.filteredUsers = filtered;
   }
@@ -170,7 +170,7 @@ export class BankingComponent implements OnInit {
         this.messageService.add({
           key: 't1',
           severity: 'success',
-          summary: '💃',
+          summary: '💃', 
           detail: 'Good! 💰 las monedas se enviaron...',
         });
         this.ngOnInit();

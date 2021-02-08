@@ -104,11 +104,12 @@ export class SalasEditComponent implements OnInit {
   }
 
   addSingle() {
-    this.messageService.add({
+    /* this.messageService.add({
       severity: 'success',
       summary: 'Excelente',
       detail: 'Sala Modificada',
-    });
+    }); */
+    this.messageService.add({ key: "t1", severity: 'success', summary: 'Atención', detail: 'Sala modificada' });
   }
 
   close() {

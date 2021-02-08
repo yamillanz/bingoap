@@ -12,14 +12,15 @@ import { HomeComponent } from './components/home/home.component';
 
 
 @NgModule({
-	declarations: [LandingComponent, HomeComponent],
-	imports: [
-		CommonModule,
-		SharedModule,
-		LandingRoutingModule,
-		FontAwesomeModule,
-		//BrowserAnimationsModule,
-
-	]
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
+  declarations: [LandingComponent, HomeComponent],
+  imports: [
+  CommonModule,
+  SharedModule,
+  LandingRoutingModule,
+  FontAwesomeModule,
+  //BrowserAnimationsModule,
+    
+  ]
 })
 export class LandingModule { }

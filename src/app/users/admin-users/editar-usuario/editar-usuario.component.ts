@@ -105,8 +105,7 @@ export class EditarUsuarioComponent implements OnInit {
   }
  
   addSingle() {
-    this.messageService.add({severity:'success', summary:'Excelente', detail:'Usuario actualizado'});
-
+    this.messageService.add({ key: "t1", severity: 'success', summary: 'Atención', detail: 'Usuario Actualizado' });
   }
 
   close(){
@@ -115,6 +114,12 @@ export class EditarUsuarioComponent implements OnInit {
       }); 
       
   }  
+
+  redirect() {
+    this.router.navigate(['dashboard/perfil/admin-users']), {
+      skipLocationChange: true
+    }
+  }
 
   
 

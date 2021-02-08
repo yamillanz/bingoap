@@ -3,7 +3,7 @@
 		<div class="columns is-vcentered">
 			<div class="column">
 				<figure class="image is-256x256">
-				
+
 					<img alt="Card" src="../../../assets/images/card-bingo-balls.png">
 				</figure>
 			</div>
@@ -23,16 +23,19 @@
 
 						</div>
 						<div class="p-text-left">
-							<label for="passUser" class="p-text-left">Contraseña</label>
+
+							  <label for="passUser" class="p-text-left">Contraseña</label>
+
 						</div>
 						<div class="p-field p-col-12">
-							<input name="passUser" pInputText type="password" [(ngModel)]="passUser" />
+							  <input name="passUser" pInputText type="password" [(ngModel)]="passUser" />
+
 						</div>
 						<div *ngIf="errores" class="p-col-12"><small class="p-invalid">Usuario o Contraseña
 								invalidos!</small></div>
 						<ng-template pTemplate="footer">
 							<p-button label="Iniciar Sesión" icon="pi pi-check" (click)="iniciarSesion()"></p-button>
-							<div>
+							<div class="p-pt-2">
 								<a (click)="goForgot()" >Olvide mi contraseña</a>
 							</div>
 						</ng-template>

@@ -1,6 +1,6 @@
 import { ButtonModule } from 'primeng/button';
 
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { FormsModule } from '@angular/forms';
@@ -27,8 +27,8 @@ import { NotificacionesModule } from '../notificaciones/notificaciones.module';
 		TooltipModule,
 		CarouselModule,
 		SalasModule,
-		NotificacionesModule
+    NotificacionesModule
 
-	]
+  ],
 })
 export class DashboardModule { }

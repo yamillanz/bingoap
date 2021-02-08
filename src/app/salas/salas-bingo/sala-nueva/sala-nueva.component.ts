@@ -75,7 +75,8 @@ export class SalaNuevaComponent implements OnInit {
   saveSala() {
     this.sala.idDealer = this.idDealer;
     this.sala.nombre = this.nombreSala;
-    this.sala.fechaCreacion = new Date();
+    /* this.sala.fechaCreacion = new Date(); */
+    delete this.sala.fechaCreacion;
     this.salasService.saveSala(this.sala)
       .subscribe((data: {}) => {
         this.addSingle();

@@ -2,8 +2,7 @@ import { Router } from '@angular/router';
 import { User } from '../../../users/models/user';
 import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { BankingService } from 'src/app/banking/services/banking.service';
-import { BalanceService } from 'src/app/users/services/balance.service';
+import { ConstantPool } from '@angular/compiler';
 
 
 @Component({
@@ -22,8 +21,7 @@ export class LoginComponent implements OnInit {
 
 	
 
-	constructor(private srvAuth: AuthService, private router: Router, 
-		private bankingService: BankingService, private balanceService: BalanceService) { }
+	constructor(private srvAuth: AuthService, private router: Router) { }
 
 	ngOnInit(): void {
 	}
@@ -41,6 +39,7 @@ export class LoginComponent implements OnInit {
 				//this.srvAuth.setUserSubject(dataUser);
 				await this.srvAuth.accionarSesion(dataUser).toPromise();
 				delete dataUser.userData.email;
+				
 				sessionStorage.setItem('currentUser', JSON.stringify(dataUser));
 				//localStorage.setItem('currentUser', JSON.stringify(dataUser));
 				//Probando setear un BehaviorSubject

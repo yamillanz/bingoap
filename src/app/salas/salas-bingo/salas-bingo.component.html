@@ -4,7 +4,7 @@
 <br>
 <div class="card">
       <div class="table">
-        <p-table #dt1 [value]="salas" styleClass="p-datatable-responsive-demo" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" 
+        <p-table #dt1 [value]="salas" styleClass="p-datatable-responsive-demo" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
         currentPageReportTemplate="Mostrando {first} hasta {last} de {totalRecords} registros." [rowsPerPageOptions]="[10,25,50]" [globalFilterFields]="['nombre','salas.nombre']" filterGlobal="email">
         <ng-template pTemplate="caption">
           <div class="p-d-flex">
@@ -24,7 +24,7 @@
                   <th>Jugadores</th>
                   <th>Partidas</th>
                   <th>Cartones</th>
-                  <th>Acción</th> 
+                  <th>Acción</th>
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-salas>
@@ -39,11 +39,11 @@
                 <td>{{salas.nro_partidas_max}}</td>
                 <label class="labelInvisible">Cartones:</label>
                 <td>{{salas.nro_cartones}}</td>
-                <td> 
-                  <p-button (click)="goToEditarSala(salas.id)" pTooltip="Editar"  icon="pi pi-pencil" styleClass="p-button-text"></p-button> 
+                <td>
+                  <p-button (click)="goToEditarSala(salas.id)" pTooltip="Editar"  icon="pi pi-pencil" styleClass="p-button-text"></p-button>
                 </td>
               </tr>
-              
+
 
           </ng-template>
           <ng-template pTemplate="summary">
@@ -52,7 +52,7 @@
             </div>
         </ng-template>
       </p-table>
-        </div> 
+        </div>
 </div>
 
 </div>

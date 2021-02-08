@@ -1,5 +1,5 @@
-<app-sidebar></app-sidebar>
-<p-toast></p-toast>
+<!-- <app-sidebar></app-sidebar> -->
+<p-toast position="center" key="t1" life="10" (onClose)="close()"></p-toast>
 <p-dialog class="dialog" header="Editar perfil" [(visible)]="displayModal" [modal]="true" [style]="{width: '300px'}" [baseZIndex]="10000"
     [draggable]="false" [resizable]="false" [closeIcon]="false">
         <div class="p-field p-grid">

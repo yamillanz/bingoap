@@ -75,22 +75,42 @@ export class NotificacioneditComponent implements OnInit {
 		}
 
 		updateMensaje() {
-			this.mensajes.leido=1;
-			this.mensajes.fechaLectura = new Date();
+			this.mensajes.leido =1;
+			this.mensajes.fechaLectura = this.datepipe.transform(new Date(), 'yyyy-MM-dd HH:MM:SS');
+			/* this.mensajes.fechaLectura = new Date(); */
+			console.log(this.mensajes.fechaLectura);
+			/* delete this.mensajes.fechaLectura; */
+			delete this.mensajes.fechaEnvio;
+			console.log(this.mensajes.fechaLectura);
 			this.notificacionesService.updateMensaje(this.mensajes.idNotificacion, this.mensajes)
 			.subscribe(
 				res => { 
-				this.addSingle();
-				
+					this.messageService.add({
+						key: 't1',
+						severity: 'success',
+						summary: '👍',
+						detail: 'Good! mensaje eliminado',
+					  });
+					  
+				/* console.log('eliminado');
+				console.log(res); */
 				},
 				err => console.error(err)
 			)
-			this.close(); 
+			
 		}
 
 
 		addSingle() {
-			this.messageService.add({severity:'success', summary:':(', detail:'Mensaje eliminado'});
+			this.messageService.add({
+				key: 't1',
+				severity: 'success',
+				summary: '💃',
+				detail: 'Good! mensaje eliminado',
+			  });
+			  this.router.navigate(['dashboard/notificaciones'],{
+				skipLocationChange: true
+			}); 
 			
 		}
 
