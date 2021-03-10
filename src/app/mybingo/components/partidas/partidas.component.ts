@@ -52,9 +52,6 @@ export class PartidasComponent implements OnInit {
 			let idUsuarioLoged = JSON.parse(sessionStorage.getItem('currentUser')).userData.id;
 			await this.srvPartidas.ingresarUsuarioAlaPartida({ idPartida: partidap.id, idUsuario: idUsuarioLoged }).toPromise();
 
-			/* partidap.idEstatus = 2;
-			await this.srvPartidas.cambiarEstadoPartida(partidap).toPromise(); //ESTO DEBE HACERCE EN EL BACK ***** */
-
 			this.router.navigate(['mybingo'], {
 				queryParams: {
 					idSalaPartida: this.idSala,
