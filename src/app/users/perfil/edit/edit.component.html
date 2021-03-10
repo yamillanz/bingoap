@@ -9,7 +9,7 @@
   [resizable]="false"
   [closeIcon]="false"
 >
-  <p-toast position="top-center"></p-toast>
+<p-toast position="center" key="t1" life="3000" (onClose)="redirect()"></p-toast> 
   <form>
     <div class="p-field p-grid">
       <label for="nickname" class="p-col-12">Nombre:</label>

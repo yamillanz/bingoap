@@ -106,7 +106,7 @@ export class BankingComponent implements OnInit {
       delete this.transaccion.fechaActualizacionEstatus;
       delete this.transaccion.fechaCreacion;
       delete this.transaccion.acumulado;
-      delete this.transaccion.idTipoTransaccion;
+      this.transaccion.idTipoTransaccion = 3;
       this.usuario = this.transaccion.idUsuarioRecibe;
       this.transaccion.idUsuarioEnvia = this.id;
       this.transaccion.idUsuarioRecibe = this.usuario.id;

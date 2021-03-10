@@ -4,6 +4,7 @@ export interface Partidas {
     valor?;
     activa?;
     fechaPrograma?;
+    fechaProgramNoHour?;
     monto?;
     limiteCartones?;
     idSala?;
@@ -11,4 +12,5 @@ export interface Partidas {
     observaciones?;
     nombre?;
     idDealerPartida?;
+    cantidadPartidas?;
 }

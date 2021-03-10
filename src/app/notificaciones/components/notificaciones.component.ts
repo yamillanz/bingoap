@@ -37,6 +37,7 @@ export class NotificacionesComponent implements OnInit {
 		fechaEnvio: new Date(),
 		fechaLectura: Date,
 		mensajeForAll: 0,
+		email: '',
 	  };
 	
 
@@ -62,7 +63,7 @@ export class NotificacionesComponent implements OnInit {
 		this.notif.idUsuarioRecibe = JSON.parse(sessionStorage.getItem('currentUser')).userData.id;
 		this.notificacionesService.getNotificationsByUser(this.notif.idUsuarioRecibe).subscribe(data => {
 		this.notificaciones = data;
-		
+		console.log(this.notificaciones);
 		})
 		
 	}

@@ -4,12 +4,13 @@ import {  PerfilCliente } from '../models/perfil';
 import { client } from '../models/client';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PerfilService } from '../services/perfil.service';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-perfil',
   templateUrl: './perfil.component.html',
   styleUrls: ['./perfil.component.scss'],
-  providers: [DatePipe],
+  providers: [ConfirmationService, MessageService, DatePipe]
 })
 
 export class PerfilComponent implements OnInit {
@@ -38,7 +39,7 @@ export class PerfilComponent implements OnInit {
   email: any;
   
   constructor(private actroute: ActivatedRoute, private router: Router, private datePipe: DatePipe, 
-    public perfilService:PerfilService ) { 
+    public perfilService: PerfilService, private messageService: MessageService ) { 
     this.myDate[0] = this.datePipe.transform(this.myDate, 'yyyy-MM-dd');
     this.weekday = this.myDate.getDay();
     
@@ -77,11 +78,12 @@ export class PerfilComponent implements OnInit {
 
   goToEditar() {
     this.router.navigate(['dashboard/perfil/editar', this.idCliente],{
-      /* skipLocationChange: true */
+      skipLocationChange: true
     });
     
   } 
 
+ 
     
 
 }

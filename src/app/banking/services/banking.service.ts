@@ -51,7 +51,7 @@ export class BankingService {
 
   saveTransaction(idUsuario: number, idDealer: number, transaccion: Transacciones) { 
     
-    return this.http.post(`${environment.apiUrlBalance}transacciones/usuario/${idUsuario}/dealer/${idDealer}`, transaccion);
+    return this.http.post(`${environment.apiUrlBalance}transacciones/recarga`, transaccion);
   } 
 
 

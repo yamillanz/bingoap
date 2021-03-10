@@ -39,7 +39,7 @@ export class NotificacionesService {
   };
 
   getNotificationsByUser(idUsuarioRecibe:number) : Observable<NotificacionesModel[]>{
-    const url = `${this.url}/mensaje/${idUsuarioRecibe}`;
+    const url = `${this.url}/usuario/${idUsuarioRecibe}`;
     return this.httpClient.get<NotificacionesModel[]>(url)      
   }
 

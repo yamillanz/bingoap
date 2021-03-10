@@ -31,9 +31,16 @@ export class PartidasService {
 		return this.http.get<Partidas[]>(environment.apiUrlPartidas + `/estatus`);
 	}
 
-	findToPlay(idSala: string) {
+  findToPlay(idSala: string) {
 		return this.http.get<Partidas[]>(environment.apiUrlPartidas + `/parajugar/${idSala}`);
-	}
+  }
+
+  
+  countPartidas(fechaProgramNoHour: string) {
+	return this.http.get<Partidas[]>(environment.apiUrlPartidas + `/date/${fechaProgramNoHour}`);
+}
+
+
 
 	ingresarUsuarioAlaPartida(partidaUser : PartidasUsers){
 		return this.http.post(environment.apiUrlPartidasUsers, partidaUser);

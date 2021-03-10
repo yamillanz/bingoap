@@ -118,19 +118,6 @@ export class EditComponent implements OnInit {
     }
   }
 
-  close() {
-    this.router.navigate(['dashboard/perfil'], {
-      skipLocationChange: true,
-    });
-  }
-
-  addSingle() {
-    this.messageService.add({
-      severity: 'success',
-      summary: 'Excelente',
-      detail: 'Modificaste tu perfil',
-    });
-  }
 
   saveChanges() {
     /* console.log(this.perfil); */
@@ -161,5 +148,22 @@ export class EditComponent implements OnInit {
       },
       (err) => console.error(err)
     ); */
+  }
+
+
+  addSingle() {
+    this.messageService.add({ key: "t1", severity: 'success', summary: 'Muy bien 👏', detail: 'Perfil modificado' });
+  }
+
+  close() {
+    this.router.navigate(['dashboard/perfil'], {
+      skipLocationChange: true,
+    });
+  }
+
+  redirect() {
+    this.router.navigate(['dashboard/perfil']), {
+      skipLocationChange: true
+    }
   }
 }

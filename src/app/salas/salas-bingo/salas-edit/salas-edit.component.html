@@ -1,8 +1,8 @@
 
 <p-dialog class="dialog" header="Editar Sala"  [(visible)]="displayModal" [modal]="true" [style]="{width: '360px'}" [baseZIndex]="10000"
 [draggable]="false" [resizable]="false" [closeIcon]="false">
-<!-- <p-toast position="top-center"></p-toast> -->
-<p-toast position="center" key="t1" life="3000" (onClose)="redirect()"></p-toast>   
+<p-toast position="center" key="t1" life="3000" (onClose)="redirect()"></p-toast>  
+<p-toast position="center" key="t2" life="1000"></p-toast>  
             <div class="p-field p-grid">
                 <label for="nombre" class="p-col-12">Nombre de la Sala:</label>
                 <div class="p-col-12">
@@ -75,65 +75,3 @@
         </div>
         </ng-template>
 </p-dialog>
-
-<!-- <p-dialog class="dialog" header="Editar Sala"  [(visible)]="displayModal" [modal]="true" [style]="{width: '300px'}" [baseZIndex]="10000"
-    [draggable]="false" [resizable]="false" [closeIcon]="false">
-    <p-toast position="top-center"></p-toast> 
-                
-                <div class="p-field p-grid">
-                    <label for="nombre" class="p-col-12">Nombre de la Sala:</label>
-                    <div class="p-col-12">
-                        <input class="input" style="width:500px" id="nombre" type="text" pInputText [(ngModel)]="sala.nombre"> 
-                    </div>
-                </div>
-                <div class="p-field p-grid">
-                    <label for="descripcion" class="p-col-12">Descripción:</label>
-                    <div class="p-col-12">
-                        <input class="input" style="width:500px" id="descripcion" type="text" pInputText [(ngModel)]="sala.descripcion"> 
-                    </div>
-                </div>
-                <div class="p-field p-grid">
-                    <label for="rol" class="p-col-12">Dealer de la Sala:</label>
-                    <div class="p-col-12">  
-                        <select class="select" style="width:300px" type="number" [(ngModel)]="sala.idDealer" (change)='onSalaSelected($event)'>
-                            <option *ngFor="let dealer of dealers" [value]="dealer.idDealer">
-                                {{dealer.nombreCompleto}}
-                            </option>
-                        </select>
-                    </div>
-                </div>
-                <div class="p-field p-grid" >
-                    <label for="activo" class="p-col-12">Sala Activa:</label>
-                    <div class="p-col-12">
-                        <p-inputSwitch  [(ngModel)]="sala.activo"></p-inputSwitch>
-                    </div>
-                </div>
-                <div class="p-field p-grid">
-                    <label for="nro_participantes" class="p-col-12">Cantidad Max. de Jugadores:</label>
-                    <div class="p-col-12">
-                        <input class="input" style="width:200px" id="nro_participantes" type="number" pInputText [(ngModel)]="sala.nro_participantes"> 
-                    </div>
-                </div>
-                <div class="p-field p-grid">
-                    <label for="monto" class="p-col-12">Precio del cartón:</label>
-                    <div class="p-col-12">
-                        <input class="input" style="width:200px" id="monto" type="number" pInputText [(ngModel)]="sala.monto"> 
-                    </div>
-                </div> 
-                <div class="p-field p-grid">
-                    <label for="estatus" class="p-col-12">Cartones a vender:</label>
-                    <div class="p-col-12">
-                        <input class="input" style="width:200px" id="estatus" type="number" pInputText [(ngModel)]="sala.nro_cartones"> 
-                    </div>
-                </div> 
-                <div class="p-field p-grid">
-                    <label for="nro_partidas_max" class="p-col-12">Cantidad Max. de Partidas al día:</label>
-                    <div class="p-col-12">
-                        <input class="input" style="width:200px" id="nro_partidas_max" type="number" pInputText [(ngModel)]="sala.nro_partidas_max"> 
-                    </div>
-                </div> 
-                <ng-template pTemplate="footer">
-                    <p-button icon="pi pi-times" (click)="close()" label="Cancelar" styleClass="p-button-text"></p-button>
-                    <p-button icon="pi pi-save" (click)="updateSala()"  label="Guardar" styleClass="p-button-text"></p-button>
-                </ng-template>
-</p-dialog> -->

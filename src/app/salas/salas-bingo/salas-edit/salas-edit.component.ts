@@ -15,15 +15,6 @@ export class SalasEditComponent implements OnInit {
   dealers: Salas[];
   idDealer: any;
   id: any;
-  /*  salas: Salas[] = []; */
-
-  /* nombre: any;
-	descripcion: any;
-	activo: any;
-	nro_participantes: any;
-	monto: any;
-	estatus: any;
-  nro_partidas_max: any; */
 
   sala: Salas = {
     id: 0,
@@ -60,14 +51,6 @@ export class SalasEditComponent implements OnInit {
           (res) => {
             this.sala = res[0];
             console.log('data sala', this.sala);
-            /* this.nombre = res[0].nombre;
-            this.descripcion = res[0].descripcion;
-            this.activo = res[0].activo;
-            this.nro_participantes = res[0].nro_participantes;
-            this.monto = res[0].monto;
-            this.estatus = res[0].estatus;
-            this.nro_partidas_max = res[0].nro_partidas_max;
-            console.log('salas data', this.salas) */
           },
           (err) => console.log(err)
         );
@@ -80,8 +63,6 @@ export class SalasEditComponent implements OnInit {
   }
 
   updateSala() {
-    /* delete this.salas.fechaCreacion;
-    delete this.usuario.emailValido; */
     delete this.sala.fechaCreacion;
     this.salasService.updateSala(this.sala.id, this.sala).subscribe(
       (res) => {
@@ -104,11 +85,6 @@ export class SalasEditComponent implements OnInit {
   }
 
   addSingle() {
-    /* this.messageService.add({
-      severity: 'success',
-      summary: 'Excelente',
-      detail: 'Sala Modificada',
-    }); */
     this.messageService.add({ key: "t1", severity: 'success', summary: 'Atención', detail: 'Sala modificada' });
   }
 
@@ -118,16 +94,6 @@ export class SalasEditComponent implements OnInit {
     });
   }
 
-  /* confirm() {
-    this.confirmationService.confirm({
-        message: 'Estas seguro de eliminar la sala?',
-        accept: () => {
-              this.eliminarSala(this.sala.id);
-
-        }
-    });
-} */
-
   
 
   confirm() {
@@ -135,11 +101,9 @@ export class SalasEditComponent implements OnInit {
     this.confirmationService.confirm({
       message: 'Estas seguro de eliminar esta sala?',
       accept: () => {
-        //Actual logic to perform a confirmation
-        /* this.deleteSala(this.sala.id); */
         this.salasService.deleteSala(this.id).subscribe(
           (res) => {
-            this.messageService.add({ key: "t1", severity: 'success', summary: 'Atención', detail: 'Sala eliminada' });
+            this.messageService.add({ key: "t1", severity: 'success', summary: 'Muy bien 😉', detail: 'Sala eliminada' });
             
           },
           (err) => console.error(err)
@@ -148,8 +112,9 @@ export class SalasEditComponent implements OnInit {
       },
       reject: () => {
         this.messageService.add({
+          key: "t2",
           severity: 'info',
-          summary: 'Sin cambios',
+          summary: 'Sin cambios 😊',
           detail: 'No eliminaste la sala',
           
         });
