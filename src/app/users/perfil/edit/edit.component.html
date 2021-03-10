@@ -1,34 +1,121 @@
-<p-toast position="top-center"></p-toast> 
-<p-dialog class="dialog" header="Editar perfil"  [(visible)]="displayModal" [modal]="true" [style]="{width: '300px'}" [baseZIndex]="10000"
-    [draggable]="false" [resizable]="false" [closeIcon]="false">
-            <div class="p-field p-grid">
-                    <label for="nickname" class="p-col-12">Nombre:</label>
-                    <div class="p-col-12">
-                        <input class="input" style="width:200px" id="nombreCompleto" type="text" pInputText [(ngModel)]="perfil.nombreCompleto"> 
-                    </div>
-                </div>
-                <div class="p-field p-grid">
-                    <label for="nickname" class="p-col-12">Nickname:</label>
-                    <div class="p-col-12">
-                        <input class="input" style="width:200px" id="nickname" type="text" pInputText [(ngModel)]="perfil.nickname"> 
-                    </div>
-                </div>
-                <div class="p-field p-grid" >
-                    <label for="direccion" class="p-col-12">Direccion completa:</label>
-                    <div class="p-col-12">
-                        <input class="input" style="width:500px" id="direccion" type="text" pInputText [(ngModel)]="perfil.direccion"> 
-                    </div>
-                </div>
-                <div class="p-field p-grid">
-                    <label for="phone-number" class="p-col-12">Nro de Teléfono:</label>
-                    <div class="p-col-12">
-                        <input class="input" style="width:200px" id="phone-number" type="text" pInputText [(ngModel)]="perfil.numeroTelefono"> 
-                    </div>
-                </div> 
-                <ng-template pTemplate="footer">
-                    <p-button icon="pi pi-times"  (click)="close()" label="Cancelar" styleClass="p-button-text"></p-button>
-                    <p-button icon="pi pi-save"  (click)="updatePerfil()" label="Guardar" styleClass="p-button-text"></p-button>
-                </ng-template>
+<p-dialog
+  class="dialog"
+  header="Editar perfil"
+  [(visible)]="displayModal"
+  [modal]="true"
+  [style]="{ width: '300px' }"
+  [baseZIndex]="10000"
+  [draggable]="false"
+  [resizable]="false"
+  [closeIcon]="false"
+>
+<p-toast position="center" key="t1" life="3000" (onClose)="redirect()"></p-toast> 
+  <form>
+    <div class="p-field p-grid">
+      <label for="nickname" class="p-col-12">Nombre:</label>
+      <div class="p-col-12">
+        <input
+          class="input"
+          style="width: 200px"
+          name="nombreCompleto"
+          type="text"
+          pInputText
+          [(ngModel)]="perfil.nombreCompleto"
+          autofocus
+        />
+      </div>
+    </div>
+    <div class="p-field p-grid">
+      <label for="nickname" class="p-col-12">Nickname:</label>
+      <div class="p-col-12">
+        <input
+          class="input"
+          style="width: 200px"
+          name="nickname"
+          type="text"
+          pInputText
+          [(ngModel)]="perfil.nickname"
+        />
+      </div>
+    </div>
+    <div class="p-field p-grid">
+      <label for="direccion" class="p-col-12">Direccion completa:</label>
+      <div class="p-col-12">
+        <input
+          class="input"
+          style="width: 500px"
+          name="direccion"
+          type="text"
+          pInputText
+          [(ngModel)]="perfil.direccion"
+        />
+      </div>
+    </div>
+    <div class="p-field p-grid">
+      <label for="phone-number" class="p-col-12">Nro de Teléfono:</label>
+      <div class="p-col-12">
+        <input
+          class="input"
+          style="width: 200px"
+          name="numeroTelefono"
+          type="text"
+          pInputText
+          [(ngModel)]="perfil.numeroTelefono"
+        />
+      </div>
+    </div>
+</form>
+    <ng-template pTemplate="footer">
+      <p-button
+        icon="pi pi-times"
+        (click)="close()"
+        label="Cancelar"
+        styleClass="p-button-text"
+      ></p-button>
+      <p-button
+        icon="pi pi-save"
+        (click)="edit ? updatePerfil() : saveChanges()"
+        label="Guardar"
+        styleClass="p-button-text"
+      ></p-button>
+    </ng-template>
+  
 </p-dialog>
 
-
+<!-- <p-dialog class="dialog" header="Editar perfil" [(visible)]="displayModal" [modal]="true" [style]="{width: '300px'}"
+    [baseZIndex]="10000" [draggable]="false" [resizable]="false" [closeIcon]="false">
+    <p-toast position="top-center"></p-toast>
+    <div class="p-field p-grid form-group">
+        <label for="nickname" class="p-col-12">Nombre:</label>
+        <div class="p-col-12">
+            <input class="input" style="width:200px" id="nombreCompleto" class="form-control" type="text" pInputText
+                [(ngModel)]="this.nombreCompleto">
+        </div>
+    </div>
+    <div class="p-field p-grid form-group">
+        <label for="nickname" class="p-col-12">Nickname:</label>
+        <div class="p-col-12">
+            <input class="input" style="width:200px" id="nickname" class="form-control" type="text" pInputText
+                [(ngModel)]="this.nickname">
+        </div>
+    </div>
+    <div class="p-field p-grid form-group">
+        <label for="direccion" class="p-col-12">Direccion completa:</label>
+        <div class="p-col-12">
+            <input class="input" style="width:500px" id="direccion" class="form-control" type="text" pInputText
+                [(ngModel)]="this.direccion">
+        </div>
+    </div>
+    <div class="p-field p-grid form-group">
+        <label for="phone-number" class="p-col-12">Nro de Teléfono:</label>
+        <div class="p-col-12">
+            <input class="input" style="width:200px" id="numeroTelefono" class="form-control" type="text" pInputText
+                [(ngModel)]="this.numeroTelefono">
+        </div>
+    </div>
+    <ng-template pTemplate="footer">
+        <p-button icon="pi pi-times" (click)="close()" label="Cancelar" styleClass="p-button-text"></p-button>
+        <p-button icon="pi pi-save" (click)="edit ? updatePerfil() : saveChanges()" label="Guardar"
+            styleClass="p-button-text"></p-button>
+    </ng-template>
+</p-dialog> -->

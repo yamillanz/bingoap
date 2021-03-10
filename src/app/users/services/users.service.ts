@@ -18,7 +18,7 @@ export class UsersService {
 	getUser(id: string) {
 		return this.http.get(`${this.url}users/user/${id}`);
 
-	}
+	} 
 
 	getDataOneUser(id: string) {
 		return this.http.get(`${this.url}users/${id}`);

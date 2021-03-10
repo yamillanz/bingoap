@@ -14,7 +14,7 @@ column1 {
   }
 
   .imag {
-    margin-top: 100px;
+    margin-top: 10px;
     text-align: center;
 }
 
@@ -22,3 +22,33 @@ column1 {
     margin-top: 40px;
     text-align: center;
 }
+
+/* .card-sala {
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: aliceblue;
+  background: white;
+} */
+
+.card-redonda {
+ align-items: center;
+ margin-left: auto;
+  margin-right: auto;
+ 
+ display:grid;
+ vertical-align: middle;
+  border-radius: 20%;
+  overflow: hidden; 
+  width: 140px;
+  height: 140px;
+  color: white;
+  padding: 0 1rem;
+  background: #8A2387;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #F27121, #E94057, #8A2387);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #F27121, #E94057, #8A2387); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+  
+ 
+}
+
+

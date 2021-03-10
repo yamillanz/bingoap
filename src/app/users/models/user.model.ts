@@ -1,16 +1,16 @@
 export interface user {
-	id?
-	pass?
-	email?
-	fechaCreacion?
-	idRolUsuario?
-	activo?
-	tipo?
-	sesionActiva?
-	idCliente?
-	emailValido?
-	idRol?
-	rol?
+	id?;
+	pass?;
+	email?;
+	fechaCreacion?;
+	idRolUsuario?;
+	activo?;
+	tipo?;
+	sesionActiva?;
+	idCliente?;
+	emailValido?;
+	idRol?;
+	rol?;
 	idPais?;
 	aceptoCondiciones?;
 

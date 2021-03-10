@@ -1,0 +1,63 @@
+<div class="imag" *ngIf="this.rol=='1'"> 
+    <!-- OJO CAMBIAR A ROL 3 QUE ES DE LOS USUARIOS -->
+    <p>Salas Disponibles del usuario</p> 
+    <div class="p-p-4">
+        <p-carousel [value]="DataSala">
+            <ng-template let-sala pTemplate="item">
+                <!-- <ul><img class="img-sala" src="http://localhost:3050/uploadfile/img/2350838.jpg" width="160" /></ul> -->
+                <!-- <ul><p-card class="card-redonda">kjkjksjdkjskj</p-card></ul> -->
+                <!-- <div class="p-grid p-ai-start vertical-container"> 
+                    
+                    <ul>Sala: {{sala.nombre}}</ul>
+                    <ul>Dealer: {{sala.idDealer}}</ul>
+                    <ul>Cartones para jugar: {{sala.nro_cartones}}</ul>
+                    <ul>Precio del cartón: {{sala.monto}}</ul>
+                    <ul><p-button type="button" styleClass="p-button-success p-mr-2" icon="pi pi-star">Entrar</p-button></ul>
+                </div> -->
+
+                <!-- <div class="p-grid">
+                    <div class="p-col-3">
+                        <div class="box">
+                            <ul>Sala: {{sala.nombre}}</ul>
+                    <ul>Dealer: {{sala.idDealer}}</ul>
+                    <ul>Cartones para jugar: {{sala.nro_cartones}}</ul>
+                    <ul>Precio del cartón: {{sala.monto}}</ul>
+                    <ul><p-button type="button" styleClass="p-button-success p-mr-2" icon="pi pi-star">Entrar</p-button></ul>
+                        </div>
+                    </div>
+                    
+                </div> -->
+                <div class="p-grid p-flex-column">
+                    <div class="p-col">
+                        <div class="box">
+                            <div class="card-redonda">
+                                <!-- <div class="p-pt-4" *ngIf="comparaDataDealer=='0'">No hay partidas</div> -->
+                                <h1>Sala {{sala.nombre}}</h1>
+                            </div>
+                            <div class="p-col">
+                                <div >
+                                    <ul>Partida N°: {{this.dataPartida.id}}</ul>
+                                    <ul>Dealer: {{sala.nombreCompleto}}</ul>
+                                    <ul>Cartones para comprar: {{sala.nro_cartones}} maximo</ul>
+                                    <ul>Precio del cartón: {{sala.monto}} monedas</ul>
+                                </div>
+                                <div class="p-mt-1">
+                                    <ul>Disponible para esta sala {{sala.saldo}} monedas.</ul>
+                                </div>
+                                
+                                    <div class="p-mt-2">
+                                        <ul><p-button type="button" styleClass="p-button">Entrar</p-button></ul>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                    
+                
+                
+            </ng-template>
+        </p-carousel>
+    </div>
+</div>

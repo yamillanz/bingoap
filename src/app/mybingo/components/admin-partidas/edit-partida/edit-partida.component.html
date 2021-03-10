@@ -1,0 +1,104 @@
+<p-dialog
+  class="dialog"
+  header="Editar partida"
+  [(visible)]="displayModal"
+  [modal]="true"
+  [style]="{ width: '300px' }"
+  [baseZIndex]="10000"
+  [draggable]="false"
+  [resizable]="false"
+  [closeIcon]="false"
+>
+<p-toast position="center" key="t1" life="10" (onClose)="close()"></p-toast>
+<p-toast position="center" key="t2" life="10"></p-toast>
+<p-toast position="center" key="t3" life="10000"></p-toast>
+  <div class="p-field p-grid">
+    <label for="nombre" class="p-col-12">Fecha programada:</label>
+    <div class="p-col-12">
+      <p-calendar
+        [showTime]="true"
+        [showIcon]="true"
+         
+        [touchUI]="true"
+        [(ngModel)]="this.partida.fechaPrograma"
+      ></p-calendar>
+    </div>
+  </div>
+  <div class="p-field p-grid">
+    <label for="descripcion" class="p-col-12">Observaciones:</label>
+    <div class="p-col-12">
+      <!-- <textarea class="input" id="observaciones" [rows]="10" [cols]="30" type="text" pInputTextarea [(ngModel)]="partida.observaciones"></textarea> -->
+      <textarea
+        [rows]="5"
+        id="observaciones"
+        [cols]="30"
+        pInputTextarea
+        autoResize="autoResize"
+        pInputTextarea
+        [(ngModel)]="partida.observaciones"
+      ></textarea>
+    </div>
+  </div>
+  <div class="p-field p-grid">
+    <label for="rol" class="p-col-12">Sala:</label>
+    <div class="p-col-12">
+      <select
+        class="select"
+        style="width: 430px"
+        type="number"
+        [(ngModel)]="partida.id"
+        (change)="onSalaSelected($event)"
+      >
+        <option *ngFor="let sala of salas" [value]="sala.id">
+          {{ sala.nombre }}
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <div class="p-field p-grid">
+    <label for="activo" class="p-col-12">Partida Activa:</label>
+    <div class="p-col-12">
+      <p-inputSwitch [(ngModel)]="this.partida.activa"></p-inputSwitch>
+    </div>
+  </div>
+
+  <div class="p-field p-grid">
+    <label class="p-col-6">Limite cartones:</label>
+    <label class="p-col-6">Costo del cartón:</label>
+    <div class="p-col-6">
+      <input
+        class="input"
+        style="width: 200px"
+        id="limiteCartones"
+        type="number"
+        pInputText
+        [(ngModel)]="this.partida.limiteCartones"
+      />
+    </div>
+    <div class="p-col-6">
+      <input
+        class="input"
+        style="width: 200px"
+        id="valor"
+        type="number"
+        pInputText
+        [(ngModel)]="this.partida.valor"
+      />
+    </div>
+  </div>
+  <ng-template pTemplate="footer">
+    <p-button
+      icon="pi pi-times"
+      (click)="close()"
+      label="Cancelar"
+      styleClass="p-button-text"
+    ></p-button>
+    <p-button
+      icon="pi pi-save"
+      (click)="savePartida()"
+      label="Guardar"
+      styleClass="p-button-text"
+    ></p-button>
+  </ng-template>
+</p-dialog>

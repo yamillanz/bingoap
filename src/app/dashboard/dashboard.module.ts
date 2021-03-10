@@ -1,6 +1,6 @@
 import { ButtonModule } from 'primeng/button';
 
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { FormsModule } from '@angular/forms';
@@ -10,7 +10,9 @@ import { SharedModule } from '../shared/shared.module';
 import { CardModule } from 'primeng/card';
 import { TooltipModule } from 'primeng/tooltip';
 import { SidebarComponent } from '../shared/sidebar/sidebar.component';
-
+import {CarouselModule} from 'primeng/carousel';
+import { SalasModule } from '../salas/salas.module';
+import { NotificacionesModule } from '../notificaciones/notificaciones.module';
 
 @NgModule({
 	declarations: [DashboardComponent],
@@ -23,7 +25,10 @@ import { SidebarComponent } from '../shared/sidebar/sidebar.component';
 		CardModule,
 		FormsModule,
 		TooltipModule,
+		CarouselModule,
+		SalasModule,
+    NotificacionesModule
 
-	]
+  ],
 })
 export class DashboardModule { }

@@ -61,8 +61,12 @@ export class EditComponent implements OnInit {
 			.subscribe(
 				res => {
 					console.log(res);
-					/* this.router.navigate(['/perfil']); */
-					this.addSingle();
+					/* this.messageService.add({
+						key: 't1',
+						severity: 'success',
+						summary: '💃', 
+						detail: 'Good! perfil modificado',
+					  }); */
 				},
 				err => console.error(err)
 			)
@@ -73,8 +77,8 @@ export class EditComponent implements OnInit {
 		this.router.navigate(['/perfil']);
 	}
 
-	addSingle() {
+	/* addSingle() {
 		this.messageService.add({ severity: 'success', summary: 'Excelente', detail: 'Modificaste tu perfil' });
-	}
+	} */
 
 }

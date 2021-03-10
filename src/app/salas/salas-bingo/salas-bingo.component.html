@@ -1,6 +1,58 @@
 <div class="container">
 
-<p>salas-bingo works!</p>
+<h1><strong>Administración de Salas</strong></h1>
+<br>
+<div class="card">
+      <div class="table">
+        <p-table #dt1 [value]="salas" styleClass="p-datatable-responsive-demo" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+        currentPageReportTemplate="Mostrando {first} hasta {last} de {totalRecords} registros." [rowsPerPageOptions]="[10,25,50]" [globalFilterFields]="['nombre','salas.nombre']" filterGlobal="email">
+        <ng-template pTemplate="caption">
+          <div class="p-d-flex">
+              <span p-ml-auto>
+                <a (click)="goToNewSala()" class="button is-danger is-hoverable" ><strong>Nueva Sala</strong></a>
+              </span>
+              <span class="p-input-icon-left p-ml-auto">
+                  <i class="pi pi-search"></i>
+                  <input class="input" pInputText type="text" (input)="dt1.filterGlobal($event.target.value, 'contains')" placeholder="Buscar Sala" />
+              </span>
+          </div>
+      </ng-template>
+            <ng-template pTemplate="header">
+                <tr>
+                  <th pSortableColumn="nombre">Nombre<p-sortIcon field="nombre"></p-sortIcon></th>
+                  <th pSortableColumn="activo">Activa<p-sortIcon field="activo"></p-sortIcon></th>
+                  <th>Jugadores</th>
+                  <th>Partidas</th>
+                  <th>Cartones</th>
+                  <th>Acción</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-salas>
+              <tr>
+                <label class="labelInvisible">Nombre de la sala:</label>
+                <td>{{salas.nombre}}</td>
+                <label class="labelInvisible">Sala Activa:</label>
+                <td><p-inputSwitch disabled="true" [(ngModel)]="salas.activo"></p-inputSwitch></td>
+                <label class="labelInvisible">Jugadores:</label>
+                <td>{{salas.nro_participantes}}</td>
+                <label class="labelInvisible">Partidas:</label>
+                <td>{{salas.nro_partidas_max}}</td>
+                <label class="labelInvisible">Cartones:</label>
+                <td>{{salas.nro_cartones}}</td>
+                <td>
+                  <p-button (click)="goToEditarSala(salas.id)" pTooltip="Editar"  icon="pi pi-pencil" styleClass="p-button-text"></p-button>
+                </td>
+              </tr>
 
+
+          </ng-template>
+          <ng-template pTemplate="summary">
+            <div class="p-d-flex p-ai-center p-jc-between">
+                Tienes en total {{salas ? salas.length : 0 }} Salas.
+            </div>
+        </ng-template>
+      </p-table>
+        </div>
+</div>
 
 </div>

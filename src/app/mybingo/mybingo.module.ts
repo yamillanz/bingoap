@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
+/* import { BrowserModule } from '@angular/platform-browser'; */
+
 import { MybingoRoutingModule } from './mybingo-routing.module';
 import { MybingoComponent } from './mybingo.component';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
@@ -17,13 +19,20 @@ import { PartidasComponent } from './components/partidas/partidas.component';
 import { CardModule } from 'primeng/card';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { ToastModule } from 'primeng/toast';
+import { TableModule } from 'primeng/table';
+import { InputSwitchModule } from 'primeng/inputswitch';
+import {CalendarModule} from 'primeng/calendar';
+import {InputTextareaModule} from 'primeng/inputtextarea';
 
+import { AdminPartidasComponent } from './components/admin-partidas/admin-partidas.component';
+import { NuevaPartidaComponent } from './components/admin-partidas/nueva-partida/nueva-partida.component';
+import { EditPartidaComponent } from './components/admin-partidas/edit-partida/edit-partida.component'
 
 /* const config: SocketIoConfig = { url: 'http://localhost:4001', options: {} }; */
 
 
 @NgModule({
-	declarations: [MybingoComponent, /* CartonComponent, */ PartidasComponent],
+	declarations: [MybingoComponent, /* CartonComponent, */ PartidasComponent, AdminPartidasComponent, NuevaPartidaComponent, EditPartidaComponent],
 	imports: [
 		CommonModule,
 		//HttpClientModule,
@@ -37,6 +46,13 @@ import { ToastModule } from 'primeng/toast';
 		InputNumberModule,
 		ToastModule,
 		FormsModule,
+		TableModule,
+    InputSwitchModule,
+    CalendarModule,
+    DialogModule,
+    InputTextareaModule
+
+		/* BrowserModule */
 		//SocketIoModule.forRoot(config)
 	],
 	/* exports: [CartonComponent], */

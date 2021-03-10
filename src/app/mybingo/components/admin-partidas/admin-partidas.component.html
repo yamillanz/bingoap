@@ -1,0 +1,79 @@
+<div class="container">
+  <h1><strong>Administración de las Partidas</strong></h1>
+
+  <!-- <input type="datetime-local" id="partidaTime" name="partidaTime"> -->
+  
+  <br>
+  <div class="card">
+    <div class="table">
+      <p-table #dt1 [value]="partidas" styleClass="p-datatable-responsive-demo" [paginator]="true" [rows]="10"
+        [showCurrentPageReport]="true"
+        currentPageReportTemplate="Mostrando {first} hasta {last} de {totalRecords} registros."
+        [rowsPerPageOptions]="[10,25,50]" [globalFilterFields]="['fechaPrograma','fechaCreacion', 'valor']" filterGlobal="id">
+        <ng-template pTemplate="caption">
+          <div class="p-d-flex">
+            <span p-ml-auto>
+              <!-- <a (click)="goToNewSala()" class="button is-danger is-hoverable"><strong>Nueva Partida</strong></a> -->
+              <a (click)="goToNewPartida()" class="button is-danger is-hoverable"><strong>Nueva Partida</strong></a>
+            </span>
+            <span class="p-input-icon-left p-ml-auto">
+              <i class="pi pi-search"></i>
+              <input class="input" pInputText type="text" (input)="dt1.filterGlobal($event.target.value, 'contains')"
+                placeholder="Buscar partida" />
+            </span>
+          </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+          <tr>
+            <!-- <th pSortableColumn="fechaCreacion">Fecha de Creación<p-sortIcon field="fechaCreacion"></p-sortIcon>
+            </th> -->
+            <th pSortableColumn="fechaPrograma">Programada<p-sortIcon field="fechaPrograma"></p-sortIcon>
+            </th>
+            <th pSortableColumn="activa">Activa<p-sortIcon field="activa"></p-sortIcon>
+            </th>
+            <th pSortableColumn="fechaCreacion">Precio cartón<p-sortIcon field="fechaCreacion"></p-sortIcon></th>
+            <th pSortableColumn="fechaPrograma">Cartones<p-sortIcon field="fechaPrograma"></p-sortIcon></th>
+            <th pSortableColumn="idSala">Sala<p-sortIcon field="idSala"></p-sortIcon></th>
+            <!-- <th>Cartones</th> -->
+            <th>Acción</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-partidas>
+          <tr>
+            <!-- <label class="labelInvisible">Nombre de la sala:</label> -->
+            <!-- <td>{{partidas.fechaCreacion | date:'MMM d, y, h:mm a'}}</td> -->
+            <td>{{partidas.fechaPrograma | date:'MMM d, y, h:mm a'}}</td>
+            <!-- <label class="labelInvisible">Sala Activa:</label> -->
+            <td>
+              <p-inputSwitch disabled="true" [(ngModel)]="partidas.activa"></p-inputSwitch>
+            </td>
+           <!--  <label class="labelInvisible">Jugadores:</label> -->
+            <td>{{partidas.valor}}</td>
+            <!-- <label class="labelInvisible">Partidas:</label> -->
+            <td>{{partidas.limiteCartones}}</td>
+            <td>{{partidas.nombre}}</td>
+
+
+            <!-- <label class="labelInvisible">Cartones:</label> -->
+
+            <!-- <td>
+              <p-button (click)="goToEditarSala(salas.id)" pTooltip="Editar" icon="pi pi-pencil"
+                styleClass="p-button-text"></p-button>
+            </td> -->
+            <td>
+              {{partidas.id}}
+              <p-button  (click)="goToEditarPartida(partidas.id)" pTooltip="Editar"  pTooltip="Editar" icon="pi pi-pencil"
+                styleClass="p-button-text"></p-button>
+            </td>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="summary">
+          <div class="p-d-flex p-ai-center p-jc-between">
+            Tienes en total {{partidas ? partidas.length : 0 }} partidas.
+          </div>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+</div>
+

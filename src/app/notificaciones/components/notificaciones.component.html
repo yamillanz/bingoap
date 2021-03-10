@@ -1,3 +1,52 @@
+<ng-container *ngIf="this.rol <= 2">
+<div class="p-card">
+    <p-header class="p-header">
+        <h1 class="p-m-3">
+            <i class="pi pi-send" style="font-size: 1rem"></i> Enviar mensaje
+        </h1>
+        <div class="p-field">
+            <div class="p-inputgroup  p-col-12 p-p-2">
+              <span class="p-inputgroup-addon"><i class="pi pi-envelope"></i></span>
+              <p-autoComplete
+              
+                autofocus
+                #mySelect
+                [(ngModel)]="notificacion.idUsuarioRecibe"
+                placeholder="Email del usuario"
+                [suggestions]="filteredUsers"
+                (completeMethod)="filterUser($event)"
+                field="email"
+                [dropdown]="true"
+              >
+                <ng-template>
+                  <select>
+                    <option *ngFor="let user of usuarios">
+                    <!--  <p-message severity="error" text="Message Content"></p-message> -->
+                        {{user.email}}
+                    </option>
+                  </select>
+                </ng-template>
+              </p-autoComplete>
+              
+            </div> 
+            <div class="p-field p-grid p-p-2">
+                <label for="descripcion" class="p-col-12">Mensaje:</label>
+                <div class="p-col-12">
+                    <input class="input"  id="mensaje" type="text" pInputText [(ngModel)]="notificacion.mensaje"> 
+                </div>
+                <p-button icon="pi pi-send" (click)="enviarMensaje()"  label="Enviar" styleClass="p-button-warning p-mt-3"></p-button>
+            </div>
+          </div>
+
+    </p-header>
+    
+    <p-footer>
+        
+    </p-footer>
+</div>
+<p-toast position="center" key="t1" life="10" (onClose)="redirect()"></p-toast>
+</ng-container>
+
 <div class="p-card">
     <p-header class="p-header">
         <h1>
@@ -8,12 +57,17 @@
         <ul *ngFor="let notificacion of notificaciones"> 
             <li>
                 <a pTooltip="Abrir mensaje" tooltipPosition="bottom" (click)="goToUpdateNotificacion(notificacion.idNotificacion)"> 
-                    <i class="pi pi-envelope" style="font-size: 1rem"></i> {{notificacion.mensaje}}
+                    <i *ngIf="notificacion != undefined" class="pi pi-envelope" style="font-size: 1rem"></i> {{notificacion.mensaje}}
+                    
                 </a>
             </li>
             <br>
             <li>
-                <i class="pi pi-calendar"  style="font-size: 1rem"></i> {{notificacion.fechaEnvio | date: 'dd/MM/yyyy HH:MM:SS'}}
+               
+                <i *ngIf="notificacion !== undefined" class="pi pi-calendar"  style="font-size: 1rem"></i> {{notificacion.fechaEnvio | date: 'dd/MM/yyyy HH:MM:SS'}}
+            </li>
+            <li>
+                <i *ngIf="notificacion !== undefined" class="pi pi-user"  style="font-size: 1rem"></i> {{notificacion.email}}
             </li>
             <br>
         </ul>
@@ -22,6 +76,7 @@
         <i class="pi pi-eye" style="font-size: 1rem"></i>  Tienes {{this.cantidadNotificaciones}} mensajes sin leer.
     </p-footer>
 </div>
+
 
 
 

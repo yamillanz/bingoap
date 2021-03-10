@@ -16,7 +16,7 @@ export class PerfilService {
     this.url = environment.apiUrlDashoard;
   }
 
-  getCliente(id: string) {
+  getCliente(id: string|number) {
     return this.httpClient.get(`${this.url}clientes/${id}`);
   } 
 

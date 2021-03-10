@@ -1,6 +1,8 @@
 import { ClientAdminService } from './../services/client-admin.service';
 import { client } from './../models/client';
+import { Saldo } from './../models/balance';
 import { UsersService } from './../services/users.service';
+import { BalanceService } from './../services/balance.service'
 import {
 	Validators,
 	FormBuilder,
@@ -24,6 +26,20 @@ import { of } from 'rxjs/internal/observable/of';
 })
 
 export class RegisterComponent implements OnInit {
+	id:any;
+	usuario: any;
+	idUsuario: any;
+	/* saldo: Saldo; */
+
+	saldo: Saldo = {
+		id: 0,
+		idUsuario: 0,
+		saldo: 0,
+		idDealer: 0,
+		idSala: 0,
+		fechaCreacion: new Date,
+		fechaActualizacion: new Date,
+	}
 
 	newUserForm = new FormGroup({});
 	newClienteForm = new FormGroup({});
@@ -47,7 +63,8 @@ export class RegisterComponent implements OnInit {
 		private srvUser: UsersService,
 		private datePipe: DatePipe,
 		private router: Router,
-		private messageService: MessageService) {
+		private messageService: MessageService,
+		private balanceService: BalanceService) {
 
 		this.newUserForm = this.fb.group({
 			email: new FormControl('', [Validators.required, Validators.email,], MyValidations.checkEmailTacked(this.srvUser)),
@@ -104,7 +121,11 @@ export class RegisterComponent implements OnInit {
 			//this.sendMail(); 
 		}
 
+
+
 	}
+
+	
 
 	generateCode() {
 		let min = 100000;
@@ -161,16 +182,36 @@ export class RegisterComponent implements OnInit {
 				concatMap((resp) => {
 					newClient.idUsuario = resp.id;
 					this.newUser.id = resp.id;
-					return this.svrClientes.registerClient(newClient)
+					return this.svrClientes.registerClient(newClient);
 				})
 			)
 				.subscribe((clientefinal) => {
 					this.newUser.idCliente = clientefinal.id;
 					delete this.newUser.pass;
+
+					this.saldo.idUsuario = newClient.idUsuario;
+					this.saldo.saldo =0;
+					delete this.saldo.idDealer;
+					delete this.saldo.idSala;
+					console.log('saldo a registrar*****', this.saldo)
+					this.balanceService.registerSaldoCero(this.saldo).subscribe(
+						(res) => {
+						  console.log(res);
+						},
+						(err) => console.error(err)
+					  );
+					  
+					
+			
+
+
+					
 					this.srvUser.actualizarUser(this.newUser).subscribe((respFinal) => {
 						this.messageService.clear();
 						this.messageService.add({ key: "t1", severity: 'success', summary: 'Felicidades!!!', detail: 'Ahora inicia sesión para disfrutar del bingo' });
 						//this.router.navigate(['/login'])
+						console.log("actualizado final", respFinal);
+						
 						//await this.balanceServicio.registrarCero(idUsuairo).toPromise();
 						//console.log("actualizado final", respFinal);
 					});
@@ -178,6 +219,8 @@ export class RegisterComponent implements OnInit {
 				});
 		}
 	}
+
+	
 
 	redirect() {
 		this.router.navigate(['/login']);

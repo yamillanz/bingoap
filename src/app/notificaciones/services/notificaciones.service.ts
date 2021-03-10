@@ -28,7 +28,7 @@ export class NotificacionesService {
   notificacion: Observable<any>;
 
   public selectedMensaje: NotificacionesModel = {
-    idNotificacion: null,
+    idNotificacion: 0,
     idUsuarioRecibe: '',
     idUsuarioEnvia: '',
     mensaje: '',
@@ -39,7 +39,7 @@ export class NotificacionesService {
   };
 
   getNotificationsByUser(idUsuarioRecibe:number) : Observable<NotificacionesModel[]>{
-    const url = `${this.url}/mensaje/${idUsuarioRecibe}`;
+    const url = `${this.url}/usuario/${idUsuarioRecibe}`;
     return this.httpClient.get<NotificacionesModel[]>(url)      
   }
 
@@ -53,13 +53,19 @@ export class NotificacionesService {
     return this.httpClient.get<NotificacionesModel[]>(url)      
   }
 
-  getBalanceByUser(idUsuarioRecibe:number) : Observable<TransaccionesModel[]>{
+  getBalanceByUser(idUsuarioRecibe: number) : Observable<TransaccionesModel>{
     const url1 = `${this.url1}/usuario/${idUsuarioRecibe}`;
-    return this.httpClient.get<TransaccionesModel[]>(url1)       
+    return this.httpClient.get<TransaccionesModel>(url1)       
   }
 
   updateMensaje(idNotificacion: number, mensaje: NotificacionesModel): Observable<NotificacionesModel> {
+    console.log(mensaje);
     return this.httpClient.put(`${this.url}/mensaje/${idNotificacion}`, mensaje);
+  }
+
+  enviarMensaje(notificacion) : Observable<NotificacionesModel> {
+    console.log(notificacion);
+    return this.httpClient.post(`${this.url}`, notificacion);
   }
 
 }

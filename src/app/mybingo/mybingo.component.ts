@@ -26,7 +26,7 @@ export class MybingoComponent implements OnInit, OnDestroy {
 	tituloDialogo: string = "";
 	displayDialog: boolean = false;
 	mensajeDialogo: string = "";
-	displayDialogTermino: boolean = false;	
+	displayDialogTermino: boolean = false;
 	erroresServer: number = 0;
 	esperando = 1;
 
@@ -88,7 +88,7 @@ export class MybingoComponent implements OnInit, OnDestroy {
 
 			if (data == "-GANASTES-") {
 				this.tituloDialogo = "GANADOR";
-				this.mensajeDialogo = "FUISTE EL GANADOR FELICIDADES!";
+				this.mensajeDialogo = "FUISTE EL GANADOR 👏🏻👏🏻👏🏻 FELICIDADES!";
 				this.displayDialog = true;
 			}
 

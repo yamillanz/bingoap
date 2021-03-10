@@ -1,0 +1,59 @@
+
+<p-dialog class="dialog" header="Añadir una nueva sala"  [(visible)]="displayModal" [modal]="true" [style]="{width: '300px'}" [baseZIndex]="10000"
+    [draggable]="false" [resizable]="false" [closeIcon]="false">
+    <p-toast position="top-center"></p-toast>
+                <div class="p-field p-grid">
+                    <label for="nombre" class="p-col-12">Nombre de la Sala:</label>
+                    <div class="p-col-12">
+                        <input class="input" style="width:430px" disabled="true" id="nombre" type="text" pInputText [(ngModel)]="this.nombreSala"> 
+                    </div>
+                </div>
+                <div class="p-field p-grid">
+                    <label for="descripcion" class="p-col-12">Descripción:</label>
+                    <div class="p-col-12">
+                        <input class="input" style="width:430px" id="descripcion" type="text" pInputText [(ngModel)]="sala.descripcion"> 
+                    </div>
+                </div>
+                <div class="p-field p-grid">
+                    <label for="rol" class="p-col-12">Dealer de la Sala:</label>
+                    <div class="p-col-12">  
+                        <select class="select" style="width:430px" type="number" [(ngModel)]="sala.idDealer" (change)='onSalaSelected($event)'>
+                            <option *ngFor="let dealer of dealers" [value]="dealer.idDealer">
+                                {{dealer.nombreCompleto}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="p-field p-grid" >
+                    <label for="activo" class="p-col-12">Sala Activa:</label>
+                    <div class="p-col-12">
+                        <p-inputSwitch  [(ngModel)]="sala.activo"></p-inputSwitch>
+                    </div>
+                </div>
+
+                <div class="p-field p-grid">
+                        <label class="p-col-6">Jugadores:</label> 
+                        <label class="p-col-6">Costo del cartón:</label>
+                    <div class="p-col-6">
+                        <input class="input"  style="width:200px" id="nro_participantes" type="number" pInputText [(ngModel)]="this.sala.nro_participantes"> 
+                    </div>
+                    <div class="p-col-6">
+                        <input class="input"  style="width:200px" id="monto" type="number" pInputText [(ngModel)]="this.sala.monto"> 
+                    </div>
+                </div>
+
+                <div class="p-field p-grid">
+                    <label class="p-col-6">Numero de partidas:</label> 
+                    <label class="p-col-6">Cartones por usuario:</label>
+                <div class="p-col-6">
+                    <input class="input"  style="width:200px" id="nro_partidas_max" type="number" pInputText [(ngModel)]="this.sala.nro_partidas_max"> 
+                </div>
+                <div class="p-col-6">
+                    <input class="input"  style="width:200px" id="nro_cartones" type="number" pInputText [(ngModel)]="this.sala.nro_cartones"> 
+                </div>
+            </div>
+            <ng-template pTemplate="footer">
+                <p-button icon="pi pi-times" (click)="close()"label="Cancelar" styleClass="p-button-text"></p-button>
+                <p-button icon="pi pi-save" (click)="saveSala()"  label="Guardar" styleClass="p-button-text"></p-button>
+            </ng-template>
+</p-dialog>

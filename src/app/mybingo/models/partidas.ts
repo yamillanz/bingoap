@@ -4,9 +4,13 @@ export interface Partidas {
     valor?;
     activa?;
     fechaPrograma?;
+    fechaProgramNoHour?;
     monto?;
     limiteCartones?;
-    idSala,
-    idEstatus?: number,
-    observaciones?
+    idSala?;
+    idEstatus?: number;
+    observaciones?;
+    nombre?;
+    idDealerPartida?;
+    cantidadPartidas?;
 }

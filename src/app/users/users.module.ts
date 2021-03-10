@@ -9,9 +9,10 @@ import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
 import { CalendarModule } from 'primeng/calendar';
 import { RadioButtonModule } from 'primeng/radiobutton';
+import { InputSwitchModule } from 'primeng/inputswitch';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from '../users/register/register.component';
-import { ClientAdminComponent } from '../users/client-admin/client-admin.component'
+import { ClientAdminComponent } from '../users/client-admin/client-admin.component';
 import { UsersRoutingModule } from '../users/users-routing.module';
 import { BlockUIModule } from 'primeng/blockui';
 import { MessagesModule } from 'primeng/messages';
@@ -25,11 +26,18 @@ import { ForgotpassComponent } from './forgotpass/forgotpass.component';
 import { AdminUsersComponent } from './admin-users/admin-users.component';
 import { TableModule } from 'primeng/table';
 import { EditarUsuarioComponent } from './admin-users/editar-usuario/editar-usuario.component';
-
+import { TooltipModule } from 'primeng/tooltip';
 
 @NgModule({
-  declarations: [RegisterComponent, ClientAdminComponent,
-    PerfilComponent, EditComponent, AdminUsersComponent, EditarUsuarioComponent, ForgotpassComponent],
+  declarations: [
+    RegisterComponent,
+    ClientAdminComponent,
+    PerfilComponent,
+    EditComponent,
+    AdminUsersComponent,
+    EditarUsuarioComponent,
+    ForgotpassComponent,
+  ],
   imports: [
     RadioButtonModule,
     CommonModule,
@@ -48,10 +56,12 @@ import { EditarUsuarioComponent } from './admin-users/editar-usuario/editar-usua
     BlockUIModule,
     MessageModule,
     MessagesModule,
+    TableModule,
+    InputSwitchModule,
+    TooltipModule,
     CheckboxModule,
-    TableModule
+    TableModule,
   ],
-  exports: [
-  ]
+  exports: [],
 })
-export class UsersModule { }
+export class UsersModule {}
