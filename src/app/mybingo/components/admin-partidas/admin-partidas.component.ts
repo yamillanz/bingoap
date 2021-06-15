@@ -66,12 +66,12 @@ export class AdminPartidasComponent implements OnInit {
 
   } */
 
-  /* goToEditarSala(id) {
-    this.router.navigate(['dashboard/salas/editar-sala', id],{
-      skipLocationChange: true
+  goToEditarPartida(id) {
+    this.router.navigate(['dashboard/mybingo/editar-partida', id],{
+      /* skipLocationChange: true */
     });
 
-  } */
+  }
 
   goToNewPartida() {
     this.router.navigate(['dashboard/mybingo/nueva-partida'],{

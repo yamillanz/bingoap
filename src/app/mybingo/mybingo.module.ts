@@ -25,13 +25,14 @@ import {CalendarModule} from 'primeng/calendar';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 
 import { AdminPartidasComponent } from './components/admin-partidas/admin-partidas.component';
-import { NuevaPartidaComponent } from './components/admin-partidas/nueva-partida/nueva-partida.component'
+import { NuevaPartidaComponent } from './components/admin-partidas/nueva-partida/nueva-partida.component';
+import { EditPartidaComponent } from './components/admin-partidas/edit-partida/edit-partida.component'
 
 /* const config: SocketIoConfig = { url: 'http://localhost:4001', options: {} }; */
 
 
 @NgModule({
-	declarations: [MybingoComponent, /* CartonComponent, */ PartidasComponent, AdminPartidasComponent, NuevaPartidaComponent],
+	declarations: [MybingoComponent, /* CartonComponent, */ PartidasComponent, AdminPartidasComponent, NuevaPartidaComponent, EditPartidaComponent],
 	imports: [
 		CommonModule,
 		//HttpClientModule,

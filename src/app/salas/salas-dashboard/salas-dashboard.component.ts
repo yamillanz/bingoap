@@ -8,6 +8,8 @@ import { Salas } from '../../salas/models/salas';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { UsersService } from 'src/app/users/services/users.service';
+import { PartidasService } from 'src/app/mybingo/services/partidas.service';
+import { Partidas } from 'src/app/mybingo/models/partidas';
 
 @Component({
   selector: 'app-salas-dashboard',
@@ -17,7 +19,7 @@ import { UsersService } from 'src/app/users/services/users.service';
 export class SalasDashboardComponent implements OnInit {
   usuarios = [];
   constructor(private svrAuth: AuthService, private router: Router, private svrUsers: UsersService,
-		public perfilService: PerfilService, private bankingService: BankingService, private salasService: SalasService) { }
+		public perfilService: PerfilService, private bankingService: BankingService, private salasService: SalasService, private partidasService: PartidasService) { }
 
 
     DataSaldoUsuario: Totales[];
@@ -31,12 +33,15 @@ export class SalasDashboardComponent implements OnInit {
 	DataSala: Salas[];
 	imagen: any;
 	saldo1: any;
-  nombreDealer: any;
+  	nombreDealer: any;
+  	comparaDataDealer: any;
+	dataPartida: Partidas[];
   
   ngOnInit(): void {
     this.dataCliente.id= JSON.parse(sessionStorage.getItem('currentUser')).userData.id;
 		this.loadDataUser(this.dataCliente.id);
 		this.loadSaldo();
+		this.loadSalasByDealer();
   }
 
   loadDataUser(idCliente) {
@@ -65,10 +70,16 @@ export class SalasDashboardComponent implements OnInit {
 				console.log('Estas son las salas del usuario', this.DataSala);
 				this.perfilService.getClient(this.idDealer).subscribe(data => {
 					this.dataDealer = data;
+					console.log(data.length);
 					this.nombreDealer = data[0].nombreCompleto;
-					
 					console.log('data dealer:', this.dataDealer);
 				});
+				this.partidasService.findAllByDealer(this.idDealer).subscribe(data => {
+					this.dataPartida = data;
+					console.log(data.length);
+					console.log('data de partida', this.dataPartida);
+				});
+
 			});
 		});
 	}
@@ -82,8 +93,9 @@ export class SalasDashboardComponent implements OnInit {
 		});
 	} */
 
-	loadSalasByUser() {
-		this.salasService.getSalaByUser(this.dataCliente.id).subscribe(data => {
+	loadSalasByDealer() {
+		console.log(this.dataCliente.id)
+		this.salasService.getSalasDelDealer(this.dataCliente.id).subscribe(data => {
 			this.DataSala = data;
 			console.log('Estas son las salas del usuario', this.DataSala);
 		});

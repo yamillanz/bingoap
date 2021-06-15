@@ -1,6 +1,6 @@
 <p-dialog
   class="dialog"
-  header="Añadir una nueva partida"
+  header="Editar partida"
   [(visible)]="displayModal"
   [modal]="true"
   [style]="{ width: '300px' }"
@@ -13,15 +13,14 @@
 <p-toast position="center" key="t2" life="10"></p-toast>
 <p-toast position="center" key="t3" life="10000"></p-toast>
   <div class="p-field p-grid">
-    <label for="nombre" class="p-col-12">Fecha de la partida:</label>
+    <label for="nombre" class="p-col-12">Fecha programada:</label>
     <div class="p-col-12">
       <p-calendar
         [showTime]="true"
         [showIcon]="true"
-        inputId="time"
-        placeholder="Seleccione la fecha"
+         
         [touchUI]="true"
-        [(ngModel)]="partida.fechaPrograma"
+        [(ngModel)]="this.partida.fechaPrograma"
       ></p-calendar>
     </div>
   </div>

@@ -91,9 +91,6 @@ export class NotificacioneditComponent implements OnInit {
 						summary: '👍',
 						detail: 'Good! mensaje eliminado',
 					  });
-					  
-				/* console.log('eliminado');
-				console.log(res); */
 				},
 				err => console.error(err)
 			)

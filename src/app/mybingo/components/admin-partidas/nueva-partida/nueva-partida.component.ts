@@ -23,6 +23,10 @@ export class NuevaPartidaComponent implements OnInit {
   estatus:any [];
   programDate: any;
   dateToTransform: Date;
+  salaData: Salas[];
+  FechaActual: string;
+  partidaData: Partidas[];
+  modifiedTimestamp: any;
 
   sala: Salas  = {
 		id: 0,
@@ -44,6 +48,7 @@ export class NuevaPartidaComponent implements OnInit {
     valor: 0,
     activa: 0,
     fechaPrograma: new Date(),
+    fechaProgramNoHour: new Date(),
     monto: 0,
     limiteCartones: 0,
     idSala: 0,
@@ -57,7 +62,13 @@ export class NuevaPartidaComponent implements OnInit {
   constructor(public datepipe: DatePipe, private messageService: MessageService, private salasService: SalasService, private partidasService: PartidasService, private router: Router) { }
 
   ngOnInit(): void {
+    this.FechaActual= this.datepipe.transform(Date.now(), 'yyyy-MM-dd');
+    console.log(this.FechaActual)
     this.idDealer = JSON.parse(sessionStorage.getItem('currentUser')).userData.id;
+
+    
+
+    
     this.displayModal = true;
     this.getSalas();
     this.getEstatusPartidas();
@@ -88,28 +99,43 @@ export class NuevaPartidaComponent implements OnInit {
       )
   }
 
+  myDateParser(dateStr : string) : string {
+    // 2018-01-01T12:12:12.123456; - converting valid date format like this
+
+    let date = dateStr.substring(0, 10);
+    let time = dateStr.substring(11, 19);
+    let millisecond = dateStr.substring(20)
+
+    let validDate = date + 'T' + time + '.' + millisecond;
+    console.log(validDate)
+    return validDate
+  }
+
   savePartida() {
+    
     delete this.partida.id;
     this.partida.fechaCreacion = new Date();
-    /* const isoDate = new Date(this.partida.fechaPrograma);
-    const mySQLDateString = isoDate.toJSON().slice(0, 19).replace('T', ' ');
-    this.partida.fechaPrograma = mySQLDateString;
-    console.log('programDate', this.partida.fechaPrograma); */
-    /* this.programDate = this.datepipe.transform(this.partida.fechaPrograma, 'yyyy-MM-dd HH:MM:SS');
-    console.log(this.programDate);
-    this.partida.fechaPrograma = this.programDate; */
-    /* delete this.partida.fechaCreacion;
-    delete this.partida.fechaPrograma; */
-
-   /*  this.dateToTransform = this.partida.fechaPrograma;
-    this.programDate = this.datepipe.transform(this.dateToTransform, 'yyyy-MM-dd HH:MM:SS');
-    this.partida.fechaPrograma = this.programDate; */
-
     this.partida.fechaPrograma  = this.datepipe.transform(this.partida.fechaPrograma, 'yyyy-MM-dd HH:MM:SS');
+    this.modifiedTimestamp = this.myDateParser(this.partida.fechaPrograma);
+    this.partida.fechaPrograma = this.modifiedTimestamp;
+    this.partida.fechaProgramNoHour  = this.datepipe.transform(this.partida.fechaPrograma, 'yyyy-MM-dd');
+    /* this.partida.fechaProgramNoHour  = this.modifiedTimestamp; */
+    /* this.partidasService.countPartidas(this.partida.fechaPrograma).subscribe(res => {
+      this.partidaData = res;
+      console.log('data-partida', this.partidaData);
+    }); */
+
     this.partida.idEstatus = 1;
     this.partida.idSala = this.id;
     this.partida.idDealerPartida = this.idDealer;
-    console.log(this.partida.fechaPrograma );
+    /* console.log('cantidad', this.partidaData[0].cantidadPartidas); */
+    console.log('partidas max', this.salaData[0].nro_partidas_max);
+    if (this.salaData[0].nro_partidas_max <= this.partidaData[0].cantidadPartidas  )
+    {
+      console.log('no puedes crear mas partidas para esta fecha');
+      this.messageService.add({key: 't3', severity:'warn', summary:'Ups😢', detail:'No puedes crear mas partidas para esa fecha'});
+    }
+    console.log(this.partida.fechaProgramNoHour );
     console.log(this.partida.activa)
     if (this.partida.activa == false)
     {
@@ -120,22 +146,44 @@ export class NuevaPartidaComponent implements OnInit {
       this.partida.activa= 1;
     }
 
+    if (this.partida.limiteCartones > this.salaData[0].nro_cartones)
+    {
+      this.mensajeNumCartones();
+    }
 
-    this.partidasService.savePartida(this.partida)
+    if (this.partidaData[0].cantidadPartidas <= this.salaData[0].nro_partidas_max)
+    {
+      this.partidasService.savePartida(this.partida)
       .subscribe((data: {}) => {
         this.addSingle();
       });
-      console.log(this.partida);
+     
+    }
+   
 
   }
-
+  
   onSalaSelected(event) {
+    
     this.id = parseInt(event.target.value, 10);
     console.log('id de la sala seleccionada', event.target.value);
+    this.salasService.getSala(event.target.value).subscribe(res => {
+      this.salaData = res;
+      console.log('sala data', this.salaData);
+    });
+    this.partidasService.countPartidas(this.partida.fechaPrograma).subscribe(res => {
+      this.partidaData = res;
+      console.log('data-partida', this.partidaData);
+    });
+    
   }
 
   addSingle() {
     this.messageService.add({key: 't1', severity:'success', summary:'Excelente 👏🏻', detail:'Se creó la partida'});
+  }
+
+  mensajeNumCartones() {
+    this.messageService.add({key: 't2', severity:'warn', summary:'Ups😢', detail:'Tienes limitado el numero de cartones por usuario'});
   }
 
   close(){

@@ -2,7 +2,7 @@
   <h1><strong>Administración de las Partidas</strong></h1>
 
   <!-- <input type="datetime-local" id="partidaTime" name="partidaTime"> -->
-  <p-calendar [showTime]="true" [showIcon]="true" inputId="time" placeholder="Seleccione la fecha"></p-calendar>
+  
   <br>
   <div class="card">
     <div class="table">
@@ -61,7 +61,8 @@
                 styleClass="p-button-text"></p-button>
             </td> -->
             <td>
-              <p-button pTooltip="Editar" icon="pi pi-pencil"
+              {{partidas.id}}
+              <p-button  (click)="goToEditarPartida(partidas.id)" pTooltip="Editar"  pTooltip="Editar" icon="pi pi-pencil"
                 styleClass="p-button-text"></p-button>
             </td>
           </tr>
