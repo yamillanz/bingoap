@@ -9,11 +9,12 @@ import { NuevaPartidaComponent } from './components/admin-partidas/nueva-partida
 import { EditPartidaComponent } from './components/admin-partidas/edit-partida/edit-partida.component';
 
 const routes: Routes = [
-	{ path: 'admin-partidas', component: AdminPartidasComponent },
-  { path: 'nueva-partida', component: NuevaPartidaComponent },
-  {path: 'editar-partida/:id', component: EditPartidaComponent},
-	{ path: 'mybingo', component: MybingoComponent },
 	{ path: '', component: PartidasComponent },
+	
+	{ path: 'admin-partidas', component: AdminPartidasComponent },
+	{ path: 'nueva-partida', component: NuevaPartidaComponent },
+	{ path: 'editar-partida/:id', component: EditPartidaComponent },
+	{ path: 'mybingo', component: MybingoComponent },
 
 
 ];

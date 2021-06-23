@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
-import { uniqueNamesGenerator, Config, adjectives, colors, animals, names, countries    } from 'unique-names-generator';
+import { uniqueNamesGenerator, Config, colors, countries } from 'unique-names-generator';
 import { Salas } from '../../models/salas';
 import { SalasService } from '../../services/salas.service';
 
@@ -13,24 +13,24 @@ import { SalasService } from '../../services/salas.service';
 })
 export class SalaNuevaComponent implements OnInit {
   nombreSala: any;
-  dealers: Salas [];
-  idDealer:any;
+  dealers: Salas[];
+  idDealer: any;
   salas: Salas[];
   displayModal: boolean;
 
-  sala: Salas  = {
-		id: 0,
-		idDealer: 0 ,
-		nombre: '',
-		descripcion: '',
-		fechaCreacion:new Date(),
-		activo: 0,
-		nro_participantes: 0,
-		monto: 0,
-		estatus: 0,
-		nro_partidas_max: 0,
+  sala: Salas = {
+    id: 0,
+    idDealer: 0,
+    nombre: '',
+    descripcion: '',
+    fechaCreacion: new Date(),
+    activo: 0,
+    nro_participantes: 0,
+    monto: 0,
+    estatus: 0,
+    nro_partidas_max: 0,
     nro_cartones: 0
-    };
+  };
 
   constructor(private messageService: MessageService, private salasService: SalasService, private router: Router) { }
 
@@ -42,24 +42,24 @@ export class SalaNuevaComponent implements OnInit {
       separator: '-',
       length: 2,
     };
-     
+
     const randomName: string = uniqueNamesGenerator({
-      dictionaries: [countries,  colors]
+      dictionaries: [countries, colors]
     }); // big_red_donkey
-     
+
     const shortName: string = uniqueNamesGenerator(customConfig); // big-donkey
     this.nombreSala = shortName;
     console.log(shortName);
   }
 
-  getDealers(){
+  getDealers() {
     this.salasService.getDealers()
-      .subscribe( 
-        res => { 
+      .subscribe(
+        res => {
           this.dealers = res;
           this.idDealer = res[0].idDealer;
           console.log('data de los dealers', this.dealers)
-          
+
         },
         err => console.error(err)
       )
@@ -81,25 +81,25 @@ export class SalaNuevaComponent implements OnInit {
       .subscribe((data: {}) => {
         this.addSingle();
       });
-      
+
   }
 
 
   addSingle() {
-    this.messageService.add({severity:'success', summary:'Excelente', detail:'Se creó la sala'});
+    this.messageService.add({ severity: 'success', summary: 'Excelente', detail: 'Se creó la sala' });
   }
 
-  close(){
-		this.router.navigate(['dashboard/salas'],{
-			skipLocationChange: true
-      }); 
-      
+  close() {
+    this.router.navigate(['dashboard/salas'], {
+      skipLocationChange: true
+    });
+
   }
 
   redirect() {
-		this.router.navigate(['dashboard/salas']);
-	}
+    this.router.navigate(['dashboard/salas']);
+  }
 
-  
+
 
 }

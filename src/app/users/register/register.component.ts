@@ -1,3 +1,4 @@
+import { async } from '@angular/core/testing';
 import { ClientAdminService } from './../services/client-admin.service';
 import { client } from './../models/client';
 import { Saldo } from './../models/balance';
@@ -9,14 +10,14 @@ import {
 	FormControl,
 	FormGroup
 } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MyValidations } from './customValidator';
 import { DatePipe } from '@angular/common';
 import { user } from '../models/user.model';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
-import { concatMap } from 'rxjs/operators';
-import { of } from 'rxjs/internal/observable/of';
+import { concatMap, takeUntil } from 'rxjs/operators';
+import { Subject, Subscription } from 'rxjs';
 
 @Component({
 	selector: 'app-register',
@@ -25,8 +26,8 @@ import { of } from 'rxjs/internal/observable/of';
 	providers: [DatePipe, MessageService],
 })
 
-export class RegisterComponent implements OnInit {
-	id:any;
+export class RegisterComponent implements OnInit, OnDestroy {
+	id: any;
 	usuario: any;
 	idUsuario: any;
 	/* saldo: Saldo; */
@@ -43,6 +44,7 @@ export class RegisterComponent implements OnInit {
 
 	newUserForm = new FormGroup({});
 	newClienteForm = new FormGroup({});
+
 	confirmationCode: number;
 	showPassword: boolean;
 	newUser: user = {};
@@ -58,10 +60,13 @@ export class RegisterComponent implements OnInit {
 	receivedCode: number;
 	currentUser: user;
 
+	private _subdestroy = new Subject();
+	private _sub1 = new Subscription();
+
 	constructor(private fb: FormBuilder,
 		private svrClientes: ClientAdminService,
 		private srvUser: UsersService,
-		private datePipe: DatePipe,
+		// private datePipe: DatePipe,
 		private router: Router,
 		private messageService: MessageService,
 		private balanceService: BalanceService) {
@@ -95,6 +100,12 @@ export class RegisterComponent implements OnInit {
 		});
 	}
 
+	ngOnDestroy(): void {
+		// this._subdestroy.next();
+		// this._subdestroy.complete();
+		this._sub1.unsubscribe();
+	}
+
 	ngOnInit() {
 		this.showForm = false;
 	}
@@ -120,12 +131,7 @@ export class RegisterComponent implements OnInit {
 			this.showFormCliente = true;
 			//this.sendMail(); 
 		}
-
-
-
 	}
-
-	
 
 	generateCode() {
 		let min = 100000;
@@ -178,77 +184,40 @@ export class RegisterComponent implements OnInit {
 			newClient.nombreCompleto = this.newClienteForm.value.nombreCompleto;
 			newClient.direccion = this.newClienteForm.value.direccion;
 			newClient.numeroTelefono = this.newClienteForm.value.telefono;
-			this.srvUser.createUser(this.newUser).pipe(
-				concatMap((resp) => {
-					newClient.idUsuario = resp.id;
-					this.newUser.id = resp.id;
+
+			//TODO: Se puede intentar una refactorizacion con varios "concatMap()"
+			this._sub1 = this.srvUser.createUser(this.newUser).pipe(
+				concatMap((newUserResp) => {
+					this.newUser.id = newUserResp.id;
+					this.saldo.idUsuario = newUserResp.id;
+					this.saldo.saldo = 0;
+					delete this.saldo.idDealer;
+					delete this.saldo.idSala;
+					// console.log('saldo a registrar*****', this.saldo)
+					this.balanceService.registerSaldoCero(this.saldo).subscribe(
+						(res) => console.log(res),
+						(err) => console.error(err)
+					);
+
+					newClient.idUsuario = newUserResp.id;
 					return this.svrClientes.registerClient(newClient);
-				})
+				}),
+				// takeUntil(this._subdestroy) //FIXME: Probar Bien
 			)
 				.subscribe((clientefinal) => {
 					this.newUser.idCliente = clientefinal.id;
 					delete this.newUser.pass;
-
-					this.saldo.idUsuario = newClient.idUsuario;
-					this.saldo.saldo =0;
-					delete this.saldo.idDealer;
-					delete this.saldo.idSala;
-					console.log('saldo a registrar*****', this.saldo)
-					this.balanceService.registerSaldoCero(this.saldo).subscribe(
-						(res) => {
-						  console.log(res);
-						},
-						(err) => console.error(err)
-					  );
-					  
-					
-			
-
-
-					
 					this.srvUser.actualizarUser(this.newUser).subscribe((respFinal) => {
 						this.messageService.clear();
 						this.messageService.add({ key: "t1", severity: 'success', summary: 'Felicidades!!!', detail: 'Ahora inicia sesión para disfrutar del bingo' });
-						//this.router.navigate(['/login'])
-						console.log("actualizado final", respFinal);
-						
-						//await this.balanceServicio.registrarCero(idUsuairo).toPromise();
-						//console.log("actualizado final", respFinal);
+						this.router.navigate(['/login'])
 					});
-
 				});
 		}
 	}
-
-	
 
 	redirect() {
 		this.router.navigate(['/login']);
 	}
 
-	/* 
-		async saveUser() {
-	
-			this.newUser.email = this.newUserForm.value.email;
-			this.newUser.pass = this.newUserForm.value.pass;
-			this.newUser.fechaCreacion = this.datePipe.transform(this.myDate, 'yyyy-MM-dd');// arrreglar ese espanglish
-			this.newUser.activo = 0;
-			this.newUser.emailValido = true;
-			this.newUser.idCliente = 0;
-			this.newUser.sesionActiva = 0;
-			this.newUser.idRolUsuario = 0;
-			this.newUser.tipo = 0;
-			//this.currentUser = await this.userAdmin.createUser(this.newUser).toPromise()
-			if (this.currentUser.emailValido) {
-				const data = sessionStorage.setItem('currentUser', JSON.stringify(this.currentUser))
-				//console.log('ladata que debeia estar en storage y retorna de guardar', data);
-				this.registerNextStep();
-			}
-	
-		}
-	 */
-
 }
-
-
-

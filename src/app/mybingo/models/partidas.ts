@@ -13,4 +13,8 @@ export interface Partidas {
     nombre?;
     idDealerPartida?;
     cantidadPartidas?;
+    idUserPartida?: number;
+   
+    cartones_sol?: number;
+    disEntrar?: boolean;
 }
