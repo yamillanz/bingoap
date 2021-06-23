@@ -44,7 +44,7 @@ export class MyfreegameComponent implements OnInit, OnDestroy {
 				if (emitido >= 61 && emitido <= 75) { this.numero = "O " + emitido };
 
 				this.porcentaje = (Math.round(Math.random() * 100)) + 100;
-
+				console.log(this.numerosYaSalieron);
 				this.numerosYaSalieron = [... this.numerosYaSalieron, this.numero.split(" ").join("")];
 			} else {
 				this.tituloDialogo = "SIN GANADOR";
