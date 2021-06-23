@@ -64,6 +64,10 @@ export class MyfreegameComponent implements OnInit, OnDestroy {
 		clearInterval(this.intervalo)
 	}
 
+	aceptarMesaje(){
+		this.displayDialog = false;
+	}
+
 	volver() {
 		this.router.navigate(['dashboard/freegame']);
 	}

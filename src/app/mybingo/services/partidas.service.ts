@@ -17,42 +17,39 @@ export class PartidasService {
 		return this.http.get<Partidas[]>(environment.apiUrlPartidas);
 	}
 
-  /* findAllByDealer(idDealerPartida: string) {
-    return this.http.get<Partidas[]>(`environment.apiUrlPartidas + /by-dealer/${idDealerPartida}`);
-  } */
+	/* findAllByDealer(idDealerPartida: string) {
+	  return this.http.get<Partidas[]>(`environment.apiUrlPartidas + /by-dealer/${idDealerPartida}`);
+	} */
 
-  findAllByDealer(idDealerPartida: number) : Observable<Partidas[]>{
-    const url = (`${environment.apiUrlPartidas}/by-dealer/${idDealerPartida}`);
-    console.log(url)
-    return this.http.get<Partidas[]>(url)
-  }
+	findAllByDealer(idDealerPartida: number): Observable<Partidas[]> {
+		const url = (`${environment.apiUrlPartidas}/by-dealer/${idDealerPartida}`);
+		console.log(url)
+		return this.http.get<Partidas[]>(url)
+	}
 
-  findAllEstatusPartidas() {
+	findAllEstatusPartidas() {
 		return this.http.get<Partidas[]>(environment.apiUrlPartidas + `/estatus`);
 	}
 
-  findToPlay(idSala: string) {
+	findToPlay(idSala: string) {
 		return this.http.get<Partidas[]>(environment.apiUrlPartidas + `/parajugar/${idSala}`);
-  }
+	}
 
-  
-  countPartidas(fechaProgramNoHour: string) {
-	return this.http.get<Partidas[]>(environment.apiUrlPartidas + `/date/${fechaProgramNoHour}`);
-}
+	countPartidas(fechaProgramNoHour: string) {
+		return this.http.get<Partidas[]>(environment.apiUrlPartidas + `/date/${fechaProgramNoHour}`);
+	}
 
-
-
-	ingresarUsuarioAlaPartida(partidaUser : PartidasUsers){
+	ingresarUsuarioAlaPartida(partidaUser: PartidasUsers) {
 		return this.http.post(environment.apiUrlPartidasUsers, partidaUser);
 	}
 
-	cambiarEstadoPartida(partidaUser : Partidas){
+	cambiarEstadoPartida(partidaUser: Partidas) {
 		return this.http.put(`${environment.apiUrlPartidas}/${partidaUser.id}`, partidaUser);
 	}
 
-  savePartida(newPartida): Observable<Partidas> {
-    console.log(newPartida);
-    return this.http.post(`${environment.apiUrlPartidas}`, newPartida);
-  }
+	savePartida(newPartida): Observable<Partidas> {
+		console.log(newPartida);
+		return this.http.post(`${environment.apiUrlPartidas}`, newPartida);
+	}
 
 }

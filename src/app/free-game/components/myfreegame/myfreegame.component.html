@@ -1,3 +1,11 @@
+<p-dialog [(header)]="tituloDialogo" [(visible)]="displayDialog" [contentStyle]="{'overflow':'visible'}"
+	[style]="{width: '70vw'}" [resizable]="false" [modal]="true">
+	<h2>{{mensajeDialogo}}</h2>
+	<ng-template pTemplate="footer">
+		<p-button icon="pi pi-check" (click)="aceptarMesaje()" label="Aceptar" styleClass="p-button-text">
+		</p-button>
+	</ng-template>
+</p-dialog>
 <div class="p-grid p-fluid p-text-center p-nogutter">
     <div class="p-col-12">
         <circle-progress [percent]="porcentaje" [title]="numero" [radius]="50" [outerStrokeWidth]="10"

@@ -12,11 +12,11 @@
             <div class="p-mr-2">
                 <label for="minmax">Cant Cartones: </label>
                 <p-inputNumber value="1" mode="decimal" [showButtons]="true" inputId="{{'cant' + partida.id}}" [min]="1"
-                    [max]="10">
+                    [max]="10" (onInput)="validarSegunSaldo($event.value, partida)" [(ngModel)]= "partida.cartones_sol">
                 </p-inputNumber>
-            </div> <!-- [(ngModel)]="cartonesComprar" -->
+            </div> <!-- [(ngModel)]= "cartonesComprar" -->
             <div class="p-mr-2">
-                <button pButton type="button" label="Entra a Jugar" (click)="entrarPartida(partida)"></button>
+                <button pButton type="button" label="Entra a Jugar" (click)="entrarPartida(partida)" [disabled]="partida.disEntrar"></button>
             </div>
         </p-footer>
     </p-card>
