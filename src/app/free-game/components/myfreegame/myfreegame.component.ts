@@ -20,6 +20,9 @@ export class MyfreegameComponent implements OnInit, OnDestroy {
 	tituloDialogo: string = "";
 	displayDialog: boolean = false;
 	mensajeDialogo: string = "";
+
+	tiempoBolas: number = 4000;
+
 	constructor(
 		private router: Router,
 		private route: ActivatedRoute,
@@ -54,7 +57,7 @@ export class MyfreegameComponent implements OnInit, OnDestroy {
 				this.intervalo = null;
 			}
 
-		}, 12000);
+		}, this.tiempoBolas);
 
 	}
 	seCantoBingo(e) {
@@ -64,7 +67,7 @@ export class MyfreegameComponent implements OnInit, OnDestroy {
 		clearInterval(this.intervalo)
 	}
 
-	aceptarMesaje(){
+	aceptarMesaje() {
 		this.displayDialog = false;
 	}
 

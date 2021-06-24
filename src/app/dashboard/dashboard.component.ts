@@ -1,3 +1,4 @@
+import { NavbarService } from './../shared/navbar.service';
 import { Component, OnInit } from '@angular/core';
 
 
@@ -9,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class DashboardComponent implements OnInit {
 	idRol:any;
   data: any;
-	constructor() {
+	constructor(private svrNavbar : NavbarService) {
 
 
     this.data = {
@@ -35,6 +36,7 @@ export class DashboardComponent implements OnInit {
 
 
 	async ngOnInit() {
+    this.svrNavbar.getSidebarStat();
 		this.idRol = JSON.parse(sessionStorage.getItem('currentUser')).userData.idRolUsuario;
 	}
 

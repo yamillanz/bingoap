@@ -1,3 +1,4 @@
+import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
 
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';

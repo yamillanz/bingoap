@@ -1,3 +1,4 @@
+import { DialogModule } from 'primeng/dialog';
 import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -24,6 +25,7 @@ import { MyfreegameComponent } from './components/myfreegame/myfreegame.componen
 		InputNumberModule,
 		ToastModule,
 		FormsModule,
+		DialogModule,
 		NgCircleProgressModule.forRoot({}),
 	]
 })

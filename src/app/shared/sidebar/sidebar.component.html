@@ -1,191 +1,140 @@
-<nav
-  class="navbar is-fixed-top is-dark is-boxed"
-  #navbar
-  role="navigation"
-  aria-label="main navigation"
->
-  <div class="navbar-brand">
-    <div class="buttonsOpenSidebar">
-      <div (click)="visibleSidebar1 = true" class="user-picture-navbar">
-        <a
-          ><strong>{{ this.primeraLetra }}</strong></a
-        >
-      </div>
-    </div>
-    <a
-      (click)="toggleNavbar()"
-      role="button"
-      #navBurger
-      class="navbar-burger burger"
-      aria-label="menu"
-      aria-expanded="false"
-    >
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
+<nav class="navbar is-fixed-top is-dark is-boxed" #navbar role="navigation" aria-label="main navigation">
+	<div class="navbar-brand">
+		<div class="buttonsOpenSidebar">
+			<div (click)="visibleSidebar1 = true" class="user-picture-navbar">
+				<a><strong>{{ this.primeraLetra }}</strong></a>
+			</div>
+		</div>
+		<a (click)="toggleNavbar()" role="button" #navBurger class="navbar-burger burger" aria-label="menu"
+			aria-expanded="false">
+			<span aria-hidden="true"></span>
+			<span aria-hidden="true"></span>
+			<span aria-hidden="true"></span>
+		</a>
+	</div>
 
-  <div id="navbarBasicExample" class="navbar-menu" #navMenu>
-    <div class="tabs is-hoverable"></div>
+	<div id="navbarBasicExample" class="navbar-menu" #navMenu>
+		<div class="tabs is-hoverable"></div>
 
-    <div class="navbar-end">
-      <div class="navbar-item">
-        <div
-          *ngIf="montoTransaccion > '0'"
-          class="navbar-item has-dropdown is-hoverable"
-        >
-          <a class="navbar-link">
-            <ng-container>
-              <!--  <i class="pi pi-wallet" style="font-size: 2em"></i><span class="p-badge p-badge-danger badge" style="font-size: 0.8em"><strong>1+</strong></span> -->
-              <span class="p-overlay-badge">
-                <i class="pi pi-wallet" style="font-size: 20px"></i>
-              </span>
-              <span class="p-badge p-badge-primary">1</span>
-            </ng-container>
-          </a>
+		<div class="navbar-end">
+			<div class="navbar-item">
+				<div *ngIf="montoTransaccion > '0'" class="navbar-item has-dropdown is-hoverable">
+					<a class="navbar-link">
+						<ng-container>
+							<!--  <i class="pi pi-wallet" style="font-size: 2em"></i><span class="p-badge p-badge-danger badge" style="font-size: 0.8em"><strong>1+</strong></span> -->
+							<span class="p-overlay-badge">
+								<i class="pi pi-wallet" style="font-size: 20px"></i>
+							</span>
+							<span class="p-badge p-badge-primary">1</span>
+						</ng-container>
+					</a>
 
-          <div class="navbar-dropdown">
-            <a class="navbar-item">
-              <ul class="collapse list-unstyled">
-                <li>
-                  <strong
-                    ><a
-                      >{{ this.quienTransfiere }} te ha enviado
-                      {{ this.montoTransaccion }} monedas el
-                      {{
-                        this.fechaTransaccion | date: "dd-MM-yyyy HH:MM:SS"
-                      }}</a
-                    ></strong
-                  >
-                </li>
-              </ul>
-            </a>
-          </div>
-        </div>
+					<div class="navbar-dropdown">
+						<a class="navbar-item">
+							<ul class="collapse list-unstyled">
+								<li>
+									<strong><a>{{ this.quienTransfiere }} te ha enviado
+											{{ this.montoTransaccion }} monedas el
+											{{
+											this.fechaTransaccion | date: "dd-MM-yyyy HH:MM:SS"
+											}}</a></strong>
+								</li>
+							</ul>
+						</a>
+					</div>
+				</div>
 
-        <a class="textoSaldo"
-          ><i class="pi pi-credit-card"></i>
-          <strong> Saldo Global: {{ this.saldoNeto }} 💰 </strong></a
-        >
-        <div class="buttons">
-          <a
-            pTooltip="Cerrar sesión"
-            class="button is-danger is-hoverable"
-            (click)="logout()"
-          >
-            <i class="pi pi-power-off"></i
-          ></a>
-        </div>
-      </div>
-    </div>
-  </div>
+				<a class="textoSaldo"><i class="pi pi-credit-card"></i>
+					<strong> Saldo Global: {{ this.saldoNeto }} 💰 </strong></a>
+				<div class="buttons">
+					<a pTooltip="Cerrar sesión" class="button is-danger is-hoverable" (click)="logout()">
+						<i class="pi pi-power-off"></i></a>
+				</div>
+			</div>
+		</div>
+	</div>
 </nav>
 
 <p-sidebar class="sidebar" [(visible)]="visibleSidebar1" [autoZIndex]="true">
-  <div class="user-picture-sidebar">
-    <a (click)="visibleSidebar1 = true"
-      ><strong>{{ this.primeraLetra }}</strong></a
-    >
+	<div class="user-picture-sidebar">
+		<a (click)="visibleSidebar1 = true"><strong>{{ this.primeraLetra }}</strong></a>
 
-   
-  </div>
-  <div class="textoTitulo">
-    <a
-      ><strong>{{ this.nombre }}</strong></a
-    >
-  </div>
-  <hr
-    class="line"
-    style="
+
+	</div>
+	<div class="textoTitulo">
+		<a><strong>{{ this.nombre }}</strong></a>
+	</div>
+	<hr class="line" style="
       height: 0.6px;
       width: 100%;
       border-style: 0.6px solid #000;
       text-align: right;
       margin-right: 0px;
-    "
-  />
+    " />
 
-  <ul class="components">
-    <ul class="collapse list-unstyled" id="homeSubmenu">
-      <li>
-        <a
-          class="a-sidebar"
-          (click)="goToNotificaciones(); visibleSidebar1 = false"
-        >
-          <i class="icon pi pi-bell" style="font-size: 1em"></i> Notificaciones
-          <ng-container *ngIf="cantidadNotificaciones!; &quot;0&quot;">
-            <span class="p-badge p-badge-danger badge" style="font-size: 0.8em"
-              ><strong>{{ cantidadNotificaciones }}</strong></span
-            >
-          </ng-container>
-        </a>
-      </li>
-      <li>
-        <a class="a-sidebar" (click)="goToPerfil(); visibleSidebar1 = false"
-          ><i class="icon pi pi-user-edit"></i> Perfil</a
-        >
-      </li>
-      <li>
-        <a
-          class="a-sidebar"
-          (click)="visibleSidebar1 = false"
-          routerLink="/dashboard"
-          ><i class="icon pi pi-th-large"></i> Dashboard</a
-        >
-      </li>
-    </ul>
-    <hr
-      class="line"
-      style="
+	<ul class="components">
+		<ul class="collapse list-unstyled" id="homeSubmenu">
+			<li>
+				<a class="a-sidebar" (click)="goToNotificaciones(); visibleSidebar1 = false">
+					<i class="icon pi pi-bell" style="font-size: 1em"></i> Notificaciones
+					<ng-container *ngIf="cantidadNotificaciones!; &quot;0&quot;">
+						<span class="p-badge p-badge-danger badge" style="font-size: 0.8em"><strong>{{
+								cantidadNotificaciones }}</strong></span>
+					</ng-container>
+				</a>
+			</li>
+			<li>
+				<a class="a-sidebar" (click)="goToPerfil(); visibleSidebar1 = false"><i
+						class="icon pi pi-user-edit"></i> Perfil</a>
+			</li>
+			<li>
+				<a class="a-sidebar" (click)="visibleSidebar1 = false" routerLink="/dashboard"><i
+						class="icon pi pi-th-large"></i> Dashboard</a>
+			</li>
+		</ul>
+		<hr class="line" style="
         height: 0.6px;
         width: 100%;
         border-style: 0.6px solid #000;
         text-align: right;
         margin-right: 0px;
-      "
-    />
-    <li>
-      <a><i class="pi pi-cog"></i> Opciones</a>
-      <ul class="collapse list-unstyled" *ngFor="let menus of Menu">
-        <li>
-          <a (click)="goToRouterLink(menus.routerLink); visibleSidebar1 = false"
-            ><i class="{{ menus.icono }} icon"></i> {{ menus.nombre }}</a
-          >
-        </li>
-      </ul>
-    </li>
-    <hr
-      class="line"
-      style="
+      " />
+		<li>
+			<a><i class="pi pi-cog"></i> Opciones</a>
+			<ul class="collapse list-unstyled" *ngFor="let menus of Menu">
+				<li>
+					<a (click)="goToRouterLink(menus.routerLink); visibleSidebar1 = false"><i
+							class="{{ menus.icono }} icon"></i> {{ menus.nombre }}</a>
+				</li>
+			</ul>
+		</li>
+		<hr class="line" style="
         height: 0.6px;
         width: 100%;
         border-style: 0.6px solid #000;
         text-align: right;
         margin-right: 0px;
-      "
-    />
-    <li>
-      <a href="https://t.me/discrete-events">
-        <i class="pi pi-send"></i> Soporte al usuario en Telegram</a
-      >
-    </li>
-  </ul>
+      " />
+		<li>
+			<a href="https://t.me/discrete-events">
+				<i class="pi pi-send"></i> Soporte al usuario en Telegram</a>
+		</li>
+	</ul>
 
-  <div class="p-grid p-pt-6">
-    <!-- <audio controls autoplay name="radio-online">
+	<div class="p-grid p-pt-6">
+		<!-- <audio controls autoplay name="radio-online">
       <source
         src="https://radio4.cdm-radio.com:18020/stream-mp3-Chill"
         http://ice6.somafm.com/illstreet-128-mp3
         type="audio/mpeg"
       />
     </audio> -->
-    <!-- <audio controls autoplay name="radio-online">
+		<!-- <audio controls autoplay name="radio-online">
       <source
         src="http://ice6.somafm.com/illstreet-128-mp3"
         
         type="audio/mpeg"
       />
     </audio> -->
-  </div>
+	</div>
 </p-sidebar>
