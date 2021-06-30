@@ -1,3 +1,4 @@
+import { DialogModule } from 'primeng/dialog';
 import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -12,7 +13,6 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
 import { FreeGameRoutingModule } from './free-game-routing.module';
 import { FreeGameComponent } from './free-game.component';
 import { MyfreegameComponent } from './components/myfreegame/myfreegame.component';
-import {DialogModule} from 'primeng/dialog';
 
 @NgModule({
 	declarations: [FreeGameComponent, MyfreegameComponent],
