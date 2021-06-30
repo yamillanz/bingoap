@@ -54,12 +54,12 @@ export class MyfreegameComponent implements OnInit, OnDestroy {
 				this.intervalo = null;
 			}
 
-		}, 12000);
+		}, 6000); // Aqui se controla el tiempo en salir la siguiente bola
 
 	}
 	seCantoBingo(e) {
-		this.tituloDialogo = "FELICIDADES!!!!";
-		this.mensajeDialogo = "Ganaste la partida...felictaciones";
+		this.tituloDialogo = "Woohooo! Eres Asombros@ 👏";
+		this.mensajeDialogo = "Ganaste la partida..";
 		this.displayDialog = true;
 		clearInterval(this.intervalo)
 	}

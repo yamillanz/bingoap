@@ -23,7 +23,7 @@ import { CarouselModule } from 'primeng/carousel';
 
 
 @NgModule({
-  declarations: [SalasBingoComponent, SalasEditComponent, SalaNuevaComponent, SalasDashboardComponent],
+  declarations: [SalasBingoComponent, SalasEditComponent, SalaNuevaComponent],
   imports: [
     CommonModule,
     SalasRoutingModule,
@@ -41,7 +41,6 @@ import { CarouselModule } from 'primeng/carousel';
     CarouselModule
   ],
   exports: [
-		SalasDashboardComponent
 	]
 })
 export class SalasModule { }

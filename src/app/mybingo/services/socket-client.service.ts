@@ -15,10 +15,11 @@ export class SocketClientService extends Socket {
 
 	constructor(/* private socket: Socket */) {
 
-		super({ url: 'http://localhost:4001', options: { reconnection: true, reconnectionAttempts: 1 } });
+		/* super({ url: 'http://localhost:4001', options: { reconnection: true, reconnectionAttempts: 1 } }); */
+		super({ url: 'http://192.168.1.105:4001', options: { reconnection: true, reconnectionAttempts: 1 } });
 		//super({ url: ''});
 		this.on('connect_error', () => {
-			//console.log("fundio");
+			console.log("fundio");
 			this.errores.next("no-conect-error");
 		});
 		this.on('error', (error) => {

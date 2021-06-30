@@ -63,7 +63,7 @@ export class NotificacionesComponent implements OnInit {
 		this.notif.idUsuarioRecibe = JSON.parse(sessionStorage.getItem('currentUser')).userData.id;
 		this.notificacionesService.getNotificationsByUser(this.notif.idUsuarioRecibe).subscribe(data => {
 		this.notificaciones = data;
-		console.log(this.notificaciones);
+		console.log('notificaciones', this.notificaciones);
 		})
 		
 	}
@@ -100,7 +100,7 @@ export class NotificacionesComponent implements OnInit {
 		this.router.navigate(['dashboard/notificaciones/editar', idNotificacion],{
 		skipLocationChange: true
 		  });
-	  }
+	}
 	  
 	loadCantNotificacion(idUsuarioRecibe) {
 		this.notificacionesService.getCantNotificationsByUser(this.idUsuarioRecibe).subscribe(data =>{

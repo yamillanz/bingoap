@@ -8,11 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 	idRol:any;
-  data: any;
+  /* data: any; */
 	constructor() {
 
-
-    this.data = {
+    //Eliminar era una prueba para las metricas
+    /* this.data = {
       labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
       datasets: [
           {
@@ -28,7 +28,7 @@ export class DashboardComponent implements OnInit {
               data: [28, 48, 40, 19, 86, 27, 90]
           }
       ]
-  }
+  } */
 
 
   }

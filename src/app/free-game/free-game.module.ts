@@ -12,6 +12,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
 import { FreeGameRoutingModule } from './free-game-routing.module';
 import { FreeGameComponent } from './free-game.component';
 import { MyfreegameComponent } from './components/myfreegame/myfreegame.component';
+import {DialogModule} from 'primeng/dialog';
 
 @NgModule({
 	declarations: [FreeGameComponent, MyfreegameComponent],
@@ -24,6 +25,7 @@ import { MyfreegameComponent } from './components/myfreegame/myfreegame.componen
 		InputNumberModule,
 		ToastModule,
 		FormsModule,
+		DialogModule,
 		NgCircleProgressModule.forRoot({}),
 	]
 })

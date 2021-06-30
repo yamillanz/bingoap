@@ -28,7 +28,7 @@
 
 						</div>
 						<div class="p-field p-col-12">
-							  <input name="passUser" pInputText type="password" [(ngModel)]="passUser" />
+							  <input name="passUser" pInputText type="password" [(ngModel)]="passUser" (keyup.enter)="iniciarSesion()"/>
 
 						</div>
 						<div *ngIf="errores" class="p-col-12"><small class="p-invalid">Usuario o Contraseña

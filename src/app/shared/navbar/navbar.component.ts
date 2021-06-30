@@ -2,6 +2,7 @@ import { ViewportScroller } from '@angular/common';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router'
 
+
 @Component({
 	selector: 'app-navbar',
 	templateUrl: './navbar.component.html',
@@ -12,6 +13,8 @@ export class NavbarComponent implements OnInit {
 	@ViewChild('navBurger') navBurger: ElementRef;
 	@ViewChild('navMenu') navMenu: ElementRef;
 	@ViewChild('navBar') navbar: ElementRef;
+
+	
 
 	constructor(private viewportScroller: ViewportScroller, private router: Router) { }
 
@@ -44,6 +47,7 @@ export class NavbarComponent implements OnInit {
 
 
 	ngOnInit(): void {
+
 	}
 
 

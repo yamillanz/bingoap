@@ -41,7 +41,8 @@ export class SalasDashboardComponent implements OnInit {
     this.dataCliente.id= JSON.parse(sessionStorage.getItem('currentUser')).userData.id;
 		this.loadDataUser(this.dataCliente.id);
 		this.loadSaldo();
-		this.loadSalasByDealer();
+		this.getNombreDealer();
+		
   }
 
   loadDataUser(idCliente) {
@@ -53,11 +54,11 @@ export class SalasDashboardComponent implements OnInit {
 			this.rol = data[0].idRolUsuario;
 			this.idCliente = data[0].idCliente;
 			console.log(this.rol);
-			console.log(this.DataCliente);
+			console.log('data cliente', this.DataCliente);
 		});
 	}
 
-	loadSaldo() {
+	loadSaldo() { 
 		
 		this.bankingService.getSaldoUsuario(this.dataCliente.id).subscribe(data => {
 			this.DataSaldoUsuario = data;
@@ -79,26 +80,28 @@ export class SalasDashboardComponent implements OnInit {
 					console.log(data.length);
 					console.log('data de partida', this.dataPartida);
 				});
+				this.salasService.getSalasDelDealer(this.idDealer).subscribe(data => {
+					this.DataSala = data;
+					console.log('Estas son las salas del usuario', this.DataSala);
+				});
 
 			});
 		});
 	}
 
-	/* getNombreDealer(){
+	getNombreDealer(){
 		this.perfilService.getClient(this.idDealer).subscribe(data => {
 			this.dataDealer = data;
 			this.nombreDealer = data[0].nombreCompleto;
 			
 			console.log('data dealer:', this.dataDealer);
 		});
-	} */
+	}
 
-	loadSalasByDealer() {
-		console.log(this.dataCliente.id)
-		this.salasService.getSalasDelDealer(this.dataCliente.id).subscribe(data => {
-			this.DataSala = data;
-			console.log('Estas son las salas del usuario', this.DataSala);
-		});
+	goToPartida(idSala) {
+		this.router.navigate(['dashboard/partidas/', idSala],{
+		skipLocationChange: true
+		  });
 	}
 
 }
