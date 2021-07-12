@@ -1,3 +1,4 @@
+import { NavbarService } from './../shared/navbar.service';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
 
@@ -31,5 +32,6 @@ import { NotificacionesModule } from '../notificaciones/notificaciones.module';
     NotificacionesModule
 
   ],
+  providers: [NavbarService]
 })
 export class DashboardModule { }

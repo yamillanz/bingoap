@@ -204,7 +204,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
 				}),
 				// takeUntil(this._subdestroy) //FIXME: Probar Bien
 			)
-				.subscribe((clientefinal) => {
+				.subscribe(async (clientefinal) => {
 					this.newUser.idCliente = clientefinal.id;
 					delete this.newUser.pass;
 					this.srvUser.actualizarUser(this.newUser).subscribe((respFinal) => {
