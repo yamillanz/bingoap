@@ -36,18 +36,18 @@
                             </div>
                             <div class="p-col">
                                 <div >
-                                    <ul>Partida N°: {{this.dataPartida.id}}</ul>
-                                    <ul>Dealer: {{sala.nombreCompleto}}</ul>
-                                    <ul>Cartones para comprar: {{sala.nro_cartones}} maximo</ul>
-                                    <ul>Precio del cartón: {{sala.monto}} monedas</ul>
+                                    <!-- <ul>Partida N°: {{this.dataPartida.id}}</ul> -->
+                                    <ul>Dealer: <strong>{{dataDealer[0].nombreCompleto}}</strong></ul>
+                                    <ul>Cartones para comprar: <strong>{{sala.nro_cartones}}</strong> maximo</ul>
+                                    <ul>Precio del cartón: <strong>{{sala.monto}}</strong> monedas</ul>
                                 </div>
                                 <div class="p-mt-1">
-                                    <ul>Disponible para esta sala {{sala.saldo}} monedas.</ul>
+                                    <ul>Disponible para esta sala <strong>{{this.saldo1}} </strong>monedas.</ul>
                                 </div>
                                 
                                     <div class="p-mt-2">
-                                        <ul><p-button type="button" styleClass="p-button">Entrar</p-button></ul>
-                                    </div>
+                                        <ul><p-button type="button" styleClass="p-button" (click)="goToPartida(sala.id)">Entrar</p-button></ul>
+                                    </div> 
                                 
                             </div>
                         </div>

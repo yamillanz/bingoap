@@ -65,10 +65,6 @@ export class NuevaPartidaComponent implements OnInit {
     this.FechaActual= this.datepipe.transform(Date.now(), 'yyyy-MM-dd');
     console.log(this.FechaActual)
     this.idDealer = JSON.parse(sessionStorage.getItem('currentUser')).userData.id;
-
-    
-
-    
     this.displayModal = true;
     this.getSalas();
     this.getEstatusPartidas();
@@ -78,9 +74,10 @@ export class NuevaPartidaComponent implements OnInit {
   getSalas(){
     this.salasService.getSalasDelDealer(this.idDealer)
       .subscribe(
-        res => {
+        res => { 
           this.salas = res;
-          this.idSala = res[0].id;
+          console.log(this.salas);
+          /* this.idSala = res[0].id; */
           console.log('data de las salas', this.salas)
 
         },
@@ -118,12 +115,12 @@ export class NuevaPartidaComponent implements OnInit {
     this.partida.fechaPrograma  = this.datepipe.transform(this.partida.fechaPrograma, 'yyyy-MM-dd HH:MM:SS');
     this.modifiedTimestamp = this.myDateParser(this.partida.fechaPrograma);
     this.partida.fechaPrograma = this.modifiedTimestamp;
-    this.partida.fechaProgramNoHour  = this.datepipe.transform(this.partida.fechaPrograma, 'yyyy-MM-dd');
-    /* this.partida.fechaProgramNoHour  = this.modifiedTimestamp; */
-    /* this.partidasService.countPartidas(this.partida.fechaPrograma).subscribe(res => {
+    /* this.partida.fechaProgramNoHour  = this.datepipe.transform(this.partida.fechaPrograma, 'yyyy-MM-dd HH:MM:SS'); */
+    this.partida.fechaProgramNoHour  = this.modifiedTimestamp;
+    this.partidasService.countPartidas(this.partida.fechaPrograma).subscribe(res => {
       this.partidaData = res;
       console.log('data-partida', this.partidaData);
-    }); */
+    });
 
     this.partida.idEstatus = 1;
     this.partida.idSala = this.id;

@@ -12,6 +12,8 @@ import { TooltipModule } from 'primeng/tooltip';
 import { ButtonModule } from 'primeng/button';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { AutoCompleteModule } from 'primeng/autocomplete';
+import { SalasDashboardComponent } from '../salas/salas-dashboard/salas-dashboard.component';
+import { SalasModule } from '../salas/salas.module';
 @NgModule({
   declarations: [NotificacionesComponent, NotificacioneditComponent],
   imports: [
@@ -24,7 +26,8 @@ import { AutoCompleteModule } from 'primeng/autocomplete';
     TooltipModule,
     ButtonModule,
     ConfirmDialogModule,
-    AutoCompleteModule
+    AutoCompleteModule,
+    SalasModule
 
   ],
   exports: [

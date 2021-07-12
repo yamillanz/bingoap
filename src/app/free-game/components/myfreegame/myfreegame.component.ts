@@ -47,7 +47,7 @@ export class MyfreegameComponent implements OnInit, OnDestroy {
 				if (emitido >= 61 && emitido <= 75) { this.numero = "O " + emitido };
 
 				this.porcentaje = (Math.round(Math.random() * 100)) + 100;
-
+				console.log(this.numerosYaSalieron);
 				this.numerosYaSalieron = [... this.numerosYaSalieron, this.numero.split(" ").join("")];
 			} else {
 				this.tituloDialogo = "SIN GANADOR";
@@ -61,8 +61,8 @@ export class MyfreegameComponent implements OnInit, OnDestroy {
 
 	}
 	seCantoBingo(e) {
-		this.tituloDialogo = "FELICIDADES!!!!";
-		this.mensajeDialogo = "Ganaste la partida...felictaciones";
+		this.tituloDialogo = "Woohooo! Eres Asombros@ 👏";
+		this.mensajeDialogo = "Ganaste la partida..";
 		this.displayDialog = true;
 		clearInterval(this.intervalo)
 	}

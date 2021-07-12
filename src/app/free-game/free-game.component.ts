@@ -29,6 +29,7 @@ export class FreeGameComponent implements OnInit {
 		if (this.cartonesComprar >= 1) {
 			console.log("cartones", this.cartonesComprar);
 			this.router.navigate(['myfreegame'], { queryParams:{cartones: this.cartonesComprar}, relativeTo: this.route, skipLocationChange: true });
+			
 		}
 		else {
 			this.messageService.add({ key: 'tc', severity: 'warn', summary: '', detail: 'Ingrese la cantidad de cartones' });

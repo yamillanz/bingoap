@@ -12,8 +12,8 @@ export class DashboardComponent implements OnInit {
   data: any;
 	constructor(private svrNavbar : NavbarService) {
 
-
-    this.data = {
+    //Eliminar era una prueba para las metricas
+    /* this.data = {
       labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
       datasets: [
           {
@@ -29,7 +29,7 @@ export class DashboardComponent implements OnInit {
               data: [28, 48, 40, 19, 86, 27, 90]
           }
       ]
-  }
+  } */
 
 
   }

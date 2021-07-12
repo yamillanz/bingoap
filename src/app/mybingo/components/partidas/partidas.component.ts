@@ -55,7 +55,7 @@ export class PartidasComponent implements OnInit {
 	async entrarPartida(partidap: Partidas) {
 		let nrocartones: Element = document.getElementById('cant' + partidap.id) as HTMLElement;
 		//console.log("valor element: ", nrocartones.getAttribute('aria-valuenow')); //return;
-
+		console.log(partidap.idUserPartida);
 		if (nrocartones.getAttribute('aria-valuenow')) {
 			
 			let idUsuarioLoged = JSON.parse(sessionStorage.getItem('currentUser')).userData.id;
@@ -67,12 +67,12 @@ export class PartidasComponent implements OnInit {
 			});
 			
 			try {
-				
 				await this.svrTransacciones.transIngresoPartida({
 					idUsuarioEnvia: idUsuarioLoged,
 					idUsuarioRecibe: partidap.idUserPartida,
 					monto:(partidap.valor * partidap.cartones_sol), 
-					idTipoTransaccion: 2
+					idTipoTransaccion: 2,
+					
 				}).toPromise();
 
 			} catch (error) {
@@ -89,6 +89,7 @@ export class PartidasComponent implements OnInit {
 					nrocartones: nrocartones.getAttribute('aria-valuenow')
 				},
 				relativeTo: this.route, skipLocationChange: true
+				
 			});
 		} else {
 			this.messageService.add({ key: 'tc', severity: 'warn', summary: '', detail: 'Ingrese la cantidad de cartones' });

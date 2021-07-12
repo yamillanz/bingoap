@@ -2,76 +2,85 @@
   <h1><strong>Recarga de monedas</strong></h1>
   <form #myForm>
     <div class="card p-p-4">
-            <div class="p-fluid p-formgrid p-grid p-pt-4">
-              <div class="p-field p-col-12">
-              <div class="p-inputgroup">
-                <span class="p-inputgroup-addon"><i class="pi pi-envelope"></i></span>
-                <p-autoComplete
-                  autofocus
-                  #mySelect
-                  placeholder="Ingrese el email del usuario"
-                  [(ngModel)]="transaccion.idUsuarioRecibe"
-                  [ngModelOptions]="{standalone: true}"
-                  [suggestions]="filteredUsers"
-                  (completeMethod)="filterUser($event)"
-                  field="email"
-                  [dropdown]="true"
-                >
-                  <ng-template>
-                    <select>
-                    <option *ngFor="let user of usuarios">
-                      <p-message severity="error" text="Message Content"></p-message>
-                      {{user.email}}
+      <div class="p-fluid p-formgrid p-grid p-pt-4">
+        <div class="p-field p-col-12">
+          <div class="p-inputgroup">
+            <span class="p-inputgroup-addon"
+              ><i class="pi pi-envelope"></i
+            ></span>
+            <p-autoComplete
+              autofocus
+              #mySelect
+              placeholder="Email del usuario"
+              [(ngModel)]="transaccion.idUsuarioRecibe"
+              [ngModelOptions]="{ standalone: true }"
+              [suggestions]="filteredUsers"
+              (completeMethod)="filterUser($event)"
+              field="email"
+              [dropdown]="true"
+            >
+              <ng-template>
+                <select>
+                  <option *ngFor="let user of usuarios">
+                    <p-message
+                      severity="error"
+                      text="Message Content"
+                    ></p-message>
+                    {{ user.email }}
                   </option>
                 </select>
-                  </ng-template>
-                </p-autoComplete>
-              </div> 
-            </div>
-            <div class="p-field p-col-12 p-md-6">
-              <div class="p-inputgroup">
-                <span class="p-inputgroup-addon"><i class="pi pi-wallet"></i></span>
-                <input
-                  type="text"
-                  pInputText
-                  placeholder="Tu saldo disponible: {{ this.saldoNeto }} monedas"
-                />
-              </div>
-            </div>
-            <div class="p-field p-col-6">
-              <div class="p-inputgroup">
-                <span class="p-inputgroup-addon">$</span>
-                <input
-                  type="number"
-                  focus
-                  pInputText
-                  placeholder="Monto a enviar"
-                  name="monto" ngModel
-                  [(ngModel)]="transaccion.monto"
-                  [ngModelOptions]="{standalone: true}"
-                />
-                <span class="p-inputgroup-addon">.00</span>
-              </div>
-            </div>
+              </ng-template>
+            </p-autoComplete>
           </div>
-          <button
-            *ngIf="this.saldoNeto > '0'"
-            pButton
-            pRipple
-            (click)="ejecutarTransaccion()"
-            icon="pi pi-send"
-            type="button"
-            label="Enviar"
-            class="p-button-rounded p-button-warning"
-          ></button>
-  </div>
-</form>   
-  <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
-  <p-toast position="center" key="t1" life="10" (onClose)="redirect(); myForm.reset()"></p-toast>
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+          <div class="p-inputgroup">
+            <span class="p-inputgroup-addon"><i class="pi pi-wallet"></i></span>
+            <input
+              type="text"
+              pInputText
+              placeholder="Tu saldo disponible: {{ this.saldoNeto }} monedas"
+            />
+          </div>
+        </div>
+        <div class="p-field p-col-6">
+          <div class="p-inputgroup">
+            <span class="p-inputgroup-addon">$</span>
+            <input
+              type="number"
+              focus
+              pInputText
+              placeholder="Monto a enviar"
+              name="monto"
+              ngModel
+              [(ngModel)]="transaccion.monto"
+              [ngModelOptions]="{ standalone: true }"
+            />
+            <span class="p-inputgroup-addon">.00</span>
+          </div>
+        </div>
+      </div>
+      <button
+        *ngIf="this.saldoNeto > '0'"
+        pButton
+        pRipple
+        (click)="ejecutarTransaccion()" 
+        icon="pi pi-send"
+        type="button"
+        label="Enviar"
+        class="p-button-rounded p-button-warning"
+      ></button>
+    </div>
+  </form>
+  <p-confirmDialog
+    header="Confirmation"
+    icon="pi pi-exclamation-triangle"
+  ></p-confirmDialog>
+  <p-toast
+    position="center"
+    key="t1"
+    life="10"
+    (onClose)="redirect(); myForm.reset()"
+  ></p-toast>
   <p-toast position="top-center"></p-toast>
 </div>
-
-
-
-
-

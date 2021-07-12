@@ -14,6 +14,7 @@ import { Saldo } from 'src/app/users/models/balance';
 import { BalanceService } from 'src/app/users/services/balance.service';
 import { BankingService } from 'src/app/banking/services/banking.service';
 import { Totales } from 'src/app/banking/models/totales';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-sidebar',
@@ -26,6 +27,9 @@ export class SidebarComponent implements OnInit {
   @ViewChild('navBurger') navBurger: ElementRef;
   @ViewChild('navMenu') navMenu: ElementRef;
   @ViewChild('navBar') navbar: ElementRef;
+
+  suscription:Subscription;
+  
   saldos: Totales[] = [];
   balance: any;
   menuItems: any[];
@@ -111,8 +115,17 @@ export class SidebarComponent implements OnInit {
     this.loadMenu(this.Menu.idRolUsuario);
     this.loadDataUser(this.idCliente);
     this.loadCantNotificacion(this.notif.idUsuarioRecibe);
-    this.loadRecargaSaldo(this.userBalance);
+    this.loadRecargaSaldo();
     this.loadBalance(); 
+    
+    this.suscription = this.bankingService.refresh$.subscribe((data: any) => {
+        this.loadBalance();
+    });
+
+    this.suscription = this.notificacionesService.refreshNotifications$.subscribe((data: any) => {
+      this.loadRecargaSaldo();
+  });
+
   }
 
   loadDataUser(idCliente) {
@@ -153,7 +166,7 @@ export class SidebarComponent implements OnInit {
       });
   }
 
-  loadRecargaSaldo(idUsuarioRecibe) {
+  loadRecargaSaldo() {
     this.userRecibe = JSON.parse(
       sessionStorage.getItem('currentUser')
     ).userData.id;

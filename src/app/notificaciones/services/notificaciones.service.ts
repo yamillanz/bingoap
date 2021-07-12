@@ -1,22 +1,25 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { environment } from '../../../../src/environments/environment';
 import { NotificacionesModel } from '../models/notificaciones';
 import { HttpClient,  HttpHeaders} from '@angular/common/http';
 import { TransaccionesModel } from '../../users/models/transacciones';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class NotificacionesService {
-  private url : string;
+  private url : string; 
   private url1 : string;
   dialogData: any;
 
   headers: HttpHeaders = new HttpHeaders({
     'Content-Type': 'application/json',
   });
+
+  private _refreshNotifications$ = new Subject<void>();
 
   constructor(private httpClient: HttpClient) { 
     this.url = environment.apiUrlDashoard +  'notificaciones';
@@ -38,6 +41,10 @@ export class NotificacionesService {
     
   };
 
+  get refreshNotifications$(){
+		return this._refreshNotifications$;
+	}
+
   getNotificationsByUser(idUsuarioRecibe:number) : Observable<NotificacionesModel[]>{
     const url = `${this.url}/usuario/${idUsuarioRecibe}`;
     return this.httpClient.get<NotificacionesModel[]>(url)      
@@ -55,7 +62,12 @@ export class NotificacionesService {
 
   getBalanceByUser(idUsuarioRecibe: number) : Observable<TransaccionesModel>{
     const url1 = `${this.url1}/usuario/${idUsuarioRecibe}`;
-    return this.httpClient.get<TransaccionesModel>(url1)       
+    return this.httpClient.get<TransaccionesModel>(url1)
+    .pipe(
+			tap(() => {
+				this._refreshNotifications$.next();
+			})
+		);       
   }
 
   updateMensaje(idNotificacion: number, mensaje: NotificacionesModel): Observable<NotificacionesModel> {

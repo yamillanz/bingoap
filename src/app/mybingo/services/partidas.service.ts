@@ -23,7 +23,6 @@ export class PartidasService {
 
 	findAllByDealer(idDealerPartida: number): Observable<Partidas[]> {
 		const url = (`${environment.apiUrlPartidas}/by-dealer/${idDealerPartida}`);
-		console.log(url)
 		return this.http.get<Partidas[]>(url)
 	}
 

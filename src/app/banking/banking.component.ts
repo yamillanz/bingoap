@@ -6,6 +6,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 import { Transacciones } from './models/transacciones';
 import { Warnings } from './models/warnings';
 import { Router } from '@angular/router';
+/* import { Subscription } from 'rxjs'; */
 
 @Component({
   selector: 'app-banking',
@@ -63,6 +64,8 @@ export class BankingComponent implements OnInit {
   /* opcionSeleccionado: string = '0';
   verSeleccion: string = ''; */
 
+  /* suscription:Subscription; */
+
   constructor(
     private bankingService: BankingService,
     private messageService: MessageService,
@@ -76,6 +79,9 @@ export class BankingComponent implements OnInit {
     this.bankingService.getAllUsers().subscribe((usuarios) => {
       this.usuarios = usuarios;
     });
+    /* this.suscription = this.bankingService.refresh$.subscribe((data: any) => {
+      this.getSaldoOneUser();
+  }); */
   }
 
   filterUser(event) {
@@ -91,12 +97,29 @@ export class BankingComponent implements OnInit {
     this.filteredUsers = filtered;
   }
 
-  async getSaldoOneUser() {
-    await this.bankingService.getSaldoUsuario(this.id).subscribe((res) => {
+  /* getSaldoOneUser() {
+    
+    this.bankingService.getSaldoGlobalUsuario(this.id).subscribe((res) => {
       this.total = res;
       this.saldoNeto = res[0].saldo;
+      console.log(this.total);
     });
-  }
+  } */
+
+  getSaldoOneUser() {
+     this.bankingService.getSaldoGlobalUsuario(this.id).subscribe((data) => {
+       this.total = data;
+       
+       if (this.total.length == undefined)
+       {
+         this.saldoNeto = 0;
+       }
+       if (this.total.length != undefined)
+       {
+         this.saldoNeto = data[0].saldoGlobal;
+       }
+     });
+   } 
 
   async ejecutarTransaccion() {
     this.errores = false;
@@ -115,11 +138,13 @@ export class BankingComponent implements OnInit {
         this.addMensajeEmail();
       } else {
         if (this.transaccion.idUsuarioRecibe != undefined) {
+          console.log('datos de la transaccion', this.transaccion);
           const dataWarnings: Warnings = await this.bankingService
             .saveTransaction(
               this.transaccion.idUsuarioRecibe,
               this.transaccion.idUsuarioEnvia,
               this.transaccion
+              
             )
             .toPromise();
 

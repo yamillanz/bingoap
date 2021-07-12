@@ -53,10 +53,10 @@ export class SalasBingoComponent implements OnInit {
   }
 
   goToEditarSala(id) {
-    this.router.navigate(['dashboard/salas/editar-sala', id],{
+    this.router.navigate(['dashboard/salas/editar-sala', this.idSala],{
       skipLocationChange: true
     });
-    
+     
   } 
 
   goToNewSala() {
